@@ -11481,8 +11481,8 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="methods">Methods</h1>
-<p>Not all ruby public instance methods are available when building connectors on Workato&apos;s SDK framework. Below we go through a list of whitelisted ruby methods which you can use in any block when building your connector.</p>
-<p>Furthermore, you&apos;ll be able to declare your own reusable methods to use in any block when using your SDK.</p>
+<p>Not all ruby public instance methods are available when building connectors on Workato&apos;s SDK framework. Below we go through a list of whitelisted ruby methods that you can use in any block when building your connector.</p>
+<p>Furthermore, you&apos;ll be able to declare personal reusable methods to use in any block when using your SDK.</p>
 <h2 id="pre-defined-ruby-methods">Pre-defined Ruby methods</h2>
 <table class="unchanged rich-diff-level-one">
   <thead>
@@ -11492,10 +11492,81 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+     <tr>
        <td>at</td>
        <td>Creates a new time object with the given argument. <br>
        <a href="https://apidock.com/ruby/Time/at/class" target="_blank">More details here.</a>      
+       </td>
+     </tr>
+     <tr>
+       <td>abs</td>
+       <td>Returns the absolute value of number.
+       </td>
+     </tr>
+     <tr>
+       <td>ago</td>
+       <td>Go back in time. Returns timestamp. <br>
+       <pre><code style="display: block; white-space: pre-wrap;">2.days.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-17T12:30:00.000000-07:00
+30.minutes.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T13:00:00.000000-07:00
+30.seconds.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T12:30:30.000000-07:00</code></pre>
+       <a href="https://apidock.com/rails/ActiveSupport/Duration/ago" target="_blank">More details here.</a>      
+       </td>
+     </tr>
+     <tr>
+       <td>as_string</td>
+       <td>Decode byte sequence as string in given encoding
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;0J/RgNC40LLQtdGC\n&quot;.decode_base64.as_string(&apos;utf-8&apos;)</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>as_utf8</td>
+       <td>Decode byte sequence as string in given encoding
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;0J/RgNC40LLQtdGC\n&quot;.decode_base64.as_string(&apos;utf-8&apos;)</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>blank?</td>
+       <td>Returns true if value is null or an empty string, otherwise false     
+       </td>
+     </tr>
+     <tr>
+       <td>binary?</td>
+       <td>Returns true if value is a binary array     
+       </td>
+     </tr>
+     <tr>
+       <td>beginning_of_hour</td>
+       <td>Returns timestamp for top-of-the-hour for given timestamp<br>
+       <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-06-01T16:56:00.000000-07:00&quot;.to_time.beginning_of_hour #2017-06-01T16:00:00.000000 +0000</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>beginning_of_day</td>
+       <td>Returns timestamp for midnight for given timestamp<br>
+       <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-06-08T22:30:10.000000-07:00&quot;.to_time.beginning_of_day #2017-06-08T00:00:00.000000 +0000</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>beginning_of_week</td>
+       <td>Returns timestamp for midnight for the start of the week (Mon) for given timestamp<br>
+       <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-08-18T00:00:00.000000-07:00&quot;.to_time.beginning_of_week #2017-08-14T00:00:00.000000 +0000</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>beginning_of_month</td>
+       <td>Returns timestamp for midnight for the start of the month for given timestamp<br>
+       <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-01-30T22:35:00.000000-07:00&quot;.to_time.beginning_of_month #2017-01-01T00:00:00.000000 +0000</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>beginning_of_year</td>
+       <td>Returns timestamp for midnight for the start of the year for given timestamp<br>
+       <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-01-30T22:35:00.000000 -07:00&quot;.to_time.beginning_of_year #2017-01-01T00:00:00.000000 +0000</code></pre>
+       </td>
+     </tr>
+     <tr>
+       <td>capitalize</td>
+       <td>Capitalizes the first character of the string
        </td>
      </tr>
      <tr>
@@ -11505,11 +11576,35 @@
        </td>
      </tr>
      <tr>
+       <td>decode_base64</td>
+       <td>Decode using Base64 algorithm
+       </td>
+     </tr>
+     <tr>
+       <td>decode_hex</td>
+       <td>Decode hexadecimal into binary string
+       </td>
+     </tr>
+     <tr>
+       <td>decode_urlsafe_base64</td>
+       <td>Decode using URL-safe modification of Base64 algorithm
+       </td>
+     </tr>
+     <tr>
+       <td>decryt</td>
+       <td>Decrypt the enrypted string using AES-256-CBC algorithm. Input should be in RNCryptor V3 format.
+       </td>
+     </tr>
+     <tr>
        <td>dig</td>
        <td>Retrieves the value object corresponding to the index passed in <br>
        The dig method is often used to strip away layers in nested arrays/hashes. For example, we use the dig method often when dealing with XML data formats. <br>
       <a href="https://docs.workato.com/developing-connectors/sdk/data-format/XML-format.html" target="_blank">More details here.</a></td>
     </tr>
+    <tr>
+      <td>dst?</td>
+      <td>Returns true if the time is within Daylight Savings Time for the specified time zone.</td>
+   </tr>
     <tr>
       <td>each</td>
       <td>Basic iterator<br><code>[1, 2, 3].each { |i| puts i }</code></td>
@@ -11526,12 +11621,86 @@
       <a href="https://apidock.com/rails/Enumerable/each_with_object" target="_blank">More details here.</a></td>
     </tr>
     <tr>
+      <td>encode_hex</td>
+      <td>Converts binary string to its hex representation
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;0J/RgNC40LLQtdGC\n&quot;.decode_base64.encode_hex</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>encode_sha256</td>
+      <td>Encode using SHA256 algorithm
+      </td>
+    </tr>
+    <tr>
+      <td>encode_base64</td>
+      <td>Encode using Base64 algorithm
+      </td>
+    </tr>
+    <tr>
+      <td>encode_url</td>
+      <td>URL encode a string
+      <pre><code style="display: block; white-space: pre-wrap;">&apos;Hello World&apos;.encode_url # &apos;Hello%20World&apos;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>encode_urlsafe_base64</td>
+      <td>Encode using URL-safe modification of Base64 algorithm
+      </td>
+    </tr>
+    <tr>
+      <td>encode_www_form</td>
+      <td>Join hash into url-encoded string of parameters
+      <pre><code style="display: block; white-space: pre-wrap;">{&quot;apple&quot; =&gt; &quot;red green&quot;, &quot;2&quot; =&gt; &quot;3&quot;}.encode_www_form #&quot;apple=red+green&amp;2=3&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>ends_of_month</td>
+      <td>Returns a new date/time representing the end of the month<br>
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-08-18T00:00:00&quot;.to_time.end_of_month #2017-08-31 23:59:59 +0000</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>ends_with?</td>
+      <td>Returns true if string ends with a specific pattern. False otherwise<br>
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;Hello!&quot;.ends_with?(&quot;!&quot;) #true</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>
+        raise a job error with a user-defined error body.<br>
+        <code>error(&quot;Unable to find Account with ID: 123&quot;)</code>
+      </td>
+    </tr>
+    <tr>
       <td>even?</td>
       <td>Returns true if integer is an even number<br> <a href="https://apidock.com/ruby/Integer/even%3F" target="_blank">More details here.</a></td>
     </tr>
     <tr>
+      <td>except</td>
+      <td>Returns a hash that includes everything except given keys<br>
+      <pre><code style="display: block; white-space: pre-wrap;">{ name: &quot;Jake&quot;, last_name: &quot;Paul&quot;, age: &quot;22&quot; }.except(:name, :last_name) # { :age =&gt; &quot;22&quot; } </code></pre>
+      <a href="https://apidock.com/rails/Hash/except" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>exclude</td>
+      <td>Returns true if field does not contain a value. Case sensitive<br>
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;Partner account&quot;.exclude?(&quot;Partner&quot;) #false</code></pre>
+      <a href="https://apidock.com/rails/Hash/except" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
       <td>fetch</td>
       <td>Returns a value from the hash for the given key.<br> <a href="https://apidock.com/ruby/Hash/fetch" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>first</td>
+      <td>Returns the first item in a list. Can also be used to return the first n items in a list.<br> <a href="https://apidock.com/ruby/Array/first" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>flatten</td>
+      <td>Flatten multi-dimensional array to simple array<br>
+      <pre><code style="display: block; white-space: pre-wrap;">[[1, 2, 3],[4,5,6]].flatten #[1, 2, 3, 4, 5, 6]</code></pre>
+      <a href="https://apidock.com/ruby/Array/flatten" target="_blank">More details here.</a></td>
     </tr>
     <tr>
       <td>format_json</td>
@@ -11540,16 +11709,38 @@
     </td>
     </tr>
     <tr>
+      <td>format_map</td>
+      <td>Create an array of strings by formatting each row of given array<br>
+      <pre><code style="display: block; white-space: pre-wrap;">[[{name: &apos;Jake&apos;, age: 23}].format_map(&apos;Name: %{name}, Age: %{age}&apos;) #[&apos;Name: Jake, Age: 23&apos;]
+[[22, 45], [33, 88]].format_map(&apos;Id: %s, Count: %s&apos;) #[&apos;Id: 22, Count: 45&apos;, &apos;Id: 33, Count: 88&apos;]</code></pre>
+      <a href="http://docs.workato.com/formulas/array-list-formulas.html#formatmap" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
       <td>format_xml</td>
     <td>
         Convert request to XML format and expect response body in XML format
     </td>
     </tr>
     <tr>
+      <td>from_now</td>
+      <td>Go forward in time. Returns timestamp of the moment that the formula was executed with the specified time period added, in Pacific time (UTC-8/UTC-7)<br>
+      <pre><code style="display: block; white-space: pre-wrap;">4.months.from_now #2017-05-23T14:40:07.338328-07:00
+2.days.from_now #2017-01-05T14:40:07.338328-07:00
+30.minutes.from_now
+12.seconds.from_now</code></pre></td><td>
+    </td></tr>
+    <tr>
       <td>group_by</td>
       <td>
         Group arrays into sets.<br>
         <a href="http://apidock.com/rails/Enumerable/group_by" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>gsub</td>
+      <td>Substitute a pattern with value. Case sensitive<br>
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;Jean Marie&quot;.gsub(/J/, &quot;M&quot;) #&quot;Mean Marie&quot;</code></pre>
+      <a href="https://apidock.com/ruby/String/gsub" target="_blank">More details here.</a>
       </td>
     </tr>
     <tr>
@@ -11563,6 +11754,173 @@
         <code>.headers(Authorization: &quot;Bearer HTB674HJK1&quot;)</code>
       </td>
     </tr>
+    <tr>
+      <td>hmac_md5</td>
+      <td>
+        Creates HMAC_MD5 signature<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;username:password:nonce&quot;.hmac_md5(&quot;key&quot;)</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>hmac_sha1</td>
+      <td>
+        Creates HMAC_SHA1 signature<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;username:password:nonce&quot;.hmac_sha1(&quot;key&quot;)</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>hmac_sha256</td>
+      <td>
+        Creates HMAC_SHA256 signature<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;username:password:nonce&quot;.hmac_sha256(&quot;key&quot;)</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>hmac_sha512</td>
+      <td>
+        Creates HMAC_SHA512 signature<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;username:password:nonce&quot;.hmac_sha512(&quot;key&quot;)</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>ignored</td>
+      <td>
+        Ignore a comma-separate list of fields<br>
+        <code>object_definition[&quot;user&quot;].ignored(&quot;id&quot;, &quot;created_at&quot;)</code>
+      </td>
+    </tr>
+    <tr>
+      <td>include?</td>
+      <td>
+        Returns true if field contains a value. False otherwise<br>
+        <a href="https://apidock.com/ruby/String/include%3F" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>inject</td>
+      <td>
+        Combine elements in an array using an operation.<br>
+        <a href="http://apidock.com/ruby/Enumerable/inject" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>in_time_zone</td>
+      <td>
+        Converts the time to given time zone<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;2017-09-06T18:30:15.671720-05:00&quot;.to_time.in_time_zone(&quot;America/Los_Angeles&quot;) #&quot;2017-09-06T16:30:15.671720-07:00&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>is_a?</td>
+      <td>Returns true if class is the class of obj, or if class is one of the superclasses of obj or modules included in obj.<br> Workato currently supports the following classes - Array, Hash, Time, String, Integer, Float <br>
+      <a href="https://apidock.com/ruby/Object/is_a%3F" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>is_true?</td>
+      <td>Converts a value to boolean and returns true if value is truthy.</td>
+    </tr>
+    <tr>
+      <td>is_not_true?</td>
+      <td>Converts a value to boolean and returns true if value is not truthy.</td>
+    </tr>
+    <tr>
+      <td>iso8601</td>
+      <td>Convert a date/date-time variable to ISO8601 format</td>
+    </tr>
+    <tr>
+      <td>join</td>
+      <td>Returns the last item in a list. Can also be used to return the last n items in a list.
+      <a href="https://apidock.com/ruby/Array/join" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>jwt_encode_rs256</td>
+      <td>Creates JWT with RS256 - RSA using SHA-256 hash algorithm
+      <pre><code style="display: block; white-space: pre-wrap;">workato.jwt_encode_rs256({ name: &quot;John Doe&quot; }, &quot;PEM key&quot;) # =&gt; &quot;eyJhbGciO...&quot;</code></pre>
+    </td></tr>
+    <tr>
+      <td>last</td>
+      <td>Join array elements into a string
+      <a href="https://apidock.com/ruby/Array/last" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>ljust</td>
+      <td>Aligns string to left and pads with whitespace or pattern until string is specified length
+      <pre><code style="display: block; white-space: pre-wrap;">&quot; test&quot;.ljust(10, &quot;*&quot;) # &quot; test*****&quot;</code></pre>
+      <a href="https://apidock.com/ruby/String/ljust" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>lookup</td>
+      <td>Lookup a record from your lookup tables defined in Workato.
+      <pre><code style="display: block; white-space: pre-wrap;">lookup(&apos;States list&apos;, &apos;State code&apos;: &apos;AZ&apos;)[&apos;State name&apos;] #&quot;Arizona&quot;</code></pre>
+      <a href="http://docs.workato.com/formulas/other-formulas.html#lookup" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>lstrip</td>
+      <td>Remove white space from the beginning of string.
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;     Test     &quot;.lstrip #&quot;Test     &quot;</code></pre>
+      <a href="https://apidock.com/ruby/String/lstrip" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>map</td>
+      <td>Returns a new array after invoking block on each element</td>
+    </tr>
+    <tr>
+      <td>md5_hexdigest</td>
+      <td>Creates message digest using the MD5 Message-Digest Algorith.
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;hello&quot;.md5_hexdigest #5d41402abc4b2a76b9719d911017c592</code></pre>
+    </td></tr>
+    <tr>
+      <td>match?</td>
+      <td>Returns true if a string contains a pattern. Case sensitive.
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;Jean Marie&quot;.match?(/Marie/) #true</code></pre>
+    </td></tr>
+    <tr>
+      <td>merge</td>
+      <td>
+        Returns a new hash containing merged contents.<br>
+        <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>next</td>
+      <td>
+        Returns the next object in the enumerator, and move the internal position forward.<br>
+        This is often used in config_fields where you can use <code>next</code> as a way to add a guard clause that checks inputs before the lambda function is executed.
+        <pre><code style="display: block; white-space: pre-wrap;">object_definition: {
+  document: {
+    fields: lambda do |connection, config_fields|
+      next [] if config_fields.blank?
+      get(&quot;https://www.webmerge.me/api/documents/#{config_fields[&quot;document_id&quot;]}/fields&quot;).map {
+        |field| field.slice(&quot;name&quot;)
+      }
+    end
+  }
+}</code></pre>
+        <a href="https://apidock.com/ruby/Enumerator/next" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>now</td>
+      <td>Returns timestamp of the moment that the formula was executed, in Pacific time (UTC-8/UTC-7)
+      <pre><code style="display: block; white-space: pre-wrap;">now #2017-01-23T14:04:53.365908-08:00
+now + 2.days #2017-01-25T14:04:53.365908-08:00</code></pre>
+    </td></tr>
+    <tr>
+      <td>odd?</td>
+      <td>Returns true if integer is an odd number<br> <a href="https://apidock.com/ruby/Integer/odd%3F" target="_blank">More details here.</a></td>
+    </tr>
+    <tr>
+      <td>only</td>
+      <td>
+        White list a comma-separate  of fields<br>
+        <code>object_definition[&quot;user&quot;].only(&quot;id&quot;, &quot;name&quot;)</code>
+      </td>
+    </tr>
+    <tr>
+      <td>parameterize</td>
+      <td>Replaces special characters in a string
+      <pre><code style="display: block; white-space: pre-wrap;">&quot;&#xF6;&#xFC;&#xE2;&quot;.parameterize #&quot;oua&quot;</code></pre>
+    </td></tr>
     <tr>
       <td>params</td>
       <td>
@@ -11578,10 +11936,10 @@
       </td>
     </tr>
     <tr>
-      <td>pluralize</td>
+      <td>parse_yaml</td>
       <td>
-        Returns the plural form of the word in the string <br>
-        <a href="https://apidock.com/rails/String/pluralize" target="_blank">More details here.</a>
+        Parse a YAML string. Supports true, false, nil, numbers, strings, arrays, hashes<br>
+      <pre><code style="display: block; white-space: pre-wrap;">workato.parse_yaml(&quot;---\nfoo: bar&quot;) # =&gt; { &quot;foo&quot; =&gt; &quot;bar&quot; }</code></pre>
       </td>
     </tr>
     <tr>
@@ -11592,33 +11950,77 @@
       </td>
     </tr>
     <tr>
+      <td>pluck</td>
+      <td>
+        Select one or more attributes from an array of objects<br>
+        <pre><code style="display: block; white-space: pre-wrap;">[
+  {&quot;id&quot;: 1, &quot;name&quot;: &quot;David&quot;},
+  {&quot;id&quot;: 2, &quot;name&quot;: &quot;Peter&quot;}
+].pluck(&quot;id&quot;)</code></pre>
+        returns <code>[1, 2]</code>
+      </td>
+    </tr>
+    <tr>
+      <td>pluralize</td>
+      <td>
+        Returns the plural form of the word in the string <br>
+        <a href="https://apidock.com/rails/String/pluralize" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
       <td>pop</td>
       <td>
         Removes the last element from self and returns it, or nil if the array is empty.<br>
         If a number n is given, returns an array of the last n elements (or less) and removes it from array.
         <pre><code style="display: block; white-space: pre-wrap;">a = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ]
-  a.pop     #=&gt; &quot;d&quot;
-  a.pop(2)  #=&gt; [&quot;b&quot;, &quot;c&quot;]
-  a         #=&gt; [&quot;a&quot;]</code></pre>
+a.pop     #=&gt; &quot;d&quot;
+a.pop(2)  #=&gt; [&quot;b&quot;, &quot;c&quot;]
+a         #=&gt; [&quot;a&quot;]</code></pre>
         <a href="https://apidock.com/ruby/Array/pop" target="_blank">More details here<.< a=""></.<></a></td>
       
     </tr>
     <tr>
-      <td>ignored</td>
+      <td>presence</td>
       <td>
-        Ignore a comma-separate list of fields<br>
-        <code>object_definition[&quot;user&quot;].ignored(&quot;id&quot;, &quot;created_at&quot;)</code>
+        Returns the value if present. Otherwise returns nil
+        <pre><code style="display: block; white-space: pre-wrap;">nil.presence #nil
+&quot;&quot;.presence #nil
+0.presence #0</code></pre>
+        <a href="https://apidock.com/rails/Object/presence" target="_blank">More details here<.< a=""></.<></a></td>
+      
+    </tr>
+    <tr>
+      <td>present?</td>
+      <td>
+        Returns true if the field has a value. False otherwise
+        <pre><code style="display: block; white-space: pre-wrap;">nil.present? #false
+&quot;&quot;.present? #false
+0.present? #true</code></pre>
+        <a href="https://apidock.com/rails/Object/presence" target="_blank">More details here<.< a=""></.<></a></td>
+    </tr>
+    <tr>
+      <td>puts</td>
+      <td>ruby version of <code>console.log</code> or <code>stdout</code>, not the same as <b>put</b> method
+      <br>
+      Any outputs using the puts method shows up in the console log when testing in the code editor. Use this to aid in your debugging.
       </td>
     </tr>
     <tr>
-      <td>odd?</td>
-      <td>Returns true if integer is an odd number<br> <a href="https://apidock.com/ruby/Integer/odd%3F" target="_blank">More details here.</a></td>
+      <td>rand</td>
+      <td>Random number between 0 and 1</td>
     </tr>
     <tr>
-      <td>only</td>
+      <td>reject</td>
       <td>
-        White list a comma-separate  of fields<br>
-        <code>object_definition[&quot;user&quot;].only(&quot;id&quot;, &quot;name&quot;)</code>
+        Selectively returns elements for which the block returns false. Similar but opposite of <b>select</b>.<br>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/reject" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>render_yaml</td>
+      <td>
+        Render an object into a YAML string.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">workato.render_yaml({ &quot;foo&quot; =&gt; &quot;bar&quot; }) # =&gt; &quot;---\nfoo: bar\n&quot;</code></pre>
       </td>
     </tr>
     <tr>
@@ -11671,77 +12073,108 @@
       </td>
     </tr>
     <tr>
-      <td>inject</td>
+      <td>reverse</td>
       <td>
-        Combine elements in an array using an operation.<br>
-        <a href="http://apidock.com/ruby/Enumerable/inject" target="_blank">More details here.</a>
+        Reverse string or array
       </td>
     </tr>
     <tr>
-      <td>iso8601</td>
-      <td>Convert a date/date-time variable to ISO8601 format</td>
-    </tr>
-    <tr>
-      <td>is_a?</td>
-      <td>Returns true if class is the class of obj, or if class is one of the superclasses of obj or modules included in obj.<br> Workato currently supports the following classes - Array, Hash, Time, String, Integer, Float <br>
-      <a href="https://apidock.com/ruby/Object/is_a%3F" target="_blank">More details here.</a></td>
-    </tr>
-    <tr>
-      <td>is_true?</td>
-      <td>Converts a value to boolean and returns true if value is truthy.</td>
-    </tr>
-    <tr>
-      <td>is_not_true?</td>
-      <td>Converts a value to boolean and returns true if value is not truthy.</td>
-    </tr>
-    <tr>
-      <td>map</td>
-      <td>Returns a new array after invoking block on each element</td>
-    </tr>
-    <tr>
-      <td>merge</td>
+      <td>rjust</td>
       <td>
-        Returns a new hash containing merged contents.<br>
-        <a href="https://ruby-doc.org/core-2.2.0/Hash.html#method-i-merge" target="_blank">More details here.</a>
-      </td>
+        Aligns string to right and pads with whitespace or pattern until string is specified length
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;test&quot;.rjust(5) #&quot; test&quot;
+&quot;test&quot;.rjust(10, &quot;*!&quot;) #&quot;*!*!* test&quot;
+</code></pre>
+        <a href="https://apidock.com/ruby/String/rjust" target="_blank">More details here<.< a=""></.<></a></td>
     </tr>
     <tr>
-  <td>next</td>
-  <td>
-    Returns the next object in the enumerator, and move the internal position forward.<br>
-    This is often used in config_fields where you can use <code>next</code> as a way to add a guard clause that checks inputs before the lambda function is executed.
-    <pre><code style="display: block; white-space: pre-wrap;">object_definition: {
-document: {
-fields: lambda do |connection, config_fields|
-  next [] if config_fields.blank?
-  get(&quot;https://www.webmerge.me/api/documents/#{config_fields[&quot;document_id&quot;]}/fields&quot;).
-    map { |field| field.slice(&quot;name&quot;) }
-end
-}
-}</code></pre>
-    <a href="https://apidock.com/ruby/Enumerator/next" target="_blank">More details here.</a>
-  </td>
-</tr>
-    <tr>
-      <td>pluck</td>
+      <td>round</td>
       <td>
-        Select one or more attributes from an array of objects<br>
-        <pre><code style="display: block; white-space: pre-wrap;">[
-  {&quot;id&quot;: 1, &quot;name&quot;: &quot;David&quot;},
-  {&quot;id&quot;: 2, &quot;name&quot;: &quot;Peter&quot;}
-].pluck(&quot;id&quot;)</code></pre>
-        returns <code>[1, 2]</code>
-      </td>
+        Round the number by regular rounding rules
+        <pre><code style="display: block; white-space: pre-wrap;">11.99.round #12
+11.555.round(2) #11.56
+</code></pre>
+        <a href="https://apidock.com/ruby/Float/round" target="_blank">More details here<.< a=""></.<></a></td>
     </tr>
     <tr>
-      <td>rand</td>
-      <td>Random number between 0 and 1</td>
+      <td>rstrip</td>
+      <td>
+        Remove white space from the end of string
+        <pre><code style="display: block; white-space: pre-wrap;">&quot; Test &quot;.rstrip #&quot; Test&quot;</code></pre>
+        <a href="https://apidock.com/ruby/String/rstrip" target="_blank">More details here<.< a=""></.<></a></td>
+    </tr>
+    <tr>
+      <td>scan</td>
+      <td>
+        Remove white space from the end of string
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;Thu, 01/23/2014&quot;.scan(/\d+/).join(&quot;-&quot;) #01-23-2014</code></pre>
+        <a href="https://apidock.com/ruby/String/scan" target="_blank">More details here<.< a=""></.<></a></td>
     </tr>
     <tr>
       <td>select</td>
       <td>
         Selectively returns elements for which the block returns true.<br>
         <a href="http://apidock.com/ruby/v1_9_3_392/Array/select" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>slice</td>
+      <td>
+        Returns a substring of a given string, as defined by start indexes and length<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;Jean Marie\.slice(0,3) #&quot;Jea&quot;</code></pre>
+        <a href="https://apidock.com/ruby/String/slice" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>smart_join</td>
+      <td>
+        Join array to string. Removes empty and nil values. Trims the white space before joining<br>
+        <pre><code style="display: block; white-space: pre-wrap;">[nil, &quot; &quot;, &quot; Hello &quot;, &quot;   World &quot;].smart_join(&quot; &quot;) #Hello World</code></pre>
+        <a href="http://docs.workato.com/formulas/array-list-formulas.html#smartjoin" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>sort</td>
+      <td>
+        Sort function returning new sorted array.<br>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>sort_by</td>
+      <td>
+        Sort function returning self.<br>
+        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort_by" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>split</td>
+      <td>
+        Split string into an array by using defined pattern as delimiter<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;Split string&quot;.split() #[&quot;Split&quot;, &quot;string&quot;]
+&quot;Split string&quot;.split(&quot;t&quot;) #[&quot;Spli&quot;, &quot; s&quot;, &quot;ring&quot;]</code></pre>
+        <a href="https://apidock.com/ruby/String/split" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>strip</td>
+      <td>
+        Strip white spaces from the beginning and the end of string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;    This is an example   &quot;.strip #&quot;This is an example&quot;</code></pre>
+        <a href="https://apidock.com/ruby/String/strip" target="_blank">More details here.</a>
+      </td>
+    </tr>
+    <tr>
+      <td>strip_tags</td>
+      <td>
+        Strip html tags from the string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;Double bubble&quot;.strip_tags #&quot;Double bubble&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>strftime</td>
+      <td>
+        Format date or time using %-placeholders
       </td>
     </tr>
     <tr>
@@ -11763,31 +12196,177 @@ end</code></pre>
       <a href="https://apidock.com/ruby/Object/tap" target="_blank">More details here.</a></td>
     </tr>
     <tr>
-      <td>error</td>
+      <td>to_currency</td>
       <td>
-        raise a job error with a user-defined error body.<br>
-        <code>error(&quot;Unable to find Account with ID: 123&quot;)</code>
+        Convert to currency string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">1234567890.50.to_currency    # $1,234,567,890.50</code></pre>
       </td>
     </tr>
     <tr>
-      <td>reject</td>
+      <td>to_currency_code</td>
       <td>
-        Selectively returns elements for which the block returns false. Similar but opposite of <b>select</b>.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/reject" target="_blank">More details here.</a>
+        Convert alpha-2/3 country code or country name to ISO4217 currency code<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;India&quot;.to_currency_code #INR</code></pre>
       </td>
     </tr>
     <tr>
-      <td>sort</td>
+      <td>to_currency_name</td>
       <td>
-        Sort function returning new sorted array.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort" target="_blank">More details here.</a>
+        Convert alpha-2/3 country code or country name to ISO4217 currency name<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;India&quot;.to_currency_name #Rupees</code></pre>
       </td>
     </tr>
     <tr>
-      <td>sort_by</td>
+      <td>to_currency_symbol</td>
       <td>
-        Sort function returning self.<br>
-        <a href="http://apidock.com/ruby/v1_9_3_392/Array/sort_by" target="_blank">More details here.</a>
+        Convert alpha-2/3 country code or country name to ISO4217 currency symbol<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;India&quot;.to_currency_symbol # &#x20A8;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_country_alpha2</td>
+      <td>
+        Convert alpha-3 country code or country name to alpha2 country code<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;India&quot;.to_country_alpha2 #IN
+&quot;IND&quot;.to_country_alpha2 #IN</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_country_alpha3</td>
+      <td>
+        Convert alpha-2 country code or country name to alpha2 country code<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;Australia&quot;.to_country_alpha2 #AUS
+&quot;AU&quot;.to_country_alpha2 #AUS</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_country_name</td>
+      <td>
+        Convert alpha-2/3 country code or country name to ISO3166 country name<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;GB&quot;.to_country_name #United Kingdom
+&quot;GBR&quot;.to_country_name #United Kingdom</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_country_number</td>
+      <td>
+        Convert alpha-2/3 country code or country name to ISO3166 country numeric code<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;India&quot;.to_country_number #356</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_date</td>
+      <td>
+        Convert string or timestamp to date. Can be formatted.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;12/24/2014 10:30PM&quot;.to_date(format: &quot;MM/DD/YYYY&quot;)</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_f</td>
+      <td>
+        Convert to float. Numbers will be rounded up or down according to regular rounding rules.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">45.to_f #45.0</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_hex</td>
+      <td>
+        Converts binary string to its hex representation
+      </td>
+    </tr>
+    <tr>
+      <td>to_i</td>
+      <td>
+        Convert to integer. Decimals are always rounded down.<br>
+        <pre><code style="display: block; white-space: pre-wrap;">45.67.to_i #45</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_json</td>
+      <td>
+        Converts hash or array into JSON string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">{&quot;a&quot; =&gt; &quot;c d&quot;, &quot;2&quot; =&gt; &quot;3&quot;}.to_json #&quot;{&quot;a&quot;:&quot;c d&quot;,&quot;2&quot;:&quot;3&quot;}&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_phone</td>
+      <td>
+        Convert string or number to a formatted phone number<br>
+        <pre><code style="display: block; white-space: pre-wrap;">5551234.to_phone # 555-1234
+1235551234.to_phone(area_code: true) # (123) 555-1234
+1235551234.to_phone(delimiter: &quot; &quot;) # 123 555 1234
+1235551234.to_phone(country_code: 1) # +1-123-555-1234</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_param</td>
+      <td>
+        Returns a string representation for use as a URL query string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">{name: &apos;Jake&apos;, age: &apos;22&apos;}.to_param #name=Jake&amp;age=22</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_s</td>
+      <td>
+        Convert to string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">45.67.to_s #&quot;45.67&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_state_code</td>
+      <td>
+        Convert state name to code<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;California&quot;.to_state_code #CA</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_state_name</td>
+      <td>
+        Convert state code to name<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;CA&quot;.to_state_name #&quot;CALIFORNIA&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_time</td>
+      <td>
+        Convert string or date to timestamp<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;2014-11-21&quot;.to_time #2014-11-21 00:00:00 +0000</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>to_xml</td>
+      <td>
+        Converts hash or array into XML string<br>
+        <pre><code style="display: block; white-space: pre-wrap;">{&quot;name&quot; =&gt; &quot;Ken&quot;}.to_xml(root: &quot;user&quot;) #Ken</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>today</td>
+      <td>
+        Date today. Returns the date of the moment that the formula was executed, in Pacific time (UTC-8/UTC-7).<br>
+        <pre><code style="display: block; white-space: pre-wrap;">today #2016-07-13
+today + 2.days #2016-07-15</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>transliterate</td>
+      <td>
+        Replaces non-ASCII characters with an ASCII approximation, or if none exists, a replacement character which defaults to &apos;?&apos;<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&apos;Chlo&#xE9;&apos;.transliterate #Chloe</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>upcase</td>
+      <td>
+        Convert string to upper case<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;Convert to UPCASE&quot;.upcase #&quot;CONVERT TO UPCASE&quot;</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>uniq</td>
+      <td>
+        Return unique items in an array<br>
+        <pre><code style="display: block; white-space: pre-wrap;">[1.0, 1.5, 1.0].uniq #[1.0, 1.5]</code></pre>
       </td>
     </tr>
     <tr>
@@ -11798,10 +12377,9 @@ end</code></pre>
       </td>
     </tr>
     <tr>
-      <td>puts</td>
-      <td>ruby version of <code>console.log</code> or <code>stdout</code>, not the same as <b>put</b> method
-      <br>
-      Any outputs using the puts method shows up in the console log when testing in the code editor. Use this to aid in your debugging.
+      <td>where</td>
+      <td>
+        Filter array by given condition
       </td>
     </tr>
     <tr>
@@ -11811,6 +12389,13 @@ end</code></pre>
         <a href="https://www.tutorialspoint.com/ruby/ruby_loops.htm" target="_blank">More details here.</a>
       </td>
     </tr>
+    <tr>
+      <td>wday</td>
+      <td>
+        Returns day of the week where 1 is Monday
+      </td>
+    </tr>
+    <tr>
     <td>wrap</td>          
       <td>
         Wraps its argument in an array unless it is already an array <br> The wrap method is often used in the execute block.            while loop statement.<br>
@@ -11823,7 +12408,21 @@ end</code></pre>
         <br>
         <a href="https://apidock.com/rails/Array/wrap/class" target="_blank">More details here.</a>
       </td>
-    
+    </tr>
+    <tr>
+      <td>yday</td>
+      <td>
+        Returns day of the year<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;2016-07-19 10:45:30&quot;.to_time.yday #201</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>yweek</td>
+      <td>
+        Returns week of the year<br>
+        <pre><code style="display: block; white-space: pre-wrap;">&quot;2016-07-19 10:45:30&quot;.to_time.yweek #29</code></pre>
+      </td>
+    </tr>
     <tr>
       <td>zip</td>
       <td>Used as a method called by arrays. Converts any arguments to arrays, then merges elements of self with corresponding elements from each argument. <br>
@@ -11888,7 +12487,7 @@ end</code></pre>
 </ul>
 </li>
 <li>Input hash (optional)<ul>
-<li>This is a hash of input variables. Leave blank if your method does not take in an input.</li>
+<li>This is a hash of input variables. Leave blank if your method does not take inputs.</li>
 </ul>
 </li>
 </ol>
@@ -11899,7 +12498,7 @@ end</code></pre>
     ...
 </code></pre>
 <h3 id="recursion">Recursion</h3>
-<p>Methods can also be called within method code blocks. This means that a method can be called by another method or by itself. In the case of the factorial example provided above, note that the <code>factorial</code> method has some degree of recursion. Be careful when writing recursive loops by setting failsafes as in the example below:</p>
+<p>Methods can also be called within method code blocks. This means that a method can be called by another method or by itself. In the case of the factorial example provided above, note that the <code>factorial</code> method has some degree of recursion. Be careful when writing recursive loops by setting a failsafe as in the example below:</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">if</span> number &gt; <span class="hljs-number">1</span>
   number * call(<span class="hljs-symbol">:factorial</span>, { <span class="hljs-symbol">number:</span> number - <span class="hljs-number">1</span> })
 <span class="hljs-keyword">else</span>
@@ -11907,7 +12506,7 @@ end</code></pre>
 <span class="hljs-keyword">end</span>
 </code></pre>
 <h3 id="testing">Testing</h3>
-<p>The SDK console only allows testing of actions and triggers. To test your reusable method, write an action which encapsulates it.</p>
+<p>The SDK console only allows testing of actions and triggers. To test your reusable method, write an action that encapsulates it.</p>
 <h3 id="summary">Summary</h3>
 <p>Reusable methods are powerful tools that can make development more efficient. It is especially useful when making schema introspection calls within the <code>object_definitions</code> or <code>input_schema</code> lambdas.</p>
 <h2 id="next-section">Next section</h2>
@@ -11995,7 +12594,7 @@ end</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Methods","level":"1.22.13","depth":2,"next":{"title":"Error handling","level":"1.22.14","depth":2,"path":"developing-connectors/sdk/error-handling.md","ref":"developing-connectors/sdk/error-handling.md","articles":[]},"previous":{"title":"Object definitions - Config fields","level":"1.22.12","depth":2,"path":"developing-connectors/sdk/config-fields.md","ref":"developing-connectors/sdk/config-fields.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/methods.md","mtime":"2019-08-20T07:12:22.162Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-08-20T07:14:43.239Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Methods","level":"1.22.13","depth":2,"next":{"title":"Error handling","level":"1.22.14","depth":2,"path":"developing-connectors/sdk/error-handling.md","ref":"developing-connectors/sdk/error-handling.md","articles":[]},"previous":{"title":"Object definitions - Config fields","level":"1.22.12","depth":2,"path":"developing-connectors/sdk/config-fields.md","ref":"developing-connectors/sdk/config-fields.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/methods.md","mtime":"2019-08-26T15:54:04.360Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-08-26T15:56:07.990Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
