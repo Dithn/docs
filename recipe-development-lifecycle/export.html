@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Export · Workato Docs</title>
+        <title>Exporting: Packaging recipes and dependencies · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -64,7 +64,7 @@
     <link rel="next" href="import.html" />
     
     
-    <link rel="prev" href="../recipe-development-lifecycle.html" />
+    <link rel="prev" href="rdlc-guide-planning.html" />
     
 
     
@@ -122,7 +122,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="..">Export</a>
+          <a href="..">Exporting: Packaging recipes and dependencies</a>
         </h1>
       </div>
     </div>
@@ -2399,14 +2399,14 @@
         <ul class="articles">
           
   
-    <li class="chapter active" data-level="1.14.1" data-path="export.html">
+    <li class="chapter " data-level="1.14.1" data-path="rdlc-guide-planning.html">
       
 
       
-        <a href="export.html">
+        <a href="rdlc-guide-planning.html">
       
         
-        Export
+        Planning for lifecycle management
       
         </a>
       
@@ -2414,14 +2414,44 @@
       
     </li>
   
-    <li class="chapter " data-level="1.14.2" data-path="import.html">
+    <li class="chapter active" data-level="1.14.2" data-path="export.html">
+      
+
+      
+        <a href="export.html">
+      
+        
+        Exporting: Packaging recipes and dependencies
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.3" data-path="import.html">
       
 
       
         <a href="import.html">
       
         
-        Import
+        Importing: Deployment
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.14.4" data-path="rdlc-guide-source-control.html">
+      
+
+      
+        <a href="rdlc-guide-source-control.html">
+      
+        
+        Working with external source control systems
       
         </a>
       
@@ -11480,16 +11510,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="export">Export</h1>
-<p>The export process in recipe lifecycle management typically happens after the development of a set of recipes and their related assets are completed or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of zip files. The files contain json file representations of every one of the exported assets.</p>
+                                <h1 id="export-packaging-recipes-and-dependencies">Export: Packaging recipes and dependencies</h1>
+<p>Exporting packages allows users to create a distributable file that contains related recipes and their dependencies.</p>
+<p>The export process in recipe lifecycle management typically happens after the development of a set of recipes and their related assets are completed or when a new change in your business process requires the recipes to be edited. In Workato, recipes and assets are exported as packages in the form of a zip file. The file contains json file representations of every one of the exported assets.</p>
+<p>Packages are used to:</p>
+<ul>
+<li>Move recipes across environments (development -&gt; test -&gt; production)</li>
+<li>Store recipes in a traditional version control system such as git.</li>
+</ul>
 <p>After the export process is complete, you can <a href="import.html">import</a> the package in another Workato instance to apply the changes made.</p>
+<h2 id="contents">Contents</h2>
+<p>This section covers how Workato recipes and dependencies can be converted to shareable assets known as packages. If you have already exported a package, you may move on to our other sections:</p>
+<ul>
+<li><a href="rdlc-guide-planning.html">Planning for lifecycle management</a></li>
+<li><strong>Exporting: Packaging recipes and dependencies</strong> <em>(current)</em></li>
+<li><a href="import.html">Importing: Deployment</a></li>
+<li><a href="rdlc-guide-source-control.html">Working with external source control systems</a></li>
+</ul>
 <h2 id="export-manifests">Export manifests</h2>
 <p>To begin exporting a package, start by defining an export manifest. A manifest is a record of all the selected recipes and dependencies that users can use for export and re-export. The manifest can also be edited after the creation and first export.</p>
 <p>Reuse a defined manifest if the recipes have been iterated on and the same set of objects have to be exported.</p>
 <p>Edit the manifest if there are changes to the folder marked for export - the addition of new assets or the removal of redundant assets. You can also edit the manifest if you want to exclude some recipes from an export.</p>
-<blockquote>
-<p>If you had export logs before the UX update on 25th April 2019, all exports that were done will be logged in auto-created manifests depending on the <strong>export folder</strong>.</p>
-</blockquote>
 <h2 id="create-a-manifest">Create a manifest</h2>
 <p>Example of the manifest to be created:</p>
 <ul>
@@ -11627,7 +11668,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Export","date":"2019-04-18T15:00:00.000Z","level":"1.14.1","depth":2,"next":{"title":"Import","level":"1.14.2","depth":2,"path":"recipe-development-lifecycle/import.md","ref":"recipe-development-lifecycle/import.md","articles":[]},"previous":{"title":"Recipe lifecycle management","level":"1.14","depth":1,"path":"recipe-development-lifecycle.md","ref":"recipe-development-lifecycle.md","articles":[{"title":"Export","level":"1.14.1","depth":2,"path":"recipe-development-lifecycle/export.md","ref":"recipe-development-lifecycle/export.md","articles":[]},{"title":"Import","level":"1.14.2","depth":2,"path":"recipe-development-lifecycle/import.md","ref":"recipe-development-lifecycle/import.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"recipe-development-lifecycle/export.md","mtime":"2019-08-26T15:54:04.364Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-08-26T15:56:07.990Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Exporting: Packaging recipes and dependencies","date":"2019-04-18T15:00:00.000Z","level":"1.14.2","depth":2,"next":{"title":"Importing: Deployment","level":"1.14.3","depth":2,"path":"recipe-development-lifecycle/import.md","ref":"recipe-development-lifecycle/import.md","articles":[]},"previous":{"title":"Planning for lifecycle management","level":"1.14.1","depth":2,"path":"recipe-development-lifecycle/rdlc-guide-planning.md","ref":"recipe-development-lifecycle/rdlc-guide-planning.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"recipe-development-lifecycle/export.md","mtime":"2019-08-30T13:50:37.719Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-08-30T13:52:31.390Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
