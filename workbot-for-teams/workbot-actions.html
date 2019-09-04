@@ -11526,7 +11526,7 @@
 <p>This reply can be a simple text message about a task&apos;s completion, or more advanced like prompting users on subsequent actions.</p>
 <p>You can optionally include 1 fact set (a set of name-value pairs), 1 pick list, buttons and images.</p>
 <blockquote>
-<p><strong>Post reply must always be paired with a Workbot commands</strong></p>
+<p><strong>Post reply must always be paired with a Workbot command</strong></p>
 </blockquote>
 <p><img src="../assets/images/workbot-for-teams/post-reply-recipe.png" alt="Post reply recipe">
 <em>Recipe perspective of the post reply example above</em></p>
@@ -11545,176 +11545,224 @@
 <p><strong>Message recipient</strong> allows you post a message to directly to a user or to a channel you specify. Use the <kbd>ID</kbd> datapill (under <strong>Conversation</strong>) from the output of a Workbot command. To pick a member or channel instead, toggle to &quot;Select from list&quot;.</p>
 <p><img src="../assets/images/workbot-for-teams/message-recipient.png" alt="Message recipient">
 <em>Message recipient example</em></p>
-<h3 id="advanced-section">Advanced section</h3>
+<h2 id="advanced-section">Advanced section</h2>
 <p> The advanced section has 2 fields: <strong>Post as raw JSON</strong> and <strong>Message to update</strong>.</p>
-<h4 id="post-as-raw-json">Post as raw JSON</h4>
+<h3 id="post-as-raw-json">Post as raw JSON</h3>
 <p>  This field is for advanced users who want to fully customize the message formatting. When set to <strong>Yes</strong>, all other fields will be hidden. Should include <code>&quot;type&quot;: &quot;message&quot;</code>, followed by <code>&quot;attachments&quot;</code>, e.g.</p>
-<pre><code>  {
-   &quot;type&quot;:&quot;message&quot;,
-   &quot;attachments&quot;:[
-      {
-         &quot;contentType&quot;:&quot;application/vnd.microsoft.card.adaptive&quot;,
-         &quot;content&quot;:{
-            &quot;type&quot;:&quot;AdaptiveCard&quot;,
-            &quot;version&quot;:&quot;1.0&quot;,
-            &quot;body&quot;:[
-               {
-                  &quot;type&quot;:&quot;TextBlock&quot;,
-                  &quot;text&quot;:&quot;Hello World!&quot;,
-                  &quot;size&quot;:&quot;large&quot;
-               }
-            ]
-         }
-      }
-   ]
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;message&quot;</span>,
+    <span class="hljs-string">&quot;attachments&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;contentType&quot;</span>: <span class="hljs-string">&quot;application/vnd.microsoft.card.adaptive&quot;</span>,
+            <span class="hljs-string">&quot;content&quot;</span>: {
+                <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;AdaptiveCard&quot;</span>,
+                <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0&quot;</span>,
+                <span class="hljs-string">&quot;body&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;TextBlock&quot;</span>,
+                        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;Hello World!&quot;</span>,
+                        <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-string">&quot;large&quot;</span>
+                    }
+                ]
+            }
+        }
+    ]
 }
-</code></pre><p>For more details, refer to <a href="https://adaptivecards.io/designer" target="_blank">Microsoft&apos;s Adaptive Card Designer</a>.</p>
-<h4 id="message-to-update">Message to update</h4>
+</code></pre>
+<p>For more details, refer to <a href="https://adaptivecards.io/designer" target="_blank">Microsoft&apos;s Adaptive Card Designer</a>.</p>
+<h3 id="message-to-update">Message to update</h3>
 <p><strong>Message to update</strong> allows you to overwrite a previously posted message from an earlier action step. Simply use the <kbd>Original message ID</kbd> datapill (from the output of a Workbot command), or the <kbd>ID</kbd> datapill (from the output of a <strong>Post message</strong> or <strong>Post reply</strong> action).</p>
 <p><img src="../assets/images/workbot-for-teams/original-message-id.png" alt="Original message ID">
 <em>Original message ID</em></p>
 <p><img src="../assets/images/workbot-for-teams/message-to-update.png" alt="Message to update example">
 <em>Message to update</em></p>
-<h3 id="input-fields">Input fields</h3>
+<h2 id="input-fields">Input fields</h2>
 <p><img src="../assets/images/workbot-for-teams/post-reply-fields.png" alt="Post reply fields">
 <em>Post reply &amp; Post message follow the same message structure</em></p>
-<p>The post reply action follows a fixed structure, with a preceding <strong>Envelope text</strong> and <strong>Message container</strong>. Text input fields support markdown syntax.</p>
+<p>Both post reply and post message actions follow a fixed structure, with a preceding <strong>Envelope text</strong> and <strong>Message container</strong>. Text input fields support markdown syntax.</p>
 <p>The table below lists the input fields in the post reply action.</p>
-<p><table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-      <th>Group</th>
-      <th>Input</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td></td>
-        <td>Envelope text*</td>
-        <td>
-          First message, preceding any text, images, or other elements in the message container. Support markdown.
-        </td>
-      </tr>
-      <tr>
-        <td rowspan="4">Heading*</td>
-        <td>Heading</td>
-        <td>Heading text.</td>
-      </tr>
-      <tr>
-        <td>Subheading*</td>
-        <td>Subheading text. Supports markdown.</td>
-      </tr>
-      <tr>
-        <td>Link text*</td>
-        <td>
-          Use markdown to add text links, e.g. <code>[Salesforce](https://www.salesforce.com/)</code>.
-        </td>
-      </tr>
-      <tr>
-        <td>Heading thumbnail</td>
-        <td>
-          Provide image URL of thumbnail. Displays to the left of heading text.
-        </td>
-      </tr>
-      <tr>
-        <td rowspan="2">Body*</td>
-        <td>Body text</td>
-        <td>
-          Main body text of message. Supports markdown.
-        </td>
-      </tr>
-      <tr>
-        <td>Image</td>
-        <td>
-          Provide image URL. Displays below body text.
-        </td>
-      </tr>
-      <tr>
-        <td rowspan="2">Fact set</td>
-        <td>Text*</td>
-        <td>Title of fact.</td>
-      </tr>
-      <tr>
-        <td>Value*</td>
-        <td>Value of fact.</td>
-      </tr>
-      <tr>
-        <td rowspan="5">Pick list</td>
-        <td>Pick list name*</td>
-        <td>
-          Name of picklist. Displays before choices.
-        </td>
-      </tr>
-      <tr>
-        <td>Pick list style</td>
-        <td>
-          Compact displays choices in a drop-down menu, while Expanded displays all choices with radio buttons.
-        </td>
-      </tr>
-      <tr>
-        <td>Choice parameter</td>
-        <td>
-          Parameter name to store the choice value. This parameter-value pair will be passed on as additional parameters.
-        </td>
-      </tr>
-      <tr>
-        <td>Text (choice)</td>
-        <td>Text to display for choice.</td>
-      </tr>
-      <tr>
-        <td>Value (choice)</td>
-        <td>
-          Value to pass to <b>Choice parameter</b> if chosen.
-        </td>
-      </tr>
-      <tr>
-        <td rowspan="4">Buttons</td>
-        <td>Prompt text for buttons*</td>
-        <td>
-          Prompt that displays before buttons. Useful in providing context for the buttons that follow.
-        </td>
-      </tr>
-      <tr>
-        <td>Text (button)</td>
-        <td>Text to display for button.</td>
-      </tr>
-      <tr>
-        <td>Submit button command</td>
-        <td>
-          Workbot command to invoke when users submit this button.
-        </td>
-      </tr>
-      <tr>
-        <td>Additional parameters</td>
-        <td>
-          Pass additional parameters when user submits by clicking a button. Format should be JSON with name-value pairs, e.g.<br><br><pre>{
-       &quot;opportunity_id&quot;:&quot;<kbd>Opportunity ID</kbd>&quot;,
-       &quot;stage&quot;:&quot;<kbd>Stage</kbd>&quot;
-}</pre>
-      </td>
-      </tr>
-      <tr>
-        <td rowspan="2">Advanced</td>
-        <td>Post as raw JSON</td>
-        <td>
-          For advanced users to fully customize the message formatting.
-        </td>
-      </tr>
-      <tr>
-        <td>Message to update</td>
-        <td>
-          Use message ID from the output of a post reply or post message action to update that message with this one.
-        </td>
-      </tr>
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Group</th>
+            <th>Input</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>Envelope text*</td>
+            <td>
+                First message, preceding any text, images, or other elements in the message container. Support markdown.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="4">Heading*</td>
+            <td>Heading</td>
+            <td>Heading text.</td>
+        </tr>
+        <tr>
+            <td>Subheading*</td>
+            <td>Subheading text. Supports markdown.</td>
+        </tr>
+        <tr>
+            <td>Link text*</td>
+            <td>
+                Use markdown to add text links, e.g. <code>[Salesforce](https://www.salesforce.com/)</code>.
+            </td>
+        </tr>
+        <tr>
+            <td>Heading thumbnail</td>
+            <td>
+                Provide image URL of thumbnail. Displays to the left of heading text.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Body*</td>
+            <td>Body text</td>
+            <td>
+                Main body text of message. Supports markdown.
+            </td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td>
+                Provide image URL. Displays below body text.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Fact set</td>
+            <td>Text*</td>
+            <td>Title of fact.</td>
+        </tr>
+        <tr>
+            <td>Value*</td>
+            <td>Value of fact.</td>
+        </tr>
+        <tr>
+            <td rowspan="5">Pick list</td>
+            <td>Pick list name*</td>
+            <td>
+                Name of picklist. Displays before choices.
+            </td>
+        </tr>
+        <tr>
+            <td>Pick list style</td>
+            <td>
+                Compact displays choices in a drop-down menu, while Expanded displays all choices with radio buttons.
+            </td>
+        </tr>
+        <tr>
+            <td>Choice parameter</td>
+            <td>
+                Parameter name to store the choice value. This is a required field when <a href="https://docs.workato.com/workbot-for-teams/passing-parameters.html" target="_blank">passing parameters</a> to another recipe, otherwise the value will not be passed.
+            </td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td>Text to display for choice. Cannot contain <code>:</code> or <code>,</code>.</td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>
+                Value to pass to <b>Choice parameter</b> if chosen. Cannot contain <code>:</code> or <code>,</code>.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="4">Buttons</td>
+            <td>Prompt text for buttons*</td>
+            <td>
+                Prompt that displays before buttons. Useful in providing context for the buttons that follow.
+            </td>
+        </tr>
+        <tr>
+            <td>Button text</td>
+            <td>
+                Text to be displayed on the button.<br><br><img src="../assets/images/workbot-for-teams/create-ticket-button.png"><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Submit button command</td>
+            <td>
+                Workbot command to execute when button is clicked, e.g. <code>create_ticket</code>. Only after <a href="https://docs.workato.com/workbot-for-teams/workbot-triggers.html#configuring-the-command" target="_blank">configuring the command</a> in a Workbot for MS Teams trigger block can that command be visible in the dropdown list.
+            </td>
+        </tr>
+        <tr>
+            <td>Additional parameters</td>
+            <td>
+                Parameter values to be passed onto the next recipe when button is clicked, e.g. <br><br><pre>{<br>  &quot;sys_id&quot;: &quot;<kbd>sys_id</kbd>&quot;<br>  &quot;summary&quot;: &quot;<kbd>Summary</kbd>&quot;,<br>  &quot;description&quot;: &quot;<kbd>Description</kbd>&quot;<br>}</pre>
+                Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Advanced</td>
+            <td>Post as raw JSON</td>
+            <td>
+                For advanced users to fully customize the message formatting.
+            </td>
+        </tr>
+        <tr>
+            <td>Message to update</td>
+            <td>
+                Use message ID from the output of a post reply or post message action to update that message with this one.
+            </td>
+        </tr>
     </tbody>
 </table>
-*Supports markdown</p>
+*Supports markdown
+
+## Using dynamic lists in action fields
+Fact sets, pick lists and buttons can be generated dynamically using a list datapill (for more information on lists, see the [list management guide](https://docs.workato.com/features/list-management.html))
+
+From the fields, click on the horizontal ellipses on the top-right and choose &apos;Dynamic list&apos;. This should bring up the dynamic list option.
+
+![Dynamic buttons](/assets/images/workbot-for-teams/dynamic-buttons.png)
+
+The following table shows what goes into the dynamic buttons fields:
+
+<table class="unchanged rich-diff-level-one">
+    <thead>
+        <tr>
+            <th>Input field</th>
+            <th>Description</th>
+        </tr>
+    <tbody>
+        <tr>
+          <td>Buttons source list</td>
+          <td>
+            List datapills have a list icon next to them in the datatree, e.g. Salesforce users:<br>
+            <img src="../assets/images/workbot-for-teams/list-datapill.png">
+          </td>
+        </tr>
+        <tr>
+          <td>Button text</td>
+          <td>
+            The title of the button to be displayed. Typically, you want to use datapills from the list datapill, e.g. Salesforce user name, a datapill from the Salesforce users list:
+            <img src="../assets/images/workbot-for-teams/dynamic-button-title.png">
+          </td>
+        </tr>
+        <tr>
+          <td>Submit button command</td>
+          <td>
+            Choose from a list of existing Workbot command recipes or key in a new command. Clicking on this button will trigger the recipe with the corresponding command trigger.
+          </td>
+        </tr>
+        <tr>
+          <td>Additional parameters</td>
+          <td>
+            Key in name-value pairs to pass onto the next recipe as additional parameters. Format should be JSON with name-value pairs, e.g.<br><br><pre>{<br>  &quot;opportunity_id&quot;: &quot;<kbd>Opportunity ID</kbd>&quot;,<br>  &quot;stage&quot;: &quot;<kbd>Stage</kbd>&quot;<br>}</pre>
+            Datapills need to be wrapped in double quotes and parameter names must be in all lowercase. Parameters can be user-specified, like the urgency of an issue in ServiceNow, or recipe information, like the Message ID of a previous MS Teams message.
+          </td>
+        </tr>
+      </tbody>
+    </thead></table>
+
 <h1 id="learn-more">Learn more</h1>
 <ul>
 <li><a href="using-workbot-for-teams.html">Using Workbot for MS Teams</a></li>
 <li><a href="workbot-triggers.html">Workbot triggers</a></li>
-<li><a href="buttons-choices-task-modules.md">Workbot buttons, pick lists, and task modules</a></li>
+<li><a href="passing-parameters.md">Passing parameters</a></li>
 </ul>
 
                                 
@@ -11798,7 +11846,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2017-03-30T05:00:00.000Z","level":"1.18.4","depth":2,"next":{"title":"Workbot buttons task modules & pick lists","level":"1.18.5","depth":2,"path":"workbot-for-teams/buttons-choices-task-modules.md","ref":"workbot-for-teams/buttons-choices-task-modules.md","articles":[]},"previous":{"title":"Workbot triggers","level":"1.18.3","depth":2,"path":"workbot-for-teams/workbot-triggers.md","ref":"workbot-for-teams/workbot-triggers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot-for-teams/workbot-actions.md","mtime":"2019-09-04T03:35:13.081Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-04T03:36:40.027Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot actions","date":"2019-09-04T05:00:00.000Z","level":"1.18.4","depth":2,"next":{"title":"Workbot buttons task modules & pick lists","level":"1.18.5","depth":2,"path":"workbot-for-teams/buttons-choices-task-modules.md","ref":"workbot-for-teams/buttons-choices-task-modules.md","articles":[]},"previous":{"title":"Workbot triggers","level":"1.18.3","depth":2,"path":"workbot-for-teams/workbot-triggers.md","ref":"workbot-for-teams/workbot-triggers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot-for-teams/workbot-actions.md","mtime":"2019-09-04T15:01:51.412Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-04T15:03:30.701Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
