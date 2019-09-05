@@ -1,7 +1,25 @@
 require(['gitbook', 'jquery'], function (gitbook, $) {
-  // Monitoring anchor change
-  // Using `setInterval` because `hashchange` event doesn't work for some reason
-  setInterval(checkCurrentPath, 200);
+  var CONTENT_CONTAINER = '.body-inner';
+  var currentPath = getPathFromLocation();
+  var currentHash = getHashFromLocation();
+  var isFF = /firefox/i.test(navigator.userAgent);
+
+  // Storing a new hash in a variable on link click
+  $(document).on('click', 'a[href]', function () {
+    handleUrlChange(this.pathname, this.hash.slice(1));
+  });
+
+  // Storing a new hash in a variable on "back/forward" navigations
+  window.addEventListener('popstate', function () {
+    handleUrlChange(getPathFromLocation(), getHashFromLocation());
+  });
+
+  // Firefox doesn't fire 'popstate' when hash changes
+  if (isFF) {
+    window.addEventListener('hashchange', function () {
+      handleUrlChange(getPathFromLocation(), getHashFromLocation());
+    });
+  }
 
   gitbook.events.on('page.change', function () {
     // Should do it on `page.change` because buttons are being redrawn on every page change for some reason
@@ -10,32 +28,53 @@ require(['gitbook', 'jquery'], function (gitbook, $) {
     // Adding anchor icons next to markdown headers
     addHeaderLinks();
 
-    // Scrolling page to anchor or top, because theme script scrolls wrong element (`.body-inner`)
-    activePath = getCurrentPath();
-    setTimeout(updatePageScroll, 0);
+    var contentContainer = document.querySelector(CONTENT_CONTAINER);
+
+    if (contentContainer) {
+      // GitBook automatically scrolls content to the anchor from the URL with animation.
+      // The bad thing is it scrolls to the wrong position and there is no straight way to disable it.
+      // This ugly hack is the only solution I've found: it removes the class that is used by GitBook to find
+      // scroll target and returns it back on the next tick.
+      contentContainer.classList.remove('body-inner');
+      setTimeout(function () {
+        contentContainer.classList.add('body-inner');
+
+        if (currentHash) {
+          // Without build-in scroll animation GitBook doesn't update the URL with the new hash so we
+          // have to do it manually.
+          history.replaceState(null, document.title, location.pathname + location.search + '#' + currentHash);
+
+          // We should wait for the images to load or page will be scrolled to the wrong position.
+          setTimeout(updatePageScroll, 100);
+        }
+      });
+    }
   });
 
-  var activePath;
-
-  function checkCurrentPath() {
-    var currentPath = getCurrentPath();
-
-    if (currentPath === activePath) {
-      return;
-    }
-
-    activePath = currentPath;
-    updatePageScroll();
-  }
-
-  function getCurrentPath() {
-    return location.pathname + location.hash;
-  }
-
   function updatePageScroll() {
-    var scrollToElem = $(document.getElementById(location.hash.slice(1)));
+    var scrollToElem = $(document.getElementById(currentHash));
     var scrollTop = scrollToElem.length ? scrollToElem.position().top : 0;
-    $('.body-inner').scrollTop(scrollTop);
+    $(CONTENT_CONTAINER).scrollTop(scrollTop);
+  }
+
+  function getPathFromLocation() {
+    return location.pathname;
+  }
+
+  function getHashFromLocation() {
+    return location.hash.slice(1);
+  }
+
+  function handleUrlChange(path, hash) {
+    // GitBook doesn't automatically scroll to the new anchor in Firefox
+    var needScrollUpdate = (isFF && path === currentPath && hash !== currentHash);
+
+    currentPath = path;
+    currentHash = hash;
+
+    if (needScrollUpdate) {
+      updatePageScroll();
+    }
   }
 
   function updateToolbarButtons() {
