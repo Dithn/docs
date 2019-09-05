@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Webhooks · Workato Docs</title>
+        <title>HTTP · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="workato-webhooks/wizard.html" />
+    <link rel="next" href="jdbc.html" />
     
     
-    <link rel="prev" href="surveymonkey.html" />
+    <link rel="prev" href="google-vision/action-read-text.html" />
     
 
     
@@ -122,7 +122,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="..">Webhooks</a>
+          <a href="..">HTTP</a>
         </h1>
       </div>
     </div>
@@ -5415,7 +5415,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.18" data-path="http.html">
+    <li class="chapter active" data-level="1.20.18" data-path="http.html">
       
 
       
@@ -8872,7 +8872,7 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.20.48" data-path="workato-webhooks.html">
+    <li class="chapter " data-level="1.20.48" data-path="workato-webhooks.html">
       
         <i class="fa fa-angle-right chapter__toggle"></i>
       
@@ -11510,20 +11510,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="webhooks-connector">Webhooks connector</h1>
-<p><img src="../assets/images/webhooks/begin-setup.png" alt="Webhooks trigger"></p>
-<p>Webhooks are notifications sent out by an application to a target URL as soon as an event happens. Typically, you can define specific events you wish to receive notifications for.</p>
-<p>For example, you can choose to build a webhook trigger that notifies when &apos;Urgent&apos; tickets are created (which sends out an SMS to the corresponding account manager). This ensures urgent tickets are responded to in a timely fashion.</p>
-<blockquote>
-<p><strong>This connector does not require a connection.</strong></p>
-</blockquote>
-<p>The Workato webhooks gateway listens to all events. When an event is received, the gateway will direct this to the appropriate recipe. This trigger event will result in a job and execute the actions in that recipe.</p>
-<h2 id="create-your-own-webhook-trigger">Create your own webhook trigger</h2>
-<ul>
-<li><a href="workato-webhooks/wizard.html">Setup webhook using wizard</a></li>
-<li><a href="workato-webhooks/config.html">Configure the webhook</a></li>
-<li><a href="workato-webhooks/common-errors.html">Debug common errors</a></li>
-</ul>
+                                <h1 id="http-connector">HTTP connector</h1>
+<p>The HTTP connector enables integration with any cloud applications that has a HTTP based API. You can create a new connector as well as add new triggers or actions to existing Workato connectors.</p>
+<h2 id="what-is-the-http-connector-useful-for">What is the HTTP connector useful for?</h2>
+<p>If your recipe requires integration with a cloud application that does not have a pre-built connect, you can use the HTTP connector to link your target app with Workato.</p>
+<p>The generic HTTP connector allows you to interact with cloud applications with an application program interface (API). This allows you to build additional triggers or actions on the Workato platform to power your integration recipes.</p>
+<p>Find out more about developing HTTP connectors <a href="../developing-connectors/http-v2.html">here</a>.</p>
+<h2 id="http-connector-or-connector-sdk">HTTP connector or Connector SDK?</h2>
+<p>Besides using the HTTP connector, you can develop custom connectors with the <a href="../developing-connectors/sdk.html">Connector SDK</a>. You should select the option that best fits your use-case.</p>
+<p><a href="../developing-connectors/http-vs-sdk.html">Click here</a> to see a comparison between the two.</p>
 
                                 
                                 </section>
@@ -11606,7 +11601,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Webhooks","date":"2019-05-29T10:00:00.000Z","level":"1.20.48","depth":2,"next":{"title":"Setup using wizard","level":"1.20.48.1","depth":3,"path":"connectors/workato-webhooks/wizard.md","ref":"connectors/workato-webhooks/wizard.md","articles":[]},"previous":{"title":"SurveyMonkey","level":"1.20.47","depth":2,"path":"connectors/surveymonkey.md","ref":"connectors/surveymonkey.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workato-webhooks.md","mtime":"2019-09-05T13:04:12.674Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-05T13:06:32.928Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","date":"2019-09-05T18:00:00.000Z","level":"1.20.18","depth":2,"next":{"title":"JDBC","level":"1.20.19","depth":2,"path":"connectors/jdbc.md","ref":"connectors/jdbc.md","articles":[{"title":"Connection setup","level":"1.20.19.1","depth":3,"anchor":"#how-to-connect-to-jdbc-on-workato","path":"connectors/jdbc.md","ref":"connectors/jdbc.md#how-to-connect-to-jdbc-on-workato","articles":[]},{"title":"Select actions","level":"1.20.19.2","depth":3,"path":"connectors/jdbc/select.md","ref":"connectors/jdbc/select.md","articles":[]},{"title":"Insert actions","level":"1.20.19.3","depth":3,"path":"connectors/jdbc/insert.md","ref":"connectors/jdbc/insert.md","articles":[]},{"title":"Update actions","level":"1.20.19.4","depth":3,"path":"connectors/jdbc/update.md","ref":"connectors/jdbc/update.md","articles":[]},{"title":"Delete actions","level":"1.20.19.5","depth":3,"path":"connectors/jdbc/delete.md","ref":"connectors/jdbc/delete.md","articles":[]},{"title":"Run custom SQL action","level":"1.20.19.6","depth":3,"path":"connectors/jdbc/run_sql.md","ref":"connectors/jdbc/run_sql.md","articles":[]},{"title":"New row trigger","level":"1.20.19.7","depth":3,"path":"connectors/jdbc/new-row-trigger.md","ref":"connectors/jdbc/new-row-trigger.md","articles":[]},{"title":"Scheduled query trigger","level":"1.20.19.8","depth":3,"path":"connectors/jdbc/scheduled-query-trigger.md","ref":"connectors/jdbc/scheduled-query-trigger.md","articles":[]}]},"previous":{"title":"Read text from image","level":"1.20.17.2","depth":3,"path":"connectors/google-vision/action-read-text.md","ref":"connectors/google-vision/action-read-text.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/http.md","mtime":"2019-09-05T13:04:12.662Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-05T13:06:32.928Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
