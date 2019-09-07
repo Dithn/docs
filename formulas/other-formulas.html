@@ -11512,17 +11512,339 @@
                                 
                                 <h1 id="other-formulas">Other formulas</h1>
 <p>This section covers formulas that work with a number of data types.</p>
+<h2 id="null">null</h2>
+<p>Gives a null/nil value. Note: passing this into an input field will not update the field value as null. Use clear formula to update a field value to null. Remember to toggle the field to formula mode.</p>
+<p><img src="../assets/images/formula-docs/null-formula.png" alt="Null formula in input field"></p>
+<hr>
+<h2 id="clear">clear</h2>
+<p>Clears the value of the field in the target app to null/nil. Remember to toggle the field to formula mode.</p>
+<p><img src="../assets/images/formula-docs/clear-formula.png" alt="Clear formula in input field">
+<em>Use clear formula instead of null when looking to clear field in target app</em></p>
+<hr>
+<h2 id="uuid">uuid</h2>
+<p>Generates an UUID.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>&quot;c52d735a-aee4-4d44-ba1e-bcfa3734f553&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h2 id="encrypt">encrypt</h2>
-<p>Encrypts the input string with a secret key using AES-256-CBC algorithm. Encrypted output string is packed in <a href="https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md" target="_blank">RNCryptor V3</a> format and base64 encoded. </p>
+<p>Encrypts the input string with a secret key using AES-256-CBC algorithm. Encrypted output string is packed in <a href="https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md" target="_blank">RNCryptor V3</a> format and base64 encoded.</p>
 <p><em>Note: The encryption key should not be hard coded in the recipe. Use account properties (with <code>key</code> or <code>password</code> in the name) to store the encryption keys.</em></p>
 <h3 id="example">Example</h3>
 <p><code>encrypt([ssn], [encryption_key])</code></p>
 <hr>
 <h2 id="decrypt">decrypt</h2>
-<p>Decrypts the encrypted input string with a secret key using AES-256-CBC algorithm. Encrypted input string should be  packed in <a href="https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md" target="_blank">RNCryptor V3</a> format and base64 encoded. </p>
+<p>Decrypts the encrypted input string with a secret key using AES-256-CBC algorithm. Encrypted input string should be  packed in <a href="https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md" target="_blank">RNCryptor V3</a> format and base64 encoded.</p>
 <p><em>Note: The encryption key should not be hard coded in the recipe. Use account properties (with <code>key</code> or <code>password</code> in the name) to store the encryption keys.</em></p>
 <h3 id="example">Example</h3>
 <p><code>decrypt([encrypted_ssn], [encryption_key])</code></p>
+<hr>
+<h2 id="encodesha256">encode_sha256</h2>
+<p>Encodes a string or binary array using SHA256 algorithm</p>
+<h3 id="example">Example</h3>
+<p><code>&quot;hello&quot;.encode_sha256</code></p>
+<hr>
+<h2 id="encodehex">encode_hex</h2>
+<p>Converts binary string to its hex representation</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;0101010101011010&quot;.encode_hex</code></td>
+<td>&quot;30313031303130313031303131303130&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="decodehex">decode_hex</h2>
+<p>Decode hexadecimal into binary string</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;30313031303130313031303131303130&quot;.decode_hex</code></td>
+<td>&quot;0101010101011010&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="encodebase64">encode_base64</h2>
+<p>Encode using Base64 algorithm</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;Hello World!&quot;.encode_base64</code></td>
+<td>&quot;aGVsbG8gd29ybGQh&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="decodebase64">decode_base64</h2>
+<p>Decode using Base64 algorithm</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;aGVsbG8gd29ybGQh&quot;.decode_base64</code></td>
+<td>&quot;Hello World!&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="encodeurl">encode_url</h2>
+<p>URL encode a string</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;Hello World&quot;.encode_url</code></td>
+<td>&quot;Hello%20World&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="encodeurlsafebase64">encode_urlsafe_base64</h2>
+<p>Encode using urlsafe modification of Base64 algorithm</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;Hello World&quot;.encode_urlsafe_base64</code></td>
+<td>&quot;SGVsbG8gV29ybGQ=&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="decodeurlsafebase64">decode_urlsafe_base64</h2>
+<p>Decode using urlsafe modification of Base64 algorithm</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;SGVsbG8gV29ybGQ&quot;.decode_urlsafe_base64</code></td>
+<td>&quot;Hello World&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="asstring">as_string</h2>
+<p>Decode byte sequence as string in given encoding</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;SGVsbG8gV29ybGQ=&quot;.decode_base64.as_string(&apos;utf-8&apos;)</code></td>
+<td>&quot;Hello World&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="asutf8">as_utf8</h2>
+<p>Decode byte sequence as UTF-8 string</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;SGVsbG8gV29ybGQ=&quot;.decode_base64.as_utf8</code></td>
+<td>&quot;Hello World&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="tohex">to_hex</h2>
+<p>Converts binary string to its hex representation</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;SGVsbG8gV29ybGQ=&quot;.decode_base64.to_hex</code></td>
+<td>&quot;48656c6c6f20576f726c64&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="hmac-formulae">HMAC formulae</h2>
+<p>Creates a HMAC signatures with a variety of signing algorithms</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Signing algorithm</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHA-256</td>
+<td>&quot;username:password:nonce&quot;.hmac_sha256(&quot;key&quot;)</td>
+</tr>
+<tr>
+<td>SHA-1</td>
+<td>&quot;username:password:nonce&quot;.hmac_sha1(&quot;key&quot;)</td>
+</tr>
+<tr>
+<td>SHA-512</td>
+<td>&quot;username:password:nonce&quot;.hmac_sha512(&quot;key&quot;)</td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>&quot;username:password:nonce&quot;.hmac_md5(&quot;key&quot;)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="md5hexdigest">md5_hexdigest</h2>
+<p>Accepts a string and creates message digest using the MD5 Message-Digest Algorithm</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;hello&quot;.md5_hexdigest</code></td>
+<td>&quot;5d41402abc4b2a76b9719d911017c592&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="jwtencoders256">jwt_encode_rs256</h2>
+<p>Creates JWT with RS256 - RSA using SHA-256 hash algorithm</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>workato.jwt_encode_rs256({ name: &quot;John Doe&quot; }, &quot;PEM key&quot;)</code></td>
+<td>&quot;eyJhbGciO...&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="parseyaml">parse_yaml</h2>
+<p>Parse a YAML string. Supports true, false, nil, numbers, strings, arrays, hashes</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>workato.parse_yaml(&quot;---\nfoo: bar&quot;)</code></td>
+<td>&quot;{ &quot;foo&quot; =&gt; &quot;bar&quot; }&quot;</td>
+</tr>
+<tr>
+<td><code>workato.parse_yaml(&quot;---\n- 1\n- 2\n- 3\n&quot;)</code></td>
+<td>&quot;[1, 2, 3]&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="renderyaml">render_yaml</h2>
+<p>Render an object into a YAML string.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>workato.render_yaml({ &quot;foo&quot; =&gt; &quot;bar&quot; })</code></td>
+<td>&quot;---\nfoo: bar\n&quot;</td>
+</tr>
+<tr>
+<td><code>workato.render_yaml([1,2,3])</code></td>
+<td>&quot;---\n- 1\n- 2\n- 3\n&quot;</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="lookup">lookup</h2>
 <p>This formula allows you to lookup values from your Workato lookup tables via a key. It is case sensitive and data type sensitive.</p>
@@ -11689,7 +12011,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Other formulas","date":"2017-03-30T05:00:00.000Z","level":"1.8.6","depth":2,"next":{"title":"Complex data types","level":"1.8.7","depth":2,"path":"formulas/complex-data-types.md","ref":"formulas/complex-data-types.md","articles":[]},"previous":{"title":"List formulas","level":"1.8.5","depth":2,"path":"formulas/array-list-formulas.md","ref":"formulas/array-list-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/other-formulas.md","mtime":"2019-09-06T18:34:52.429Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-06T18:37:14.490Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Other formulas","date":"2017-03-30T05:00:00.000Z","level":"1.8.6","depth":2,"next":{"title":"Complex data types","level":"1.8.7","depth":2,"path":"formulas/complex-data-types.md","ref":"formulas/complex-data-types.md","articles":[]},"previous":{"title":"List formulas","level":"1.8.5","depth":2,"path":"formulas/array-list-formulas.md","ref":"formulas/array-list-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/other-formulas.md","mtime":"2019-09-07T07:52:31.066Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-07T07:54:26.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

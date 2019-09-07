@@ -11706,18 +11706,106 @@
 </tbody>
 </table>
 <hr>
-<h1 id="getting-firstlast-days-of-the-current-and-next-month">Getting first/last days of the current and next month</h1>
-<p>Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of the current and next months.</p>
-<h2 id="beginning-of-current-month">Beginning of current month</h2>
-<p>Firstly, turn on formula mode and we have access to the .beginning_of_month function. It returns the date for the start of the month for the given date/timestamp.</p>
+<h1 id="getting-firstlast-timestamp-of-the-currentnext-periods">Getting first/last timestamp of the current/next periods</h1>
+<p>Using a combination of date formulas, and date arithmetics, we can easily obtain the first and last days of a current or subsequent time period using some helper functions. Not all time periods are supported just yet.</p>
+<h2 id="beginningofhour">beginning_of_hour</h2>
+<p>Firstly, turn on formula mode and we have access to the <code>.beginning_of_hour</code> function. It returns timestamp for top-of-the-hour for given timestamp.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-06-01T16:56:00.000000-07:00&quot;.to_time.beginning_of_hour</code></td>
+<td><code>&quot;2017-06-01T16:00:00.000000-07:00&quot;</code></td>
+</tr>
+<tr>
+<td><code>&quot;2017-06-01T12:15:00.000000-00:00&quot;.to_time.beginning_of_hour</code></td>
+<td><code>&quot;2017-06-01T12:00:00.000000-00:00&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="beginningofday">beginning_of_day</h2>
+<p>Firstly, turn on formula mode and we have access to the <code>.beginning_of_day</code> function. It returns timestamp for midnight on date of given date/timestamp.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-06-08T22:30:10.000000-07:00&quot;.to_time.beginning_of_day</code></td>
+<td><code>&quot;2017-06-08T00:00:00.000000-07:00&quot;</code></td>
+</tr>
+<tr>
+<td><code>&quot;2017-01-10T01:30:45.000000-00:00&quot;.to_time.beginning_of_day</code></td>
+<td><code>&quot;2017-01-10T00:00:00.000000-00:00&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="beginningofweek">beginning_of_week</h2>
+<p>Firstly, turn on formula mode and we have access to the <code>.beginning_of_week</code> function. It returns the date for start of week (Mon) for a given date/timestamp.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-08-18T00:00:00.000000-07:00&quot;.to_time.beginning_of_week</code></td>
+<td><code>&quot;2017-08-14T00:00:00.000000-07:00&quot;</code></td>
+</tr>
+<tr>
+<td><code>&quot;2017-08-20T00:00:00.000000-00:00&quot;.to_time.beginning_of_week</code></td>
+<td><code>&quot;2017-08-14T00:00:00.000000-00:00&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="beginningofmonth">beginning_of_month</h2>
+<p>Firstly, turn on formula mode and we have access to the <code>.beginning_of_month</code> function. It returns the date for the start of the month for the given date/timestamp.</p>
 <p><img src="../assets/images/formula-docs/beginning_of_current_month.png" alt="beginning of current month"></p>
 <hr>
-<h2 id="beginning-of-next-month">Beginning of Next Month</h2>
+<h2 id="beginningofyear">beginning_of_year</h2>
+<p>Firstly, turn on formula mode and we have access to the <code>.beginning_of_year</code> function. It returns the date for the start of the year for the given date/timestamp.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-01-25T00:00:00.000000-07:00&quot;.to_time.beginning_of_year</code></td>
+<td><code>&quot;2017-01-01T00:00:00.000000-07:00&quot;</code></td>
+</tr>
+<tr>
+<td><code>&quot;2015-12-25T22:30:00.000000-00:00&quot;.to_time.beginning_of_year</code></td>
+<td><code>&quot;2015-01-01T00:00:00.000000-00:00&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="beginning-of-next-month">Beginning of next month</h2>
 <p>To retrieve a date for the beginning of the next month, we simply need to add a month to the input date, and use the previously mentioned function get the beginning of the month.</p>
 <p><img src="../assets/images/formula-docs/beginning_of_next_month.png" alt="beginning of next month"></p>
 <hr>
 <h2 id="end-of-current-or-next-month">End of current or next month</h2>
-<p>To retrieve a date for the end of the current month, use the <code>.end_of_month method</code>. It returns the date for the start of the month for the given date/timestamp. </p>
+<p>To retrieve a date for the end of the current month, use the <code>.end_of_month</code> method. It returns the date for the start of the month for the given date/timestamp.</p>
 <pre><code class="lang-ruby"><span class="hljs-string">&quot;2017-08-18T00:00:00&quot;</span>.to_time.end_of_month <span class="hljs-comment"># =&gt; 2017-08-31 23:59:59 +0000</span>
 <span class="hljs-string">&quot;2017-08-18T00:00:00&quot;</span>.to_date.end_of_month <span class="hljs-comment"># =&gt; Thu, 31 Aug 2017</span>
 </code></pre>
@@ -11864,6 +11952,27 @@
 <tr>
 <td><code>&quot;2017-01-30&quot;.in_time_zone(&quot;America/New_York&quot;)</code><br>Note: dates with no timezones take the timezone defined in your Workato account settings</td>
 <td>&quot;2017-01-30T00:00:00.000000-05:00&quot;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dst">dst?</h2>
+<p>Returns true if the time is within Daylight Savings Time for the specified time zone.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;2017-09-06T18:30:15.671720-05:00&quot;.&quot;.to_time.in_time_zone(&quot;America/Los_Angeles&quot;).dst?</code></td>
+<td>#true</td>
+</tr>
+<tr>
+<td><code>&quot;2017-05-31T12:30:45.303136-07:00&quot;.&quot;.to_time.in_time_zone(&quot;Kolkata&quot;).dst?</code></td>
+<td>#true</td>
 </tr>
 </tbody>
 </table>
@@ -12699,7 +12808,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Date formulas","date":"2017-03-30T05:00:00.000Z","level":"1.8.4","depth":2,"next":{"title":"List formulas","level":"1.8.5","depth":2,"path":"formulas/array-list-formulas.md","ref":"formulas/array-list-formulas.md","articles":[]},"previous":{"title":"Number formulas","level":"1.8.3","depth":2,"path":"formulas/number-formulas.md","ref":"formulas/number-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/date-formulas.md","mtime":"2019-09-06T18:34:52.429Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-06T18:37:14.490Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Date formulas","date":"2017-03-30T05:00:00.000Z","level":"1.8.4","depth":2,"next":{"title":"List formulas","level":"1.8.5","depth":2,"path":"formulas/array-list-formulas.md","ref":"formulas/array-list-formulas.md","articles":[]},"previous":{"title":"Number formulas","level":"1.8.3","depth":2,"path":"formulas/number-formulas.md","ref":"formulas/number-formulas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/date-formulas.md","mtime":"2019-09-07T07:52:31.066Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-07T07:54:26.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

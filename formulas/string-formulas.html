@@ -12048,6 +12048,58 @@
 </tbody>
 </table>
 <hr>
+<h2 id="scan">scan</h2>
+<p>Scan the string for the pattern to retrieve and return an array</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;Thu, 01/23/2014&quot;.scan(/\d+/).join(&quot;-&quot;)</code></td>
+<td>&quot;01-23-2014&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="encode">encode</h2>
+<p>Changes a string to a certain encoding type</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;Jean Marie&quot;.encode(&quot;Windows-1252&quot;)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="transliterate">transliterate</h2>
+<p>Replaces non-ASCII characters with an ASCII approximation, or if none exists, a replacement character which defaults to &apos;?&apos;.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;Chlo&#xE9;&quot;.transliterate</td>
+<td>Chloe</td>
+</tr>
+</tbody>
+</table>
+<hr>
 <h1 id="text-case-manipulation">Text case manipulation</h1>
 <p>This section covers formulas which allow you to change the case of certain parts of a word.</p>
 <hr>
@@ -12508,6 +12560,42 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="tostatecode">to_state_code</h2>
+<p>Convert state name to code.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;California&quot;.to_state_code</td>
+<td>CA</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="tostatename">to_state_name</h2>
+<p>Convert state code to name.</p>
+<h3 id="example">Example</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&quot;CA&quot;.to_state_name</td>
+<td>CALIFORNIA</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -12590,7 +12678,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"String formulas","date":"2017-03-30T05:00:00.000Z","level":"1.8.2","depth":2,"next":{"title":"Number formulas","level":"1.8.3","depth":2,"path":"formulas/number-formulas.md","ref":"formulas/number-formulas.md","articles":[]},"previous":{"title":"Ternary condition","level":"1.8.1.4","depth":3,"anchor":"#conditionals","path":"formulas/formula-mode.md","ref":"formulas/formula-mode.md#conditionals","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/string-formulas.md","mtime":"2019-09-06T18:34:52.429Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-06T18:37:14.490Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"String formulas","date":"2017-03-30T05:00:00.000Z","level":"1.8.2","depth":2,"next":{"title":"Number formulas","level":"1.8.3","depth":2,"path":"formulas/number-formulas.md","ref":"formulas/number-formulas.md","articles":[]},"previous":{"title":"Ternary condition","level":"1.8.1.4","depth":3,"anchor":"#conditionals","path":"formulas/formula-mode.md","ref":"formulas/formula-mode.md#conditionals","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"formulas/string-formulas.md","mtime":"2019-09-07T07:52:31.066Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-07T07:54:26.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
