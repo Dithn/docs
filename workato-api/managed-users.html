@@ -11913,11 +11913,7 @@
                                 
                                 <h1 id="managed-users">Managed Users</h1>
 <p>Use the following endpoints to manage OEM customers.</p>
-<h3 id="supported-formats">Supported Formats</h3>
-<ul>
-<li>JSON</li>
-</ul>
-<h3 id="contents">Contents</h3>
+<h3 id="quick-reference">Quick reference</h3>
 <table>
 <thead>
 <tr>
@@ -11960,7 +11956,6 @@
 <blockquote>
 <p>POST /api/managed_users</p>
 </blockquote>
-<h3 id="description">Description</h3>
 <p>Creates a new OEM customer account. Requires &apos;oem_vendor&apos; privilege.</p>
 <ul>
 <li>The new account is assigned the plan specified in the master account&apos;s OEM configuration.</li>
@@ -11999,7 +11994,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="example-request-parameters">Example request parameters</h4>
+<h4 id="sample-request">Sample request</h4>
 <pre><code class="lang-JSON">{
   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Kevin O&apos;Leary&quot;</span>,
   <span class="hljs-string">&quot;oauth_id&quot;</span>: <span class="hljs-string">&quot;AAA0932808240:UU0239093498&quot;</span>,
@@ -12034,8 +12029,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-ea2300">Success: EA2300</h4>
+<h3 id="sample-responses">Sample responses</h3>
+<h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-JSON">POST /api/managed_users
 {
   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">3498583</span>,
@@ -12053,7 +12048,6 @@
 <blockquote>
 <p>POST /api/managed_users/:id/member  </p>
 </blockquote>
-<h3 id="description">Description</h3>
 <p>Adds a member to the OEM customer account. Requires &apos;oem_vendor&apos; privilege.</p>
 <ul>
 <li>Creates a new Workato member account and makes the user member of the given customer account&apos;s team.</li>
@@ -12091,7 +12085,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="example-request-parameters">Example request parameters</h4>
+<h4 id="sample-request">Sample request</h4>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Jack Smith&quot;</span>,
   <span class="hljs-string">&quot;oauth_id&quot;</span>: <span class="hljs-string">&quot;AAA0932808240:UU0239093499&quot;</span>,
@@ -12130,7 +12124,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
+<h3 id="sample-responses">Sample responses</h3>
 <h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-json">POST /api/managed_users/<span class="hljs-number">12</span>/member
 {
@@ -12140,16 +12134,15 @@
 }
 </code></pre>
 <h4 id="server-error-500">Server error: 500</h4>
-<pre><code class="lang-json">&lt;pre&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">code</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display: block; white-space: pre-wrap;&quot;</span>&gt;</span>{
-  &quot;message&quot;:&quot;Server error&quot;,
-  &quot;id&quot;: &quot;32y2298sjbjdwejweg&quot;
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;message&quot;</span>:<span class="hljs-string">&quot;Server error&quot;</span>,
+  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;32y2298sjbjdwejweg&quot;</span>
 }
-</span></code></pre>
+</code></pre>
 <h2 id="query-oem-customer-account">Query OEM customer account</h2>
 <blockquote>
 <p>GET /api/managed_users/:id</p>
 </blockquote>
-<h3 id="description">Description</h3>
 <p>Returns details of the given OEM customer account. Requires &apos;oem_vendor&apos; privilege.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -12199,7 +12192,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
+<h3 id="sample-response">Sample response</h3>
 <h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">4676</span>,
@@ -12215,7 +12208,6 @@
 <blockquote>
 <p>GET /api/managed_users/:id/connections</p>
 </blockquote>
-<h3 id="description">Description</h3>
 <p>Returns a list of connections in OEM customer&apos;s account. Requires &apos;oem_vendor&apos; privilege.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -12265,7 +12257,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
+<h3 id="sample-response">Sample response</h3>
 <h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-json">{
     <span class="hljs-string">&quot;result&quot;</span>: [
@@ -12294,7 +12286,6 @@
 <blockquote>
 <p>DELETE /api/managed_users/:id/member</p>
 </blockquote>
-<h3 id="description">Description</h3>
 <p>Deletes a member from given user&apos;s team. Requires &apos;oem_vendor&apos; privilege.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -12344,13 +12335,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
+<h3 id="sample-response">Sample response</h3>
 <h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">3485434779</span>
 }
 </code></pre>
-<h2 id="upgrading-a-customer-account">Upgrading a customer account</h2>
+<h2 id="upgrading-oem-customer-account">Upgrading OEM customer account</h2>
 <blockquote>
 <p>PUT /api/managed_users/:id/upgrade</p>
 </blockquote>
@@ -12404,7 +12395,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
+<h3 id="sample-response">Sample response</h3>
 <h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">3498583</span>,
@@ -12416,7 +12407,6 @@
 <blockquote>
 <p>PUT /api/managed_users/:id/downgrade</p>
 </blockquote>
-<h3 id="description">Description</h3>
 <p>Downgrades the customer account to free plan.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -12466,7 +12456,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
+<h3 id="sample-response">Sample response</h3>
 <h4 id="success-200">Success: 200</h4>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">3498583</span>,
@@ -12556,7 +12546,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Managed Users API","date":"2019-03-21T11:20:00.000Z","level":"1.24.4","depth":2,"next":{"title":"Create new OEM customer","level":"1.24.4.1","depth":3,"anchor":"#create-new-oem-customer","path":"workato-api/managed-users.md","ref":"workato-api/managed-users.md#create-new-oem-customer","articles":[]},"previous":{"title":"List jobs from a recipe","level":"1.24.3.1","depth":3,"anchor":"#list-jobs-from-a-recipe","path":"workato-api/jobs.md","ref":"workato-api/jobs.md#list-jobs-from-a-recipe","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/managed-users.md","mtime":"2019-09-12T14:29:18.048Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-12T14:31:36.203Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Managed Users API","date":"2019-03-21T11:20:00.000Z","level":"1.24.4","depth":2,"next":{"title":"Create new OEM customer","level":"1.24.4.1","depth":3,"anchor":"#create-new-oem-customer","path":"workato-api/managed-users.md","ref":"workato-api/managed-users.md#create-new-oem-customer","articles":[]},"previous":{"title":"List jobs from a recipe","level":"1.24.3.1","depth":3,"anchor":"#list-jobs-from-a-recipe","path":"workato-api/jobs.md","ref":"workato-api/jobs.md#list-jobs-from-a-recipe","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/managed-users.md","mtime":"2019-09-12T14:40:53.339Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-12T14:43:32.842Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
