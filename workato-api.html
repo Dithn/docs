@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -11920,9 +11924,40 @@
 <li><code>user_token</code> &amp; <code>user_email</code> in the query parameters</li>
 </ul>
 <p>The <code>user_token</code>/<code>X-USER-TOKEN</code> can be found in your <a href="https://www.workato.com/users/current/edit#api_key" target="_blank">settings page</a>. Alternatively, navigate to your account settings by clicking on <code>Account Settings</code> in the dropdown of the top right of your homepage in Workato. Your API key can be found in the left navigation panel in the subsequent page.</p>
+<h2 id="http-response-codes">HTTP response codes</h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>Bad request</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Not found</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>Server error</td>
+</tr>
+</tbody>
+</table>
 <h2 id="workato-api-resource-overview">Workato API Resource Overview</h2>
 <p>Workato&apos;s API has various endpoints that allows access functionality to different aspects of Workato. Here is a general overview of the endpoints available.</p>
-<h3 id="adapters">[Adapters]</h3>
+<h3 id="connectors">Connectors</h3>
 <table>
 <thead>
 <tr>
@@ -11933,11 +11968,11 @@
 <tbody>
 <tr>
 <td><a href="workato-api/adapters.html#list-connector-metadata">GET /api/integrations</a></td>
-<td>Query connector metadata. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Query connector metadata.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="connections">[Connections]</h3>
+<h3 id="connections">Connections</h3>
 <table>
 <thead>
 <tr>
@@ -11952,7 +11987,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="jobs">[Jobs]</h3>
+<h3 id="jobs">Jobs</h3>
 <table>
 <thead>
 <tr>
@@ -11967,7 +12002,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="managed-users">[Managed Users]</h3>
+<h3 id="managed-users">Managed Users</h3>
 <table>
 <thead>
 <tr>
@@ -11978,23 +12013,23 @@
 <tbody>
 <tr>
 <td><a href="workato-api/managed-users.html#create-new-oem-users">POST /api/managed_users</a></td>
-<td>Create a new OEM user. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Create a new OEM user.</td>
 </tr>
 <tr>
 <td><a href="workato-api/managed-users.html#add-member-to-oem-account">POST /api/managed_users/:id/member</a></td>
-<td>Add member to the OEM account. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Add member to the OEM account.</td>
 </tr>
 <tr>
 <td><a href="workato-api/managed-users.html#query-oem-member-account">GET /api/managed_users/:id</a></td>
-<td>Returns details of the given OEM user account. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Returns details of the given OEM user account.</td>
 </tr>
 <tr>
 <td><a href="workato-api/managed-users.html#query-oem-member-connections">GET /api/managed_users/:id/connections</a></td>
-<td>Returns a list of connections in OEM user&apos;s account. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Returns a list of connections in OEM user&apos;s account.</td>
 </tr>
 <tr>
 <td><a href="workato-api/managed-users.html#remove-member-from-an-organization-account">DELETE /api/managed_users/:id/member</a></td>
-<td>Deletes a member from given user&apos;s team. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Deletes a member from given user&apos;s team.</td>
 </tr>
 <tr>
 <td><a href="workato-api/managed-users.html#upgrading-a-customer-account">PUT /api/managed_users/:id/upgrade</a></td>
@@ -12006,7 +12041,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="recipes">[Recipes]</h3>
+<h3 id="recipes">Recipes</h3>
 <table>
 <thead>
 <tr>
@@ -12033,7 +12068,7 @@
 </tr>
 <tr>
 <td><a href="workato-api/recipes.html#search-for-public-recipes">GET /api/recipes/search</a></td>
-<td>Search for public recipes. Requires &apos;oem_vendor&apos; privilege.</td>
+<td>Search for public recipes.</td>
 </tr>
 <tr>
 <td><a href="workato-api/recipes.html#start-recipe">PUT /api/recipes/:id/start</a></td>
@@ -12049,7 +12084,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="users">[Users]</h3>
+<h3 id="user">User</h3>
 <table>
 <thead>
 <tr>
@@ -12064,7 +12099,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="recipe-lifecycle-management">[Recipe lifecycle management]</h3>
+<h3 id="recipe-lifecycle-management">Recipe lifecycle management</h3>
 <table>
 <thead>
 <tr>
@@ -12173,7 +12208,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workato API","date":"2019-03-20T14:20:00.000Z","level":"1.24","depth":1,"next":{"title":"Adapter API","level":"1.24.1","depth":2,"path":"workato-api/adapters.md","ref":"workato-api/adapters.md","articles":[{"title":"List Connector Metadata","level":"1.24.1.1","depth":3,"anchor":"#list-connector-metadata","path":"workato-api/adapters.md","ref":"workato-api/adapters.md#list-connector-metadata","articles":[]}]},"previous":{"title":"Slack & Workbot for Slack","level":"1.23.1","depth":2,"path":"custom-oauth-profiles/slack-workbot-for-slack.md","ref":"custom-oauth-profiles/slack-workbot-for-slack.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"ga":{"configuration":"auto","token":"UA-104783574-1"},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api.md","mtime":"2019-09-12T17:13:25.640Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-12T17:15:48.440Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workato API","date":"2019-03-20T14:20:00.000Z","isTocVisible":true,"level":"1.24","depth":1,"next":{"title":"Adapter API","level":"1.24.1","depth":2,"path":"workato-api/adapters.md","ref":"workato-api/adapters.md","articles":[{"title":"List Connector Metadata","level":"1.24.1.1","depth":3,"anchor":"#list-connector-metadata","path":"workato-api/adapters.md","ref":"workato-api/adapters.md#list-connector-metadata","articles":[]}]},"previous":{"title":"Slack & Workbot for Slack","level":"1.23.1","depth":2,"path":"custom-oauth-profiles/slack-workbot-for-slack.md","ref":"custom-oauth-profiles/slack-workbot-for-slack.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api.md","mtime":"2019-09-13T14:01:20.919Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-13T14:03:32.253Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -12190,6 +12225,18 @@
     
         
         <script src="gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
         
     
         
