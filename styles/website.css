@@ -38,6 +38,54 @@ body {
   overflow: visible;
 }
 
+/* In page TOC */
+.intopic-toc h3 {
+  color: #333;
+  font-size: 1.1em;
+}
+
+/* Table width */
+.api_input + table, .api_quick_reference + table {
+  width: 100%;
+}
+
+/* Header alignment */
+.api_input + table th, .api_quick_reference + table th {
+  text-align: left;
+}
+
+/* Name */
+.api_input + table th:nth-child(1) {
+  text-align: left;
+  width: 25%;
+}
+
+/* Type */
+.api_input + table th:nth-child(2) {
+  width: 15%;
+}
+
+/* Description */
+.api_input + table th:nth-child(3) {
+  width: 60%;
+}
+
+/* Type */
+.api_quick_reference + table th:nth-child(1) {
+  width: 15%;
+}
+
+/* Resource */
+.api_quick_reference + table th:nth-child(2) {
+  width: 40%;
+}
+
+/* Description */
+.api_quick_reference + table th:nth-child(3) {
+  width: 45%;
+}
+
+
 /* Sections */
 .markdown-section h1 {
   border-bottom: 1px solid #d8d8d8;
