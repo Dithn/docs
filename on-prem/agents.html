@@ -12115,40 +12115,12 @@
                                 <h1 id="on-prem-agent">On-prem Agent</h1>
 <p>The Workato on-prem agent provides a secure way for Workato to selectively access customer-authorized on-prem apps, databases, and folders without having to open ports in the corporate firewall.</p>
 <p>Users can communicate securely with Workato by installing the agent within the protected server.</p>
-<p>The on-prem agent is used to create connections that are used by recipes to perform requests. These on-prem connections can be connected to one or more agents in an <a href="agents/groups.md">on-prem group</a>.</p>
+<p>The on-prem agent is used to create connections that are used by recipes to perform requests. These on-prem connections can be connected to one or more agents in an <a href="groups.html">on-prem group</a>.</p>
 <blockquote>
 <p><strong>Adding multiple on-prem agents to an on-prem group allows you to achieve high availability with fault tolerance and load balancing capabilities.</strong></p>
 </blockquote>
 <p><img src="../assets/images/on-prem/navigate-to-opa.gif" alt="On-prem menu option">
 <em>On-prem menu option</em></p>
-<h2 id="overview">Overview</h2>
-<p>The following is a conceptual model of Workato&apos;s on-prem agent and how it interacts with databases and applications behind the firewall.</p>
-<p><img src="../assets/images/on-prem/on_prem_conceptual_model.png" alt="On-prem model">
-<em>Conceptual model for on-prem agent and connector</em></p>
-<p>Workato on-prem connectivity has 2 core components:</p>
-<ul>
-<li>Tunneling</li>
-<li>Database, file system, and application access.</li>
-</ul>
-<p>The on-prem agent runs within the user&apos;s server, typically behind a firewall, and establishes a TLS websocket tunnel to connect out to Workato.</p>
-<p>Since the on-prem agent is within the same network as systems behind the firewall, it can safely access them and act as the agent to communicate securely out to Workato.</p>
-<h2 id="supported-operating-systems">Supported operating systems</h2>
-<p>The on-prem agent runs on the following systems:</p>
-<ul>
-<li><p>Linux (64-bit)</p>
-</li>
-<li><p>Windows 7, 10 (64-bit)</p>
-</li>
-<li><p>Mac OS X</p>
-</li>
-</ul>
-<p>Minimum hardware requirements for the system running the on-prem agent are:</p>
-<ul>
-<li>8GB of RAM</li>
-<li>250 MB of disk space</li>
-<li>800 Mhz 64-bit CPU (Intel/AMD).</li>
-</ul>
-<p><a href="https://docs.workato.com/on-prem/agents/setup.html" target="_blank">Detailed instructions on how to set up for each operating system</a>.</p>
 <h2 id="common-errors-when-using-the-on-prem-agent">Common errors when using the on-prem agent</h2>
 <p>If connecting to on-prem applications fail, check that:</p>
 <ul>
@@ -12161,6 +12133,18 @@
 <li>Selected agent is active</li>
 <li>Credentials provided in the connection profile are correct</li>
 <li>Database name and type provided in the connection profile is correct</li>
+</ul>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="agents/setup.html">Setup agent</a></li>
+<li><a href="agents/run.html">Run agent</a></li>
+<li><a href="agents/profile.html">Profiles</a></li>
+<li><a href="agents/upgrade.html">Upgrade agent</a></li>
+<li><a href="agents/connection.html">On-prem connections</a></li>
+<li><a href="agents/password-encryption.html">Password encryption</a></li>
+<li><a href="agents/proxy.html">Proxy server</a></li>
+<li><a href="agents/logging.html">Logging</a></li>
+<li><a href="agents/extension.html">Extensions</a></li>
 </ul>
 
                                 
@@ -12244,7 +12228,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On-prem agent","date":"2019-09-05T12:00:00.000Z","isTocVisible":true,"level":"1.15.2","depth":2,"next":{"title":"Setup agent","level":"1.15.2.1","depth":3,"path":"on-prem/agents/setup.md","ref":"on-prem/agents/setup.md","articles":[]},"previous":{"title":"Common configuration for agents","level":"1.15.1.4","depth":3,"path":"on-prem/groups/common-config.md","ref":"on-prem/groups/common-config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/agents.md","mtime":"2019-09-19T21:17:23.829Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-19T21:19:40.198Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"On-prem agent","date":"2019-09-05T12:00:00.000Z","isTocVisible":true,"level":"1.15.2","depth":2,"next":{"title":"Setup agent","level":"1.15.2.1","depth":3,"path":"on-prem/agents/setup.md","ref":"on-prem/agents/setup.md","articles":[]},"previous":{"title":"Common configuration for agents","level":"1.15.1.4","depth":3,"path":"on-prem/groups/common-config.md","ref":"on-prem/groups/common-config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/agents.md","mtime":"2019-09-19T22:58:49.183Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-19T23:00:53.895Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

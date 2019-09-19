@@ -12113,7 +12113,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="run-on-prem-agent">Run On-prem Agent</h1>
-<h2 id="linux-64-bit-and-mac-os-x">Linux 64-bit and Mac OS X</h2>
+<p>An on-prem agent requires an active connection between the agent running within your network and Workato&apos;s <a href="https://workato.com/on_prem_groups/" target="_blank">On-prem group dashboard</a>.</p>
+<p>You may occasionally need to temporarily disable this connection. For example, restarting or <a href="upgade.md">upgrading</a> the on-prem agent.</p>
+<h2 id="disable-on-prem-agent">Disable on-prem agent</h2>
+<p>To do so, simply select <strong>Disable agent</strong>.</p>
+<p><img src="../../assets/images/on-prem/toggle-opa-off.png" alt="Temporarily disable on-prem agent">
+<em>Temporarily disable on-prem agent</em></p>
+<h2 id="re-establish-connection-with-on-prem-agent">Re-establish connection with on-prem agent</h2>
+<p>To reconnect your on-prem agent to Workato, you have to do the following steps. Please follow the instructions according to your network&apos;s operating system.</p>
+<h3 id="running-on-linux-64-bit-and-mac-os-x">Running on Linux 64-bit and Mac OS X</h3>
 <p>If your on-prem agent is installed in a Linux or Mac OS, run the on-prem agent using the following bash script:</p>
 <pre><code class="lang-bash">sh &lt;INSTALL_HOME&gt;/bin/run.sh
 </code></pre>
@@ -12121,7 +12129,7 @@
 <pre><code class="lang-bash">sh &lt;INSTALL_HOME&gt;/bin/run.sh &gt; opa_output.txt &amp;
 </code></pre>
 <p>Level of details of the OPA logs depend on your configuration. <a href="logging.html">Learn more</a>.</p>
-<h2 id="windows-64-bit">Windows 64-bit</h2>
+<h2 id="running-on-windows-64-bit">Running on Windows 64-bit</h2>
 <p>For on-prem agents installed in Windows, run the agent as a Windows console application or as a <a href="#using-windows-service">Windows Service</a>.</p>
 <p>Run the on-prem agent in console mode by launching <code>Workato</code> &#x2192; <code>Run Agent (console)</code> in the Start Menu.</p>
 <p>Alternatively, you can use the <code>Run Agent (console)</code> shortcut to ensure the agent is successfully connecting to Workato using the provided certificate.</p>
@@ -12130,15 +12138,26 @@
 <h3 id="browsing-log-files">Browsing log files</h3>
 <p>When the on-prem agent is running as a Windows service, log files can be found at: <code>%SYSTEMROOT%\System32\LogFiles\Workato</code>. There&apos;s also a shortcut to the Workato log directory in the <code>Workato</code> group found in the Start Menu.</p>
 <p>Level of details of the OPA logs depend on your configuration. <a href="logging.html">Learn more</a>.</p>
-<h2 id="confirming-your-on-prem-agent-is-running-and-connected">Confirming your on-prem agent is running and connected</h2>
-<p>To check if your on-prem agent is running and connected, head back to the <a href="https://www.workato.com/secure_agents" target="_blank">on-prem agent page</a>. Alternatively, you can find it in the top navigation bar under <code>Tools</code> &gt; <code>On-prem agent</code>.</p>
-<p><img src="../../assets/images/on-prem/navigate-to-opa.gif" alt="On-prem option">
-<em>Navigating to the on-prem agent page</em></p>
-<p>If successful, you should see the following in the agent you have just created.</p>
-<p><img src="../../assets/images/on-prem/Confirmation-of-OPA.gif" alt="Confirmation of on-prem agent">
-<em>On-prem agent page when connected and running</em></p>
-<p>Your on-prem agent&apos;s status in the top left should be labelled green and <code>Active</code></p>
-<p>After you&apos;ve configured and secured a connection to Workato using your on-prem agent, its time to <a href="connection.html">finally set up connections to your recipes in Workato.</a></p>
+<h2 id="on-prem-agent-is-reconnected">On-prem agent is reconnected</h2>
+<p>To finish re-establishing the connection, go to the On-prem group dashboard and connect to your on-prem agent.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable agent</td>
+<td style="text-align:left">From the Workato On-prem group dashboard, select <strong>Enable agent</strong>.<br><img src="../../assets/images/on-prem/toggle-opa-on.png" alt="Enable on-prem agent"></td>
+</tr>
+<tr>
+<td>Connection established</td>
+<td style="text-align:left">Workato will send a request to your on-prem agent to establish a connection. If sucecessful, the status will return to <strong>Active</strong>.<br><img src="../../assets/images/on-prem/opa-connected.png" alt="Enable on-prem agent"></td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -12221,7 +12240,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Run agent","date":"2018-05-09T12:00:00.000Z","isTocVisible":true,"level":"1.15.2.2","depth":3,"next":{"title":"Upgrade agent","level":"1.15.2.3","depth":3,"path":"on-prem/agents/upgrade.md","ref":"on-prem/agents/upgrade.md","articles":[]},"previous":{"title":"Setup agent","level":"1.15.2.1","depth":3,"path":"on-prem/agents/setup.md","ref":"on-prem/agents/setup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/agents/run.md","mtime":"2019-09-19T21:17:23.829Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-19T21:19:40.198Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Run agent","date":"2018-05-09T12:00:00.000Z","isTocVisible":true,"level":"1.15.2.2","depth":3,"next":{"title":"Upgrade agent","level":"1.15.2.3","depth":3,"path":"on-prem/agents/upgrade.md","ref":"on-prem/agents/upgrade.md","articles":[]},"previous":{"title":"Setup agent","level":"1.15.2.1","depth":3,"path":"on-prem/agents/setup.md","ref":"on-prem/agents/setup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/agents/run.md","mtime":"2019-09-19T22:58:49.187Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-19T23:00:53.895Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
