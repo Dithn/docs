@@ -12287,7 +12287,7 @@
   }
 }
 </code></pre>
-<h3 id="using-the-acquire-block">Using the <code>acquire:</code> block</h3>
+<h2 id="using-the-acquire-block">Using the <code>acquire:</code> block</h2>
 <p>Context is same as an action&apos;s execute block. You can write the require code here to acquire and store relevant credentials data to be used in the <code>apply</code> block.</p>
 <pre><code class="lang-ruby"><span class="hljs-symbol">acquire:</span> lambda <span class="hljs-keyword">do</span> |connection|
   {
@@ -12323,7 +12323,7 @@ RESULT=TRUE
 <blockquote>
 <p>Note: When using the acquire block, this block is run only if the refresh_on or detect_on block is triggered. In cases where an access token is retrieved via the acquire block, the refresh_on or detect_on block would need to be triggered first. This can be done by registering the bad request response expected from the failed API call with no access token.</p>
 </blockquote>
-<h3 id="using-the-apply-block">Using the <code>apply:</code> block</h3>
+<h2 id="using-the-apply-block">Using the <code>apply:</code> block</h2>
 <p>Synonym of the <code>credentials</code> block. Basically how to apply the credentials to an action/trigger/test request. All requests made in actions, triggers, tests and pick lists will be applied with the credentials defined here.</p>
 <p>Here are a list of accepted inputs into the <code>apply:</code> block</p>
 <pre><code class="lang-ruby"><span class="hljs-symbol">apply:</span> lambda <span class="hljs-keyword">do</span> |connection|
@@ -12350,7 +12350,7 @@ RESULT=TRUE
 <blockquote>
 <p>The &quot;apply&quot; block will not be applied to any requests made in &quot;acquire&quot;. So you will have to include the required credentials for a successful API request here.</p>
 </blockquote>
-<h3 id="using-the-refreshon-block">Using the <code>refresh_on</code> block</h3>
+<h2 id="using-the-refreshon-block">Using the <code>refresh_on</code> block</h2>
 <p>This is an optional array of <strong>signals</strong> that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals. If a match is found, it triggers a re-authorization (execute <code>acquire</code>).</p>
 <p>This list is optional. If not defined, will default to one attempt at re-acquiring credentials for all errors.</p>
 <pre><code class="lang-ruby"><span class="hljs-symbol">refresh_on:</span> [
@@ -12367,7 +12367,7 @@ RESULT=TRUE
 <li><code>/Unauthorized/</code>: Regex matching the body or title of response</li>
 <li><code>/Invalid Ticket Id/</code>: The actual &quot;message&quot; to watch for in the case of the Zoho API</li>
 </ul>
-<h3 id="using-the-detecton-block">Using the <code>detect_on</code> block</h3>
+<h2 id="using-the-detecton-block">Using the <code>detect_on</code> block</h2>
 <p>Certain APIs don&apos;t signal errors with explicit response status code like a <code>401</code>. Instead, they return a <code>200</code> (pseudo successful response) with a payload that signals the error.</p>
 <p>For such APIs, an error (expired credentials, bad requests etc.) will not be picked up since it is interpreted as a successful request (Status code <code>200</code>). A match with the signals defined here will raise an error.</p>
 <p>When there is a match here, two things can happen.</p>
@@ -12384,9 +12384,9 @@ RESULT=TRUE
 <li><code>/^\{&quot;response&quot;:\{&quot;error&quot;.+$/</code>: Regex matching the body of response</li>
 </ul>
 <p>This list is optional. If not defined, pseudo successful response will be treated as a successful request instead of raising exceptions. Note: output values of trigger and action will be affected.</p>
-<h3 id="other-authentication-methods">Other authentication methods</h3>
+<h2 id="other-authentication-methods">Other authentication methods</h2>
 <p>Check out the other authentication methods we support as well as how to set up a custom connector that works for on-premise connections. <a href="../authentication.html">Go back to our list of authentication methods</a> or check our our <a href="../best-practices.html">best practices</a> for some tips.</p>
-<h3 id="next-section">Next section</h3>
+<h2 id="next-section">Next section</h2>
 <p>If you&apos;re already familiar with the authentication methods we support, check out the actions that our SDK supports as well as how to implement them. <a href="../action.html">Learn more</a></p>
 
                                 
@@ -12470,7 +12470,7 @@ RESULT=TRUE
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Custom Authentication","level":"1.22.5.4","depth":3,"next":{"title":"Testing your connection","level":"1.22.5.5","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]},"previous":{"title":"OAuth 2.0","level":"1.22.5.3","depth":3,"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","ref":"developing-connectors/sdk/authentication/oauth2-authentication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/authentication/custom-authentication.md","mtime":"2019-09-20T23:51:39.469Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-20T23:52:53.233Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Custom Authentication","date":"2018-05-24T14:00:00.000Z","isTocVisible":true,"level":"1.22.5.4","depth":3,"next":{"title":"Testing your connection","level":"1.22.5.5","depth":3,"path":"developing-connectors/sdk/authentication/test.md","ref":"developing-connectors/sdk/authentication/test.md","articles":[]},"previous":{"title":"OAuth 2.0","level":"1.22.5.3","depth":3,"path":"developing-connectors/sdk/authentication/oauth2-authentication.md","ref":"developing-connectors/sdk/authentication/oauth2-authentication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/sdk/authentication/custom-authentication.md","mtime":"2019-09-23T06:41:19.628Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-23T06:42:39.461Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
