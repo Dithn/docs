@@ -11522,7 +11522,7 @@
         <a href="adapters.html">
       
         
-        Adapter API
+        Connector API
       
         </a>
       
@@ -11649,7 +11649,7 @@
       
 
       
-        <a href="managed-users.html#create-new-oem-customer">
+        <a href="managed-users.html#create-customer-account">
       
         
         Create new OEM customer
@@ -11664,10 +11664,10 @@
       
 
       
-        <a href="managed-users.html#add-member-to-oem-customer-account">
+        <a href="managed-users.html#get-customer-account">
       
         
-        Add member to OEM customer account
+        Get customer account
       
         </a>
       
@@ -11679,10 +11679,10 @@
       
 
       
-        <a href="managed-users.html#query-oem-customer-account">
+        <a href="managed-users.html#upgrade-customer-account">
       
         
-        Query OEM customer account
+        Upgrading a customer account
       
         </a>
       
@@ -11694,10 +11694,10 @@
       
 
       
-        <a href="managed-users.html#query-oem-customer-connections">
+        <a href="managed-users.html#downgrade-customer-account">
       
         
-        Query OEM customer connections
+        Downgrading a customer account
       
         </a>
       
@@ -11709,10 +11709,10 @@
       
 
       
-        <a href="managed-users.html#remove-member-from-an-organization-account">
+        <a href="managed-users.html#add-member-customer-account">
       
         
-        Remove member from customer account
+        Add member to OEM customer account
       
         </a>
       
@@ -11724,10 +11724,10 @@
       
 
       
-        <a href="managed-users.html#upgrading-a-customer-account">
+        <a href="managed-users.html#remove-member-from-customer-account">
       
         
-        Upgrading a customer account
+        Remove member from customer account
       
         </a>
       
@@ -11739,10 +11739,10 @@
       
 
       
-        <a href="managed-users.html#downgrading-a-customer-account">
+        <a href="managed-users.html#list-customer-connections">
       
         
-        Downgrading a customer account
+        Get list of customer connections
       
         </a>
       
@@ -12211,45 +12211,47 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="recipe-lifecycle-management">Recipe lifecycle management</h1>
-<p>Use the following endpoints to automate the import and export of packages.</p>
-<h3 id="supported-formats">Supported Formats</h3>
-<ul>
-<li>JSON</li>
-</ul>
-<h3 id="contents">Contents</h3>
+<h3 id="quick-reference">Quick reference</h3>
+<div class="api_quick_reference"></div>
+
 <table>
 <thead>
 <tr>
+<th>Type</th>
 <th>Resource</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="#export-package-based-on-a-manifest">POST /api/packages/export/:manifest_id</a></td>
-<td>Export package based on a manifest</td>
+<td>POST</td>
+<td><a href="#export-package-based-on-a-manifest">/api/packages/export/:manifest_id</a></td>
+<td>Export package based on a manifest.</td>
 </tr>
 <tr>
-<td><a href="#import-package-into-a-folder">POST /api/packages/import/:folder_id</a></td>
-<td>Import package into a folder</td>
+<td>POST</td>
+<td><a href="#import-package-into-a-folder">/api/packages/import/:folder_id</a></td>
+<td>Import package into a folder.</td>
 </tr>
 <tr>
-<td><a href="#get-package-by-id">GET /api/packages/:id</a></td>
-<td>Get package by ID</td>
+<td>GET</td>
+<td><a href="#get-package-by-id">/api/packages/:id</a></td>
+<td>Get package by ID.</td>
 </tr>
 <tr>
-<td><a href="#download-package">GET /api/packages/:id/download</a></td>
-<td>Download package</td>
+<td>GET</td>
+<td><a href="#download-package">/api/packages/:id/download</a></td>
+<td>Download a package.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="export-package-based-on-a-manifest">Export package based on a manifest</h2>
-<blockquote>
-<p>POST /api/packages/export/:manifest_id</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Export package based on a manifest. Manifest ID is required. This is an asynchronous request. Please use the <a href="workato-api/recipe-lifecycle-management.md#get-package-by-id">GET package by ID</a> endpoint to get details of the exported package after this endpoint is used.</p>
-<h3 id="parameters">Parameters</h3>
+<p>Export package based on a manifest.</p>
+<pre><code>POST /api/packages/export/:id
+</code></pre><p>This is an asynchronous request. Use <a href="#get-package-by-id">GET package by ID</a> endpoint to get details of the exported package.</p>
+<h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -12260,44 +12262,19 @@
 </thead>
 <tbody>
 <tr>
-<td>manifest_id</td>
+<td>id</td>
 <td><strong>string</strong><br><em>required</em></td>
 <td>Export manifest ID.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>400</code></td>
-<td>Bad request</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">GET /api/packages/<span class="hljs-number">242</span>
-<span class="hljs-number">200</span>
-{  
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X POST https://workato.com/api/packages/export/&lt;manifest_id&gt; \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{  
    <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">242</span>,
    <span class="hljs-string">&quot;operation_type&quot;</span>:<span class="hljs-string">&quot;export&quot;</span>,
    <span class="hljs-string">&quot;status&quot;</span>:<span class="hljs-string">&quot;completed&quot;</span>,
@@ -12306,13 +12283,13 @@
 }
 </code></pre>
 <h2 id="import-package-into-a-folder">Import package into a folder</h2>
-<blockquote>
-<p>POST /api/packages/import/:folder_id</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Import a package (zip file) into the folder. The input is a &#x201C;application/octet-stream&#x201D; payload containing package content. <code>restart_recipes</code> should be &#x201C;true&#x201D; if running recipes need to be restarted upon import.</p>
-<p>This is an asynchronous request. Please use the <a href="workato-api/recipe-lifecycle-management.md#get-package-by-id">GET package by ID</a> endpoint to get details of the imported package after this endpoint is used.</p>
-<h3 id="parameters">Parameters</h3>
+<p>Import a package (zip file) into a folder.</p>
+<pre><code>POST /api/packages/import/:id
+</code></pre><p>This is an asynchronous request. Use <a href="#get-package-by-id">GET package by ID</a> endpoint to get details of the imported the package.</p>
+<p>The input (zip file) is a &#x201C;application/octet-stream&#x201D; payload containing package content. URL parameter <strong>restart_recipes</strong> should be <code>true</code> if the running recipes need to be restarted upon import.</p>
+<h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -12323,49 +12300,26 @@
 </thead>
 <tbody>
 <tr>
-<td>folder_id</td>
+<td>id</td>
 <td><strong>string</strong><br><em>required</em></td>
 <td>Folder ID.</td>
 </tr>
 <tr>
 <td>restart_recipes</td>
 <td><strong>boolean</strong><br><em>optional</em></td>
-<td>If <code>True</code>, it will allow the restarting of running recipes.</td>
+<td>If <code>true</code>, it will allow the restarting of running recipes.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>400</code></td>
-<td>Bad request</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">POST /api/packages/<span class="hljs-keyword">import</span>/<span class="hljs-number">2617</span>
-<span class="hljs-number">200</span>
-{  
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X POST https://workato.com/api/packages/import/&lt;folder_id&gt;?restart_recipes=true \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos; \
+      -H &apos;Content-Type: application/octet-steam&apos; \
+      -F &apos;path/to/local/file.zip&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{  
    <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">251</span>,
    <span class="hljs-string">&quot;operation_type&quot;</span>:<span class="hljs-string">&quot;import&quot;</span>,
    <span class="hljs-string">&quot;status&quot;</span>:<span class="hljs-string">&quot;completed&quot;</span>,
@@ -12373,68 +12327,11 @@
 }
 </code></pre>
 <h2 id="get-package-by-id">Get package by ID</h2>
-<blockquote>
-<p>GET /api/packages/:id</p>
-</blockquote>
-<h3 id="description">Description</h3>
 <p>Get details of an imported or exported package.</p>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>400</code></td>
-<td>Bad request</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example">Example</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">GET /api/packages/<span class="hljs-number">242</span>
-<span class="hljs-number">200</span>
-{  
-   <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">242</span>,
-   <span class="hljs-string">&quot;operation_type&quot;</span>:<span class="hljs-string">&quot;export&quot;</span>,
-   <span class="hljs-string">&quot;status&quot;</span>:<span class="hljs-string">&quot;completed&quot;</span>,
-   <span class="hljs-string">&quot;export_manifest_id&quot;</span>:<span class="hljs-number">3</span>,
-   <span class="hljs-string">&quot;download_url&quot;</span>:<span class="hljs-string">&quot;https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip&quot;</span>
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/packages/<span class="hljs-number">245</span>
-<span class="hljs-number">200</span>
-{  
-   <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">242</span>,
-   <span class="hljs-string">&quot;operation_type&quot;</span>:<span class="hljs-string">&quot;export&quot;</span>,
-   <span class="hljs-string">&quot;status&quot;</span>:<span class="hljs-string">&quot;failed&quot;</span>,
-   <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-string">&quot;error_message&quot;</span>
-   <span class="hljs-string">&quot;export_manifest_id&quot;</span>:<span class="hljs-number">4</span>,
-   <span class="hljs-string">&quot;download_url&quot;</span>:<span class="hljs-string">&quot;null&quot;</span>
-}
-</code></pre>
-<h2 id="download-package">Download package</h2>
-<blockquote>
-<p>GET /api/packages/:id/download</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>If successful, redirects to package content. Returns <code>404</code> if package not found or doesn&apos;t have content.</p>
-<h3 id="parameters">Parameters</h3>
+<pre><code>GET /api/packages/:id
+</code></pre><h3 id="url-paramters">URL paramters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -12451,37 +12348,64 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X GET https://workato.com/api/packages/&lt;package_id&gt; \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<ul>
+<li>This shows a successful export.</li>
+</ul>
+<pre><code class="lang-json">{  
+   <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">242</span>,
+   <span class="hljs-string">&quot;operation_type&quot;</span>:<span class="hljs-string">&quot;export&quot;</span>,
+   <span class="hljs-string">&quot;status&quot;</span>:<span class="hljs-string">&quot;completed&quot;</span>,
+   <span class="hljs-string">&quot;export_manifest_id&quot;</span>:<span class="hljs-number">3</span>,
+   <span class="hljs-string">&quot;download_url&quot;</span>:<span class="hljs-string">&quot;https://workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip&quot;</span>
+}
+</code></pre>
+<ul>
+<li>This shows a packages that failed to export properly.</li>
+</ul>
+<pre><code class="lang-json">{  
+   <span class="hljs-string">&quot;id&quot;</span>:<span class="hljs-number">242</span>,
+   <span class="hljs-string">&quot;operation_type&quot;</span>:<span class="hljs-string">&quot;export&quot;</span>,
+   <span class="hljs-string">&quot;status&quot;</span>:<span class="hljs-string">&quot;failed&quot;</span>,
+   <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-string">&quot;error_message&quot;</span>
+   <span class="hljs-string">&quot;export_manifest_id&quot;</span>:<span class="hljs-number">4</span>,
+   <span class="hljs-string">&quot;download_url&quot;</span>:<span class="hljs-string">&quot;null&quot;</span>
+}
+</code></pre>
+<h2 id="download-package">Download package</h2>
+<p>Downloads a package.</p>
+<pre><code>GET /api/packages/:id/download
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
-<th>Code</th>
+<th>Name</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>400</code></td>
-<td>Bad request</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
+<td>id</td>
+<td><strong>string</strong><br><em>required</em></td>
+<td>Package ID.</td>
 </tr>
 </tbody>
 </table>
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X GET https://workato.com/api/packages/&lt;package_id&gt;/download \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<p>If successful, you will be redirected to the package content. Returns <code>404</code> if package not found or doesn&apos;t have content.</p>
 
                                 
                                 </section>
@@ -12564,7 +12488,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Recipe lifecycle management","date":"2019-04-25T12:20:00.000Z","level":"1.24.7","depth":2,"next":{"title":"Export package","level":"1.24.7.1","depth":3,"anchor":"#export-package-based-on-a-manifest","path":"workato-api/recipe-lifecycle-management.md","ref":"workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest","articles":[]},"previous":{"title":"Get user details","level":"1.24.6.1","depth":3,"anchor":"#get-user-details","path":"workato-api/users.md","ref":"workato-api/users.md#get-user-details","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/recipe-lifecycle-management.md","mtime":"2019-09-23T06:45:58.437Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-23T06:47:31.520Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Recipe lifecycle management","date":"2019-04-25T12:20:00.000Z","isTocVisible":true,"level":"1.24.7","depth":2,"next":{"title":"Export package","level":"1.24.7.1","depth":3,"anchor":"#export-package-based-on-a-manifest","path":"workato-api/recipe-lifecycle-management.md","ref":"workato-api/recipe-lifecycle-management.md#export-package-based-on-a-manifest","articles":[]},"previous":{"title":"Get user details","level":"1.24.6.1","depth":3,"anchor":"#get-user-details","path":"workato-api/users.md","ref":"workato-api/users.md#get-user-details","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/recipe-lifecycle-management.md","mtime":"2019-09-24T22:38:19.901Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-24T22:40:16.446Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

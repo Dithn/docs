@@ -11522,7 +11522,7 @@
         <a href="adapters.html">
       
         
-        Adapter API
+        Connector API
       
         </a>
       
@@ -11649,7 +11649,7 @@
       
 
       
-        <a href="managed-users.html#create-new-oem-customer">
+        <a href="managed-users.html#create-customer-account">
       
         
         Create new OEM customer
@@ -11664,10 +11664,10 @@
       
 
       
-        <a href="managed-users.html#add-member-to-oem-customer-account">
+        <a href="managed-users.html#get-customer-account">
       
         
-        Add member to OEM customer account
+        Get customer account
       
         </a>
       
@@ -11679,10 +11679,10 @@
       
 
       
-        <a href="managed-users.html#query-oem-customer-account">
+        <a href="managed-users.html#upgrade-customer-account">
       
         
-        Query OEM customer account
+        Upgrading a customer account
       
         </a>
       
@@ -11694,10 +11694,10 @@
       
 
       
-        <a href="managed-users.html#query-oem-customer-connections">
+        <a href="managed-users.html#downgrade-customer-account">
       
         
-        Query OEM customer connections
+        Downgrading a customer account
       
         </a>
       
@@ -11709,10 +11709,10 @@
       
 
       
-        <a href="managed-users.html#remove-member-from-an-organization-account">
+        <a href="managed-users.html#add-member-customer-account">
       
         
-        Remove member from customer account
+        Add member to OEM customer account
       
         </a>
       
@@ -11724,10 +11724,10 @@
       
 
       
-        <a href="managed-users.html#upgrading-a-customer-account">
+        <a href="managed-users.html#remove-member-from-customer-account">
       
         
-        Upgrading a customer account
+        Remove member from customer account
       
         </a>
       
@@ -11739,10 +11739,10 @@
       
 
       
-        <a href="managed-users.html#downgrading-a-customer-account">
+        <a href="managed-users.html#list-customer-connections">
       
         
-        Downgrading a customer account
+        Get list of customer connections
       
         </a>
       
@@ -12211,18 +12211,12 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="jobs">Jobs</h1>
-<p>Use the following endpoints to retrieve recipe job data in Workato.</p>
-<h2 id="supported-formats">Supported Formats</h2>
-<ul>
-<li>JSON</li>
-</ul>
 <h2 id="list-jobs-from-a-recipe">List Jobs from a Recipe</h2>
-<blockquote>
-<p>GET /api/recipes/:recipe_id/jobs  </p>
-</blockquote>
-<h3 id="description">Description</h3>
 <p>Returns aggregated job information as well as detailed job information for a specified recipe in Workato.</p>
-<h3 id="parameters">Parameters</h3>
+<pre><code>GET /api/recipes/:id/jobs
+</code></pre><h3 id="url-parameters">URL Parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -12233,7 +12227,7 @@
 </thead>
 <tbody>
 <tr>
-<td>recipe_id</td>
+<td>id</td>
 <td><strong>integer</strong><br><em>required</em></td>
 <td>Recipe id.</td>
 </tr>
@@ -12250,12 +12244,12 @@
 <tr>
 <td>prev</td>
 <td><strong>boolean</strong><br><em>optional</em></td>
-<td>Previous jobs if &apos;true&apos;, next otherwise.</td>
+<td>Previous jobs if <code>true</code>, next otherwise.</td>
 </tr>
 <tr>
 <td>failed</td>
 <td><strong>boolean</strong><br><em>(deprecated)</em></td>
-<td>If <code>True</code>, returns failed jobs only.</td>
+<td>If <code>true</code>, returns failed jobs only.</td>
 </tr>
 <tr>
 <td>status</td>
@@ -12265,109 +12259,17 @@
 <tr>
 <td>rerun_jobs</td>
 <td><strong>boolean</strong><br><em>optional</em></td>
-<td>If <code>True</code>, returns rerun jobs only.</td>
+<td>If <code>true</code>, returns rerun jobs only.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">GET /api/recipes/<span class="hljs-number">137</span>/jobs?offset_run_id=<span class="hljs-number">1</span>&amp;offset_job_id=<span class="hljs-number">2</span>&amp;prev=<span class="hljs-literal">true</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">5</span>,
-  <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">3</span>,
-  <span class="hljs-string">&quot;job_count&quot;</span>: <span class="hljs-number">8</span>,
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1004</span>,
-      <span class="hljs-string">&quot;flow_run_id&quot;</span>: <span class="hljs-number">1004</span>,
-      <span class="hljs-string">&quot;completed_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;started_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Bad request: Custom field SICCode__c is not present&quot;</span>,
-      <span class="hljs-string">&quot;lines&quot;</span>: [],
-      <span class="hljs-string">&quot;is_poll_error&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;{\&quot;error_type\&quot;:\&quot;Bad request\&quot;,\&quot;message\&quot;:\&quot;Custom field SICCode__c is not present\&quot;,\&quot;error_id\&quot;:\&quot;6b75ec2c-79df-4c09-b7b6-0137def14378\&quot;,\&quot;input\&quot;:\&quot;{\\\&quot;LastName\\\&quot;=\\u003e\\\&quot;LLLLL\\\&quot;, \\\&quot;Company\\\&quot;=\\u003e\\\&quot;CCCCC\\\&quot;, \\\&quot;Status\\\&quot;=\\u003e\\\&quot;Open - Not Contacted\\\&quot;, \\\&quot;SICCode__c\\\&quot;=\\u003e\\\&quot;CODE2\\\&quot;}\&quot;}&quot;</span>,
-      <span class="hljs-string">&quot;error_parts&quot;</span>: {
-        <span class="hljs-string">&quot;error_type&quot;</span>: <span class="hljs-string">&quot;Bad request&quot;</span>,
-        <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Custom field SICCode__c is not present&quot;</span>,
-        <span class="hljs-string">&quot;error_id&quot;</span>: <span class="hljs-string">&quot;6b75ec2c-79df-4c09-b7b6-0137def14378&quot;</span>,
-        <span class="hljs-string">&quot;input&quot;</span>: <span class="hljs-string">&quot;{\&quot;LastName\&quot;=&gt;\&quot;LLLLL\&quot;, \&quot;Company\&quot;=&gt;\&quot;CCCCC\&quot;, \&quot;Status\&quot;=&gt;\&quot;Open - Not Contacted\&quot;, \&quot;SICCode__c\&quot;=&gt;\&quot;CODE2\&quot;}&quot;</span>
-      },
-      <span class="hljs-string">&quot;is_error&quot;</span>: <span class="hljs-literal">true</span>
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1003</span>,
-      <span class="hljs-string">&quot;flow_run_id&quot;</span>: <span class="hljs-number">1004</span>,
-      <span class="hljs-string">&quot;completed_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;started_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Bad request: Custom field &apos;SICCode__c&apos; is not present&quot;</span>,
-      <span class="hljs-string">&quot;lines&quot;</span>: [],
-      <span class="hljs-string">&quot;is_poll_error&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;Bad request: Custom field &apos;SICCode__c&apos; is not present; Error ID 058ea58e-fcd5-4206-b93f-c1dcfbf95a32; input: {\&quot;LastName\&quot;=&gt;\&quot;LLLLL\&quot;, \&quot;Company\&quot;=&gt;\&quot;CCCCC\&quot;, \&quot;Status\&quot;=&gt;\&quot;Open - Not Contacted\&quot;, \&quot;SICCode__c\&quot;=&gt;\&quot;CODE1\&quot;}&quot;</span>,
-      <span class="hljs-string">&quot;error_parts&quot;</span>: {
-        <span class="hljs-string">&quot;error_type&quot;</span>: <span class="hljs-string">&quot;Bad request&quot;</span>,
-        <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Custom field &apos;SICCode__c&apos; is not present&quot;</span>,
-        <span class="hljs-string">&quot;error_id&quot;</span>: <span class="hljs-string">&quot;058ea58e-fcd5-4206-b93f-c1dcfbf95a32&quot;</span>,
-        <span class="hljs-string">&quot;input&quot;</span>: <span class="hljs-string">&quot;{\&quot;LastName\&quot;=&gt;\&quot;LLLLL\&quot;, \&quot;Company\&quot;=&gt;\&quot;CCCCC\&quot;, \&quot;Status\&quot;=&gt;\&quot;Open - Not Contacted\&quot;, \&quot;SICCode__c\&quot;=&gt;\&quot;CODE1\&quot;}&quot;</span>
-      },
-      <span class="hljs-string">&quot;is_error&quot;</span>: <span class="hljs-literal">true</span>
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1002</span>,
-      <span class="hljs-string">&quot;flow_run_id&quot;</span>: <span class="hljs-number">1002</span>,
-      <span class="hljs-string">&quot;completed_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;started_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Processed event&quot;</span>,
-      <span class="hljs-string">&quot;lines&quot;</span>: [],
-      <span class="hljs-string">&quot;is_poll_error&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;is_error&quot;</span>: <span class="hljs-literal">false</span>
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1001</span>,
-      <span class="hljs-string">&quot;flow_run_id&quot;</span>: <span class="hljs-number">1002</span>,
-      <span class="hljs-string">&quot;completed_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;started_at&quot;</span>: <span class="hljs-string">&quot;2015-01-02T01:02:03.000Z&quot;</span>,
-      <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Error&quot;</span>,
-      <span class="hljs-string">&quot;lines&quot;</span>: [],
-      <span class="hljs-string">&quot;is_poll_error&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;Error&quot;</span>,
-      <span class="hljs-string">&quot;error_parts&quot;</span>: {},
-      <span class="hljs-string">&quot;is_error&quot;</span>: <span class="hljs-literal">true</span>
-    }
-  ]
-}
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X GET http://workato.com/api/recipes/&lt;recipe_id&gt;/jobs?status=failed \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
 </code></pre>
-<pre><code class="lang-json">GET /api/recipes/<span class="hljs-number">138</span>/jobs?offset_run_id=<span class="hljs-number">1</span>&amp;offset_job_id=<span class="hljs-number">2</span>&amp;failed=<span class="hljs-literal">true</span>
-<span class="hljs-number">200</span>
-{
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">5</span>,
   <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">3</span>,
   <span class="hljs-string">&quot;job_count&quot;</span>: <span class="hljs-number">8</span>,
@@ -12503,7 +12405,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Jobs API","date":"2019-03-21T11:20:00.000Z","level":"1.24.3","depth":2,"next":{"title":"List jobs from a recipe","level":"1.24.3.1","depth":3,"anchor":"#list-jobs-from-a-recipe","path":"workato-api/jobs.md","ref":"workato-api/jobs.md#list-jobs-from-a-recipe","articles":[]},"previous":{"title":"List Connections","level":"1.24.2.1","depth":3,"anchor":"#list-connections","path":"workato-api/connections.md","ref":"workato-api/connections.md#list-connections","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/jobs.md","mtime":"2019-09-23T06:45:58.437Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-23T06:47:31.520Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jobs API","date":"2019-03-21T11:20:00.000Z","isTocVisible":true,"level":"1.24.3","depth":2,"next":{"title":"List jobs from a recipe","level":"1.24.3.1","depth":3,"anchor":"#list-jobs-from-a-recipe","path":"workato-api/jobs.md","ref":"workato-api/jobs.md#list-jobs-from-a-recipe","articles":[]},"previous":{"title":"List Connections","level":"1.24.2.1","depth":3,"anchor":"#list-connections","path":"workato-api/connections.md","ref":"workato-api/connections.md#list-connections","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/jobs.md","mtime":"2019-09-24T22:38:19.901Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-24T22:40:16.446Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

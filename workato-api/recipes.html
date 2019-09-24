@@ -11522,7 +11522,7 @@
         <a href="adapters.html">
       
         
-        Adapter API
+        Connector API
       
         </a>
       
@@ -11649,7 +11649,7 @@
       
 
       
-        <a href="managed-users.html#create-new-oem-customer">
+        <a href="managed-users.html#create-customer-account">
       
         
         Create new OEM customer
@@ -11664,10 +11664,10 @@
       
 
       
-        <a href="managed-users.html#add-member-to-oem-customer-account">
+        <a href="managed-users.html#get-customer-account">
       
         
-        Add member to OEM customer account
+        Get customer account
       
         </a>
       
@@ -11679,10 +11679,10 @@
       
 
       
-        <a href="managed-users.html#query-oem-customer-account">
+        <a href="managed-users.html#upgrade-customer-account">
       
         
-        Query OEM customer account
+        Upgrading a customer account
       
         </a>
       
@@ -11694,10 +11694,10 @@
       
 
       
-        <a href="managed-users.html#query-oem-customer-connections">
+        <a href="managed-users.html#downgrade-customer-account">
       
         
-        Query OEM customer connections
+        Downgrading a customer account
       
         </a>
       
@@ -11709,10 +11709,10 @@
       
 
       
-        <a href="managed-users.html#remove-member-from-an-organization-account">
+        <a href="managed-users.html#add-member-customer-account">
       
         
-        Remove member from customer account
+        Add member to OEM customer account
       
         </a>
       
@@ -11724,10 +11724,10 @@
       
 
       
-        <a href="managed-users.html#upgrading-a-customer-account">
+        <a href="managed-users.html#remove-member-from-customer-account">
       
         
-        Upgrading a customer account
+        Remove member from customer account
       
         </a>
       
@@ -11739,10 +11739,10 @@
       
 
       
-        <a href="managed-users.html#downgrading-a-customer-account">
+        <a href="managed-users.html#list-customer-connections">
       
         
-        Downgrading a customer account
+        Get list of customer connections
       
         </a>
       
@@ -12211,61 +12211,66 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="recipes">Recipes</h1>
-<p>Use the following endpoints to work with recipes in Workato.</p>
-<h3 id="supported-formats">Supported Formats</h3>
-<ul>
-<li>JSON</li>
-</ul>
-<h3 id="contents">Contents</h3>
+<h3 id="quick-reference">Quick reference</h3>
+<div class="api_quick_reference"></div>
+
 <table>
 <thead>
 <tr>
+<th>Type</th>
 <th>Resource</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="#get-recipe-details">GET /api/recipes/:id</a></td>
-<td>Get recipe details</td>
+<td>GET</td>
+<td><a href="#get-recipe-details">/api/recipes/:id</a></td>
+<td>Get recipe details.</td>
 </tr>
 <tr>
-<td><a href="#create-a-recipe">POST /api/recipes</a></td>
-<td>Create recipe</td>
+<td>POST</td>
+<td><a href="#create-a-recipe">/api/recipes</a></td>
+<td>Create a recipe.</td>
 </tr>
 <tr>
-<td><a href="#update-a-recipe">PUT /api/recipes/:id</a></td>
-<td>Update recipe</td>
+<td>PUT</td>
+<td><a href="#update-a-recipe">/api/recipes/:id</a></td>
+<td>Update a recipe.</td>
 </tr>
 <tr>
-<td><a href="#list-recipes-belonging-to-user">GET /api/recipes</a></td>
-<td>List recipes belonging to user</td>
+<td>GET</td>
+<td><a href="#list-recipes-belonging-to-user">/api/recipes</a></td>
+<td>List recipes belonging to user.</td>
 </tr>
 <tr>
-<td><a href="#search-for-public-recipes">GET /api/recipes/search</a></td>
+<td>GET</td>
+<td><a href="#search-for-public-recipes">/api/recipes/search</a></td>
 <td>Search for public recipes. Requires &apos;oem_vendor&apos; privilege.</td>
 </tr>
 <tr>
-<td><a href="#start-recipe">PUT /api/recipes/:id/start</a></td>
-<td>Start recipe</td>
+<td>PUT</td>
+<td><a href="#start-recipe">/api/recipes/:id/start</a></td>
+<td>Start recipe.</td>
 </tr>
 <tr>
-<td><a href="#stop-recipe">PUT /api/recipes/:id/stop</a></td>
-<td>Stop recipe</td>
+<td>PUT</td>
+<td><a href="#stop-recipe">/api/recipes/:id/stop</a></td>
+<td>Stop recipe.</td>
 </tr>
 <tr>
-<td><a href="#delete-recipe">DELETE /api/recipes/:id</a></td>
-<td>Delete recipe</td>
+<td>DELETE</td>
+<td><a href="#delete-recipe">/api/recipes/:id</a></td>
+<td>Delete recipe.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="get-recipe-details">Get recipe details</h2>
-<blockquote>
-<p>GET /api/integrations</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Returns a recipe object.</p>
-<h3 id="parameters">Parameters</h3>
+<p>Returns details about a recipe object.</p>
+<pre><code>GET /api/recipes/:id
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -12282,38 +12287,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>400</code></td>
-<td>Bad request</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">GET /api/recipes/<span class="hljs-number">48</span>
-<span class="hljs-number">200</span>
-{
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X GET https://workato.com/api/recipes/&lt;recipe_id&gt; \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">48</span>,
   <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">36</span>,
   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 48&quot;</span>,
@@ -12352,20 +12332,12 @@
   <span class="hljs-string">&quot;author_name&quot;</span>: <span class="hljs-string">&quot;Test User36&quot;</span>
 }
 </code></pre>
-<h4 id="not-found-404">Not found: 404</h4>
-<pre><code class="lang-json">GET /api/recipes/<span class="hljs-number">100500</span>
-<span class="hljs-number">404</span>
-{
-  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Not found&quot;</span>
-}
-</code></pre>
 <h2 id="create-a-recipe">Create a recipe</h2>
-<blockquote>
-<p>POST /api/recipes</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Creates a recipe in Workato based on parameters in request.</p>
-<h3 id="parameters">Parameters</h3>
+<p>Creates a recipe in Workato based on parameters in the request.</p>
+<pre><code>POST /api/recipes
+</code></pre><h3 id="request-body">Request body</h3>
+<div class="api_input"> </div>
+
 <table>
 <thead>
 <tr>
@@ -12376,72 +12348,50 @@
 </thead>
 <tbody>
 <tr>
+<td>name</td>
+<td><strong>string</strong><br><em>required</em></td>
+<td>Name of the recipe.</td>
+</tr>
+<tr>
+<td>code</td>
+<td><strong>string</strong><br><em>required</em></td>
+<td>JSON string representing the recipe lines.</td>
+</tr>
+<tr>
+<td>config</td>
+<td><strong>string</strong><br><em>required</em></td>
+<td>JSON string representing the connection lines.</td>
+</tr>
+<tr>
 <td>recipe</td>
 <td><strong>hash</strong><br><em>optional</em></td>
 <td>The hash of the recipe.</td>
 </tr>
-<tr>
-<td>recipe[name]</td>
-<td><strong>string</strong><br><em>optional</em></td>
-<td>Name of the recipe.</td>
-</tr>
-<tr>
-<td>recipe[code]</td>
-<td><strong>string</strong><br><em>optional</em></td>
-<td>JSON string representing the recipe lines.</td>
-</tr>
-<tr>
-<td>recipe[config]</td>
-<td><strong>string</strong><br><em>optional</em></td>
-<td>JSON string representing the connection lines.</td>
-</tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">POST /api/recipes
-{
-  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Send mail&quot;</span>,
-  <span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-string">&quot;{\&quot;number\&quot;:0,\&quot;provider\&quot;:\&quot;clock\&quot;,\&quot;name\&quot;:\&quot;timer\&quot;,\&quot;as\&quot;:\&quot;timer\&quot;,\&quot;keyword\&quot;:\&quot;trigger\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{\&quot;interval\&quot;:\&quot;5\&quot;,\&quot;start_at\&quot;:\&quot;\&quot;},\&quot;block\&quot;:[{\&quot;number\&quot;:1,\&quot;provider\&quot;:\&quot;email\&quot;,\&quot;name\&quot;:\&quot;send_mail\&quot;,\&quot;as\&quot;:\&quot;send_mail\&quot;,\&quot;keyword\&quot;:\&quot;action\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{},\&quot;uuid\&quot;:\&quot;cd865246-ece7-4188-845e-33d021664be3\&quot;}],\&quot;uuid\&quot;:\&quot;c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\&quot;}&quot;</span>,
-  <span class="hljs-string">&quot;config&quot;</span>: <span class="hljs-string">&quot;[{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;clock\&quot;,\&quot;provider\&quot;:\&quot;clock\&quot;},{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;email\&quot;,\&quot;provider\&quot;:\&quot;email\&quot;}]&quot;</span>
-}
-
-<span class="hljs-number">200</span>
-{
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X POST https://workato.com/api/recipes \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos; \
+      -H &apos;Content-Type: application/json&apos; \
+      -d  &apos;{
+            &quot;name&quot;: &quot;Send mail&quot;,
+            &quot;code&quot;: &quot;{\&quot;number\&quot;:0,\&quot;provider\&quot;:\&quot;clock\&quot;,\&quot;name\&quot;:\&quot;timer\&quot;,\&quot;as\&quot;:\&quot;timer\&quot;,\&quot;keyword\&quot;:\&quot;trigger\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{\&quot;interval\&quot;:\&quot;5\&quot;,\&quot;start_at\&quot;:\&quot;\&quot;},\&quot;block\&quot;:[{\&quot;number\&quot;:1,\&quot;provider\&quot;:\&quot;email\&quot;,\&quot;name\&quot;:\&quot;send_mail\&quot;,\&quot;as\&quot;:\&quot;send_mail\&quot;,\&quot;keyword\&quot;:\&quot;action\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{},\&quot;uuid\&quot;:\&quot;cd865246-ece7-4188-845e-33d021664be3\&quot;}],\&quot;uuid\&quot;:\&quot;c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\&quot;}&quot;,
+            &quot;config&quot;: &quot;[{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;clock\&quot;,\&quot;provider\&quot;:\&quot;clock\&quot;},{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;email\&quot;,\&quot;provider\&quot;:\&quot;email\&quot;}]&quot;
+          }&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">116</span>
 }
 </code></pre>
 <h2 id="update-a-recipe">Update a recipe</h2>
-<blockquote>
-<p>PUT /api/recipes/:id</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Updates a recipe in Workato based on specified recipe ID.</p>
-<h3 id="parameters">Parameters</h3>
+<p>Updates an existing recipe in Workato specified based on recipe ID. Recipe details are defined based on parameters in the request.</p>
+<pre><code>PUT /api/recipes/:id
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -12456,6 +12406,20 @@
 <td><strong>integer</strong><br><em>required</em></td>
 <td>Recipe ID.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="request-body">Request body</h3>
+<div class="api_input"></div>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>recipe</td>
 <td><strong>hash</strong><br><em>optional</em></td>
@@ -12478,49 +12442,26 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">1</span>
-{
-  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Send mail&quot;</span>,
-  <span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-string">&quot;{\&quot;number\&quot;:0,\&quot;provider\&quot;:\&quot;clock\&quot;,\&quot;name\&quot;:\&quot;timer\&quot;,\&quot;as\&quot;:\&quot;timer\&quot;,\&quot;keyword\&quot;:\&quot;trigger\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{\&quot;interval\&quot;:\&quot;5\&quot;,\&quot;start_at\&quot;:\&quot;\&quot;},\&quot;block\&quot;:[{\&quot;number\&quot;:1,\&quot;provider\&quot;:\&quot;email\&quot;,\&quot;name\&quot;:\&quot;send_mail\&quot;,\&quot;as\&quot;:\&quot;send_mail\&quot;,\&quot;keyword\&quot;:\&quot;action\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{},\&quot;uuid\&quot;:\&quot;cd865246-ece7-4188-845e-33d021664be3\&quot;}],\&quot;uuid\&quot;:\&quot;c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\&quot;}&quot;</span>,
-  <span class="hljs-string">&quot;config&quot;</span>: <span class="hljs-string">&quot;[{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;clock\&quot;,\&quot;provider\&quot;:\&quot;clock\&quot;},{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;email\&quot;,\&quot;provider\&quot;:\&quot;email\&quot;}]&quot;</span>
-}
-<span class="hljs-number">200</span>
-{
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X PUT https://workato.com/api/recipes/&lt;recipe_id&gt; \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos; \
+      -H &apos;Content-Type: application/json&apos; \
+      -d  &apos;{
+            &quot;name&quot;: &quot;Send mail&quot;,
+            &quot;code&quot;: &quot;{\&quot;number\&quot;:0,\&quot;provider\&quot;:\&quot;clock\&quot;,\&quot;name\&quot;:\&quot;timer\&quot;,\&quot;as\&quot;:\&quot;timer\&quot;,\&quot;keyword\&quot;:\&quot;trigger\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{\&quot;interval\&quot;:\&quot;5\&quot;,\&quot;start_at\&quot;:\&quot;\&quot;},\&quot;block\&quot;:[{\&quot;number\&quot;:1,\&quot;provider\&quot;:\&quot;email\&quot;,\&quot;name\&quot;:\&quot;send_mail\&quot;,\&quot;as\&quot;:\&quot;send_mail\&quot;,\&quot;keyword\&quot;:\&quot;action\&quot;,\&quot;dynamicPickListSelection\&quot;:{},\&quot;toggleCfg\&quot;:{},\&quot;input\&quot;:{},\&quot;uuid\&quot;:\&quot;cd865246-ece7-4188-845e-33d021664be3\&quot;}],\&quot;uuid\&quot;:\&quot;c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\&quot;}&quot;,
+            &quot;config&quot;: &quot;[{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;clock\&quot;,\&quot;provider\&quot;:\&quot;clock\&quot;},{\&quot;keyword\&quot;:\&quot;application\&quot;,\&quot;name\&quot;:\&quot;email\&quot;,\&quot;provider\&quot;:\&quot;email\&quot;}]&quot;
+          }&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
 }
 </code></pre>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">2</span>
-<span class="hljs-number">200</span>
-{
+<blockquote>
+<p>Note: You cannot update a running recipe.</p>
+</blockquote>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-string">&quot;errors&quot;</span>: {
     <span class="hljs-string">&quot;running&quot;</span>: [
@@ -12530,11 +12471,11 @@
 }
 </code></pre>
 <h2 id="list-recipes-belonging-to-user">List recipes belonging to user</h2>
-<blockquote>
-<p>GET /api/recipes</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Returns a list of recipes belonging to the authenticated user with respect to different filters. Recipes are returned in descending ID order.</p>
+<p>Returns a list of recipes belonging to the authenticated user. Recipes are returned in descending ID order.</p>
+<pre><code>GET /api/recipes
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"> </div>
+
 <table>
 <thead>
 <tr>
@@ -12557,7 +12498,7 @@
 <tr>
 <td>active</td>
 <td><strong>string</strong><br><em>optional</em></td>
-<td>If <code>True</code>, returns running recipes.</td>
+<td>If <code>true</code>, returns running recipes.</td>
 </tr>
 <tr>
 <td>since_id</td>
@@ -12567,311 +12508,17 @@
 <tr>
 <td>order</td>
 <td><strong>string</strong><br><em>optional</em></td>
-<td>Set ordering method or default if blank. Possible options: activity.</td>
+<td>Set ordering method. Possible options: activity, default.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">GET /api/recipes?active=<span class="hljs-literal">false</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">10</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">15</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 10&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.626Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.626Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 10&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">8</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">15</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 8&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.577Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.577Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 8&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X GET https://workato.com/api/recipes/?adapter_names_any=custom_adapter&amp;custom_adapter1 \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
 </code></pre>
-<pre><code class="lang-json">GET /api/recipes?per_page=<span class="hljs-number">2</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">14</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 14&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.895Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.895Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 14&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">13</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 13&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.872Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:34.872Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 13&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">11</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">3</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:43:34.864Z&quot;</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes?adapter_names_any=custom_adapter
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">19</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 17&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.130Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.130Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 17&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">15</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">3</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:43:35.120Z&quot;</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">16</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">19</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 16&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.101Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.101Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 16&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes?per_page=<span class="hljs-number">2</span>&amp;since_id=<span class="hljs-number">22</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">21</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">21</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 21&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.363Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.363Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 21&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">20</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">3</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:43:35.353Z&quot;</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">20</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">21</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 20&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.337Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.337Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 20&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">26</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">23</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 26&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.615Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.615Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 26&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">25</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">23</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 25&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.591Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.591Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 25&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">4</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:43:35.581Z&quot;</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">24</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">23</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 24&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.565Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:35.565Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 24&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes?adapter_names_all=custom_adapter%<span class="hljs-number">2</span>Ccustom_adapter1
-<span class="hljs-number">200</span>
-{
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;items&quot;</span>: [
     {
       <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">29</span>,
@@ -12900,144 +12547,13 @@
   ]
 }
 </code></pre>
-<pre><code class="lang-json">GET /api/recipes?active=<span class="hljs-literal">true</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">33</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">27</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 33&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.011Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.011Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 33&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">10</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:43:36.002Z&quot;</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes?page=<span class="hljs-number">2</span>&amp;per_page=<span class="hljs-number">2</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">36</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">29</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 36&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.197Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.197Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 36&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes?order=activity
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">41</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">31</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 41&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.446Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.446Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 41&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">18</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">3</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:43:36.437Z&quot;</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">42</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">31</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 42&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.469Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.469Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 42&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">40</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">31</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 40&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.420Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:36.420Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 40&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;running&quot;</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-string">&quot;job_succeeded_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;job_failed_count&quot;</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-string">&quot;last_run_at&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;config&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
 <h2 id="search-for-public-recipes">Search for public recipes</h2>
-<blockquote>
-<p>GET /api/recipes/search</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Searches for public recipes and returns a list. Requires &apos;oem_vendor&apos; privilege. Returns an empty list when no matching connectors are found.</p>
-<h3 id="parameters">Parameters</h3>
+<p>Searches for public recipes and returns a list. Returns an empty list when no matching connectors are found.</p>
+<p>This requires <code>oem_vendor</code> privilege.</p>
+<pre><code>GET /api/recipes/search
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -13048,11 +12564,6 @@
 </thead>
 <tbody>
 <tr>
-<td>applications</td>
-<td><strong>string</strong><br><em>optional</em></td>
-<td>Comma separated connector identifiers (e.g: salesforce,service_now). Resulting recipes should use at least one of given connectors.</td>
-</tr>
-<tr>
 <td>term</td>
 <td><strong>string</strong><br><em>optional</em></td>
 <td>Search term.</td>
@@ -13060,7 +12571,7 @@
 <tr>
 <td>boost_owned</td>
 <td><strong>boolean</strong><br><em>optional</em></td>
-<td>If <code>True</code>, returned results will give priority to recipes in your account. Defaults to <code>False</code>.</td>
+<td>If <code>true</code>, returned results will give priority to recipes in your account. Defaults to <code>false</code>.</td>
 </tr>
 <tr>
 <td>page</td>
@@ -13074,34 +12585,36 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="request-body">Request body</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
-<th>Code</th>
+<th>Name</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
+<td>applications</td>
+<td><strong>string</strong><br><em>required</em></td>
+<td>Comma separated connector identifiers (e.g: salesforce,service_now).</td>
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">GET /api/recipes/search?page=<span class="hljs-number">2</span>&amp;per_page=<span class="hljs-number">3</span>
-<span class="hljs-number">200</span>
-{
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X GET https://workato.com/api/recipes/search?per_page=1 \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos; \
+      -H &apos;Content-Type: application/json&apos; \
+      -d &apos;{
+            &quot;applications&quot;: &quot;salesforce,service_now&quot;
+          }&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;items&quot;</span>: [
     {
       <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">59</span>,
@@ -13112,10 +12625,11 @@
       <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
       <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
       <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
+        <span class="hljs-string">&quot;salesforce&quot;</span>,
+        <span class="hljs-string">&quot;service_now&quot;</span>
       ],
       <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
+        <span class="hljs-string">&quot;salesforce&quot;</span>
       ],
       <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 58&quot;</span>,
       <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
@@ -13123,402 +12637,12 @@
   ]
 }
 </code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?per_page=<span class="hljs-number">2</span>&amp;since_id=<span class="hljs-number">66</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">65</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">53</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 64&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.363Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.363Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 64&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">64</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">53</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 63&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.337Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.337Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 63&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?adapter_names_any=custom_adapter%<span class="hljs-number">2</span>custom_adapter1
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">70</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">56</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 69&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.648Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.648Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 69&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">71</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">56</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 70&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.674Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.674Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 70&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">69</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">56</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 68&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.623Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:39.623Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 68&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?user_id=<span class="hljs-number">60</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">77</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">60</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 76&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.001Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.001Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 76&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">80</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">62</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 79&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.261Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.261Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 79&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">82</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">63</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 81&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.326Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.326Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 81&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">81</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">62</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 80&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.292Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.292Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 80&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">79</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">62</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 78&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.219Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.219Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 78&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?adapter_names_all=custom_adapter%<span class="hljs-number">2</span>custom_adapter1
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">85</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">65</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 84&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.586Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.586Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 84&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">86</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">65</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 85&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.617Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.617Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 85&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?per_page=<span class="hljs-number">2</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">90</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">68</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 89&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.879Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.879Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 89&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">92</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">69</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 91&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.937Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:40.937Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 91&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?cloned_recipe_id=<span class="hljs-literal">true</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">95</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">71</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 94&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.201Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.201Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 94&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;cloned_recipe_id&quot;</span>: <span class="hljs-literal">null</span>
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">97</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">72</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 96&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.256Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.256Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [],
-      <span class="hljs-string">&quot;applications&quot;</span>: [],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 96&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;cloned_recipe_id&quot;</span>: <span class="hljs-literal">null</span>
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">96</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">71</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 95&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.227Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.227Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 95&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;cloned_recipe_id&quot;</span>: <span class="hljs-literal">null</span>
-    },
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">94</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">71</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 93&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.143Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.143Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">1</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 93&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: [],
-      <span class="hljs-string">&quot;cloned_recipe_id&quot;</span>: <span class="hljs-number">98</span>
-    }
-  ]
-}
-</code></pre>
-<pre><code class="lang-json">GET /api/recipes/search?adapter_names_any=custom_adapter%<span class="hljs-number">2</span>custom_adapter1&amp;curated=<span class="hljs-literal">true</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;items&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">100</span>,
-      <span class="hljs-string">&quot;user_id&quot;</span>: <span class="hljs-number">74</span>,
-      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Recipe 99&quot;</span>,
-      <span class="hljs-string">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.477Z&quot;</span>,
-      <span class="hljs-string">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2015-05-26T22:53:41.477Z&quot;</span>,
-      <span class="hljs-string">&quot;copy_count&quot;</span>: <span class="hljs-number">17</span>,
-      <span class="hljs-string">&quot;trigger_application&quot;</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-string">&quot;action_applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;applications&quot;</span>: [
-        <span class="hljs-string">&quot;custom_adapter&quot;</span>,
-        <span class="hljs-string">&quot;custom_adapter1&quot;</span>
-      ],
-      <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Recipe description 99&quot;</span>,
-      <span class="hljs-string">&quot;parameters_schema&quot;</span>: []
-    }
-  ]
-}
-</code></pre>
 <h2 id="start-recipe">Start recipe</h2>
-<blockquote>
-<p>PUT /api/recipes/:id/start</p>
-</blockquote>
-<h3 id="description">Description</h3>
 <p>Starts a recipe specified by recipe ID.</p>
-<h3 id="parameters">Parameters</h3>
+<pre><code>PUT /api/recipes/:id/start
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -13535,80 +12659,22 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">109</span>/start
-<span class="hljs-number">200</span>
-{
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X PUT https://workato.com/api/recipes/&lt;recipe_id&gt;/start \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
+</code></pre>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
-}
-</code></pre>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">111</span>/start
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">&quot;code_errors&quot;</span>: [
-    [
-      <span class="hljs-number">0</span>,
-      [
-        [
-          <span class="hljs-string">&quot;id&quot;</span>,
-          <span class="hljs-literal">null</span>,
-          <span class="hljs-string">&quot;can&apos;t be blank&quot;</span>
-        ]
-      ]
-    ]
-  ],
-  <span class="hljs-string">&quot;config_errors&quot;</span>: []
-}
-</code></pre>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">112</span>/start
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
-}
-</code></pre>
-<h4 id="not-found-404">Not found: 404</h4>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">114</span>/start
-<span class="hljs-number">404</span>
-{
-  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Not found&quot;</span>
 }
 </code></pre>
 <h2 id="stop-recipe">Stop recipe</h2>
-<blockquote>
-<p>PUT /api/recipes/:id/stop  </p>
-</blockquote>
-<h3 id="description">Description</h3>
 <p>Stops a recipe specified by recipe ID.</p>
-<h3 id="parameters">Parameters</h3>
+<pre><code>PUT /api/recipes/:id/stop
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -13625,55 +12691,22 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">57</span>/stop
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
-}
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X PUT https://workato.com/api/recipes/&lt;recipe_id&gt;/stop \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
 </code></pre>
-<h4 id="not-found-404">Not found: 404</h4>
-<pre><code class="lang-json">PUT /api/recipes/<span class="hljs-number">58</span>/stop
-<span class="hljs-number">404</span>
-{
-  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Not found&quot;</span>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
 }
 </code></pre>
 <h2 id="delete-recipe">Delete recipe</h2>
-<blockquote>
-<p>DELETE /api/recipes/:id</p>
-</blockquote>
-<h3 id="description">Description</h3>
-<p>Deletes a the recipe specified by id</p>
-<h3 id="parameters">Parameters</h3>
+<p>Deletes a recipe specified by id.</p>
+<pre><code>DELETE /api/recipes/:id
+</code></pre><h3 id="url-parameters">URL parameters</h3>
+<div class="api_input"></div>
+
 <table>
 <thead>
 <tr>
@@ -13690,46 +12723,14 @@
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>200</code></td>
-<td>Success</td>
-</tr>
-<tr>
-<td><code>401</code></td>
-<td>Unauthorized</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>Not found</td>
-</tr>
-<tr>
-<td><code>500</code></td>
-<td>Server error</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples">Examples</h3>
-<h4 id="success-200">Success: 200</h4>
-<pre><code class="lang-json">DELETE /api/recipes/<span class="hljs-number">1</span>
-<span class="hljs-number">200</span>
-{
-  <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
-}
+<h4 id="sample-request">Sample request</h4>
+<pre><code class="lang-shell">curl  -X DELETE https://workato.com/api/recipes/&lt;recipe_id&gt; \
+      -H &apos;x-user-email: &lt;email&gt;&apos; \
+      -H &apos;x-user-token: &lt;token&gt;&apos;
 </code></pre>
-<h4 id="not-found-404">Not found: 404</h4>
-<pre><code class="lang-json">DELETE /api/recipes/<span class="hljs-number">3</span>
-<span class="hljs-number">404</span>
-{
-  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Not found&quot;</span>
+<h3 id="response">Response</h3>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">true</span>
 }
 </code></pre>
 
@@ -13814,7 +12815,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Recipes API","date":"2019-03-21T11:20:00.000Z","level":"1.24.5","depth":2,"next":{"title":"Get recipe details","level":"1.24.5.1","depth":3,"anchor":"#get-recipe-details","path":"workato-api/recipes.md","ref":"workato-api/recipes.md#get-recipe-details","articles":[]},"previous":{"title":"Downgrading a customer account","level":"1.24.4.7","depth":3,"anchor":"#downgrading-a-customer-account","path":"workato-api/managed-users.md","ref":"workato-api/managed-users.md#downgrading-a-customer-account","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/recipes.md","mtime":"2019-09-23T06:45:58.437Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-23T06:47:31.520Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Recipes API","date":"2019-03-21T11:20:00.000Z","isTocVisible":true,"level":"1.24.5","depth":2,"next":{"title":"Get recipe details","level":"1.24.5.1","depth":3,"anchor":"#get-recipe-details","path":"workato-api/recipes.md","ref":"workato-api/recipes.md#get-recipe-details","articles":[]},"previous":{"title":"Get list of customer connections","level":"1.24.4.7","depth":3,"anchor":"#list-customer-connections","path":"workato-api/managed-users.md","ref":"workato-api/managed-users.md#list-customer-connections","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workato-api/recipes.md","mtime":"2019-09-24T22:38:19.901Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-24T22:40:16.446Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
