@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="workday-rest/new-worker-trigger.html" />
+    <link rel="next" href="workday-rest/connection-setup.html" />
     
     
     <link rel="prev" href="workday/workday_raas.html" />
@@ -9196,22 +9196,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.2" data-path="workday/get_report.html">
-      
-
-      
-        <a href="workday/get_report.html">
-      
-        
-        Get report
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.20.50.3" data-path="workday/scheduled_report.html">
+    <li class="chapter " data-level="1.20.50.2" data-path="workday/scheduled_report.html">
       
 
       
@@ -9219,6 +9204,21 @@
       
         
         Scheduled report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.3" data-path="workday/get_report.html">
+      
+
+      
+        <a href="workday/get_report.html">
+      
+        
+        Get report
       
         </a>
       
@@ -9241,7 +9241,37 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.5" data-path="workday/workday_raas.html">
+    <li class="chapter " data-level="1.20.50.5" data-path="workday/get-custom-objects.html">
+      
+
+      
+        <a href="workday/get-custom-objects.html">
+      
+        
+        Get custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.6" data-path="workday/update-custom-objects.html">
+      
+
+      
+        <a href="workday/update-custom-objects.html">
+      
+        
+        Create/update custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.7" data-path="workday/workday_raas.html">
       
 
       
@@ -9279,7 +9309,22 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.20.51.1" data-path="workday-rest/new-worker-trigger.html">
+    <li class="chapter " data-level="1.20.51.1" data-path="workday-rest/connection-setup.html">
+      
+
+      
+        <a href="workday-rest/connection-setup.html">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.51.2" data-path="workday-rest/new-worker-trigger.html">
       
 
       
@@ -9294,7 +9339,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.2" data-path="workday-rest/get-worker-action.html">
+    <li class="chapter " data-level="1.20.51.3" data-path="workday-rest/get-worker-action.html">
       
 
       
@@ -9309,7 +9354,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.3" data-path="workday-rest/search-worker-action.html">
+    <li class="chapter " data-level="1.20.51.4" data-path="workday-rest/search-worker-action.html">
       
 
       
@@ -9324,7 +9369,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.4" data-path="workday-rest/create-job-change-action.html">
+    <li class="chapter " data-level="1.20.51.5" data-path="workday-rest/create-job-change-action.html">
       
 
       
@@ -9339,7 +9384,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.5" data-path="workday-rest/get-inbox-tasks-action.html">
+    <li class="chapter " data-level="1.20.51.6" data-path="workday-rest/get-inbox-tasks-action.html">
       
 
       
@@ -9354,7 +9399,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.6" data-path="workday-rest/approve-reject-inbox-task-action.html">
+    <li class="chapter " data-level="1.20.51.7" data-path="workday-rest/approve-reject-inbox-task-action.html">
       
 
       
@@ -12212,120 +12257,17 @@
                                 
                                 <h1 id="workday-rest">Workday REST</h1>
 <p><a href="https://www.workday.com/" target="_blank">Workday</a> is a cloud financial management and human capital management software that seamlessly combines finance and HR for greater business performance and visibility into organizational data.</p>
-<h2 id="how-to-connect-to-workday-on-workato">How to connect to Workday on Workato</h2>
-<p>The Workday connector uses the <a href="https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A" target="_blank">Workday REST API</a>. Workday recommends using an Integration System User (ISU) for integration using third party services like Workato.</p>
-<h3 id="connect-to-workday-on-workato">Connect to Workday on Workato</h3>
-<p><img src="../assets/images/workday-rest/workday-rest-connection.png" alt="Workday connection fields">
-<em>Workday connection fields</em></p>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width="25%">Connection field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Connection name</td>
-      <td>
-        Give this Workday connection a unique name that identifies which Workday tenant it is connected to.
-      </td>
-    </tr>
-    <tr>
-      <td>REST API endpoint</td>
-      <td>
-        This is the base URL of all requests made to your Workday instance. You can find it by navigating to <a href="#api-client">API Client</a> page.
-      </td>
-    </tr>
-    <tr>
-      <td>Authorization endpoint</td>
-      <td>
-        Authorization endpoint of your Workday instance.
-      </td>
-    </tr>
-    <tr>
-      <td>Token endpoint</td>
-      <td>Token endpoint of your Workday instance.</td>
-    </tr>
-    <tr>
-      <td>Refresh token</td>
-      <td>Provide a refresh token if this connection is restricted to an integration user instead of a user account. See <a href="#api-client">API Client</a> for more details.
-    </td></tr>
-    <tr>
-      <td>Client ID</td>
-      <td>
-        Client ID of the <a href="#api-client">API Client</a> you created to connect to Workato.
-      </td>
-    </tr>
-    <tr>
-      <td>Client secret</td>
-      <td>
-        Client secret of the API Client you created to connect to Workato.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="api-client">API Client</h2>
-<p>You will need to create an API client to connect to Workday REST API. There are 2 ways to connect using API clients:</p>
-<ol>
-<li>Authorize using a user account</li>
-<li>Use an API Client for Integration</li>
-</ol>
-<h3 id="api-client-for-user-account">API Client for user account</h3>
-<p>Use a regular <strong>API Client</strong> to authorize a connection to the REST API using a user account.</p>
-<p>First, navigate to the <strong>View API Clients</strong> page by typing it into the search bar. You should see this screen. Here, you will see the endpoints required for the connection. Take note of <strong>REST API endpoint</strong>, <strong>Token endpoint</strong> and <strong>Authorization endpoint</strong>.</p>
-<p><img src="../assets/images/workday-rest/view-api-client-endpoints.png" alt="View API Clients">
-<em>View API clients</em></p>
-<p>Click on an existing API Clients that is available to integration if there are any. Otherwise, you need to create a new one. Navigate to <strong>Register API Client</strong> in your Workday instance.</p>
-<p><img src="../assets/images/workday-rest/register-api-client.png" alt="Register API Client">
-<em>Registering a new client</em></p>
+<p>Use the Workday REST integration connector to sync data between your Workday REST instance and other cloud applications.</p>
+<p>The Workday REST connector works best when you are executing workflow-centric actions (e.g. approve inbox task). If your use case requires you to work with larger datasets (e.g. full reports from Workday) or with custom reports/objects, use the <a href="workday.html">Workday integration connector</a> instead.</p>
+<p>The Workday REST connector documentation contains the following chapters:</p>
 <ul>
-<li>Enter a meaningful name to indicate that this API client is used for Workato recipes</li>
-<li>Select <strong>Authorization Code Grant</strong> for <strong>Client Grant Type</strong></li>
-<li>Select <strong>Bearer</strong> for <strong>Access Token Type</strong></li>
-<li>Use <code>https://www.workato.com/oauth/callback</code> as the Redirection URL</li>
-<li>Select all the <strong>OAuth2 scopes</strong> and <strong>Functional Area scope</strong> that you need for the recipes you intend to create</li>
-</ul>
-<p><img src="../assets/images/workday-rest/api-client-details.png" alt="API Client credentials">
-<em>API client details</em></p>
-<p>Remember to save the <strong>Client ID</strong> and <strong>Client Secret</strong> before clicking <strong>Done</strong>. This will be required to create a Workday REST connection.</p>
-<h3 id="api-client-for-integrations">API Client for Integrations</h3>
-<p>If you wish to use a manually generated token to connect to Workday, you will need to register an <strong>API client for integration</strong>. This is required when using an ISU that does not have login access and is used only for API access.</p>
-<p>Navigate to <strong>Register API Client for integration</strong> in your Workday instance.</p>
-<p><img src="../assets/images/workday-rest/register-api-client-for-integration.png" alt="Register API Client for Integrations">
-<em>Registering a new client for Integrations</em></p>
-<ul>
-<li>Enter a meaning name to indicate that this API client is used for Workato recipes</li>
-<li>Select <strong>Non-Expiring Refresh Tokens</strong> to avoid regenerating and reconnecting</li>
-<li>Select all the <strong>OAuth2 scopes</strong> and <strong>Functional Area scope</strong> that you need for the recipes you intend to create</li>
-</ul>
-<p><img src="../assets/images/workday-rest/api-client-for-integration-details.png" alt="API client details">
-<em>API client details</em></p>
-<p>Remember to save the <strong>Client ID</strong> and <strong>Client Secret</strong> before clicking <strong>Done</strong>. This will be required to create a Workday REST connection.</p>
-<p>Lastly, navigate to <strong>Action</strong> &gt; <strong>API Client</strong> &gt; <strong>Manage Refresh Tokens for Integrations</strong>.</p>
-<p><img src="../assets/images/workday-rest/generate-refresh-token.png" alt="Generate refresh token">
-<em>Generate refresh token</em></p>
-<p>Select the Integration user to perform all recipe actions.</p>
-<p><img src="../assets/images/workday-rest/choose-isu.png" alt="Select refresh token for ISU">
-<em>Select refresh token for ISU</em></p>
-<p>If there are no existing refresh tokens, select <strong>Generate new refresh token</strong> and copy the new <strong>Refresh token</strong>. This will be required to create a Workday REST connection.</p>
-<p><img src="../assets/images/workday-rest/isu-refresh-token.png" alt="Refresh token for ISU">
-<em>Refresh token for ISU</em></p>
-<h2 id="other-related-documentations">Other related documentations</h2>
-<ul>
-<li>Triggers<ul>
-<li><a href="workday-rest/new-worker-trigger.html">New worker</a></li>
-</ul>
-</li>
-<li>Actions<ul>
-<li><a href="workday-rest/create-job-change-action.html">Create a job change</a></li>
-<li><a href="workday-rest/get-inbox-tasks-action.html">Get inbox task(s)</a></li>
-<li><a href="workday-rest/approve-reject-inbox-task-action.html">Approve/reject inbox task</a></li>
-<li><a href="workday-rest/get-worker-action.html">Get worker by ID</a></li>
-<li><a href="workday-rest/search-worker-action.html">Search workers</a></li>
-</ul>
-</li>
+<li><a href="workday-rest/connection-setup.html">Connection setup</a></li>
+<li><a href="workday-rest/new-worker-trigger.html">New worker trigger</a></li>
+<li><a href="workday-rest/create-job-change-action.html">Create a job change action</a></li>
+<li><a href="workday-rest/get-inbox-tasks-action.html">Get inbox task(s) action</a></li>
+<li><a href="workday-rest/approve-reject-inbox-task-action.html">Approve/reject inbox task action</a></li>
+<li><a href="workday-rest/get-worker-action.html">Get worker by ID action</a></li>
+<li><a href="workday-rest/search-worker-action.html">Search workers action</a></li>
 </ul>
 
                                 
@@ -12409,7 +12351,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workday REST","date":"2019-08-01T00:00:00.000Z","level":"1.20.51","depth":2,"next":{"title":"New worker","level":"1.20.51.1","depth":3,"path":"connectors/workday-rest/new-worker-trigger.md","ref":"connectors/workday-rest/new-worker-trigger.md","articles":[]},"previous":{"title":"Report-as-a-Service","level":"1.20.50.5","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday-rest.md","mtime":"2019-09-27T04:38:00.123Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-27T04:40:18.754Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workday REST","date":"2019-08-01T00:00:00.000Z","level":"1.20.51","depth":2,"next":{"title":"Connection setup","level":"1.20.51.1","depth":3,"path":"connectors/workday-rest/connection-setup.md","ref":"connectors/workday-rest/connection-setup.md","articles":[]},"previous":{"title":"Report-as-a-Service","level":"1.20.50.7","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday-rest.md","mtime":"2019-10-01T12:46:04.235Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-01T12:50:09.654Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

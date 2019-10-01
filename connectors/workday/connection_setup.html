@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="get_report.html" />
+    <link rel="next" href="scheduled_report.html" />
     
     
     <link rel="prev" href="../workday.html" />
@@ -9196,22 +9196,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.2" data-path="get_report.html">
-      
-
-      
-        <a href="get_report.html">
-      
-        
-        Get report
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.20.50.3" data-path="scheduled_report.html">
+    <li class="chapter " data-level="1.20.50.2" data-path="scheduled_report.html">
       
 
       
@@ -9219,6 +9204,21 @@
       
         
         Scheduled report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.3" data-path="get_report.html">
+      
+
+      
+        <a href="get_report.html">
+      
+        
+        Get report
       
         </a>
       
@@ -9241,7 +9241,37 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.5" data-path="workday_raas.html">
+    <li class="chapter " data-level="1.20.50.5" data-path="get-custom-objects.html">
+      
+
+      
+        <a href="get-custom-objects.html">
+      
+        
+        Get custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.6" data-path="update-custom-objects.html">
+      
+
+      
+        <a href="update-custom-objects.html">
+      
+        
+        Create/update custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.7" data-path="workday_raas.html">
       
 
       
@@ -9279,7 +9309,22 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.20.51.1" data-path="../workday-rest/new-worker-trigger.html">
+    <li class="chapter " data-level="1.20.51.1" data-path="../workday-rest/connection-setup.html">
+      
+
+      
+        <a href="../workday-rest/connection-setup.html">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.51.2" data-path="../workday-rest/new-worker-trigger.html">
       
 
       
@@ -9294,7 +9339,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.2" data-path="../workday-rest/get-worker-action.html">
+    <li class="chapter " data-level="1.20.51.3" data-path="../workday-rest/get-worker-action.html">
       
 
       
@@ -9309,7 +9354,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.3" data-path="../workday-rest/search-worker-action.html">
+    <li class="chapter " data-level="1.20.51.4" data-path="../workday-rest/search-worker-action.html">
       
 
       
@@ -9324,7 +9369,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.4" data-path="../workday-rest/create-job-change-action.html">
+    <li class="chapter " data-level="1.20.51.5" data-path="../workday-rest/create-job-change-action.html">
       
 
       
@@ -9339,7 +9384,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.5" data-path="../workday-rest/get-inbox-tasks-action.html">
+    <li class="chapter " data-level="1.20.51.6" data-path="../workday-rest/get-inbox-tasks-action.html">
       
 
       
@@ -9354,7 +9399,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.6" data-path="../workday-rest/approve-reject-inbox-task-action.html">
+    <li class="chapter " data-level="1.20.51.7" data-path="../workday-rest/approve-reject-inbox-task-action.html">
       
 
       
@@ -12211,98 +12256,71 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="workday-connection">Workday Connection</h1>
+<p>To set up your Workday integration, first, connect your Workday instance to Workato.</p>
 <h2 id="how-to-connect-to-workday-on-workato">How to connect to Workday on Workato</h2>
 <p>The Workday connector uses the <a href="https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html" target="_blank">Workday Web Services</a>, <a href="workday_raas.html">RaaS</a> and <a href="https://doc.workday.com/reader/wsiU0cnNjCc_k7shLNxLEA/HvgwLwxCHVdBlZUTNd9s7A" target="_blank">REST API</a>. Workday recommends using an <a href="#register-integration-system-user">Integration System User (ISU)</a> for integration using third party services like Workato.</p>
-<p>Both the Workday Web Services and RaaS requires basic authentication. REST API is used to work with custom objects. This requires a separate <a href="#register-api-client">OAuth client setup</a>.</p>
+<p>Both the Workday Web Services and RaaS requires basic authentication. REST API requires an additional OAuth client setup.</p>
+<p>Workday REST API is used to work with custom objects in your Workday instance. If this is required by your use case, indicate that you are <strong>using custom objects</strong>. See instruction on how to register a Workday API client <a href="#register-api-client">here</a>.</p>
 <h3 id="connect-to-workday-on-workato">Connect to Workday on Workato</h3>
-<p>Workday asks for the following information to connect.</p>
-<p><img src="../../assets/images/workday/workday-connection-1.png" alt="Information to connect to Workday">
+<p><img src="../../assets/images/connectors/workday/workday-connection-1.png" alt="Information to connect to Workday">
 <em>Workday connection fields</em></p>
-<table class="unchanged rich-diff-level-one">
-  <thead>
-    <tr>
-        <th width="25%">Connection field</th>
-        <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Connection name</td>
-      <td>
-        Give this Workday connection a unique name that identifies which Workday tenant it is connected to.
-      </td>
-    </tr>
-    <tr>
-      <td>Login name</td>
-      <td>
-        This should be the login name for the <a href="#register-integration-system-user">ISU</a>.
-      </td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>
-        This should be the login password for the <a href="#register-integration-system-user">ISU</a>.
-      </td>
-    </tr>
-    <tr>
-      <td>Tenant ID</td>
-      <td>
-      Tenant ID can be found in the URL when you are logged into Workday.<br>
-  For example, if the URL of your Workday tenant is <b>https://impl.workday.com/sample_company/d/home.html</b>, tenant ID is <b>sample_company</b>
-      </td>
-    </tr>
-    <tr>
-      <td>WSDL URL</td>
-      <td>
-        This URL is used to generate schema and forms the base URI for every API requests. Find out how to obtain this URL from this <a href="https://community.workday.com/articles/6120#endpoint" target="_blank">Workday article</a>.<br>
-        The default is <b>https://wd2-impl-services1.workday.com/ccx/service/</b>
-      </td>
-    </tr>
-    <tr>
-      <td>Use custom objects?</td>
-      <td>
-        Choose <b>No</b> if your use cases do not involve custom objects.<br>
-        Choose <b>Yes</b> if it does. Additional <a href="#register-api-client">client information</a> will be required.
-      </td>
-    </tr>
-    <tr>
-      <td>Client ID</td>
-      <td>
-        Client ID of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-    <tr>
-      <td>Client secret</td>
-      <td>
-        Client secret of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-    <tr>
-      <td>Authorization endpoint</td>
-      <td>
-        Authorization endpoint of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-    <tr>
-      <td>Token endpoint</td>
-      <td>
-        Token endpoint of the API Client you created to connect to Workato. <br>
-        Only required if using custom objects.
-      </td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th>Connection field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection name</td>
+<td>Give this Workday connection a unique name that identifies which Workday tenant it is connected to.</td>
+</tr>
+<tr>
+<td>Login name</td>
+<td>This should be the login name for the <a href="#register-integration-system-user">ISU</a>.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>This should be the login password for the <a href="#register-integration-system-user">ISU</a>.</td>
+</tr>
+<tr>
+<td>Tenant ID</td>
+<td>Tenant ID is found in the URL when you are logged into Workday. For example, if the URL of your Workday tenant is <strong><a href="https://impl.workday.com/sample\_company/d/home.html" target="_blank">https://impl.workday.com/sample\_company/d/home.html</a></strong>, tenant ID is <strong>sample_company</strong></td>
+</tr>
+<tr>
+<td>WSDL URL</td>
+<td>This URL is used to generate schema and forms the base URI for every API requests. Find out how to obtain this URL from this <a href="https://community.workday.com/articles/6120#endpoint" target="_blank">Workday article</a>. The default is <strong><a href="https://wd2-impl-services1.workday.com/ccx/service/" target="_blank">https://wd2-impl-services1.workday.com/ccx/service/</a></strong></td>
+</tr>
+<tr>
+<td>Use custom objects?</td>
+<td>Choose <strong>No</strong> if your use cases do not involve custom objects.<br>Choose <strong>Yes</strong> if it does. Additional <a href="#register-api-client">client information</a> will be required.</td>
+</tr>
+<tr>
+<td>Client ID</td>
+<td>Client ID of the API Client you created to connect to Workato.<br>Only required if using custom objects.</td>
+</tr>
+<tr>
+<td>Client secret</td>
+<td>Client secret of the API Client you created to connect to Workato.<br>Only required if using custom objects.</td>
+</tr>
+<tr>
+<td>Authorization endpoint</td>
+<td>Authorization endpoint of the API Client you created to connect to Workato.<br>Only required if using custom objects.</td>
+</tr>
+<tr>
+<td>Token endpoint</td>
+<td>Token endpoint of the API Client you created to connect to Workato.<br>Only required if using custom objects.</td>
+</tr>
+</tbody>
 </table>
-
 <h3 id="register-integration-system-user">Register Integration System User</h3>
 <p>We do not recommend using a user account of a worker to run integrations. There are a few reasons for this.</p>
 <p>Firstly, all operations performed by the integration will be logged under this worker instead of one dedicated for integration and workflow processes.</p>
 <p>Furthermore, if this worker security profile changes, or if the worker is terminated, integrations that rely on this worker&apos;s user account will no longer work.</p>
-<p>The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU should restricted to a single integration system (like Workato).</p>
-<p>The ISU should have all permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a <code>403</code> error, it means that the ISU does not have sufficient permission for the action.</p>
-<p><img src="../../assets/images/workday/permission-error.png" alt="403 error">
+<p>The recommended approach to access web services is through an Integration System User (ISU) account. For security reasons, each ISU should be restricted to a single integration system (like Workato).</p>
+<p>The ISU should have all the permissions needed to perform the required actions for your integration scenario. When building recipes, you may encounter a <code>403</code> error, it means that the ISU does not have sufficient permission for the action.</p>
+<p><img src="../../assets/images/connectors/workday/permission-error.png" alt="403 error">
 <em>Error message when ISU does not have enough permission</em></p>
 <h3 id="create-an-isu">Create an ISU</h3>
 <table class="unchanged rich-diff-level-one">
@@ -12319,7 +12337,7 @@
         <p>
           Access the <b>Create Security Group</b> task and create an Integration System Security Group.
         </p>
-        <img src="../../assets/images/workday/add-security-group.png" alt="Add Security Group">
+        <img src="../../assets/images/connectors/workday/add-security-group.png" alt="Add Security Group">
         <i>Add Security Group</i>
       </td>
     </tr>
@@ -12348,7 +12366,7 @@
         <p>
           Next, access the <b>Activate Pending Security Policy Changes</b> task and activate these changes.
         </p>
-        <img src="../../assets/images/workday/edit-permission-security-policy.png" alt="Edit Permissions for Security Policy">
+        <img src="../../assets/images/connectors/workday/edit-permission-security-policy.png" alt="Edit Permissions for Security Policy">
         <i>Edit Permissions for Security Policy</i>
       </td>
     </tr>
@@ -12358,7 +12376,7 @@
         <p>
           Access the <b>Create Integration System User</b> task and configure a Workday user account for the integration.
         </p>
-        <img src="../../assets/images/workday/integration-system-user.png" alt="Create Integration System User">
+        <img src="../../assets/images/connectors/workday/integration-system-user.png" alt="Create Integration System User">
         <i>Create Integration System User</i>
         <p>
           Keep the <b>Session Timeout Minutes</b> default value of 0 to prevent session expiration. An expired session can cause the integration to time out before it successfully completes.
@@ -12406,7 +12424,7 @@
 <p>Find out more about setting up an ISU <a href="https://doc.workday.com/reader/Z9lz_01hqDMDg6NSf7wCBQ/esBDCh5D66sgBhIxmQ5U5g" target="_blank">here</a>.</p>
 <h3 id="register-api-client">Register API Client</h3>
 <p>This step is required only if you wish to work with custom objects in Workday. The Workday connector uses the Workday REST API, which uses an OAuth 2.0 for authentication. You need to register an API Client to allow connection to the REST API.</p>
-<p><img src="../../assets/images/workday/api-client-1.png" alt="Register API Client">
+<p><img src="../../assets/images/connectors/workday/api-client-1.png" alt="Register API Client">
 <em>Registering a new client</em></p>
 <p>Navigate to &quot;Register API Client&quot; in your Workday instance.</p>
 <ul>
@@ -12414,9 +12432,9 @@
 <li>Use <code>https://www.workato.com/oauth/callback</code> as the Redirection URL</li>
 <li>Add the necessary scope you wish to grant access for</li>
 </ul>
-<p><img src="../../assets/images/workday/api-client-2.png" alt="API Client credentials">
+<p><img src="../../assets/images/connectors/workday/api-client-2.png" alt="API Client credentials">
 <em>API client details</em></p>
-<p>Remember to save the <strong>Client ID</strong>, <strong>Client Secret</strong>, <strong>Authorization Endpoint</strong> and <strong>Token Endpoint</strong>. This will be required for connecting to Workday via Workato.</p>
+<p>Remember to save the <strong>Client ID</strong>, <strong>Client Secret</strong>, <strong>Authorization Endpoint</strong> and <strong>Token Endpoint</strong>. They will be required for the Workday integration connector <a href="#connect-to-workday-on-workato">setup</a>.</p>
 
                                 
                                 </section>
@@ -12499,7 +12517,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Connection setup","date":"2017-11-17T09:00:00.000Z","level":"1.20.50.1","depth":3,"next":{"title":"Get report","level":"1.20.50.2","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},"previous":{"title":"Workday","level":"1.20.50","depth":2,"path":"connectors/workday.md","ref":"connectors/workday.md","articles":[{"title":"Connection setup","level":"1.20.50.1","depth":3,"path":"connectors/workday/connection_setup.md","ref":"connectors/workday/connection_setup.md","articles":[]},{"title":"Get report","level":"1.20.50.2","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},{"title":"Scheduled report","level":"1.20.50.3","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},{"title":"Call operation","level":"1.20.50.4","depth":3,"path":"connectors/workday/call_operation.md","ref":"connectors/workday/call_operation.md","articles":[]},{"title":"Report-as-a-Service","level":"1.20.50.5","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/connection_setup.md","mtime":"2019-09-27T04:38:00.123Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-27T04:40:18.754Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Connection setup","date":"2017-11-17T09:00:00.000Z","isTocVisible":true,"level":"1.20.50.1","depth":3,"next":{"title":"Scheduled report","level":"1.20.50.2","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},"previous":{"title":"Workday","level":"1.20.50","depth":2,"path":"connectors/workday.md","ref":"connectors/workday.md","articles":[{"title":"Connection setup","level":"1.20.50.1","depth":3,"path":"connectors/workday/connection_setup.md","ref":"connectors/workday/connection_setup.md","articles":[]},{"title":"Scheduled report","level":"1.20.50.2","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},{"title":"Get report","level":"1.20.50.3","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},{"title":"Call operation","level":"1.20.50.4","depth":3,"path":"connectors/workday/call_operation.md","ref":"connectors/workday/call_operation.md","articles":[]},{"title":"Get custom object","level":"1.20.50.5","depth":3,"path":"connectors/workday/get-custom-objects.md","ref":"connectors/workday/get-custom-objects.md","articles":[]},{"title":"Create/update custom object","level":"1.20.50.6","depth":3,"path":"connectors/workday/update-custom-objects.md","ref":"connectors/workday/update-custom-objects.md","articles":[]},{"title":"Report-as-a-Service","level":"1.20.50.7","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/connection_setup.md","mtime":"2019-10-01T12:46:04.235Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-01T12:50:09.654Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

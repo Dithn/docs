@@ -68,7 +68,7 @@
     <link rel="next" href="../workday-rest.html" />
     
     
-    <link rel="prev" href="call_operation.html" />
+    <link rel="prev" href="update-custom-objects.html" />
     
 
     
@@ -9196,22 +9196,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.2" data-path="get_report.html">
-      
-
-      
-        <a href="get_report.html">
-      
-        
-        Get report
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.20.50.3" data-path="scheduled_report.html">
+    <li class="chapter " data-level="1.20.50.2" data-path="scheduled_report.html">
       
 
       
@@ -9219,6 +9204,21 @@
       
         
         Scheduled report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.3" data-path="get_report.html">
+      
+
+      
+        <a href="get_report.html">
+      
+        
+        Get report
       
         </a>
       
@@ -9241,7 +9241,37 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.20.50.5" data-path="workday_raas.html">
+    <li class="chapter " data-level="1.20.50.5" data-path="get-custom-objects.html">
+      
+
+      
+        <a href="get-custom-objects.html">
+      
+        
+        Get custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.6" data-path="update-custom-objects.html">
+      
+
+      
+        <a href="update-custom-objects.html">
+      
+        
+        Create/update custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter active" data-level="1.20.50.7" data-path="workday_raas.html">
       
 
       
@@ -9279,7 +9309,22 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.20.51.1" data-path="../workday-rest/new-worker-trigger.html">
+    <li class="chapter " data-level="1.20.51.1" data-path="../workday-rest/connection-setup.html">
+      
+
+      
+        <a href="../workday-rest/connection-setup.html">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.51.2" data-path="../workday-rest/new-worker-trigger.html">
       
 
       
@@ -9294,7 +9339,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.2" data-path="../workday-rest/get-worker-action.html">
+    <li class="chapter " data-level="1.20.51.3" data-path="../workday-rest/get-worker-action.html">
       
 
       
@@ -9309,7 +9354,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.3" data-path="../workday-rest/search-worker-action.html">
+    <li class="chapter " data-level="1.20.51.4" data-path="../workday-rest/search-worker-action.html">
       
 
       
@@ -9324,7 +9369,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.4" data-path="../workday-rest/create-job-change-action.html">
+    <li class="chapter " data-level="1.20.51.5" data-path="../workday-rest/create-job-change-action.html">
       
 
       
@@ -9339,7 +9384,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.5" data-path="../workday-rest/get-inbox-tasks-action.html">
+    <li class="chapter " data-level="1.20.51.6" data-path="../workday-rest/get-inbox-tasks-action.html">
       
 
       
@@ -9354,7 +9399,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.6" data-path="../workday-rest/approve-reject-inbox-task-action.html">
+    <li class="chapter " data-level="1.20.51.7" data-path="../workday-rest/approve-reject-inbox-task-action.html">
       
 
       
@@ -12214,34 +12259,33 @@
 <p>Workday Report-as-a-Service (RaaS) is a feature that exposes reports as web services. These reports must be configured as <strong>Advanced</strong> type reports to be web service enabled.</p>
 <h2 id="custom-reports-setup">Custom Reports Setup</h2>
 <p>Custom Reports (advanced type) can be exposed as a Web Service to be used programmatically. Workato uses this web service to automate report run and to integrate report data from Workday to other applications.</p>
-<h3 id="how-to-find-json-endpoint">How to find JSON endpoint</h3>
+<h3 id="how-to-find-report-url">How to find report URL</h3>
 <p>Find URL in Actions &gt; Web Service &gt; View URLs</p>
-<p><img src="../../assets/images/workday/view_raas_url.png" alt="View RaaS URL">
+<p><img src="../../assets/images/connectors/workday/view_raas_url.png" alt="View RaaS URL">
 <em>View Report URLs</em></p>
-<p>Right click <code>JSON</code> and choose &quot;Copy URL&quot;</p>
-<p><img src="../../assets/images/workday/copy_raas_json_url.png" alt="RaaS JSON URL">
+<p>Right-click <code>JSON</code> and choose &quot;Copy URL&quot;</p>
+<p><img src="../../assets/images/connectors/workday/copy_raas_json_url.png" alt="RaaS JSON URL">
 <em>Copy RaaS JSON URL</em></p>
-<h2 id="filter-parameters">Filter parameters</h2>
-<p>Prompts behave like request parameters. In the UI, it is presented as input fields before generating actual report. As a REST endpoint, these prompts are passed as request parameters.</p>
-<h3 id="report-user-interface">Report User Interface</h3>
-<p><img src="../../assets/images/workday/raas_prompts.png" alt="RaaS prompts">
-<em>Raas prompts</em></p>
-<p>JSON Example
-<a href="https://wd2-impl-services1.workday.com/ccx/service/customreport2/workato/workato/Investors?format=json&amp;Worker_Type!WID=d588c41a446c11de98360015c5e6daf6&amp;Base_Pay=0" target="_blank">https://wd2-impl-services1.workday.com/ccx/service/customreport2/workato/workato/Investors?format=json&amp;Worker_Type!WID=d588c41a446c11de98360015c5e6daf6&amp;Base_Pay=0</a></p>
-<h3 id="basic-setup">Basic Setup</h3>
+<p>JSON endpoint example</p>
+<pre><code>https://wd2-impl-services1.workday.com/ccx/service/customreport2/workato/workato/Investors?format=json&amp;Worker_Type!WID=d588c41a446c11de98360015c5e6daf6&amp;Base_Pay=0
+</code></pre><h2 id="filter-parameters">Filter parameters</h2>
+<p>Prompts behave like request parameters. In the UI, it is presented as input fields before generating the actual report.</p>
+<p><img src="../../assets/images/connectors/workday/raas_prompts.png" alt="RaaS prompts">
+<em>Raas prompts on Workday UI</em></p>
+<p>As a REST endpoint, these prompts are passed as request parameters. To do so, you have to set the report type and configure prompts. You can also define filters for your prompts.</p>
 <h4 id="report-type">Report type</h4>
 <p>Switch to advanced type if not already. Only Advanced custom reports can be used in RaaS.</p>
-<p><img src="../../assets/images/workday/raas_change_to_advance.png" alt="RaaS change to advance">
+<p><img src="../../assets/images/connectors/workday/raas_change_to_advance.png" alt="RaaS change to advance">
 <em>Use advanced report</em></p>
 <h4 id="add-prompts">Add prompts</h4>
 <p>Add all default prompts that are required of web-service-enabled reports. Add additional prompts as desired.</p>
-<p><img src="../../assets/images/workday/raas_add_prompts.png" alt="Add RaaS prompts">
+<p><img src="../../assets/images/connectors/workday/raas_add_prompts.png" alt="Add RaaS prompts">
 <em>Add RaaS prompts</em></p>
 <p>In this example, Base Pay is assigned to Prompt Qualifier as Prompt #1, which will be used in filters.</p>
 <h4 id="add-filters">Add filters</h4>
 <p>Apply logic to filter prompt values.</p>
 <p>Use values from Prompt to compare against report column values. Example, assign Prompt parameter Base Pay as Prompt #1.</p>
-<p><img src="../../assets/images/workday/raas_add_filter.png" alt="Add RaaS filters">
+<p><img src="../../assets/images/connectors/workday/raas_add_filter.png" alt="Add RaaS filters">
 <em>Add RaaS filters</em></p>
 <p>When generating a report, Base Pay parameter will be checked. If a value is provided, only records with Base Pay greater than the provided value will be included in the report.</p>
 
@@ -12326,7 +12370,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Report-as-a-Service","date":"2017-06-06T06:38:00.000Z","level":"1.20.50.5","depth":3,"next":{"title":"Workday REST","level":"1.20.51","depth":2,"path":"connectors/workday-rest.md","ref":"connectors/workday-rest.md","articles":[{"title":"New worker","level":"1.20.51.1","depth":3,"path":"connectors/workday-rest/new-worker-trigger.md","ref":"connectors/workday-rest/new-worker-trigger.md","articles":[]},{"title":"Get worker by ID","level":"1.20.51.2","depth":3,"path":"connectors/workday-rest/get-worker-action.md","ref":"connectors/workday-rest/get-worker-action.md","articles":[]},{"title":"Search workers","level":"1.20.51.3","depth":3,"path":"connectors/workday-rest/search-worker-action.md","ref":"connectors/workday-rest/search-worker-action.md","articles":[]},{"title":"Create a job change","level":"1.20.51.4","depth":3,"path":"connectors/workday-rest/create-job-change-action.md","ref":"connectors/workday-rest/create-job-change-action.md","articles":[]},{"title":"Get inbox task(s)","level":"1.20.51.5","depth":3,"path":"connectors/workday-rest/get-inbox-tasks-action.md","ref":"connectors/workday-rest/get-inbox-tasks-action.md","articles":[]},{"title":"Approve/reject inbox task","level":"1.20.51.6","depth":3,"path":"connectors/workday-rest/approve-reject-inbox-task-action.md","ref":"connectors/workday-rest/approve-reject-inbox-task-action.md","articles":[]}]},"previous":{"title":"Call operation","level":"1.20.50.4","depth":3,"path":"connectors/workday/call_operation.md","ref":"connectors/workday/call_operation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/workday_raas.md","mtime":"2019-09-27T04:38:00.123Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-27T04:40:18.754Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Report-as-a-Service","date":"2017-06-06T06:38:00.000Z","isTocVisible":true,"level":"1.20.50.7","depth":3,"next":{"title":"Workday REST","level":"1.20.51","depth":2,"path":"connectors/workday-rest.md","ref":"connectors/workday-rest.md","articles":[{"title":"Connection setup","level":"1.20.51.1","depth":3,"path":"connectors/workday-rest/connection-setup.md","ref":"connectors/workday-rest/connection-setup.md","articles":[]},{"title":"New worker","level":"1.20.51.2","depth":3,"path":"connectors/workday-rest/new-worker-trigger.md","ref":"connectors/workday-rest/new-worker-trigger.md","articles":[]},{"title":"Get worker by ID","level":"1.20.51.3","depth":3,"path":"connectors/workday-rest/get-worker-action.md","ref":"connectors/workday-rest/get-worker-action.md","articles":[]},{"title":"Search workers","level":"1.20.51.4","depth":3,"path":"connectors/workday-rest/search-worker-action.md","ref":"connectors/workday-rest/search-worker-action.md","articles":[]},{"title":"Create a job change","level":"1.20.51.5","depth":3,"path":"connectors/workday-rest/create-job-change-action.md","ref":"connectors/workday-rest/create-job-change-action.md","articles":[]},{"title":"Get inbox task(s)","level":"1.20.51.6","depth":3,"path":"connectors/workday-rest/get-inbox-tasks-action.md","ref":"connectors/workday-rest/get-inbox-tasks-action.md","articles":[]},{"title":"Approve/reject inbox task","level":"1.20.51.7","depth":3,"path":"connectors/workday-rest/approve-reject-inbox-task-action.md","ref":"connectors/workday-rest/approve-reject-inbox-task-action.md","articles":[]}]},"previous":{"title":"Create/update custom object","level":"1.20.50.6","depth":3,"path":"connectors/workday/update-custom-objects.md","ref":"connectors/workday/update-custom-objects.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/workday_raas.md","mtime":"2019-10-01T12:46:04.235Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-01T12:50:09.654Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

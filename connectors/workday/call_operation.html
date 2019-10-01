@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="workday_raas.html" />
+    <link rel="next" href="get-custom-objects.html" />
     
     
-    <link rel="prev" href="scheduled_report.html" />
+    <link rel="prev" href="get_report.html" />
     
 
     
@@ -9196,22 +9196,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.2" data-path="get_report.html">
-      
-
-      
-        <a href="get_report.html">
-      
-        
-        Get report
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.20.50.3" data-path="scheduled_report.html">
+    <li class="chapter " data-level="1.20.50.2" data-path="scheduled_report.html">
       
 
       
@@ -9219,6 +9204,21 @@
       
         
         Scheduled report
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.3" data-path="get_report.html">
+      
+
+      
+        <a href="get_report.html">
+      
+        
+        Get report
       
         </a>
       
@@ -9241,7 +9241,37 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.50.5" data-path="workday_raas.html">
+    <li class="chapter " data-level="1.20.50.5" data-path="get-custom-objects.html">
+      
+
+      
+        <a href="get-custom-objects.html">
+      
+        
+        Get custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.6" data-path="update-custom-objects.html">
+      
+
+      
+        <a href="update-custom-objects.html">
+      
+        
+        Create/update custom object
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.50.7" data-path="workday_raas.html">
       
 
       
@@ -9279,7 +9309,22 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.20.51.1" data-path="../workday-rest/new-worker-trigger.html">
+    <li class="chapter " data-level="1.20.51.1" data-path="../workday-rest/connection-setup.html">
+      
+
+      
+        <a href="../workday-rest/connection-setup.html">
+      
+        
+        Connection setup
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.20.51.2" data-path="../workday-rest/new-worker-trigger.html">
       
 
       
@@ -9294,7 +9339,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.2" data-path="../workday-rest/get-worker-action.html">
+    <li class="chapter " data-level="1.20.51.3" data-path="../workday-rest/get-worker-action.html">
       
 
       
@@ -9309,7 +9354,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.3" data-path="../workday-rest/search-worker-action.html">
+    <li class="chapter " data-level="1.20.51.4" data-path="../workday-rest/search-worker-action.html">
       
 
       
@@ -9324,7 +9369,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.4" data-path="../workday-rest/create-job-change-action.html">
+    <li class="chapter " data-level="1.20.51.5" data-path="../workday-rest/create-job-change-action.html">
       
 
       
@@ -9339,7 +9384,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.5" data-path="../workday-rest/get-inbox-tasks-action.html">
+    <li class="chapter " data-level="1.20.51.6" data-path="../workday-rest/get-inbox-tasks-action.html">
       
 
       
@@ -9354,7 +9399,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.20.51.6" data-path="../workday-rest/approve-reject-inbox-task-action.html">
+    <li class="chapter " data-level="1.20.51.7" data-path="../workday-rest/approve-reject-inbox-task-action.html">
       
 
       
@@ -12214,8 +12259,9 @@
 <p>This action makes use of the Workday Web Services (WWS) to execute SOAP-based operations in a connected Workday instance.</p>
 <p>The full set of operations available can be found on <a href="https://community.workday.com/sites/default/files/file-hosting/productionapi/versions/v29.0/index.html" target="_blank">Workday Web Services Directory</a>.</p>
 <h2 id="version">Version</h2>
-<p>The Workday connector works with <strong>v29.0</strong> of WWS.</p>
+<p>The Workday connector works with <strong>v29.0</strong> and <strong>v32.2</strong> of WWS.</p>
 <h2 id="input">Input</h2>
+<p>First, define the operation that you want to execute in your Workday instance, next supply the data to the sent with the operation. This set of input fields depends on the type of operation that was selected.</p>
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -12228,12 +12274,6 @@
       <td><a href="#operation">Operation</a></td>
       <td>
         Name of the Workday Web Services operation to execute. This must be selected before the rest of the input fields can be determined.
-      </td>
-    </tr>
-    <tr>
-      <td>Data</td>
-      <td>
-        Data to be sent with the operation. This set of input fields depends on the selected operation.
       </td>
     </tr>
     <tr>
@@ -12254,22 +12294,22 @@
 </table>
 
 <h3 id="operation">Operation</h3>
-<p><img src="../../assets/images/workday/select_operation.png" alt="Select Maintain Contact Information">
+<p><img src="../../assets/images/connectors/workday/select_operation.png" alt="Select Maintain Contact Information">
 <em>Select Maintain Contact Information</em></p>
-<p>This is a full list of all operations in Workday Web Services. To find the operation that you want, simply type key words to filter and narrow down the list of possible matches.</p>
-<p>In this example, we are looking for the <a href="https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.0/Maintain_Contact_Information.html" target="_blank">Maintain Contact Information</a> operation.</p>
+<p>This is a full list of all operations in Workday Web Services. To find the operation that you want, simply use keywords to filter and narrow down the list of possible matches.</p>
+<p>In this example, we are looking for the <a href="https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.0/Maintain_Contact_Information.html" target="_blank">Maintain Contact Information</a> operation. Here, we are creating a recipe to update the email address of a Workday record when the employee&apos;s email changes.</p>
 <h3 id="fields-with-attributes">Fields with attributes</h3>
-<p><img src="../../assets/images/workday/select_fields_with_attributes.png" alt="Selecting Email Address Data to include attribute values">
+<p><img src="../../assets/images/connectors/workday/select_fields_with_attributes.png" alt="Selecting Email Address Data to include attribute values">
 <em>Selecting Email Address Data to include attribute values</em></p>
 <p>Suppose we want to add new email addresses to a particular contact without replacing any existing email addresses. This can be done by setting the <strong>Do_Not_Replace_All</strong> attribute of the <strong>Email address data</strong> field to <code>false</code>.</p>
 <p>Simply select <code>Maintain Contact Information Data/Worker.../Email Address Data</code>. This will generate all possible attributes for the <strong>Email address data</strong> field, including <strong>Do_Not_Replace_All</strong>.</p>
 <h3 id="fields-with-multiple-values">Fields with multiple values</h3>
-<p><img src="../../assets/images/workday/select_fields_with_multiple_values.png" alt="Selecting Email Address Data field to be repeated">
+<p><img src="../../assets/images/connectors/workday/select_fields_with_multiple_values.png" alt="Selecting Email Address Data field to be repeated">
 <em>Selecting Email Address Data field to be repeated</em></p>
 <p>Suppose that our use case may involve more than one email address. To support this, we will have to send multiple email addresses in a single operation.</p>
 <p>Simply select <code>Maintain Contact Information Data/Worker.../Email Address Data</code>. This will change the <strong>Email address data</strong> into a list type input field. With that, you can map one or more email addresses using a list.</p>
 <h2 id="output">Output</h2>
-<p>Output fields will depend on the selected operation.</p>
+<p>The complete set of fields and attributes for the selected operation will be available in the output datatree.</p>
 
                                 
                                 </section>
@@ -12352,7 +12392,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Call operation","date":"2017-11-05T09:00:00.000Z","level":"1.20.50.4","depth":3,"next":{"title":"Report-as-a-Service","level":"1.20.50.5","depth":3,"path":"connectors/workday/workday_raas.md","ref":"connectors/workday/workday_raas.md","articles":[]},"previous":{"title":"Scheduled report","level":"1.20.50.3","depth":3,"path":"connectors/workday/scheduled_report.md","ref":"connectors/workday/scheduled_report.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/call_operation.md","mtime":"2019-09-27T04:38:00.123Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-09-27T04:40:18.754Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Call operation","date":"2017-11-05T09:00:00.000Z","isTocVisible":true,"level":"1.20.50.4","depth":3,"next":{"title":"Get custom object","level":"1.20.50.5","depth":3,"path":"connectors/workday/get-custom-objects.md","ref":"connectors/workday/get-custom-objects.md","articles":[]},"previous":{"title":"Get report","level":"1.20.50.3","depth":3,"path":"connectors/workday/get_report.md","ref":"connectors/workday/get_report.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"connectors/workday/call_operation.md","mtime":"2019-10-01T12:46:04.235Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-01T12:50:09.654Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
