@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="handling-files-and-attachments.html" />
+    <link rel="next" href="features/handling-csv-files.html" />
     
     
     <link rel="prev" href="tools.html" />
@@ -1874,29 +1874,14 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.10.1" data-path="handling-files-and-attachments.html">
-      
-
-      
-        <a href="handling-files-and-attachments.html#interpreting-file-content-and-moving-to-other-apps">
-      
-        
-        Read files
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.10.2" data-path="features/handling-csv-files.html">
+    <li class="chapter " data-level="1.10.1" data-path="features/handling-csv-files.html">
       
 
       
         <a href="features/handling-csv-files.html">
       
         
-        CSV contents
+        Handling CSV
       
         </a>
       
@@ -1904,14 +1889,14 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.3" data-path="features/handling-json.html">
+    <li class="chapter " data-level="1.10.2" data-path="features/handling-json.html">
       
 
       
         <a href="features/handling-json.html">
       
         
-        JSON contents
+        Handling JSON
       
         </a>
       
@@ -1919,14 +1904,14 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.4" data-path="features/handling-xml.html">
+    <li class="chapter " data-level="1.10.3" data-path="features/handling-xml.html">
       
 
       
         <a href="features/handling-xml.html">
       
         
-        XML contents
+        Handling XML
       
         </a>
       
@@ -1934,14 +1919,14 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.5" data-path="handling-files-and-attachments.html">
+    <li class="chapter " data-level="1.10.4" data-path="features/handling-soap.html">
       
 
       
-        <a href="handling-files-and-attachments.html#moving-textbinary-files-via-public-url">
+        <a href="features/handling-soap.html">
       
         
-        Move files between apps
+        Handling SOAP
       
         </a>
       
@@ -1949,7 +1934,37 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.6" data-path="features/file-streaming.html">
+    <li class="chapter " data-level="1.10.5" data-path="features/handling-yaml.html">
+      
+
+      
+        <a href="features/handling-yaml.html">
+      
+        
+        Handling YAML
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.6" data-path="features/handling-binary-files.html">
+      
+
+      
+        <a href="features/handling-binary-files.html">
+      
+        
+        Handling binary files
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.7" data-path="features/file-streaming.html">
       
 
       
@@ -1964,7 +1979,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.7" data-path="features/compress-files.html">
+    <li class="chapter " data-level="1.10.8" data-path="features/compress-files.html">
       
 
       
@@ -1979,7 +1994,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.8" data-path="features/pgp-encryption.html">
+    <li class="chapter " data-level="1.10.9" data-path="features/pgp-encryption.html">
       
 
       
@@ -12255,93 +12270,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="working-with-files-and-attachments-in-workato">Working with files and attachments in Workato</h1>
-<p>Files and attachments are a key aspect of many integrations. e.g. Uploading  CSV files to Redshift, moving attachments from Salesforce to Zendesk, etc. Workato supports working with file and attachments of different formats (i.e. JSON, XML, etc.) across different access/transport mechanism (e.g. FTP, file system, APIs, S3, etc.)</p>
+                                <h1 id="handling-files-and-attachments">Handling files and attachments</h1>
+<p>Files and attachments are a key aspect of many integrations. Your recipes might involve data formats that are not found in the <a href="recipes/data-pills-and-mapping.html#data-types">standard datapill list</a>. Workato enables you to move file and attachments of different formats (e.g. JSON, XML) across different access/transport mechanism (e.g. FTP, file system, APIs, S3).</p>
+<p>For instance, you may need to upload a CSV file to Redshift or move attachments from Salesforce to Zendesk.</p>
 <h2 id="text-files">Text files</h2>
-<p>Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato. For example, a recipe can retrieve CSV file content, parse it and make it available within Workato so it can be transformed and moved to another app.</p>
+<p>Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato.</p>
+<p>For instance, a recipe can retrieve CSV file content, parse, and make it available within the recipe. The data can further be used in transformations and loaded unto the target system.</p>
 <p>Some examples of text files commonly worked with:</p>
 <ul>
-<li>Tabular data: CSV</li>
+<li>Tabular data: <a href="features/handling-csv-files.html">CSV</a></li>
 <li>Documents: txt, rtf</li>
-<li>Web standards: html, XML, JSON</li>
+<li>Web standards: html, <a href="features/handling-json.html">JSON</a>, <a href="features/handling-xml.html">XML</a>, <a href="features/handling-soap.html">SOAP</a>, <a href="features/handling-yaml.html">YAML</a></li>
 </ul>
 <h2 id="binary-files">Binary files</h2>
-<p>Binary files refer to any file which is not human readable. Unlike text files where Workato parses the content to understand the structure of data, with binary files, Workato does not interpret the content, e.g. Workato cannot read and interpret an image file, but it can upload the entire file into Salesforce as an attachment.</p>
+<p>Binary files refer to any file which is not human readable. Unlike text files where Workato parses the content to understand the structure of the data, Workato moves binary data without interpreting its content. For example, Workato cannot read and interpret an image file, but it can upload the entire file into Salesforce as an attachment.</p>
 <p>Some examples of binary files commonly used:</p>
 <ul>
 <li>Images: jpg, png, gif, bmp, psd</li>
 <li>Documents: pdf, doc, docx, ppt, xls, odt</li>
 </ul>
-<h1 id="moving-textbinary-files-as-is-between-apps">Moving text/binary files as-is between apps</h1>
-<p>When moving files across apps without interpreting the content, it works the same for text or binary files. Workato has 2 approaches:</p>
-<ul>
-<li>By passing on a URL to the destination app, so this data does not have to move through Workato. This URL will have to be publicly accessible and can disappear afer the job has completed.</li>
-<li>By uploading content from app to Workato, and then downloading to the other app. This is not a great approach for working with very large files, as all the data has to move into the recipe, across every recipe step and then to the destination app.</li>
-</ul>
-<h2 id="moving-textbinary-files-via-public-url">Moving text/binary files via public URL</h2>
-<p>This is typically a 2-step process:</p>
-<ol>
-<li><p>Get the public URL of the file to move. Generally found in the trigger or action output. e.g. <strong>New file</strong> trigger output contains a URL.</p>
-</li>
-<li><p>Pass in this public URL to the destination app. Generally an <strong>Upload file via URL</strong> action.</p>
-</li>
-</ol>
-<h3 id="example">Example</h3>
-<p>Let&apos;s take the scenario where we move new files from Dropbox to Box. This is how the recipe looks.</p>
-<p><img src="assets/images/features/files-and-attachments/file-url-recipe.png" alt="Example recipe - moving files via URL">
-<em>Recipe moves files from Dropbox to Box via public URLs. <a href="https://www.workato.com/recipes/485735" target="_blank">Example recipe</a></em></p>
-<p>The <strong>Obtain a direct URL to file</strong> field in the <strong>New file</strong> trigger should be marked, so as to generate a public URL for the new file. The recipe then verifies that the file does not already exist in Box before uploading the file into Box via URL.</p>
-<p><img src="assets/images/features/files-and-attachments/map-box-url-in-recipe.gif" alt="Map Box URL in recipe">
-<em>Obtain a direct URL for the Box file, then map the URL to the Box file to the upload action. <a href="https://www.workato.com/recipes/485735" target="_blank">Example recipe</a></em></p>
-<h2 id="moving-textbinary-files-via-file-content">Moving text/binary files via file content</h2>
-<p>This is typically a 2-step process:</p>
-<ol>
-<li><p>Download the file content of the file to move. Generally found in the datatree output of <strong>New file</strong> triggers.</p>
-</li>
-<li><p>Pass in this public URL to the destination app. Generally a <strong>Upload file via content</strong> action.</p>
-</li>
-</ol>
-<h3 id="example-of-moving-textbinary-files-via-file-content">Example of moving text/binary files via file content</h3>
-<p>Let&apos;s take the scenario where email attachments need to be moved from Gmail to Box. This is how the recipe looks.</p>
-<p><img src="assets/images/features/files-and-attachments/moving-files-betwen-apps-recipe.png" alt="Example recipe - moving files between apps">
-<em>Recipe moves Gmail attachments to Box. <a href="https://www.workato.com/recipes/485773" target="_blank">Example recipe</a></em></p>
-<p>From the <strong>New email</strong> trigger output, each email event that comes in has potentially a list of attachments. Therefore, the conditional action checks if the email has attachments. If not, nothing is processed for that email. In this case, the datapill from the attachment list in <strong>New email</strong> trigger is used. As the pills within a list refer to the first list item in that list (e.g. the first attachment within the list of attachments) unless when used in a for each step or in an input array, this allows us to verify if there&apos;s at least one attachment in the list.</p>
-<p><img src="assets/images/features/files-and-attachments/check-for-email-attachments.gif" alt="Check for email attachments">
-<em>Check if email contains at least one attachment. <a href="https://www.workato.com/recipes/485773" target="_blank">Example recipe</a></em></p>
-<p>In cases whereby the email event has one or more attachments, the for each step ensures that the recipe iterates through the list of attachments, and that for each attachment, the attachment content is downloaded from Gmail before being uploaded into Box.</p>
-<p><img src="assets/images/features/files-and-attachments/download-attachment-via-id.gif" alt="Download attachment via ID">
-<em>If email contains attachments, download each attachment from Gmail using attachment ID, and upload attachment content to Box. <a href="https://www.workato.com/recipes/485773" target="_blank">Example recipe</a></em></p>
-<p>In this case, file content is used as Gmail does not provide public URLs to attachments. For scenarios where the source app provides public URLs to files and the target app accepts URLs for file uploads, <a href="#moving-textbinary-files-via-public-url">moving of files via URLs</a> should be the preferred method for recipe efficiency.</p>
-<h3 id="example-of-using-utilities-to-download-file-from-public-url">Example of using Utilities to download file from public URL</h3>
-<p>The <strong>Utilities</strong> connector has a <strong>Download file from URL</strong> action that retrieves file content, given a public URL to a file. In cases whereby the file source app provides only a public URL to the file, but the destination app requires the actual file content, this action can be used.</p>
-<p>Let&apos;s take the scenario where new files created in a shared Box folder needs to be uploaded and associated with a Salesforce account. This is how the recipe looks.</p>
-<p><img src="assets/images/features/files-and-attachments/utilities-download-file.png" alt="Example recipe - using utilities to download file">
-<em>Recipe that uses Utilities to download file content. <a href="https://www.workato.com/recipes/485775" target="_blank">Example recipe</a></em></p>
-<p>The recipe uses the public URL to the Box file to download the file content. This file content is then uploaded into Salesforce as a new attachment, associated to a certain Salesforce account (the account ID is hardcoded in this instance).</p>
-<p><img src="assets/images/features/files-and-attachments/upload-file-to-salesforce.gif" alt="Upload file to Salesforce">
-<em>Download file using Box URL, then upload file content to Salesforce. <a href="https://www.workato.com/recipes/485775" target="_blank">Example recipe</a></em></p>
-<h2 id="base64-encoding">Base64 encoding</h2>
-<p>Base64 encoding is a way of converting binary content into a set of standard characters for sending over networks. Certain apps require base64-encoded file content to be uploaded, and usually these same apps will produce base64-encoded file content when their files are downloaded.</p>
-<p>Workato supports the ability to encode or decode base64 content via formulas.</p>
-<p>To base64 encode binary content and upload it into such apps:</p>
-<p><img src="assets/images/features/files-and-attachments/encode-file.png" alt="Encode file content">
-<em>Formula for encoding file content</em></p>
-<p>To decode binary content from base64 content from such apps:</p>
-<p><img src="assets/images/features/files-and-attachments/decode-file.png" alt="Decode file content">
-<em>Formula for decoding file content</em></p>
-<h1 id="interpreting-file-content-and-moving-to-other-apps">Interpreting file content and moving to other apps</h1>
-<p>When working with text files, Workato and interpret the content of the file and convert individual elements to the data tree pills to make it easier to transform and send to other apps.</p>
-<h2 id="example">Example</h2>
-<p>The following recipe creates a NetSuite inventory object by using data from a CSV file.</p>
-<p><img src="assets/images/features/files-and-attachments/csv-file-parsing-recipe.png" alt="Example recipe - CSV file parsing">
-<em>Recipe reads CSV file. <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></em></p>
-<p>When using <strong>Box new CSV file</strong> trigger, the expected columns in CSV files has to be declared for Workato to know how the data is structured. From this declaration, Workato builds the trigger output datatree.</p>
-<p><img src="assets/images/features/files-and-attachments/define-expected-csv-columns.gif" alt="Define expected columns in CSV">
-<em>Defining the expected columns in the CSV files that the recipe will pick up. <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></em></p>
-<p>The columns defined in the <strong>Box new CSV file</strong> trigger shows up as usable datapills in the output datatree. These variables can be used to map into subsequent recipe steps.</p>
-<p><img src="assets/images/features/files-and-attachments/use-defined-csv-variables.gif" alt="Use defined CSV variables">
-<em>Using the variables created from the columns definition. <a href="https://www.workato.com/recipes/485023" target="_blank">Example recipe</a></em></p>
-<p>You can find more details and examples about parsing CSV files via Workato in the <a href="features/handling-csv-files.html">CSV files article</a>.</p>
+<p>Click <a href="features/handling-binary-files.html">here</a> to see our guidelines on working with binary files.</p>
 
                                 
                                 </section>
@@ -12424,7 +12372,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Files and attachments","date":"2017-02-22T12:00:00.000Z","level":"1.10","depth":1,"next":{"title":"Read files","level":"1.10.1","depth":2,"anchor":"#interpreting-file-content-and-moving-to-other-apps","path":"handling-files-and-attachments.md","ref":"handling-files-and-attachments.md#interpreting-file-content-and-moving-to-other-apps","articles":[]},"previous":{"title":"Tools","level":"1.9","depth":1,"path":"tools.md","ref":"tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"handling-files-and-attachments.md","mtime":"2019-10-01T18:34:57.092Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-01T18:37:19.683Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Files and attachments","date":"2017-02-22T12:00:00.000Z","level":"1.10","depth":1,"next":{"title":"Handling CSV","level":"1.10.1","depth":2,"path":"features/handling-csv-files.md","ref":"features/handling-csv-files.md","articles":[]},"previous":{"title":"Tools","level":"1.9","depth":1,"path":"tools.md","ref":"tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"handling-files-and-attachments.md","mtime":"2019-10-02T06:49:02.409Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-02T06:51:05.243Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

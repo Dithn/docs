@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>XML contents · Workato Docs</title>
+        <title>Handling XML · Workato Docs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../handling-files-and-attachments.html" />
+    <link rel="next" href="handling-soap.html" />
     
     
     <link rel="prev" href="handling-json.html" />
@@ -126,7 +126,7 @@
         <!-- Title -->
         <h1>
           <i class="fa fa-circle-o-notch fa-spin"></i>
-          <a href="..">XML contents</a>
+          <a href="..">Handling XML</a>
         </h1>
       </div>
     </div>
@@ -1874,29 +1874,14 @@
         <ul class="articles">
           
   
-    <li class="chapter " data-level="1.10.1" data-path="../handling-files-and-attachments.html">
-      
-
-      
-        <a href="../handling-files-and-attachments.html#interpreting-file-content-and-moving-to-other-apps">
-      
-        
-        Read files
-      
-        </a>
-      
-
-      
-    </li>
-  
-    <li class="chapter " data-level="1.10.2" data-path="handling-csv-files.html">
+    <li class="chapter " data-level="1.10.1" data-path="handling-csv-files.html">
       
 
       
         <a href="handling-csv-files.html">
       
         
-        CSV contents
+        Handling CSV
       
         </a>
       
@@ -1904,14 +1889,14 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.3" data-path="handling-json.html">
+    <li class="chapter " data-level="1.10.2" data-path="handling-json.html">
       
 
       
         <a href="handling-json.html">
       
         
-        JSON contents
+        Handling JSON
       
         </a>
       
@@ -1919,14 +1904,14 @@
       
     </li>
   
-    <li class="chapter active" data-level="1.10.4" data-path="handling-xml.html">
+    <li class="chapter active" data-level="1.10.3" data-path="handling-xml.html">
       
 
       
         <a href="handling-xml.html">
       
         
-        XML contents
+        Handling XML
       
         </a>
       
@@ -1934,14 +1919,14 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.5" data-path="../handling-files-and-attachments.html">
+    <li class="chapter " data-level="1.10.4" data-path="handling-soap.html">
       
 
       
-        <a href="../handling-files-and-attachments.html#moving-textbinary-files-via-public-url">
+        <a href="handling-soap.html">
       
         
-        Move files between apps
+        Handling SOAP
       
         </a>
       
@@ -1949,7 +1934,37 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.6" data-path="file-streaming.html">
+    <li class="chapter " data-level="1.10.5" data-path="handling-yaml.html">
+      
+
+      
+        <a href="handling-yaml.html">
+      
+        
+        Handling YAML
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.6" data-path="handling-binary-files.html">
+      
+
+      
+        <a href="handling-binary-files.html">
+      
+        
+        Handling binary files
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.10.7" data-path="file-streaming.html">
       
 
       
@@ -1964,7 +1979,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.7" data-path="compress-files.html">
+    <li class="chapter " data-level="1.10.8" data-path="compress-files.html">
       
 
       
@@ -1979,7 +1994,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.10.8" data-path="pgp-encryption.html">
+    <li class="chapter " data-level="1.10.9" data-path="pgp-encryption.html">
       
 
       
@@ -12255,44 +12270,94 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="xml-data-format">XML data format</h1>
-<p>XML (eXtensible Markup Language) is a syntax for storing and transferring data. It is a common data format for APIs. XML data is stored in a systematic hierarchy of tags. While JSON format has being increasingly preferred over XML format, XML is still used widely and provides some advantages over the former.</p>
-<p>XML data is mostly hidden from regular Workato users because we expose data as input fields and output datapills in the recipe. However, you may occassionally require raw XML data for your use case. Workato provides a few options for handling such instances.</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">request</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">control</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">senderid</span>&gt;</span>SENDER_ID<span class="hljs-tag">&lt;/<span class="hljs-name">senderid</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>SENDER_PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">controlid</span>&gt;</span>testControlId<span class="hljs-tag">&lt;/<span class="hljs-name">controlid</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">uniqueid</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">uniqueid</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">dtdversion</span>&gt;</span>3.0<span class="hljs-tag">&lt;/<span class="hljs-name">dtdversion</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">control</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">operation</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">authentication</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">login</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">userid</span>&gt;</span>USERNAME<span class="hljs-tag">&lt;/<span class="hljs-name">userid</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">companyid</span>&gt;</span>COMPANY_ID<span class="hljs-tag">&lt;/<span class="hljs-name">companyid</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>USER_PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">login</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">authentication</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">function</span> <span class="hljs-attr">controlid</span>=<span class="hljs-string">&quot;testControlId&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">get_list</span> <span class="hljs-attr">object</span>=<span class="hljs-string">&quot;glaccount&quot;</span> <span class="hljs-attr">maxitems</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">get_list</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">function</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">operation</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">request</span>&gt;</span>
+                                <h1 id="handling-xml">Handling XML</h1>
+<p>XML (eXtensible Markup Language) is a syntax for storing and transferring data. It is a common data format for APIs. XML data is stored in a systematic hierarchy of tags.</p>
+<p>XML data is mostly hidden from regular Workato users because we expose data as input fields and output datapills in the recipe. However, you may occasionally require raw XML data for your use case.</p>
+<h3 id="example-nested-data-in-xml-format">Example: Nested data in XML format</h3>
+<p>We will be using this sample request body formatted in XML:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Contact</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Name</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;C&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">First</span>&gt;</span>Sally<span class="hljs-tag">&lt;/<span class="hljs-name">First</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Last</span>&gt;</span>Jones<span class="hljs-tag">&lt;/<span class="hljs-name">Last</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Address</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Street</span> <span class="hljs-attr">verified</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>215 Castro Street, Suite 300<span class="hljs-tag">&lt;/<span class="hljs-name">Street</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">City</span> <span class="hljs-attr">verified</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Mountain View<span class="hljs-tag">&lt;/<span class="hljs-name">City</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ST</span> <span class="hljs-attr">verified</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>CA<span class="hljs-tag">&lt;/<span class="hljs-name">ST</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Postal</span> <span class="hljs-attr">verified</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>95041<span class="hljs-tag">&lt;/<span class="hljs-name">Postal</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Address</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Phone</span> <span class="hljs-attr">validation</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">mobile</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>8444696752<span class="hljs-tag">&lt;/<span class="hljs-name">Phone</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Contact</span>&gt;</span>
 </code></pre>
-<p>This is a sample request body to Intacct Web services. The XML data is stored in a top level tag <code>&lt;request&gt;</code>, which has nested tags <code>&lt;control&gt;</code> and <code>&lt;operation&gt;</code>, which in turn, has respective nested tags. Because of this feature, XML data, when coupled with an adequate query language, is capable of storing and transporting deeply nested data.</p>
-<p>On top of that, the ability to define <strong>named-tags</strong> as well as attributes within tags allows XML to create and work with very complex data structure, even creating new data types.</p>
-<h2 id="xml-parser">XML Parser</h2>
-<p>The easiest way to convert an XML document into a format that can be used in Workato recipes is to parse it using the XML Parser by Workato. Refer to the <a href="">XML Parser documentation</a> for more details.</p>
-<h2 id="http-connector">HTTP connector</h2>
-<p>The HTTP connector is a convenient way to handle raw data from APIs. Refer to our <a href="http://resources.workato.com/http-connector/#/?_k=1szm77" target="_blank">HTTP connector course</a> for a detailed guide and examples on building HTTP triggers and actions to handle XML data.</p>
-<h2 id="workato-sdk">Workato SDK</h2>
-<p>Workato SDK provides developers with fewer constraints when building connectors to APIs. It is an extension of the Workato framework. It supports a variety of authentication procedures and allows developers to easily build, maintain and distribute connectors to integration-seekers. The Workato SDK is not just a framework to serve external developers. Many of the existing Application connectors on the Workato platform are built on top of this framework. Workato aims to leverage this robust and powerful framework constantly and improve it&apos;s capabilities.</p>
-<p>Please refer to the main <a href="../developing-connectors/sdk.html">Workato SDK documentation</a> for more details.</p>
-<h2 id="which-should-i-use">Which should I use?</h2>
-<p>Refer to our documentation on the <a href="../developing-connectors/http-vs-sdk.html">HTTP vs SDK</a> for a detailed comparison of the two options.</p>
+<p>The XML data is stored in a top level tag <code>&lt;Contact&gt;</code>, which has nested tags <code>&lt;Name&gt;</code>, <code>&lt;Address&gt;</code>, and <code>&lt;Phone&gt;</code>. These tags further contain nested tags. This feature allows XML to create, store and transport deeply nested data.</p>
+<h2 id="xml-parser-by-workato">XML parser by Workato</h2>
+<p>The easiest way to convert raw XML data into usable datapills is to parse it with the built-in XML parser. <strong>XML Parser by Workato</strong> is a native application that does not require any connection setup.</p>
+<p>Select <strong>App</strong> &gt; <strong>XML parser by Workato</strong> to get started.</p>
+<p><img src="../assets/images/features/handling-xml/xml-parser-by-workato.png" alt="XML parser by Workato input fields">
+<em>XML parser by Workato input fields</em></p>
+<table>
+<thead>
+<tr>
+<th>Input field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XML type</td>
+<td>Select the level of detail to parse the XML. See <a href="#parse-at-different-levels-of-detail">below</a>.</td>
+</tr>
+<tr>
+<td>Sample document</td>
+<td>A sample XML that has the same format as the XML document to be parsed.</td>
+</tr>
+<tr>
+<td>Document</td>
+<td>The input XML content to be parsed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parse-at-different-levels-of-detail">Parse at different levels of detail</h3>
+<p>Workato automatically understands the basic XML syntax and displays datapills in the corresponding datatypes (e.g. <code>string</code>, <code>integer</code>). Configure the <strong>XML type</strong> to retrieve the desired level of detail. You can choose to configure it to <a href="#simple-xml-without-attributes">simple XML without attributes</a> or to <a href="#full-xml-with-attributes">full XML with attributes</a>.</p>
+<h4 id="simple-xml-without-attributes">Simple XML without attributes</h4>
+<p>This configuration reads the default XML syntax and the <code>type</code> attribute. Besides the <code>type</code> attribute, no other attributes will be processed.</p>
+<p>This will generate a simplified datatree and will be sufficient for most use-cases.</p>
+<p><img src="../assets/images/features/handling-xml/simple-xml-without-attributes.png" alt="Datatree output for simple XML without attributes">
+<em>Datatree output for simple XML without attributes</em></p>
+<h4 id="full-xml-with-attributes">Full XML with attributes</h4>
+<p>For certain use-cases, you would have need attribute values for validation or for syncing between systems. Choose <strong>full XML with attributes</strong> to generate a detailed datatree.</p>
+<p><img src="../assets/images/features/handling-xml/full-xml-with-attributes.png" alt="Datatree output for full XML with attributes">
+<em>Datatree output for full XML with attributes</em></p>
+<p>All attributes are now included in the output datatree. Additionally, the structure of the output is slightly different. Each XML tag is now presented as an [<code>array</code>] datapill with the value of the tag presented in the [<code>Content</code>] datapill.</p>
+<h2 id="integrating-xml-into-your-workflow">Integrating XML into your workflow</h2>
+<p>Besides handling XML data within your recipe actions, working with raw XML content involves configuring your Workato recipes to receive such data. Integrate XML content into your workflow by configuring a <strong>REST endpoint that accepts raw content</strong> or by <strong>developing a custom connector</strong>.</p>
+<ul>
+<li><strong>Rest endpoint with raw content support</strong></li>
+</ul>
+<p>Setup a callable recipe that accepts Raw body content and expose it as a REST endpoint. Now, API calls can deliver XML payload directly to the callable recipe. Find out more about setting up REST endpoints to handle XML data <a href="callable-recipes/handling-raw-content.html">here</a>.</p>
+<ul>
+<li><strong>Developing custom connectors</strong></li>
+</ul>
+<p>Custom connectors allow you to customize the way you receive and interact with your cloud applications through API calls.</p>
+<table>
+<thead>
+<tr>
+<th>Custom connector</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP connector</td>
+<td>The HTTP connector is a convenient way to handle raw data from APIs. Refer to our <a href="http://resources.workato.com/http-connector/#/?_k=1szm77" target="_blank">HTTP connector course</a> for a detailed guide and examples on building HTTP triggers and actions to handle XML data.</td>
+</tr>
+<tr>
+<td>Workato connector SDK</td>
+<td>Workato connector SDK is an extension of the Workato framework. It supports a variety of authentication procedures and allows developers to build, maintain and distribute connectors to integration-seekers. Please refer to the main <a href="../developing-connectors/sdk.html">Workato SDK documentation</a> for more details.</td>
+</tr>
+</tbody>
+</table>
+<p>Refer to our documentation on the <a href="../developing-connectors/http-vs-sdk.html">HTTP vs SDK</a> for a detailed comparison.</p>
 
                                 
                                 </section>
@@ -12375,7 +12440,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"XML contents","date":"2017-04-05T16:00:00.000Z","level":"1.10.4","depth":2,"next":{"title":"Move files between apps","level":"1.10.5","depth":2,"anchor":"#moving-textbinary-files-via-public-url","path":"handling-files-and-attachments.md","ref":"handling-files-and-attachments.md#moving-textbinary-files-via-public-url","articles":[]},"previous":{"title":"JSON contents","level":"1.10.3","depth":2,"path":"features/handling-json.md","ref":"features/handling-json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"features/handling-xml.md","mtime":"2019-10-01T18:34:57.088Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-01T18:37:19.683Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Handling XML","date":"2017-04-05T16:00:00.000Z","level":"1.10.3","depth":2,"next":{"title":"Handling SOAP","level":"1.10.4","depth":2,"path":"features/handling-soap.md","ref":"features/handling-soap.md","articles":[]},"previous":{"title":"Handling JSON","level":"1.10.2","depth":2,"path":"features/handling-json.md","ref":"features/handling-json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"features/handling-xml.md","mtime":"2019-10-02T06:49:02.409Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-02T06:51:05.243Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
