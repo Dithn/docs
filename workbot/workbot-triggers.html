@@ -3577,6 +3577,21 @@
       
 
       
+        <a href="workbot-triggers.html#new-event-trigger">
+      
+        
+        New event
+      
+        </a>
+      
+
+      
+    </li>
+  
+    <li class="chapter " data-level="1.17.5.4" data-path="workbot-triggers.html">
+      
+
+      
         <a href="workbot-triggers.html#new-url-mention">
       
         
@@ -3588,7 +3603,7 @@
       
     </li>
   
-    <li class="chapter " data-level="1.17.5.4" data-path="workbot-triggers.html">
+    <li class="chapter " data-level="1.17.5.5" data-path="workbot-triggers.html">
       
 
       
@@ -12341,21 +12356,14 @@
                                 <h1 id="workbot-triggers-for-slack">Workbot triggers for Slack</h1>
 <p>Workbot for Slack allows you to send commands to Workbot on Slack. Workbot will handle these commands and interact with your connected apps to do things, such as display details of a customer account, close opportunities, display a list of invoices or tickets, or create/update existing tickets.</p>
 <p>Each Workbot command is processed using a Workato recipe. The recipe trigger picks up the Workbot command as a trigger event, and the recipe determines the actions to carry out. With Workbot, you can create custom workflows that execute via your Slack commands, and optionally retrieve relevant data for you back to Slack.</p>
-<p>The Workbot for Slack connector has 3 triggers:</p>
-<ul>
-<li><a href="workbot-triggers.html#new-command-trigger-building-custom-commands">New message action trigger</a></li>
-</ul>
-<p>This trigger allows you to perform message actions onto existing Slack messages in your Slack team.</p>
-<p><img src="../assets/images/workbot/workbot-message-actions/message-actions-example.gif" alt="Message action gif"></p>
-<p>When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our <a href="workbot-message-action.html">message actions documentation</a>.</p>
+<p>The Workbot for Slack connector has 5 triggers:</p>
 <ul>
 <li><a href="workbot-triggers.html#new-command-trigger-building-custom-commands">New command</a></li>
-</ul>
-<p>This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out <a href="workbot-commands.html">this guide</a>.</p>
-<ul>
+<li><a href="workbot-triggers.html#new-event-trigger">New event (real-time)</a></li>
+<li><a href="workbot-triggers.html#new-command-trigger-building-custom-commands">New message action trigger</a></li>
 <li><a href="workbot-triggers.html#new-url-mention">New URL mention</a></li>
+<li><a href="workbot-triggers.html#new-dynamic-menu-event">New dynamic menu event</a></li>
 </ul>
-<p>This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.</p>
 <h2 id="new-command-trigger-building-custom-commands">New command trigger (building custom commands)</h2>
 <p>This trigger requires you to configure a custom Workbot command. When this recipe is started, Workbot will monitor for that command. Whenever the command is called, Workbot proceeds to carry out the recipe actions.</p>
 <h3 id="new-command-trigger-input-fields">New command trigger input fields</h3>
@@ -12583,7 +12591,31 @@
 <p>When the user has finished providing all the required input, the recipe actions will be executed. In this case, the recipe action was to display the Salesforce account details as a message attachment in a grid format.</p>
 <p><img src="../assets/images/workbot/workbot-trigger/salesforce-show-account-results.png" alt="Salesforce show account command results">
 <em>Salesforce show account command results</em></p>
+<h2 id="new-event-trigger">New event trigger</h2>
+<p>The <strong>New event trigger</strong> executes when the specified event occurs in your Slack workspace. The trigger works with Slack&apos;s <a href="https://api.slack.com/events-api" target="_blank">Events API</a> and <a href="https://api.slack.com/messaging/interactivity#components" target="_blank">interactive components</a> (like block actions &amp; modal submissions). Each trigger subscribes to 1 type of event.</p>
+<blockquote>
+<p><strong>For events in the Events API, your bot must first be subscribed to the event in Slack.</strong></p>
+</blockquote>
+<p><img src="../assets/images/workbot/workbot-trigger/new-event-trigger.png" alt="New event trigger">
+<em>Workbot for Slack new event trigger</em></p>
+<p>By default, this trigger contains a list of the most frequently subscribed events. If the event you&apos;re looking for is not on the list, you can switch to <strong>Enter custom value</strong> to manually configure the event.</p>
+<p><img src="../assets/images/workbot/workbot-trigger/custom-event.png" alt="Custom event">
+<em>Event name points the event to the recipe and is useful in providing context &#x2014; otherwise, no syntax is enforced</em></p>
+<p>You may also choose to generate the event payload by specifying a sample JSON by clicking on <strong>Use a sample JSON</strong> under <strong>Event schema</strong>.</p>
+<p><img src="../assets/images/workbot/workbot-trigger/event-sample-json.png" alt="Event sample JSON"></p>
+<p><img src="../assets/images/workbot/workbot-trigger/custom-event-schema.png" alt="Custom event JSON"></p>
+<p>See the list of events you can subscribe to over at Slack&apos;s <a href="https://api.slack.com/events" target="_blank">API Event Types documentation</a>.</p>
+<p>This trigger is best used with <a href="workbot-custom-bots.html">custom bots</a>, as it allows you to specify which bot or workspace events your bot subscribes to. To subscribe to events, <a href="https://api.slack.com/apps" target="_blank">head over to your bot in Slack</a> and navigate to <strong>Event Subscriptions</strong>. Subscribe to the events you need, then hit <strong>Save Changes</strong>.</p>
+<p><img src="../assets/images/workbot/workbot-trigger/event-subscription.png" alt="Event subscription">
+<em>Event Subscriptions in Slack</em></p>
+<p>This trigger can also listen to <a href="https://api.slack.com/messaging/interactivity/enabling#understanding_payloads" target="_blank">block action</a> and block kit modal <a href="https://api.slack.com/block-kit/surfaces/modals#handling_submissions" target="_blank">view submission</a> events. These events get sent to the <strong>Interactive Components</strong> request URL, so if you&apos;ve already enabled <a href="workbot-custom-bots.html#enabling-interactive-components">interactive components in your custom bot</a>, then there&apos;s no further action required &#x2014; you&apos;re all set.</p>
+<h2 id="new-message-action-trigger">New message action trigger</h2>
+<p>This trigger allows you to perform message actions onto existing Slack messages in your Slack team.</p>
+<p><img src="../assets/images/workbot/workbot-message-actions/message-actions-example.gif" alt="Message action gif"></p>
+<p>When triggered, message actions launch a dialog to collect command input fields from the user. The original contents of the message (along with input obtained from the dialog) can be used to create tasks, tickets, and more. To start using message actions, check out our <a href="workbot-message-action.html">message actions documentation</a>.</p>
+<p>This trigger allows you to build a custom command for Workbot in a Workato recipe. When you call this custom command in Slack to Workbot, the recipe will trigger and execute the actions you have defined. To find out how to create a simple command, check out <a href="workbot-commands.html">this guide</a>.</p>
 <h2 id="new-url-mention">New URL mention</h2>
+<p>This trigger monitors certain types of URLs in Slack, and pulls pre-defined, formatted data into the channel when such an URL is mentioned. Currently, Salesforce and Github URLs are supported.</p>
 <p>When you send a URL in Slack, you can have Workbot provide certain information into the channel for everyone to see. For example, you can send a Salesforce lead URL into your sales channel and workbot will automatically send a message showing more information about that particular lead.</p>
 <p><img src="../assets/images/workbot/workbot-trigger/workbot-url.gif" alt="workbot triggers"></p>
 <p>Simply select the application in the trigger (Currently only Salesforce and Github), and select the Document, and set up your actions as you prefer. By default, giving a Salesforce or Github URL in a channel that Workbot is in will trigger a prompt from Workbot asking you if you want to show details of the content of the URL that you have sent. Click on yes to trigger the recipe. You can also edit the recipe in Workato if you want to have more or less fields included in the message.</p>
@@ -12750,7 +12782,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Workbot triggers","date":"2017-03-30T05:00:00.000Z","level":"1.17.5","depth":2,"next":{"title":"New message action","level":"1.17.5.1","depth":3,"path":"workbot/workbot-message-action.md","ref":"workbot/workbot-message-action.md","articles":[]},"previous":{"title":"Block kit","level":"1.17.4","depth":2,"path":"workbot/block-kit.md","ref":"workbot/block-kit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-triggers.md","mtime":"2019-10-09T01:57:48.072Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-09T01:59:09.089Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Workbot triggers","date":"2017-03-30T05:00:00.000Z","level":"1.17.5","depth":2,"next":{"title":"New message action","level":"1.17.5.1","depth":3,"path":"workbot/workbot-message-action.md","ref":"workbot/workbot-message-action.md","articles":[]},"previous":{"title":"Block kit","level":"1.17.4","depth":2,"path":"workbot/block-kit.md","ref":"workbot/block-kit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"workbot/workbot-triggers.md","mtime":"2019-10-09T06:57:52.967Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-09T06:59:40.312Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
