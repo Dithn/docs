@@ -14040,7 +14040,7 @@
 </li>
 <li><p><strong>Audit Trail:</strong> When collaborating, multiple users can work on the same recipe. Hence, it is important to keep an audit trail of the changes. <a href="#tracking-changes-made-by-collaborators">Auto-versioning</a> provides the ability to roll back or roll-forward changes without losing any work.</p>
 </li>
-<li><p><strong>Recipe Ownership:</strong> Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn&apos;t go away with them. </p>
+<li><p><strong>Recipe Ownership:</strong> Recipes created by users as part of a team are owned by the team. When a consultant leaves or an employee changes group/jobs, their contribution to the team doesn&apos;t go away with them.</p>
 </li>
 </ul>
 <p>The Teams feature is enabled only for certain plans. Check the <a href="https://www.workato.com/pricing?audience=general" target="_blank">Pricing and Plans page</a> or reach out to Workato sales representatives at +1 (844) 469-6752 to find out more.</p>
@@ -14092,6 +14092,126 @@
 <p>You can also define the folders, and correspondingly the recipes and connections contained in that folder, that the role will have access to. This is useful when there are multiple teams working on the same Workato account, such as development, QA and production teams in the <a href="../recipe-development-lifecycle.html">recipe development lifecycle</a>, or when different departments in the company wish to manage their recipes separately. Users assigned to those folders will not have access to other folders nor to the <code>Home</code> folder.</p>
 <p><img src="../assets/images/user-accounts-and-teams/team-collaboration/folder-permissions.gif" alt="Additional role access to features">
 <em>Define folder permissions for the new role</em></p>
+<h3 id="details-of-the-privilege-table">Details of the privilege table</h3>
+<p>The following table provides a breakdown of each privilege you can confer a custom role.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Recipes</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recipes</td>
+<td>Give your team members specific access to read, create, update, delete, run recipes and access the job history</td>
+</tr>
+<tr>
+<td>Connections</td>
+<td>Give your team members access to edit, create or delete connections in the app connections page</td>
+</tr>
+<tr>
+<td>Folders</td>
+<td>Give your team members access to edit, create or delete folders. Team members will have access to the &#x2018;all&#x2019; folder if this field is checked. Please define specific access to folders in the fields below.</td>
+</tr>
+<tr>
+<td>Project folder</td>
+<td>Give your team members access to all folders.</td>
+</tr>
+<tr>
+<td><strong>Tools/Connectors</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Message templates</td>
+<td>Give your team members access to create or edit message templates</td>
+</tr>
+<tr>
+<td>Workbot</td>
+<td>Give your team members access to create or edit installed and custom Workbots</td>
+</tr>
+<tr>
+<td>Pub/Sub</td>
+<td>Give your team members access to create or edit PubSub topics</td>
+</tr>
+<tr>
+<td>Schema reuse</td>
+<td>Give your team members access to create or edit reusable schema</td>
+</tr>
+<tr>
+<td>Custom OAuth profiles</td>
+<td>Give your team members access to create or edit custom OAuth profiles</td>
+</tr>
+<tr>
+<td>Lookup Tables</td>
+<td>Give your team members access to create or edit all lookup tables</td>
+</tr>
+<tr>
+<td>People task</td>
+<td>Give your team members access to create or edit human approval workflows</td>
+</tr>
+<tr>
+<td>Account properties</td>
+<td>Give your team members access to create or edit account properties</td>
+</tr>
+<tr>
+<td>Connector SDK</td>
+<td>Give your team members access to create and edit custom SDK connectors</td>
+</tr>
+<tr>
+<td>API key</td>
+<td>Give your team members access to view all API keys in recipes</td>
+</tr>
+<tr>
+<td>API management</td>
+<td>Give your team members access to manage API tokens and REST endpoints</td>
+</tr>
+<tr>
+<td>Recipe lifecycle management</td>
+<td>Give your team members access to import/export recipe packages with recipe lifecycle management</td>
+</tr>
+<tr>
+<td>Teams</td>
+<td>Give your team members access to manage and edit your team members</td>
+</tr>
+<tr>
+<td>Custom team roles</td>
+<td>Give your team members access to manage custom team roles</td>
+</tr>
+<tr>
+<td>SAML SSO</td>
+<td>Give your team members access to sign in with SAML SSO. Team access will be authenticated via your identity provider.</td>
+</tr>
+<tr>
+<td>Base plan connectors</td>
+<td>Give your team members access to all base plan connectors.</td>
+</tr>
+<tr>
+<td>Pro plan connectors</td>
+<td>Give your team members access to all professional plan connectors.</td>
+</tr>
+<tr>
+<td>Biz plan connectors</td>
+<td>Give your team members access to all business plan connectors.</td>
+</tr>
+<tr>
+<td>Biz plus plan connectors</td>
+<td>Give your team members access to all business plus plan connectors.</td>
+</tr>
+<tr>
+<td>Enterprise connectors</td>
+<td>Give your team members access to all enterprise plan connectors.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tr>
+ <td>Folders access
+ </td>
+ <td>Specify access to individual recipe folders. If &#x2018;Project folder&apos; is checked, folders specified in this field will be overridden.
+ </td>
+</tr></table>
+
 <h2 id="invite-collaborators">Invite collaborators</h2>
 <p>To invite collaborators, provide the full name of the collaborator and their email.</p>
 <p><img src="../assets/images/user-accounts-and-teams/team-collaboration/invite-collaborators.gif" alt="Invite collaborators">
@@ -14112,7 +14232,6 @@ Existing Workato users will be prompted to login to Workato and accept the team 
 <p>Exports and imports to and from your team account during <a href="../recipe-development-lifecycle.html">recipe lifecycle management</a> are tracked on the export/import histories pages on every manifest and import folder.</p>
 <p><img src="../assets/images/user-accounts-and-teams/team-collaboration/recipe-export-history.png" alt="Recipe export history">
 <em>Recipe export history</em></p>
-<h1 id="">#</h1>
 
                                 
                                 </section>
@@ -14195,7 +14314,7 @@ Existing Workato users will be prompted to login to Workato and accept the team 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Teams and collaboration","date":"2017-02-16T06:15:00.000Z","level":"1.12","depth":1,"next":{"title":"Role-based access","level":"1.12.1","depth":2,"anchor":"#team-roles","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#team-roles","articles":[]},"previous":{"title":"Maximize data throughput","level":"1.11.3","depth":2,"anchor":"#maximize-data-throughput-with-batch-processing","path":"features/batch-processing.md","ref":"features/batch-processing.md#maximize-data-throughput-with-batch-processing","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"user-accounts-and-teams/team-collaboration.md","mtime":"2019-10-24T19:42:01.526Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-24T19:44:21.834Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Teams and collaboration","date":"2017-02-16T06:15:00.000Z","level":"1.12","depth":1,"next":{"title":"Role-based access","level":"1.12.1","depth":2,"anchor":"#team-roles","path":"user-accounts-and-teams/team-collaboration.md","ref":"user-accounts-and-teams/team-collaboration.md#team-roles","articles":[]},"previous":{"title":"Maximize data throughput","level":"1.11.3","depth":2,"anchor":"#maximize-data-throughput-with-batch-processing","path":"features/batch-processing.md","ref":"features/batch-processing.md#maximize-data-throughput-with-batch-processing","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"user-accounts-and-teams/team-collaboration.md","mtime":"2019-10-25T04:51:54.992Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-25T04:53:09.494Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
