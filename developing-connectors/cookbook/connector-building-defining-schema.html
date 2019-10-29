@@ -14177,68 +14177,57 @@
 <p>Consider using a collapsible section for these code blocks. The sheer length makes it difficult to navigate the document.</p>
 <h3 id="example-1-statically-defined-schema">Example 1: Statically defined schema</h3>
 <p>As a developer building the connector to XYZ labs, the representation of an &#x201C;Invoice&#x201D; object in our application might look something like this:</p>
-<details>
-  <summary><b>Expand to view the full Invoice object JSON</b></summary>
-
-```json
-  {
-    &quot;TxnDate&quot;: &quot;2019-09-19&quot;,
-    &quot;ID&quot;: &quot;1&quot;,
-    &quot;TotalAmt&quot;: 362.07,
-    &quot;Line&quot;: [
+<pre><code class="lang-json">  {
+    <span class="hljs-string">&quot;TxnDate&quot;</span>: <span class="hljs-string">&quot;2019-09-19&quot;</span>,
+    <span class="hljs-string">&quot;ID&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>,
+    <span class="hljs-string">&quot;TotalAmt&quot;</span>: <span class="hljs-number">362.07</span>,
+    <span class="hljs-string">&quot;Line&quot;</span>: [
       {
-        &quot;Description&quot;: &quot;Rock Fountain&quot;,
-        &quot;SalesItemLineDetail&quot;: {
-          &quot;Qty&quot;: 1,
-          &quot;UnitPrice&quot;: 275
+        <span class="hljs-string">&quot;Description&quot;</span>: <span class="hljs-string">&quot;Rock Fountain&quot;</span>,
+        <span class="hljs-string">&quot;SalesItemLineDetail&quot;</span>: {
+          <span class="hljs-string">&quot;Qty&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;UnitPrice&quot;</span>: <span class="hljs-number">275</span>
         },
-        &quot;Line-Num&quot;: 1,
-        &quot;Amount&quot;: 275.0,
-        &quot;Id&quot;: &quot;1&quot;
+        <span class="hljs-string">&quot;Line-Num&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">&quot;Amount&quot;</span>: <span class="hljs-number">275.0</span>,
+        <span class="hljs-string">&quot;Id&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>
       },
       {
-        &quot;Description&quot;: &quot;Fountain Pump&quot;,
-        &quot;SalesItemLineDetail&quot;: {
-          &quot;Qty&quot;: 1,
-          &quot;UnitPrice&quot;: 12.75
+        <span class="hljs-string">&quot;Description&quot;</span>: <span class="hljs-string">&quot;Fountain Pump&quot;</span>,
+        <span class="hljs-string">&quot;SalesItemLineDetail&quot;</span>: {
+          <span class="hljs-string">&quot;Qty&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;UnitPrice&quot;</span>: <span class="hljs-number">12.75</span>
         },
-        &quot;LineNum&quot;: 2,
-        &quot;Amount&quot;: 12.75,
-        &quot;Id&quot;: &quot;2&quot;
+        <span class="hljs-string">&quot;LineNum&quot;</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">&quot;Amount&quot;</span>: <span class="hljs-number">12.75</span>,
+        <span class="hljs-string">&quot;Id&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>
       }
     ],
-    &quot;DueDate&quot;: &quot;2019-10-19&quot;,
-    &quot;DocNumber&quot;: &quot;1037&quot;,
-    &quot;Deposit&quot;: 0,
-    &quot;Balance&quot;: 362.07,
-    &quot;CustomerRef&quot;: {
-      &quot;name&quot;: &quot;Sonnenschein Family Store&quot;,
-      &quot;value&quot;: &quot;24&quot;
+    <span class="hljs-string">&quot;DueDate&quot;</span>: <span class="hljs-string">&quot;2019-10-19&quot;</span>,
+    <span class="hljs-string">&quot;DocNumber&quot;</span>: <span class="hljs-string">&quot;1037&quot;</span>,
+    <span class="hljs-string">&quot;Deposit&quot;</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;Balance&quot;</span>: <span class="hljs-number">362.07</span>,
+    <span class="hljs-string">&quot;CustomerRef&quot;</span>: {
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Sonnenschein Family Store&quot;</span>,
+      <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;24&quot;</span>
     },
-    &quot;BillEmail&quot;: {
-      &quot;Address&quot;: &quot;Familiystore@intuit.com&quot;
+    <span class="hljs-string">&quot;BillEmail&quot;</span>: {
+      <span class="hljs-string">&quot;Address&quot;</span>: <span class="hljs-string">&quot;Familiystore@intuit.com&quot;</span>
     },
-    &quot;BillAddr&quot;: {
-      &quot;Line1&quot;: &quot;Russ Sonnenschein&quot;,
-      &quot;Long&quot;: &quot;-122.1141681&quot;,
-      &quot;Lat&quot;: &quot;37.4238562&quot;,
-      &quot;Id&quot;: &quot;95&quot;
+    <span class="hljs-string">&quot;BillAddr&quot;</span>: {
+      <span class="hljs-string">&quot;Line1&quot;</span>: <span class="hljs-string">&quot;Russ Sonnenschein&quot;</span>,
+      <span class="hljs-string">&quot;Long&quot;</span>: <span class="hljs-string">&quot;-122.1141681&quot;</span>,
+      <span class="hljs-string">&quot;Lat&quot;</span>: <span class="hljs-string">&quot;37.4238562&quot;</span>,
+      <span class="hljs-string">&quot;Id&quot;</span>: <span class="hljs-string">&quot;95&quot;</span>
     },
-    &quot;MetaData&quot;: {
-      &quot;CreateTime&quot;: &quot;2014-09-19T13:16:17-07:00&quot;,
-      &quot;LastUpdatedTime&quot;: &quot;2014-09-19T13:16:17-07:00&quot;
+    <span class="hljs-string">&quot;MetaData&quot;</span>: {
+      <span class="hljs-string">&quot;CreateTime&quot;</span>: <span class="hljs-string">&quot;2014-09-19T13:16:17-07:00&quot;</span>,
+      <span class="hljs-string">&quot;LastUpdatedTime&quot;</span>: <span class="hljs-string">&quot;2014-09-19T13:16:17-07:00&quot;</span>
     }
   }
-```
-</details>
-
-<p><br></p>
+</code></pre>
 <p>While a create &#x201C;Invoice&#x201D; action may require a POST request similar to this:</p>
-<details>
-  <summary><b>Expand to view the create POST request</b></summary>
-
-```curl
-  POST /invoice/create
+<pre><code class="lang-curl">  POST /invoice/create
   Content type:application/json
 
   {
@@ -14258,16 +14247,9 @@
       &quot;value&quot;: &quot;1&quot;
     }
   }
-```
-</details>
-
-<p><br></p>
+</code></pre>
 <p>and an update &#x201C;Invoice&#x201D; action may require a POST similar to this:</p>
-<details>
-  <summary><b>Expand to view the update POST request</b></summary>
-
-```curl
-  POST /invoice/update
+<pre><code class="lang-curl">  POST /invoice/update
   Content type:application/json
 
   {
@@ -14288,85 +14270,74 @@
       &quot;value&quot;: &quot;1&quot;
     }
   }
-```
-</details>
-<br>
-
-As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this &#x201C;Invoice&#x201D; object. We should arrive at something like the following:
-<br>
-<details>
-  <summary><b>Expand to view the full method</b></summary>
-
-```ruby
-  methods: {
-    invoice_schema: lambda do |action_type|
+</code></pre>
+<p>As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this &#x201C;Invoice&#x201D; object. We should arrive at something like the following:</p>
+<pre><code class="lang-ruby">  <span class="hljs-symbol">methods:</span> {
+    <span class="hljs-symbol">invoice_schema:</span> lambda <span class="hljs-keyword">do</span> |action_type|
       [
-        { name: &quot;Id&quot; } if action_type != &apos;create&apos;,
-        { name: &quot;TxnDate&quot; },
-        { name: &quot;TotalAmt&quot;, type: &quot;number&quot; },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Id&quot;</span> } <span class="hljs-keyword">if</span> action_type != <span class="hljs-string">&apos;create&apos;</span>,
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;TxnDate&quot;</span> },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;TotalAmt&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> },
         {
-          name: &quot;Line&quot;,
-          type: &quot;array&quot;,
-          of: &quot;object&quot;,
-          properties: [
-            { name: &quot;Description&quot; },
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Line&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;array&quot;</span>,
+          <span class="hljs-symbol">of:</span> <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-symbol">properties:</span> [
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Description&quot;</span> },
             {
-              name: &quot;SalesItemLineDetail&quot;,
-              type: &quot;object&quot;,
-              properties: [
-                { name: &quot;Qty&quot;, type: &quot;number&quot; },
-                { name: &quot;UnitPrice&quot;, type: &quot;number&quot; }
+              <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;SalesItemLineDetail&quot;</span>,
+              <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;object&quot;</span>,
+              <span class="hljs-symbol">properties:</span> [
+                { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Qty&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> },
+                { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;UnitPrice&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> }
               ]
             },
-            { name: &quot;Line-Num&quot;, type: &quot;number&quot; },
-            { name: &quot;Amount&quot;, type: &quot;number&quot; },
-            { name: &quot;Id&quot; }
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Line-Num&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Amount&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Id&quot;</span> }
           ]
         },
-        { name: &quot;Due-Date&quot; },
-        { name: &quot;Doc Number&quot; },
-        { name: &quot;Deposit&quot;, type: &quot;number&quot; },
-        { name: &quot;Balance&quot;, type: &quot;number&quot; },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Due-Date&quot;</span> },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Doc Number&quot;</span> },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Deposit&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> },
+        { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Balance&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;number&quot;</span> },
         {
-          name: &quot;CustomerRef&quot;,
-          type: &quot;object&quot;,
-          properties: [
-            { name: &quot;name&quot; }
-            { name: &quot;value&quot; }
-          ]
-        },
-        {
-          name: &quot;BillEmail&quot;,
-          type: &quot;object&quot;,
-          properties: [
-            { name: &quot;Address&quot; }
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;CustomerRef&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-symbol">properties:</span> [
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;name&quot;</span> }
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;value&quot;</span> }
           ]
         },
         {
-          name: &quot;BillAddr&quot;,
-          type: &quot;object&quot;,
-          properties: [
-            { name: &quot;Line1&quot; },
-            { name: &quot;Lon&quot; },
-            { name: &quot;Lat&quot; },
-            { name: &quot;Id&quot; }
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;BillEmail&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-symbol">properties:</span> [
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Address&quot;</span> }
           ]
         },
         {
-          name: &quot;MetaData&quot;,
-          type: &quot;object&quot;,
-          properties: [
-            { name: &quot;CreateTime&quot;, type: &quot;date_time&quot; },
-            { name: &quot;LastUpdatedTime&quot;, type: &quot;date_time&quot; }
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;BillAddr&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-symbol">properties:</span> [
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Line1&quot;</span> },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Lon&quot;</span> },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Lat&quot;</span> },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;Id&quot;</span> }
+          ]
+        },
+        {
+          <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;MetaData&quot;</span>,
+          <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-symbol">properties:</span> [
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;CreateTime&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;date_time&quot;</span> },
+            { <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;LastUpdatedTime&quot;</span>, <span class="hljs-symbol">type:</span> <span class="hljs-string">&quot;date_time&quot;</span> }
           ]
         }
       ].compact
-    end
+    <span class="hljs-keyword">end</span>
   }
-```
-</details>
-
-<p><br></p>
+</code></pre>
 <p>This schema is contained inside a method block called <code>invoice_schema</code>. Take note that we also provide an additional argument for this method called <code>action_type</code> which allows us to conditionally add input or output fields in the schema based on the type of action calling this method.</p>
 <p>For example, since creating an invoice shouldn&apos;t allow users to define the ID in cases where invoice IDs are auto-generated by XYZ accounting, this can be easily stripped from the input schema based on the <code>action_type</code>.</p>
 <blockquote>
@@ -14403,92 +14374,84 @@ As a general rule of thumb, when defining schema of an object in Workato, we wan
   <span class="hljs-comment">// More properties below</span>
 ]
 </code></pre>
-<p>Using this, we can define a method called <code>contact_schema</code> which takes in the same <code>action_type</code> argument as our earlier example on static definitions.
-<br></p>
-<details>
-  <summary><b>Expand to view the full method</b></summary>
-
-```ruby
-  methods: {
-    contact_schema: lambda do |action_type|
-      get(&apos;/properties/v1/contacts/properties&apos;).map do |property|
+<p>Using this, we can define a method called <code>contact_schema</code> which takes in the same <code>action_type</code> argument as our earlier example on static definitions.</p>
+<pre><code class="lang-ruby">  <span class="hljs-symbol">methods:</span> {
+    <span class="hljs-symbol">contact_schema:</span> lambda <span class="hljs-keyword">do</span> |action_type|
+      get(<span class="hljs-string">&apos;/properties/v1/contacts/properties&apos;</span>).map <span class="hljs-keyword">do</span> |property|
         field = {
-          name: property[&apos;name&apos;],
-          label: property[&apos;label&apos;],
-          hint: property[&apos;description&apos;],
-          type: call(&apos;type_mapping&apos;, property[&apos;type&apos;]),
-          control_type: call(&apos;control_type_mapping&apos;, property[&apos;fieldType&apos;])
+          <span class="hljs-symbol">name:</span> property[<span class="hljs-string">&apos;name&apos;</span>],
+          <span class="hljs-symbol">label:</span> property[<span class="hljs-string">&apos;label&apos;</span>],
+          <span class="hljs-symbol">hint:</span> property[<span class="hljs-string">&apos;description&apos;</span>],
+          <span class="hljs-symbol">type:</span> call(<span class="hljs-string">&apos;type_mapping&apos;</span>, property[<span class="hljs-string">&apos;type&apos;</span>]),
+          <span class="hljs-symbol">control_type:</span> call(<span class="hljs-string">&apos;control_type_mapping&apos;</span>, property[<span class="hljs-string">&apos;fieldType&apos;</span>])
         }
 
-        if %w[select multiselect].include?(field[:control_type])
+        <span class="hljs-keyword">if</span> <span class="hljs-string">%w[select multiselect]</span>.<span class="hljs-keyword">include</span>?(field[<span class="hljs-symbol">:control_type</span>])
           picklist = {
-            pick_list: property[&apos;options&apos;].
-            map { |option| [option[&apos;label&apos;], option[&apos;value&apos;]]  }
+            <span class="hljs-symbol">pick_list:</span> property[<span class="hljs-string">&apos;options&apos;</span>].
+            map { |option| [option[<span class="hljs-string">&apos;label&apos;</span>], option[<span class="hljs-string">&apos;value&apos;</span>]]  }
           }
           field = field.merge(picklist)
-        end
+        <span class="hljs-keyword">end</span>
 
-        if %w[boolean select multiselect].include?(field[:control_type])
+        <span class="hljs-keyword">if</span> <span class="hljs-string">%w[boolean select multiselect]</span>.<span class="hljs-keyword">include</span>?(field[<span class="hljs-symbol">:control_type</span>])
           togglefield = {
-            toggle_hint: &apos;Select manually&apos;,
-            toggle_field: {
-              name: property[&apos;name&apos;],
-              label: property[&apos;label&apos;],
-              type: &apos;string&apos;,
-              control_type: &apos;text&apos;,
-              toggle_hint: &apos;Map datapill&apos;,
-              hint: &quot;Enter in a valid option&quot;
+            <span class="hljs-symbol">toggle_hint:</span> <span class="hljs-string">&apos;Select manually&apos;</span>,
+            <span class="hljs-symbol">toggle_field:</span> {
+              <span class="hljs-symbol">name:</span> property[<span class="hljs-string">&apos;name&apos;</span>],
+              <span class="hljs-symbol">label:</span> property[<span class="hljs-string">&apos;label&apos;</span>],
+              <span class="hljs-symbol">type:</span> <span class="hljs-string">&apos;string&apos;</span>,
+              <span class="hljs-symbol">control_type:</span> <span class="hljs-string">&apos;text&apos;</span>,
+              <span class="hljs-symbol">toggle_hint:</span> <span class="hljs-string">&apos;Map datapill&apos;</span>,
+              <span class="hljs-symbol">hint:</span> <span class="hljs-string">&quot;Enter in a valid option&quot;</span>
             }
           }
           field = field.merge(togglefield)
-        end
+        <span class="hljs-keyword">end</span>
 
         field
-      end
-    end,
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>,
 
-    type_mapping: lambda do |input|
-      case input
-      when &apos;datetime&apos;
-        &apos;date_time&apos;
-      when &apos;number&apos;
-        &apos;integer&apos;
-      when &apos;booleancheckbox&apos;
-        &apos;boolean&apos;
-      when &apos;bool&apos;
-        &apos;boolean&apos;
-      when &apos;enumeration&apos;
-        &apos;string&apos;
-      else
+    <span class="hljs-symbol">type_mapping:</span> lambda <span class="hljs-keyword">do</span> |input|
+      <span class="hljs-keyword">case</span> input
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;datetime&apos;</span>
+        <span class="hljs-string">&apos;date_time&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;number&apos;</span>
+        <span class="hljs-string">&apos;integer&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;booleancheckbox&apos;</span>
+        <span class="hljs-string">&apos;boolean&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;bool&apos;</span>
+        <span class="hljs-string">&apos;boolean&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;enumeration&apos;</span>
+        <span class="hljs-string">&apos;string&apos;</span>
+      <span class="hljs-keyword">else</span>
         input
-      end
-    end,
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>,
 
-    control_type_mapping: lambda do |input|
-      case input
-      when &apos;textarea&apos;
-        &apos;text-area&apos;
-      when &apos;datetime&apos;
-        &apos;date_time&apos;
-      when &apos;booleancheckbox&apos;
-        &apos;checkbox&apos;
-      when &apos;bool&apos;
-        &apos;checkbox&apos;
-      when &apos;enumeration&apos;
-        &apos;select&apos;
-      when &apos;radio&apos;
-        &apos;select&apos;
-      when &apos;checkbox&apos;
-        &apos;multiselect&apos;
-      else
+    <span class="hljs-symbol">control_type_mapping:</span> lambda <span class="hljs-keyword">do</span> |input|
+      <span class="hljs-keyword">case</span> input
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;textarea&apos;</span>
+        <span class="hljs-string">&apos;text-area&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;datetime&apos;</span>
+        <span class="hljs-string">&apos;date_time&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;booleancheckbox&apos;</span>
+        <span class="hljs-string">&apos;checkbox&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;bool&apos;</span>
+        <span class="hljs-string">&apos;checkbox&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;enumeration&apos;</span>
+        <span class="hljs-string">&apos;select&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;radio&apos;</span>
+        <span class="hljs-string">&apos;select&apos;</span>
+      <span class="hljs-keyword">when</span> <span class="hljs-string">&apos;checkbox&apos;</span>
+        <span class="hljs-string">&apos;multiselect&apos;</span>
+      <span class="hljs-keyword">else</span>
         input
-      end
-    end
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
   }
-```
-</details>
-
-<p><br></p>
+</code></pre>
 <p>In this method, we take the response from HubSpot and for each property, we map its values to a defined parameter in Workato&#x2019;s schema. We also created 2 service methods called <code>type_mapping</code> and <code>control_type_mapping</code> that are responsible for defining the mappings of HubSpot data types (defined as <code>type</code> and <code>fieldType</code> in HubSpot) to those in <code>type</code> and <code>control_type</code> in Workato respectively.</p>
 <p>Another thing to note would be the introduction of picklists and toggle fields for <code>control_types</code> that support them. In general, we will highly recommend using picklists alongside with string toggle fields as this gives your end-users the ability to statically pick a value or map a datapill instead. More details on increasing usability can be found later on.</p>
 <blockquote>
@@ -14582,7 +14545,7 @@ As a general rule of thumb, when defining schema of an object in Workato, we wan
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Architecture","date":"2019-10-15T17:00:00.000Z","isTocVisible":true,"level":"1.22.16.2","depth":3,"next":{"title":"Actions","level":"1.22.16.3","depth":3,"path":"developing-connectors/cookbook/connector-building-building-actions.md","ref":"developing-connectors/cookbook/connector-building-building-actions.md","articles":[]},"previous":{"title":"Connector planning","level":"1.22.16.1","depth":3,"path":"developing-connectors/cookbook/connector-planning.md","ref":"developing-connectors/cookbook/connector-planning.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md","oem/jwt-direct-linking.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/cookbook/connector-building-defining-schema.md","mtime":"2019-10-25T08:30:47.454Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-25T08:32:43.337Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Architecture","date":"2019-10-15T17:00:00.000Z","isTocVisible":true,"level":"1.22.16.2","depth":3,"next":{"title":"Actions","level":"1.22.16.3","depth":3,"path":"developing-connectors/cookbook/connector-building-building-actions.md","ref":"developing-connectors/cookbook/connector-building-building-actions.md","articles":[]},"previous":{"title":"Connector planning","level":"1.22.16.1","depth":3,"path":"developing-connectors/cookbook/connector-planning.md","ref":"developing-connectors/cookbook/connector-planning.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md","oem/jwt-direct-linking.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"developing-connectors/cookbook/connector-building-defining-schema.md","mtime":"2019-10-29T05:34:47.128Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-10-29T05:37:23.999Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
