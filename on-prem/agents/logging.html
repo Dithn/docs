@@ -14157,7 +14157,60 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="on-prem-agent-logs">On-prem Agent logs</h1>
-<p>The on-prem agent contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; The most common one is troubleshooting.</p>
+<p>The on-prem agent (OPA) contains code to log various types of events. The log file will contain OPA activity, errors, warnings and traces. The log file is useful for many scenarios; it is most commonly used for troubleshooting.</p>
+<h2 id="logging-schedule">Logging schedule</h2>
+<p>The OPA logger will create a new log file at the start of each day (according to the on-premise system time). It will also create a new log file once the file size exceeds 20MB. The multiple log files in a single day will be numbered in sequence to identify them.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario 1</th>
+<th>Scenario 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01-NOV-2019</td>
+<td>02-NOV-2019</td>
+</tr>
+<tr>
+<td>Total file size: 15MB</td>
+<td>Total file size: 25MB</td>
+</tr>
+<tr>
+<td><code>/agent-2019-11-01.0.log</code><br>A log file is created at the start of the day.</td>
+<td><code>/agent-2019-11-02.0.log</code><br>A log file is created at the start of the day. The first 20MB will be stored in this file.<br><br><code>/agent-2019-11-02.1.log</code><br>Another log file will be created and contains the remaining 5MB.</td>
+</tr>
+</tbody>
+</table>
+<p>You can access the OPA log files in the agent folder. The OPA will only retain the most recent 60 files, or at most 20GB of files. </p>
+<h3 id="opa-log-properties">OPA log properties</h3>
+<p>OPA logs contain the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>OPA log property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td>Each log file is dated to improve locating the right file.</td>
+</tr>
+<tr>
+<td>Numbered logs</td>
+<td>If there are multiple log files in a single day, they will be numbered in sequence.</td>
+</tr>
+<tr>
+<td>File size limit</td>
+<td>The logger enforces a 20MB size limit to make it easier to query the file content.</td>
+</tr>
+<tr>
+<td>Storage limit</td>
+<td>The folder limit reduces the storage load on the server.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="logging-opa-activity">Logging OPA activity</h2>
 <p>At the top level of your <code>config.yml</code> file, add the <code>logging</code> definition to record the various level of activity logs.</p>
 <pre><code class="lang-yml"><span class="hljs-attr">logging:</span>
@@ -14317,7 +14370,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Logging","date":"2019-08-09T00:00:00.000Z","isTocVisible":true,"level":"1.15.2.8","depth":3,"next":{"title":"Extensions","level":"1.15.2.9","depth":3,"path":"on-prem/agents/extension.md","ref":"on-prem/agents/extension.md","articles":[]},"previous":{"title":"Proxy server","level":"1.15.2.7","depth":3,"path":"on-prem/agents/proxy.md","ref":"on-prem/agents/proxy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md","oem/jwt-direct-linking.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/agents/logging.md","mtime":"2019-11-05T00:57:36.181Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-11-05T00:59:23.308Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","date":"2019-08-09T00:00:00.000Z","isTocVisible":true,"level":"1.15.2.8","depth":3,"next":{"title":"Extensions","level":"1.15.2.9","depth":3,"path":"on-prem/agents/extension.md","ref":"on-prem/agents/extension.md","articles":[]},"previous":{"title":"Proxy server","level":"1.15.2.7","depth":3,"path":"on-prem/agents/proxy.md","ref":"on-prem/agents/proxy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md","oem/jwt-direct-linking.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"on-prem/agents/logging.md","mtime":"2019-11-07T15:37:49.458Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-11-07T15:40:23.771Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
