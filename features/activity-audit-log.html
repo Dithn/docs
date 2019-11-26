@@ -14139,149 +14139,542 @@
 <p>The activity audit log is available in the <code>Dashboard</code> &gt; <code>Audit</code> tab. With the activity audit log, you will be able to find out which user in the team stopped a business-critical recipe or disconnected a connection. You&apos;ll also be able to find out when the recipe was stopped or connection was disconnected.</p>
 <p>Activity audit log is visible to owner of the account and the users with <code>Admin</code> role.</p>
 <h2 id="types-of-activity-audit">Types of activity audit</h2>
+<h3 id="account">Account</h3>
 <table>
 <thead>
 <tr>
-<th>Asset</th>
 <th>Activity</th>
-<th>Example</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Account</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
 <td>User login</td>
-<td>User login</td>
+<td>User logging in through SSO or using password</td>
 </tr>
 <tr>
-<td></td>
-<td>User logout</td>
-<td>User logout</td>
+<td>User login failed</td>
+<td>User login attempt failed. Click on the activity to find out if user was logging in through SSO or using password.</td>
 </tr>
 <tr>
-<td></td>
+<td>User logout</td>
+<td>User logging out of Workato</td>
+</tr>
+<tr>
 <td>Password changed</td>
-<td>User Nick Santer updated password.</td>
+<td>User changing their password by going to <code>Account Settings</code> &gt; <code>Change password</code></td>
 </tr>
 <tr>
-<td></td>
-<td>Delegated admin removed</td>
-<td>User Nick Santer removed a delegated admin Markus.</td>
+<td>User switched team</td>
+<td>User can switch to another team account by navigating to the Account menu on top right. Switching team is considered as login activity of the user to the switched team. Click on the activity to view the value of the <code>Activity</code>  attribute in the details section, the value <code>switch_team</code> implies user switched to another team.</td>
 </tr>
 <tr>
-<td></td>
+<td>Account email updated</td>
+<td>User updated the email registered with Workato by going to <code>Account Settings</code> &gt; <code>Account</code> and updating <code>Account email</code> field</td>
+</tr>
+<tr>
+<td>User name updated</td>
+<td>User updated the username registered with Workato by going to <code>Account Settings</code> &gt; <code>Profile</code> and updating <code>Username</code> field</td>
+</tr>
+<tr>
+<td>Password reset requested</td>
+<td>User has requested to reset password by clicking on <code>Forgot password?</code> during login. In the next screen, by providing the email and clicking on the <code>Reset password</code> user confirms the intent to reset password.</td>
+</tr>
+<tr>
 <td>Delegated admin added</td>
-<td>User Barry added a delegated admin Clark.</td>
+<td>User has given another Workato user delegated administration access by going to <code>Account Settings</code> &gt; <code>Delegated administrator</code></td>
 </tr>
 <tr>
-<td></td>
+<td>Delegated admin password updated</td>
+<td>User changing their delegated administrator password by going to <code>Account Settings</code> &gt; <code>Change password</code> &gt; <code>Delegated administrator password</code> and updating it with the new password</td>
+</tr>
+<tr>
+<td>Delegated admin removed</td>
+<td>User has removed another Workato user&apos;s delegated administration access by going to <code>Account Settings</code> &gt; <code>Delegated administrator</code></td>
+</tr>
+<tr>
+<td>Enabled two-factor authentication</td>
+<td>User has enabled two-factor authentication by going to <code>Account Settings</code> &gt; <code>Two-Factor Authentication</code></td>
+</tr>
+<tr>
+<td>Disabled two-factor authentication</td>
+<td>User has disabled two-factor authentication by going to <code>Account Settings</code> &gt; <code>Two-Factor Authentication</code> and clicking on <code>Disable Two-Factor Authentication</code></td>
+</tr>
+<tr>
+<td>Viewed two-factor authentication recoevery codes</td>
+<td>User has viewed the two-factor authentication recovery codes by going to <code>Account Settings</code> &gt; <code>Two-Factor Authentication</code> and clicking on <code>View recovery codes</code></td>
+</tr>
+<tr>
+<td>API key refreshed</td>
+<td>User has refreshed the API key used to connect to Workato platform APIs by going to <code>Account Settings</code> &gt; <code>API key</code> and clicking on <code>Refresh key</code></td>
+</tr>
+<tr>
+<td>Error notifications email updated</td>
+<td>User has updated list of emails receiving error notifications from Workato by going to <code>Account Settings</code> &gt; <code>Jobs settings</code> and entering emails in the <code>Error notifications</code> field</td>
+</tr>
+<tr>
+<td>Error notification throttling</td>
+<td>User has enabled or disabled notification throttling by going to <code>Account Settings</code> &gt; <code>Jobs settings</code> and toggling the <code>Error notification throttling</code> checkbox</td>
+</tr>
+<tr>
+<td>Audit log streaming</td>
+<td>User has enabled or disabled audit log streaming by going to <code>Account Settings</code> &gt; <code>Audit log streaming</code> and toggling the <code>ENABLE AUDIT LOG STREAMING</code></td>
+</tr>
+<tr>
+<td>Audit log streaming data inclusion</td>
+<td>User has updated what is included in the audit log streaming by selecting or unselecting one or more of the options under <code>Include in stream</code>. The options to include in the audit log streaming are <code>Job history</code>, <code>Recipe step details</code> and <code>Login &amp; user activity</code>. These settings are available by going to <code>Account Settings</code> &gt; <code>Audit log streaming</code> &gt; <code>Include in stream</code></td>
+</tr>
+<tr>
+<td>Audit log streaming destination updated</td>
+<td>User has updated the destination where the audit log streaming is sent to. To update audit log streaming destination, go to <code>Account Settings</code> &gt; <code>Audit log streaming</code> &gt; <code>Audit stream destination</code> and pick the destination from drop down</td>
+</tr>
+</tbody>
+</table>
+<h3 id="team">Team</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>Invite created</td>
-<td>User Bryan Yap invited Markus to join team as an Analyst.</td>
+<td>User invites a collaborator by going to <code>Tools</code> &gt; <code>Teams</code> and clicking on <code>Invite collaborator</code></td>
 </tr>
 <tr>
-<td></td>
 <td>Invite accepted</td>
-<td>User Samuel Seetoh joined team as an Admin.</td>
+<td>Collaborator accepts the invite to join the team by clicking on the accept invite button in the invitation email</td>
 </tr>
 <tr>
-<td></td>
 <td>Invite modified</td>
-<td>User David Lester modified role to Analyst invitation for Jake Kline to team.</td>
+<td>User modifies the invitation by going to <code>Pending invitations</code> tab in the <code>Team</code> page</td>
 </tr>
 <tr>
-<td></td>
-<td>Member deleted</td>
-<td>User Jack Smith removed user Matt Berg from team.</td>
+<td>Invite canceled</td>
+<td>User cancels the invitation sent to a collaborator by going to <code>Pending invitations</code> tab in the <code>Team</code> page and clicking on the delete button</td>
 </tr>
 <tr>
-<td></td>
 <td>Member updated</td>
-<td>User Deven Maru updated role to Analyst for Zack Chew in team.</td>
+<td>A member of the team is updated (for example, role changed) as collaborator by clicking on the edit button in the <code>Collaborators</code> tab in the <code>Team</code> page</td>
 </tr>
 <tr>
-<td><strong>Recipe</strong></td>
-<td></td>
-<td></td>
+<td>Member deleted</td>
+<td>A member of the team is deleted as a collaborator by clicking on the delete button in the <code>Collaborators</code> tab in the <code>Team</code> page</td>
 </tr>
 <tr>
-<td></td>
+<td>Role created</td>
+<td>User adds a new custom role by going to the <code>Team</code> page &gt; <code>Roles</code> tab and clicking on <code>Add new role</code></td>
+</tr>
+<tr>
+<td>Role updated</td>
+<td>User updates a custom role by going to the <code>Roles</code> tab and clicking on the edit button of the custom role from the list of custom roles</td>
+</tr>
+<tr>
+<td>Role deleted</td>
+<td>User deletes a custom role by going to the <code>Roles</code> tab and clicking on the delete button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="recipe">Recipe</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>Started</td>
-<td>Recipe Offboarding for employees set for termination in Workday was started.</td>
+<td>User started a recipe by clicking on <code>Start recipe</code> button from the recipe details page</td>
 </tr>
 <tr>
-<td></td>
 <td>Stopped</td>
-<td>Response From Hire Right -&gt; Update SNOW was stopped.</td>
+<td>User stopped a recipe by clicking on <code>Stop recipe</code> button from the recipe details page</td>
 </tr>
 <tr>
-<td></td>
 <td>Created</td>
-<td>Recipe Employee Day 1 on boarding was created.</td>
+<td>User creates a new recipe by clicking on the <code>Create a new recipe</code> button from the <code>Recipes</code> page</td>
 </tr>
 <tr>
-<td></td>
+<td>Updated</td>
+<td>User modifies a recipe by clicking on the recipe to go the details page, editing the recipe and saving the recipe</td>
+</tr>
+<tr>
+<td>Renamed</td>
+<td>User renames a recipe by clicking on the recipe title, editing and saving it</td>
+</tr>
+<tr>
+<td>Moved</td>
+<td>User moves a recipe from one folder to another by dragging and dropping recipe from the <code>Recipes</code> page</td>
+</tr>
+<tr>
+<td>Cloned/Copy</td>
+<td>User clones or copies a recipe by clicking on the <code>...</code> &gt; <code>Clone recipe</code> in the <code>Recipes</code> page or by clicking on the <code>Copy</code> button in the recipe details page</td>
+</tr>
+<tr>
+<td>Access scope updated</td>
+<td>User can make a recipe private or public by toggling the <code>Is this a public recipe</code> setting found in the recipe details page under the <code>Settings</code> tab</td>
+</tr>
+<tr>
 <td>Deleted</td>
-<td>Recipe New/updated record will log message to output was deleted.</td>
+<td>User deletes a recipe by clicking on the <code>...</code> in the <code>Recipes</code> page &gt; clicking <code>Delete recipe</code> from the menu  or by clicking on the <code>Delete</code> button in the recipe details page</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connection">Connection</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection is connected</td>
+<td>A connection is connected by the user by linking an account or providing credentials in the connection settings</td>
 </tr>
 <tr>
-<td><strong>Connection</strong></td>
-<td></td>
-<td></td>
+<td>Connection is disconnected</td>
+<td>User disconnects the connection by clicking on <code>Disconnect</code> button in the connection settings</td>
 </tr>
 <tr>
-<td></td>
-<td>Connected</td>
-<td>Connection ServiceNow was connected.</td>
+<td>Connection is created</td>
+<td>New connection is created by the user by clicking on the <code>Create a new connection</code> button in the <code>App Connections</code> page</td>
 </tr>
 <tr>
-<td></td>
-<td>Disconnected</td>
-<td>Connection Greenhouse Sandbox was disconnected.</td>
+<td>Connection is updated</td>
+<td>Existing connection is updated by the user by going to <code>App Connections</code> or the <code>Connections</code> tab in the recipe details page, disconnecting the connection and then modifying the connection settings</td>
 </tr>
 <tr>
-<td></td>
-<td>Created</td>
-<td>Connection HR Amazon S3 was created.</td>
+<td>Connection is deleted</td>
+<td>Connection is deleted by the user by going to the <code>App Connections</code> &gt; selecting a connection &gt; clicking on <code>Delete connection</code> button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="folder">Folder</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Folder created</td>
+<td>User creates a new folder by clicking on the <code>+ Create new folder</code> in the <code>Recipes</code> page</td>
 </tr>
 <tr>
-<td></td>
-<td>Deleted</td>
-<td>Connection Salesforce Prod account was deleted.</td>
+<td>Folder deleted</td>
+<td>User deletes a folder by clicking on the gear button on the folder and selecting <code>Delete</code> from the menu</td>
 </tr>
 <tr>
-<td><strong>Folder</strong></td>
-<td></td>
-<td></td>
+<td>Folder renamed</td>
+<td>User renames a folder by clicking on the gear button on the folder and selecting <code>Rename</code> from the menu</td>
 </tr>
 <tr>
-<td></td>
-<td>Created</td>
-<td>Folder Home/Alerts was created.</td>
+<td>Folder moved</td>
+<td>User moves a folder by dragging and dropping in to the new destination in the <code>Recipes</code> page</td>
+</tr>
+</tbody>
+</table>
+<h3 id="package">Package</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manifest created</td>
+<td>User creates a new manifest by going to <code>Tools</code> &gt; <code>Recipe lifecycle management</code> and clicking on <code>Create new manifest</code></td>
 </tr>
 <tr>
-<td></td>
-<td>Deleted</td>
-<td>Folder Home/Alerts/Lead management was deleted.</td>
+<td>Manifest updated</td>
+<td>User updates an existing manifest by going to <code>Tools</code> &gt; <code>Recipe lifecycle management</code> &gt; <code>Export</code> tab &gt; selecting a manifest and clicking on <code>Edit manifest</code> button to update the manifest</td>
 </tr>
 <tr>
-<td><strong>Package</strong></td>
-<td></td>
-<td></td>
+<td>Manifest deleted</td>
+<td>User deletes an existing manifest by going to <code>Tools</code> &gt; <code>Recipe lifecycle management</code> &gt; <code>Export</code> tab &gt; selecting a manifest and clicking on <code>...</code> and selecting <code>Delete manifest</code> from the menu</td>
 </tr>
 <tr>
-<td></td>
-<td>Exported</td>
-<td>User Gabriel Sim exported package ai-document-understanding.zip.</td>
+<td>Package exported</td>
+<td>User exports a package by creating a manifest and then building and packaging the manifest in to .zip file by going to <code>Recipe lifecycle management</code> page</td>
 </tr>
 <tr>
-<td></td>
-<td>Imported</td>
-<td>User Bryan Yap imported package listevents.zip.</td>
+<td>Package imported</td>
+<td>User imports a package by going to <code>Tools</code> &gt;  <code>Recipe lifecycle management</code> &gt; <code>Imports</code> tab &gt; <code>Import package to a new folder</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="connector-sdk">Connector SDK</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom connector created</td>
+<td>User creates a new connector by going to <code>Tools</code> &gt; <code>Connector SDK</code> and clicking on <code>Create connector</code></td>
+</tr>
+<tr>
+<td>Custom connector updated</td>
+<td>User updates a connector by going to <code>Tools</code> &gt; <code>Connector SDK</code> &gt; selecting the connector and modifying source code</td>
+</tr>
+<tr>
+<td>Custom connector released</td>
+<td>User releases a new version of the latest connector changes by going to <code>Tools</code> &gt; <code>Connector SDK</code> &gt; selecting the connector and clicking on <code>Release latest version</code></td>
+</tr>
+<tr>
+<td>Custom connector deleted</td>
+<td>User deletes a connector by going to <code>Tools</code> &gt; <code>Connector SDK</code> &gt; selecting the connector and clicking on the delete button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-data-model">Common Data Model</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Common data model created</td>
+<td>User creates a new data model by going to <code>Tools</code> &gt; <code>Common data models</code> and clicking on <code>Create a new data model</code></td>
+</tr>
+<tr>
+<td>Common data model updated</td>
+<td>User updates a data model by going to <code>Tools</code> &gt; <code>Common data models</code> &gt; selecting the data model and modifying it</td>
+</tr>
+<tr>
+<td>Common data model deleted</td>
+<td>User deletes a data model by going to <code>Tools</code> &gt; <code>Common data models</code> &gt; selecting the data model and clicking on <code>Delete data model</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lookup-table">Lookup Table</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lookup table created</td>
+<td>User creates a new lookup table by going to <code>Tools</code> &gt; <code>Lookup table</code> and clicking on <code>Create a new lookup table</code></td>
+</tr>
+<tr>
+<td>Lookup table updated</td>
+<td>User updates a lookup table by going to <code>Tools</code> &gt; <code>Lookup table</code> &gt; selecting the lookup table and modifying it</td>
+</tr>
+<tr>
+<td>Lookup table deleted</td>
+<td>User deletes a lookup table by going to <code>Tools</code> &gt; <code>Lookup table</code> &gt; selecting the lookup table and clicking on <code>Delete table</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="message-template">Message Template</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message template created</td>
+<td>User creates a new message template by going to <code>Tools</code> &gt; <code>Message templates</code> and clicking on <code>Create a new template</code></td>
+</tr>
+<tr>
+<td>Message template updated</td>
+<td>User updates a message template by going to <code>Tools</code> &gt; <code>Message templates</code> &gt; selecting the message template and modifying it</td>
+</tr>
+<tr>
+<td>Message template deleted</td>
+<td>User deletes a message template by going to <code>Tools</code> &gt; <code>Message templates</code> &gt; selecting the message template and clicking on <code>Delete template</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Property created</td>
+<td>User creates a new property by going to <code>Tools</code> &gt; <code>Properties</code> and clicking on <code>Add new property</code></td>
+</tr>
+<tr>
+<td>Property updated</td>
+<td>User updates a property by going to <code>Tools</code> &gt; <code>Properties</code> &gt; selecting the edit button for the property and modifying it</td>
+</tr>
+<tr>
+<td>Property deleted</td>
+<td>User deletes a property by going to <code>Tools</code> &gt; <code>Properties</code> &gt; selecting the delete button for the property</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pubsub-topic">Pub/Sub Topic</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pub/Sub topic created</td>
+<td>User creates a new pub/sub topic by going to <code>Tools</code> &gt; <code>Pub/Sub topics</code> and clicking on <code>Create a new topic</code></td>
+</tr>
+<tr>
+<td>Pub/Sub topic updated</td>
+<td>User updates a pub/sub topic by going to <code>Tools</code> &gt; <code>Pub/Sub topics</code> &gt; selecting the topic and modifying it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-collection">API Collection</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API collection created</td>
+<td>User creates a new API collection by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab and clicking on <code>Add a new API collection</code></td>
+</tr>
+<tr>
+<td>API collection updated</td>
+<td>User updates a API collection by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; clicking <code>...</code> for the collection to be modified &gt; selecting <code>Edit collection</code> from the menu and modifying it</td>
+</tr>
+<tr>
+<td>API collection deleted</td>
+<td>User deletes a API collection by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; clicking <code>...</code> for the collection to be deleted &gt; selecting <code>Delete collection</code> from the menu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-endpoint">API Endpoint</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API endpoint created</td>
+<td>User creates a new API endpoint by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; select a API collection from the list &gt; and clicking on <code>Create a new endpoint</code></td>
+</tr>
+<tr>
+<td>API endpoint updated</td>
+<td>User updates a API endpoint by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; select a API collection from the list &gt; clicking <code>...</code> for the endpoint to be modified &gt; selecting <code>Edit endpoint</code> from the menu and modifying it</td>
+</tr>
+<tr>
+<td>API endpoint deleted</td>
+<td>User deletes a API endpoint by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; select a API collection from the list &gt; clicking <code>...</code> for the endpoint to be deleted &gt; selecting <code>Delete endpoint</code> from the menu</td>
+</tr>
+<tr>
+<td>API endpoint activated</td>
+<td>User activates a API endpoint by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; select a API collection from the list &gt; select a API endpoint from the list &gt; click on the toggle to activate</td>
+</tr>
+<tr>
+<td>API endpoint deactivated</td>
+<td>User deactivates a API endpoint by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>API Collections</code> tab &gt; select a API collection from the list &gt; select a API endpoint from the list &gt; click on the toggle to deactivate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-customer">API Customer</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API customer created</td>
+<td>User creates a new API customer by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab and clicking on <code>Add new client</code></td>
+</tr>
+<tr>
+<td>API customer updated</td>
+<td>User updates a API customer by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab &gt; clicking <code>...</code> for the customer to be modified &gt; selecting <code>Edit client</code> from the menu and modifying it</td>
+</tr>
+<tr>
+<td>API customer deleted</td>
+<td>User deletes a API customer by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab &gt; clicking <code>...</code> for the customer to be deleted &gt; selecting <code>Delete endpoint</code> from the menu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-access-profile">API Access Profile</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API access profile created</td>
+<td>User creates a new API access profile by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab &gt; selecting a client from the list and clicking on <code>Create access profile</code></td>
+</tr>
+<tr>
+<td>API access profile updated</td>
+<td>User updates a API access profile by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab &gt; selecting a client from the list &gt; clicking <code>...</code> for the access profile to be modified &gt; selecting <code>Edit access profile</code> from the menu and modifying it</td>
+</tr>
+<tr>
+<td>API access profile deleted</td>
+<td>User deletes a API access profile by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab &gt; selecting a client from the list &gt; clicking <code>...</code> for the access profile to be deleted &gt; selecting <code>Delete access profile</code> from the menu</td>
+</tr>
+<tr>
+<td>API access profile token refreshed</td>
+<td>User refreshes the API access profile API token by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Clients</code> tab &gt; selecting a client from the list &gt; clicking <code>Refresh</code> for the access profile whose API token needs to be refreshed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-policy">API Policy</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API policy created</td>
+<td>User creates a new API policy by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Policies</code> tab and clicking on <code>Create new policy</code></td>
+</tr>
+<tr>
+<td>API policy updated</td>
+<td>User updates a API policy by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Policies</code> tab &gt; selecting a policy from the list &gt; clicking <code>...</code> for the policy to be modified &gt; selecting <code>Edit policy</code> from the menu and modifying it</td>
+</tr>
+<tr>
+<td>API policy deleted</td>
+<td>User deletes a API policy by going to <code>Tools</code> &gt; <code>API platform</code> &gt; clicking on <code>Policies</code> tab &gt; selecting a client from the list &gt; clicking <code>...</code> for the policy to be deleted &gt; selecting <code>Delete policy</code> from the menu</td>
 </tr>
 </tbody>
 </table>
@@ -14310,10 +14703,12 @@
 <p>Find information quickly and efficiently using time-based, user-based and Workato asset-based filters.</p>
 <p>Filtering by time lets you see the activity audit for certain time period like last 7 days or 30 days and more.</p>
 <p><img src="../assets/images/activity-audit/filter-time.png" alt="Time filter" title="Filter by time period"></p>
-<p>In this example, simply select the user to find all the activities by that user in the Workato workspace.</p>
-<p><img src="../assets/images/activity-audit/filter-user.png" alt="User filter" title="User filter"></p>
-<p>Similarly, find all the activities by any user on all recipes in the workspace using the asset filter.</p>
-<p><img src="../assets/images/activity-audit/filter-asset.png" alt="Asset filter" title="Filter by asset type"></p>
+<p>In this example, simply select the user to find all the activities by that user in the Workato workspace. If you have lot of team members collaborating on Workato, scrolling and selecting in the dropdown can become difficult, so we&apos;ve made it easy to just type in the user name and find the user you want.</p>
+<p><img src="../assets/images/activity-audit/filter-user.png" alt="User filter" title="User filter">
+<img src="../assets/images/activity-audit/filter-user-search.png" alt="User search" title="User search"></p>
+<p>Similarly, find all the activities by any user on any Workato asset like recipes, folders, connections in the workspace using the asset filter. Similar to user search, you can simply type in the asset you want to filter and just select the asset from the result.</p>
+<p><img src="../assets/images/activity-audit/filter-asset.png" alt="Asset filter" title="Filter by asset type">
+<img src="../assets/images/activity-audit/filter-asset-search.png" alt="Asset search" title="Search by asset type"></p>
 
                                 
                                 </section>
@@ -14396,7 +14791,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Activity audit log","date":"2019-09-16T19:00:00.000Z","level":"1.16.2","depth":2,"next":{"title":"Scheduler","level":"1.16.3","depth":2,"path":"features/scheduler.md","ref":"features/scheduler.md","articles":[]},"previous":{"title":"Workato Dashboard","level":"1.16.1","depth":2,"path":"features/admin-dashboard.md","ref":"features/admin-dashboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md","oem/jwt-direct-linking.md","oem/customer-managers.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"features/activity-audit-log.md","mtime":"2019-11-24T11:46:16.661Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-11-24T11:47:29.275Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Activity audit log","date":"2019-09-16T19:00:00.000Z","level":"1.16.2","depth":2,"next":{"title":"Scheduler","level":"1.16.3","depth":2,"path":"features/scheduler.md","ref":"features/scheduler.md","articles":[]},"previous":{"title":"Workato Dashboard","level":"1.16.1","depth":2,"path":"features/admin-dashboard.md","ref":"features/admin-dashboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","-sharing","-fontsettings","favicon","toggle-chapters","intopic-toc","ga"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"label":"Contents","selector":".markdown-section h2","visible":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"favicon":{"shortcut":"/assets/images/favicon/favicon.ico","bookmark":"/assets/images/favicon/favicon.ico","appleTouch":"/assets/images/favicon/android-chrome-36x36.png"},"ga":{"configuration":"auto","token":"UA-104783574-1"},"edit-link":{"label":"","base":"https://github.com/workato/docs/edit/master/","multilingual":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"shareablePages":["oem/embedded-connections.md","oem/jwt-direct-linking.md","oem/customer-managers.md"]},"title":"Workato Docs","gitbook":"3.2.2"},"file":{"path":"features/activity-audit-log.md","mtime":"2019-11-26T05:27:53.709Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-11-26T05:29:22.631Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
