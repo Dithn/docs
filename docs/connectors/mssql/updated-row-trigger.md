@@ -205,6 +205,7 @@ Avoid using limit clauses like `TOP` in your SQL. This is because the limit to t
 ## Next steps
 Learn more about the other triggers and actions Workato has to offer for SQL server
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
+  * [Scheduled query trigger](/connectors/mssql/scheduled-query-trigger.md)
   * [Select actions](/connectors/mssql/select.md)
   * [Insert actions](/connectors/mssql/insert.md)
   * [Update actions](/connectors/mssql/update.md)

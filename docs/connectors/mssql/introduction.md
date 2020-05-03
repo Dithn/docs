@@ -479,6 +479,7 @@ Workato currently supports the following triggers and actions. Find out more det
 
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
   * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Scheduled query trigger](/connectors/mssql/scheduled-query-trigger.md)
   * [Select actions](/connectors/mssql/select.md)
   * [Insert actions](/connectors/mssql/insert.md)
   * [Update actions](/connectors/mssql/update.md)
