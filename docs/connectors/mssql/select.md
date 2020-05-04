@@ -67,6 +67,7 @@ If this field is left blank, `TOP 100` will be used.
 Learn more about the other triggers and actions Workato has to offer for SQL server
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
   * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Scheduled query trigger](/connectors/mssql/scheduled-query-trigger.md)
   * [Insert actions](/connectors/mssql/insert.md)
   * [Update actions](/connectors/mssql/update.md)
   * [Upsert actions](/connectors/mssql/upsert.md)

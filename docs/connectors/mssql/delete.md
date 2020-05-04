@@ -1,4 +1,4 @@
-<center><i>--</i></center>
+---
 title: Workato connectors - SQL Server Delete actions
 date: 2018-02-02 06:10:00 Z
 ---
@@ -36,6 +36,7 @@ Complex `WHERE` conditions with subqueries can also be used. Refer to the [WHERE
 Learn more about the other triggers and actions Workato has to offer for SQL server
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
   * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Scheduled query trigger](/connectors/mssql/scheduled-query-trigger.md)
   * [Select actions](/connectors/mssql/select.md)
   * [Insert actions](/connectors/mssql/insert.md)
   * [Update actions](/connectors/mssql/update.md)

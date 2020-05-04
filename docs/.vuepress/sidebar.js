@@ -1890,6 +1890,7 @@ module.exports = [
             '/connectors/mssql/updated-row-trigger',
             'New/updated row trigger'
           ],
+          ['/connectors/mssql/scheduled-query-trigger', 'Scheduled query trigger'],
           ['/connectors/mssql/select', 'Select actions'],
           ['/connectors/mssql/insert', 'Insert actions'],
           ['/connectors/mssql/update', 'Update actions'],
