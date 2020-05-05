@@ -19,7 +19,7 @@ When a trigger error is met, the recipe will surface a trigger warning, but cont
 
 In the following case, a trigger warning was raised because the schema recorded in the recipe did not match the schema in the app. The warning suggests refreshing the schema as a way to resolve the trigger error, and further details of the error can be seen when expanded.
 
-![Trigger warning](~@img/recipes/errors/trigger-warning.gif)
+![Trigger warning](~@img/recipes/errors/trigger-error.png)
 *Trigger warning surfaced on the recipe due to outdated schema that needs refreshing*
 
 ### Recipes stopped by Workato
@@ -37,8 +37,8 @@ Action errors occur when the recipe tries to carry out an action, e.g. trying to
 
 In cases of action errors, the *Input* tab shows the data passed into the action, while the *Output* tab usually shows the error message. You can usually figure out what's wrong by checking the data in the input tab.
 
-![Job error](~@img/recipes/errors/job-error.gif)
-*Job error as shown in job details page*
+![Action error](~@img/recipes/errors/action-error.png)
+*Action error as shown in job details page*
 
 ### Recipes stopped by Workato
 When the recipe encounters 5 successive action errors that are identified by Workato as an unauthorized error, rate limit error or schema error, the recipe will be stopped by Workato automatically under the assumption that there's a critical, non-transient error with the action configuration or connection that needs to be fixed.
@@ -54,7 +54,6 @@ There are certain rules that determine when an email is sent:
 ![Error notification email](~@img/recipes/errors/error-notification-email.png)
 *Error notification email example*
 
-
 ### Customizing notification recipients
 By default, the error notifications are always sent only to the Workato account owner. But if you have a team or consultants monitoring the integrations for you, you can always add their emails to be notified as well.
 
@@ -69,7 +68,7 @@ By default, error notifications are sent for all the recipes in all the folders.
 ![Error notification from select folders](~@img/recipes/errors/error-notifications-for-select-folders-all.png)
 *Select folders containing the recipes you want to receive error notifications for*
 
-All folders are selected by default to send error notifications. Turn off the check box for each folder which contains the recipes for which you do not want to receive error notifications from.
+All folders are selected by default to send error notifications. Uncheck each folder which contains the recipes for which you do not want to receive error notifications from.
 
 ![Error notification turned off for a folder](~@img/recipes/errors/error-notifications-for-select-folders-unchecked.png)
-*Unselect the folder containing the recipes you do not want to receive error notifications for*
+*Uncheck the folder containing the recipes you do not want to receive error notifications for*
