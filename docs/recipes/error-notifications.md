@@ -44,17 +44,32 @@ In cases of action errors, the *Input* tab shows the data passed into the action
 When the recipe encounters 5 successive action errors that are identified by Workato as an unauthorized error, rate limit error or schema error, the recipe will be stopped by Workato automatically under the assumption that there's a critical, non-transient error with the action configuration or connection that needs to be fixed.
 
 ## Error notifications
-Workato sends email notifications to the Workato account owner by default when errors occur.
+Workato sends email notifications to the Workato account owner by default when error occurs.
 
 ### Notification policy
 There are certain rules that determine when an email is sent:
 - Email is sent when a recipe encounters a certain type of error for the first time, e.g. unauthorized, timeout. Subsequent errors of the same type that occur for that same recipe in the following 1 hour will not generate an email notification.
 - Email is sent whenever a recipe is stopped by Workato.
 
+![Error notification email](~@img/recipes/errors/error-notification-email.png)
+*Error notification email example*
+
+
 ### Customizing notification recipients
-By default, the error notification emails are always sent only to the Workato account owner. But if you have a team or consultants monitoring the integrations for you, you can always add their emails to be notified as well.
+By default, the error notifications are always sent only to the Workato account owner. But if you have a team or consultants monitoring the integrations for you, you can always add their emails to be notified as well.
 
-You can do so by going to *Account Settings* > *Notifications* and editing the **Error notifications** field.
+You can do so by going to *Account Settings* > *Error notifications* and editing the **Notification emails** field. Add multiple emails by using comma as a separator.
 
-![Error notification email configuration](~@img/recipes/errors/error-notification-email-config.png)
-*Configuring email addresses to send error notifications to*
+![Error notification configuration](~@img/recipes/errors/error-notification-config.png)
+*Configure and customize how and from what folders you want to receive the error notifications*
+
+### Receive error notifications for select folders
+By default, error notifications are sent for all the recipes in all the folders. The `Receive error notifications only from specific folders` toggle provides greater flexibility to our customers on receiving notifications from recipes that matter to them.
+
+![Error notification from select folders](~@img/recipes/errors/error-notifications-for-select-folders-all.png)
+*Select folders containing the recipes you want to receive error notifications for*
+
+All folders are selected by default to send error notifications. Turn off the check box for each folder which contains the recipes for which you do not want to receive error notifications from.
+
+![Error notification turned off for a folder](~@img/recipes/errors/error-notifications-for-select-folders-unchecked.png)
+*Unselect the folder containing the recipes you do not want to receive error notifications for*
