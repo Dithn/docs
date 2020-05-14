@@ -57,6 +57,10 @@ In the Technical Settings tab, select the `Registered Server Program` option and
 
 ![RFC destination](~@img/connectors/sap/rfc-destination.png)
 
+Proceed to the `MDMP & Unicode` or `Unicode` tab. Make sure that the communication type is set to `Unicode`.
+
+![RFC destination](~@img/connectors/sap/rfc-unicode.png)
+
 Save and you should see your newly created RFC destination.
 
 ![RFC connections](~@img/connectors/sap/rfc-connection.png)
