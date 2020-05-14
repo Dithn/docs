@@ -1686,6 +1686,10 @@ module.exports = [
           [
             '/connectors/salesforce/batch-operations',
             'Batch create/update'
+          ],
+          [
+            '/connectors/salesforce/approval-processes',
+            'Approval processes'
           ]
         ]
       },
