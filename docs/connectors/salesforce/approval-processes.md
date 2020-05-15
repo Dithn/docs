@@ -34,7 +34,7 @@ The following image shows the configured approval process in Salesforce:
 ![Setting up a Salesforce approval](~@img/salesforce-docs/approval-setup.png)
 *Setting up a Salesforce approval*
 
-Please note that approval processes must be activated before they can be used in a Workato recipe. 
+Please note that approval processes must be activated before they can be used in a Workato recipe.
 
 ### Who can approve requests?
 Any of the following can approve or reject a request.
@@ -77,6 +77,10 @@ This action requires the following inputs:
 | Record ID & approval process ID OR Approval request ID | If one of the previous steps in the recipe submits the record for approval, users may simply use the `Approval request ID`. </br> Otherwise, specify the record ID of the record and the approval process. |
 | Comments | Comments to include with the approval. |
 
+In the example below, the record is approved through a Workato recipe and the automatic process of the field update of the 'Approval' field was activated so that the field value changed to 'Accepted'.
+
+![Approval approved](~@img/salesforce-docs/approval-accepted.png)
+*An approved record*
 
 ## Reject record in an approval process
 This action rejects the record and all rejection steps defined in the approval process are triggered. This could include the record getting locked, field updates, an outbound message or an email alert being sent out.
@@ -91,3 +95,6 @@ This action requires the following inputs:
 |------------------|-------------|
 | Record ID & approval process ID OR Approval request ID | If one of the previous steps in the recipe submits the record for approval, users may simply use the `Approval request ID`. </br> Otherwise, specify the record ID of the record and the approval process. |
 | Comments | Comments to include with the approval. |
+
+![Approval rejected](~@img/salesforce-docs/approval-rejected.png)
+*An rejected record*

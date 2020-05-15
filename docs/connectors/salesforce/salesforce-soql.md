@@ -4,7 +4,7 @@ date: 2018-01-04 06:15:00 Z
 ---
 
 # Working with SOQL in Salesforce
-**Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information. SOQL syntax consists of a required SELECT statement which may be followed by a number of optional clauses (such as TYPEOF, WHERE, WITH, GROUP BY, etc.).
+**Salesforce Object Query Language (SOQL)** is used to search your Salesforce data for specific information.
 
 In a Workato recipe, the scheduled object query trigger will run SOQL queries with the following basic syntax: SELECT (list of fields) FROM (an object) WHERE (filter statements/sorting).
 
