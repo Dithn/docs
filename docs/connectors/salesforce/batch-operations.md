@@ -3,7 +3,7 @@ title: Salesforce Batch Operations
 date: 2018-01-04 06:15:00 Z
 ---
 
-# Salesforce batch operations
+# Salesforce Batch Operations
 
 Apart from support for Salesforce [bulk operations](/connectors/salesforce/salesforce-bulk.md), Workato has included support for Salesforce **batch** operations, which make use of Salesforce's `sObject Collections` [API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_composite_sobjects_collections.htm).
 

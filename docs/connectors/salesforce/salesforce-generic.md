@@ -13,9 +13,6 @@ In Workato, a Trigger refers to a condition that is set to start off a recipe. A
 - Polling triggers
 - Bulk triggers
 
-![Unconfigured fields selector](~@img/salesforce-docs/unconfigured-fields-selector.gif)
-*Unconfigured fields selector. All account data fields are retrieved in the datatree by default.*
-
 ### Configuring a trigger
 
 In the example below, we will configure a simple polling trigger. Polling triggers check the connected Salesforce account every 5 or 10 minutes (this interval is dependent on your Workato plan) for new or updated objects.

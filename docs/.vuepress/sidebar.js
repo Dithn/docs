@@ -1686,6 +1686,14 @@ module.exports = [
           [
             '/connectors/salesforce/batch-operations',
             'Batch create/update'
+          ],
+          [
+            '/connectors/salesforce/database-syncs',
+            'Syncing Salesforce with databases'
+          ],
+          [
+            '/connectors/salesforce/approval-processes',
+            'Approval processes'
           ]
         ]
       },
