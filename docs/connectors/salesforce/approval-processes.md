@@ -48,6 +48,9 @@ Any of the following can approve or reject a request.
 ## Submit record for approval
 This action does the equivalent of clicking on the 'Submit for approval' button on a Salesforce record. Doing this via a Workato recipe automates this manual click.
 
+![Submit record for approval input](~@img/salesforce-docs/submit-record-input.png)
+*The Submit record for approval action*
+
 This action requires the following inputs:
 
 | Input field | Description |
@@ -60,7 +63,7 @@ This action requires the following inputs:
 
 After the record has been successfully submitted, it should be updated with Approval History in the 'Pending' state.
 
-![Setting up a Salesforce approval](~@img/salesforce-docs/approval-submitted.png)
+![Submitted for approval](~@img/salesforce-docs/approval-submitted.png)
 *An Invoice record submitted for approval*
 
 ## Approve record in an approval process
@@ -69,6 +72,9 @@ This action approves the record and all approval steps defined in the approval p
 If the approval steps automatically sends the record through the 'Final approval actions', these steps will also be performed.
 
 The 'Approve record' and 'Reject record' actions should be used in the logic flow of your recipe where conditions are defined for approval and rejection accordingly.
+
+![Approve record input](~@img/salesforce-docs/approve-record-input.png)
+*The Approve record in an approval process action*
 
 This action requires the following inputs:
 
@@ -88,6 +94,9 @@ This action rejects the record and all rejection steps defined in the approval p
 If the rejection steps automatically sends the record through the 'Final rejection actions', these steps will also be performed.
 
 The 'Approve record' and 'Reject record' actions should be used in the logic flow of your recipe where conditions are defined for approval and rejection accordingly.
+
+![Reject record input](~@img/salesforce-docs/reject-record-input.png)
+*The Reject record in an approval process action*
 
 This action requires the following inputs:
 
