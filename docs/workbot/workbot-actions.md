@@ -467,11 +467,12 @@ App homes are a great way for users to interact with your bot. Rather than using
 ![App home example](~@img/workbot/workbot-blockkit/app-home-example.png)
 *App home for ApprovalsBot*
 
-The **Publish app home view** action allows you to publish an app home view for your custom bot using blocks. This action is typically used together with a [New event trigger](/workbot/workbot-triggers.md#new-event-trigger) that is configured to listen to [`app_home_opened`](https://api.slack.com/events/app_home_opened) events.
+The **Publish app home view** action allows you to publish an app home view for your custom bot using blocks.
 
 ![Publish app home view action](~@img/workbot/workbot-blockkit/publish-app-home-view.png)
 *Publish app home view paired with New event trigger (app_home_opened event)*
 
+This action is typically used together with a [New event trigger](/workbot/workbot-triggers.md#new-event-trigger) that is configured to listen to [`app_home_opened`](https://api.slack.com/events/app_home_opened) events.
 ![app_home_opened event example](~@img/workbot/workbot-blockkit/app_home_opened-event-example.png)
 *`app_home_opened` event example*
 
