@@ -10,9 +10,9 @@ Integrations between Salesforce and databases are useful when there is a need to
 
 ## Get object schema action
 
-The 'Get object schema' action fetch schema information of a Salesforce object. This action can be used on both standard and custom objects. Use this action when you need to replicate a Salesforce object's schema to your data warehouse.
+The 'Get object schema' action fetch schema information of a Salesforce object. This action can be used on both standard and custom objects. Use this action when you need to replicate a Salesforce object's fields to columns in your data warehouse.
 
-This action requires the user to select the object to fetch object schema from. The example snippet below shows the output when a custom object, 'Commission' is used in the action.
+This action requires the user to specify the object to fetch object schema from. The example snippet below shows the output when a custom object, 'Commission__c' is used in the action.
 
 ```json
 {
