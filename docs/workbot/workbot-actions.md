@@ -6,15 +6,18 @@ date: 2017-03-30 05:00:00 Z
 # Workato actions for Slack
 Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.
 
-Workbot supports 7 actions:
+Workbot supports 11 actions:
 * [Post command reply](#post-command-reply)
-* [Post notifications](#post-notifications)
 * [Post message](#post-message)
-* [Download attachment](#download-attachment)
-* [Return menu options](#return-menu-options)
-* [Upload file](#upload-file)
 * [Open/update or push modal view](#open-update-or-push-modal-view-action)
 * [Publish app home view](#publish-app-home-view)
+* [Return menu options](#return-menu-options)
+* [Upload file](#upload-file)
+* [Post notifications](#post-notifications)
+* [Download attachment](#download-attachment)
+* Delete message
+* Post attachments
+* Post dialog
 
 ## Block kit compatibility
 Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
