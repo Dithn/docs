@@ -6,7 +6,7 @@ date: 2017-03-30 05:00:00 Z
 # Workato actions for Slack
 Workbot actions allow Workbot to post notifications into a specified channel when there are events to take note of, or respond to a command.
 
-Workbot supports 6 actions:
+Workbot supports 7 actions:
 * [Post command reply](#post-command-reply)
 * [Post notifications](#post-notifications)
 * [Post message](#post-message)
@@ -14,6 +14,7 @@ Workbot supports 6 actions:
 * [Return menu options](#return-menu-options)
 * [Upload file](#upload-file)
 * [Open/update or push modal view](#open-update-or-push-modal-view-action)
+* [Publish app home view](#publish-app-home-view)
 
 ## Block kit compatibility
 Blocks can be used together with existing message attachments present in the [Post command reply](#post-command-reply) and [Post message](#post-message).
@@ -456,3 +457,22 @@ The following table describes the configuration when working with Modals.
         </tr>
     </tbody>
 </table>
+
+## Publish app home view
+App homes are a great way for users to interact with your bot. Rather than using bot commands, slash commands, or shortcuts, provide users with a rich app home surface for them to interact with.
+
+![App home example](~@img/workbot/workbot-blockkit/app-home-example.png)
+*App home example*
+
+The **Publish app home view** action allows you to publish an app home view for your custom bot using blocks. This action is typically used together with a [New event trigger](/workbot/workbot-triggers.md#new-event-trigger) that is configured to listen to [`app_home_opened`](https://api.slack.com/events/app_home_opened) events.
+
+![Publish app home view action](~@img/workbot/workbot-blockkit/publish-app-home-view.png)
+*Publish app home view*
+
+![app_home_opened event example](~@img/workbot/workbot-blockkit/app_home_opened-event-example.png)
+*`app_home_opened` event example*
+
+App home views are unique to each user who visits your bot's app home. This is why the **User ID** is required when publishing app home views. You can take advantage of this fact by publishing app home views that display information that is scoped to the user, e.g. showing approvals that only the user has the authority to approve.
+
+![App home example](~@img/workbot/workbot-blockkit/app-home-example.png)
+*App home example*
