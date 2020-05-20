@@ -218,6 +218,10 @@ When linking an object to another object via Workato (e.g. when creating a trans
 
 The recipe is able to retrieve the custom fields of your selected NetSuite object for you to read from or write to. All custom fields are grouped in Workato.
 
+::: tip 19/5/2020 Enhancement
+As of 19/5/2020, we have made a significant enhancement to the migration of NetSuite recipes from Sandbox to Production environments. This requires enhancement requires steps to be take for any NetSuite recipes created on or before 19/5/2020. Learn more about from our migration guide [here](/connectors/netsuite/recipe-migration-guide.md)
+:::
+
 ![NetSuite custom fields](~@img/connectors/netsuite/netsuite-custom-fields.png)
 *Custom fields Tax Receipt No. and External ID*
 
@@ -484,29 +488,33 @@ When selecting the fields to update in the NetSuite connector, take note that so
 If you can't find the field you're looking for, check with your NetSuite admin or with us!
 
 ## Unsupported records
-There are certain records that triggers and search actions do not support, as they cannot be queried via the NetSuite API. Unsupported records are as follows:
+There are certain records that triggers and search actions do not support, as they cannot be queried via the NetSuite API.
 
+Users can use the `Get all standard records` action to retrieve these objects not found in search actions or triggers:
 - Budget category
 - Campaign audience
 - Campaign category
 - Campaign channel
 - Campaign family
 - Campaign offer
-- Campaign response
 - Campaign search engine
 - Campaign subscription
 - Campaign vertical
 - Currency
-- Item revision
-- Landed cost
 - Lead source
-- Sales tax item
+- State
 - Support case issue
 - Support case origin
 - Support case priority
 - Support case status
 - Support case type
 - Tax account
+
+The following records are not supported:
+- Campaign response
+- Item revision
+- Landed cost
+- Sales tax item
 - Tax group
 - Tax type
 - Currency revaluation
