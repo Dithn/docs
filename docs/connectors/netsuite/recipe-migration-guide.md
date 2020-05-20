@@ -16,7 +16,7 @@ No action is needed. When switching connections, all mappings will be preserved.
 You will need to do an initial remapping of custom fields **only if you still plan to change the NetSuite connection for this recipe.**
 
 ### Steps needed
-1. For a specific recipe, you will need to go to each action and performa remapping of datapills to custom fields. In the example below, i have an `Update Purchase order` action with a single custom field selected.
+1. For a specific recipe, you will need to go to each action and perform remapping of datapills to custom fields. In the example below, i have an `Update Purchase order` action with a single custom field selected.
 
 ![NetSuite custom fields](~@img/connectors/netsuite/recipe-migr-1.png)
 *Update Purchase Order with 1 Custom field*
@@ -29,12 +29,12 @@ You will need to do an initial remapping of custom fields **only if you still pl
 ![NetSuite custom fields](~@img/connectors/netsuite/recipe-migr-3.png)
 *Custom field mapping*
 
-3. Reselect your custom fields needed and remap all custom fields again. Once this is done, you have now enabled this new feature on this action. You will need to continue this for the rest of the actions in this recipe and other recipes where needed.
+3. Reselect the custom fields you need and remap all custom fields again. Once this is done, you have now enabled this new feature on this action. You will need to continue this for the rest of the actions in this recipe and other recipes where needed.
 
 ## FAQ
 1. Do i need to migrate every action and every recipe?
 
-There is no requirement that you need to migrate all existing recipes and/or actions. You can choose to only do this for selected recipes and actions where custom fields are used **AND** this recipe is going to be migrated via recipe lifecycle management to a production Workato workspace. For actions and recipes that only interact with standard fields, this enablement is not necessary.
+There is no requirement that you need to migrate all existing recipes and/or actions. You can choose to only do this for selected recipes and actions where custom fields are used **AND** if this recipe is going to be migrated via recipe lifecycle management to a production Workato workspace. For actions and recipes that only interact with standard fields, this enablement is not necessary.
 
 2. Do i need to migrate recipes in my production Workspace?
 

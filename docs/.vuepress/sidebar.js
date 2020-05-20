@@ -1382,6 +1382,10 @@ module.exports = [
           [
             '/connectors/netsuite/action-get-case-comments',
             'Get case comments action'
+          ],
+          [
+            '/connectors/netsuite/recipe-migration-guide',
+            'Recipe migration guide 19/5/2020'
           ]
         ]
       },

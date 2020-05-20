@@ -219,7 +219,7 @@ When linking an object to another object via Workato (e.g. when creating a trans
 The recipe is able to retrieve the custom fields of your selected NetSuite object for you to read from or write to. All custom fields are grouped in Workato.
 
 ::: tip 19/5/2020 Enhancement
-As of 19/5/2020, we have made a significant enhancement to the migration of NetSuite recipes from Sandbox to Production environments. This requires enhancement requires steps to be take for any NetSuite recipes created on or before 19/5/2020. Learn more about from our migration guide [here](/connectors/netsuite/recipe-migration-guide.md)
+As of 19/5/2020, we have made a significant enhancement to the migration of NetSuite recipes from Sandbox to Production environments. This requires certain steps to be take taken for any NetSuite recipes created on or before 19/5/2020. Learn more about from our migration guide [here](/connectors/netsuite/recipe-migration-guide.md)
 :::
 
 ![NetSuite custom fields](~@img/connectors/netsuite/netsuite-custom-fields.png)
