@@ -22,7 +22,6 @@ A dynamic webhook trigger is one that can programmatically be set up and torn do
   },
   triggers: {
     new_message: {
-      type: :paging_desc,
 
       input_fields: lambda do |object_definitions|
         object_definitions["room"].only("id")
