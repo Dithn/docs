@@ -9,6 +9,72 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## NetSuite Connector Update
+##### May 2020
+
+### Zero-hassle migration for recipes using NetSuite custom fields
+We upgraded our NetSuite connector to preserve the mapping of custom fields when migrating recipes or reusing templates. This is important as connections to apps have to be re-established when a recipe is migrated using a manifest or copied from a template. Previously, mappings for Netsuite standard fields would be saved, but custom fields would need to be remapped. 
+
+This update has several impacts:
+- Gives admins and developers time back by not requiring them to remap custom NetSuite fields in deployed recipes
+- Reduces human error from having to remap
+- Makes using template recipes with NetSuite valuable and scalable
+
+
+![NetSuite Custom Fields](~@img/product-updates/netsuite-fields-highlighted.png)
+*Any mapping that includes a NetSuite custom field will now persist when migrating the recipe to other environments*
+
+**Link:**
+- [NetSuite Migration Documentation](/connectors/netsuite/recipe-migration-guide.md)
+
+## Team Membership Tab
+##### May 2020
+
+### Take charge of your team memberships
+The new Team memberships tab in the account settings page allows everyone to manage their team memberships, including accepting team invitations and leaving teams, in one place. Previously, leaving a team required approaching the admin of the team to remove you or you had to manually switch to that team’s workspace and remove your own membership.
+
+**Why this matters**
+
+As a recipe-developer, you are often working with multiple teams across several workspaces. As your list of workspaces grows, it takes more time to find the right workspace in the team switcher and notifications from different workspaces start cluttering your inbox.
+
+![Team Membership Tab](~@img/product-updates/leave-team-highlighted.png)
+*Now you can leave teams easily from the Team membership tab on your Account Settings page*
+
+**Link:**
+- [Documentation](/user-accounts-and-teams/team-collaboration.md#leaving-a-team)
+
+## Folder-Level Error Notifications
+##### May 2020
+
+### Take control of job error notifications at the folder-level
+Workspace account owners now have the option to control job error notifications. Before this update, account owners and people selected by the account owner would either receive all job error notifications or no notifications at all.
+
+Select the newly released “Receive error notifications only from specific folders” setting to choose which folders of recipes you want to receive errors notifications for. This enables admins to only receive notifications for key recipes in development or critical recipes in production. Folders that are unchecked will not send error notifications for any recipe contained within it.
+
+![Folder Level Error Notifications](~@img/product-updates/job-error-control-panel-highlighted.png)
+*Customize your job error notifications through the “Error Notifications” tab on your Account Settings page*
+
+**Link:**
+- [Documentation](/recipes/error-notifications.md#receive-error-notifications-for-select-folders)
+
+## HTTP Authentication for Audit Log Streaming
+##### May 2020
+
+### Stream Workato audit logs to more monitoring tools with HTTP authentication
+Workato now supports HTTP authentication in audit log streaming, which enables securely sending job details and audit log events to centralized logging services over HTTP. 
+
+**Why this matters**
+
+Engineers in charge of monitoring and reliability play a critical role in ensuring crucial business systems are online and operating efficiently. Modern devops stacks have grown to include everything from SaaS and cloud providers to databases, so it’s easy to lose track of the status of each system. 
+
+Many companies are turning to centralized logging, monitoring, and alerting services such as Datadog, Sumo Logic, S3, and Splunk to keep track of their systems in one place and set up automatic alerts when irregularities occur. Some of these services, like Datadog, require HTTP authentication to accept logs. 
+
+![Audit Log Streaming](~@img/product-updates/audit-log-streaming-highlighted.png)
+*Select the “Requires Authentication” option to set up HTTP authentication for streaming audit logs*
+
+**Link:**
+- [Documentation](/job-history-replication.md#audit-stream-destination) 
+
 ## New Zoom Connector
 ##### April 2020
 
@@ -17,6 +83,9 @@ As recent events have forced conferences to go virtual, webinars and other virtu
 
 ![Zoom Connector](~@img/product-updates/zoom-connector-triggers-actions.png)
 *Save Zoom recordings directly to repositories and add attendee data to your CRM with the new Zoom connector*
+
+**Link:**
+- [Documentation](/connectors/zoom.md)
 
 ## Workbot for Slack Updates
 ##### April 2020
