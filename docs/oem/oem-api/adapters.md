@@ -25,7 +25,7 @@ GET /api/integrations
 #### Sample request
 
 ```shell
-curl  -X GET http://www.workato.com/api/integrations \
+curl  -X GET https://www.workato.com/api/integrations \
       -H 'x-user-email: <email>' \
       -H 'x-user-token: <token>' \
       -H 'Content-Type: application/json' \
