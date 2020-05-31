@@ -11,7 +11,12 @@ With raw content support, the API platform allow clients to send text based (e.g
 
 # Authorization Headers
 
-If the Access Profile specifies the **Auth Token** method of authentication, then the Auth Token value must be passed by the client as the value of the `API-Token` header. If the authorization method is **JSON Web Token**, then the value of the encoded and signed token is passed in the `Authorization` header, using the `Bearer` scheme.
+If the Access Profile specifies the **Auth Token** method of authentication, then the Auth Token value must be passed by the client as the value of the `API-Token` header. If the authorization method is **OAuth2.0** or **JSON Web Token**, then the value of the encoded and signed token is passed in the `Authorization` header, using the `Bearer` scheme.
+
+| Header          | Authentication method | cURL Example |
+| --------------- | --------------------- | ------------ |
+| `API-Token`     | Auth token            | `-H 'API-TOKEN: 24ea2bf52b42b7345b9'` |
+| `Authorization` | OAuth 2.0 & JWT token | `-H 'Authorization: Bearer 12cb1a7d5233'` |
 
 # Calling an API Endpoint from a Recipe
 

@@ -744,15 +744,21 @@ module.exports = [
       ['/api-mgmt/dashboard', 'Dashboard'],
       ['/api-mgmt/api-collections', 'API Collections'],
       ['/api-mgmt/api-endpoints', 'API Endpoints'],
-      ['/api-mgmt/api-access-policies', 'API Access Policies'],
       {
-        title: 'Managing API Clients and Access Profiles',
+        title: 'Managing Clients',
         path: '/api-mgmt/api-client-mgmt',
         children: [
-          ['/api-mgmt/access-tokens', 'Access Tokens'],
-          ['/api-mgmt/auth-token', 'Auth Token'],
-          ['/api-mgmt/jwt-token', 'JWT Token'],
-          ['/api-mgmt/jwt-workato-claim', 'JWT Workato claim']
+          ['/api-mgmt/api-access-policies', 'API Access Policies'],
+          {
+            title: 'Access Tokens',
+            path: '/api-mgmt/access-tokens',
+            children: [
+              ['/api-mgmt/auth-token', 'Auth Token'],
+              ['/api-mgmt/oauth2', 'OAuth 2.0 Token'],
+              ['/api-mgmt/jwt-token', 'JWT Token'],
+              ['/api-mgmt/jwt-workato-claim', 'JWT Workato claim']
+            ]
+          }
         ]
       },
       ['/api-mgmt/api-prefix', 'API Prefix'],
