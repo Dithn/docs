@@ -34,6 +34,7 @@ For example, if we were hoping to use Workato to build a workflow that accomplis
 5. backs this data up in an redshift database
 
 We should consider splitting this workflow up into 4 separate recipes.
+
 <table>
   <thead>
     <tr>
@@ -101,6 +102,7 @@ By splitting this workflow up into multiple recipes, this allows other recipes a
 With the ability to break down complex workflows through callable recipes, the decision to use batch or single row actions are often a matter of business requirements and design considerations. While batch triggers/actions reduce the load on your servers and improve time efficiency by batching up to a 100 records into a single call, there exists a trade-off as batch actions that do fail, fail on a batch level.
 
 When examined, most workflows with applicable batch triggers/actions can be accomplished in 3 ways:
+
 <table class="unchanged rich-diff-level-one">
   <thead>
     <tr>
@@ -119,6 +121,7 @@ When examined, most workflows with applicable batch triggers/actions can be acco
         If we were to pull batches of new leads from a SQL server for batch inserts into Salesforce, we could follow this up with emails to individuals on the sales team with links to the leads newly created on Salesforce directly. In cases where our information flowing in from Salesforce raised an error during the batch insert action, no email would be sent out to our sales team with links that didn’t work or were empty! We can now safely make adjustments to our recipe to accommodate this error before repeating the job.
       </td>
     </tr>
+    <tr>
        <td>The use of a single row trigger, followed by a single row actions</td>
        <td>
          Using this method is the least efficient across all metrics, especially for triggers/actions that work with large numbers of records. Workato employs a step-by-step (synchronous) process within job runs so any error that causes the run to stop also prevents the following steps from being executed. Some cases call for this behaviour where we would want to fix our recipe before letting the recipe run on to further steps. This is different from the batch trigger version as it only stops the job runs for those that raise errors compared to an entire batch. In time sensitive business use cases where all new rows should be processed as soon as possible, this might be the best design choice.

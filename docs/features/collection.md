@@ -33,7 +33,7 @@ No connection setup is required. Simply select **App** > **Collection by Workato
 Start working with lists with the [Create list in Collection](#create-list-in-collection-action) and [Create list in Collection from CSV file](#create-list-in-collection-from-csv) actions. Perform data transformations with flexible SQL queries using the [Query list in Collection](#query-list-in-collection) action.
 
 ### Create list in collection action
-This action creates a Collection list in the recipe from a list input. The Collection list will contain the column headers according to the schema of the list. Collections support a maximum of 50,000 list entries.
+This action creates a Collection list in the recipe from a list input. The Collection list will contain the column headers according to the schema of the list.
 
 For example, you can take a list of all workers from **Workday**.
 
@@ -48,7 +48,7 @@ For example, you can take a list of all workers from **Workday**.
 | Index secondary | Select one or more columns as the secondary index of your list.        |
 
 ### Create list in Collection from CSV
-This action creates a Collection list from a CSV input. It will contain the column headers according to the schema of the CSV string. Collection supports a maximum of 50,000 CSV rows.
+This action creates a Collection list from a CSV input. It will contain the column headers according to the schema of the CSV string.
 
 For example, if you are retrieving files from your **on-prem** systems, you can download a CSV file and use it directly with Collection.
 

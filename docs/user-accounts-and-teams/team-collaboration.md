@@ -103,6 +103,7 @@ The following table provides a breakdown of each privilege you can confer a cust
 |Workbot|Give your team members access to create or edit installed and custom Workbots|
 |Pub/Sub|Give your team members access to create or edit PubSub topics|
 |Schema reuse|Give your team members access to create or edit reusable schema|
+|Developer| Give your team members access to create or edit SDK connectors|
 |Custom OAuth profiles|Give your team members access to create or edit custom OAuth profiles|
 |Lookup Tables|Give your team members access to create or edit all lookup tables|
 |People task|Give your team members access to create or edit human approval workflows|
@@ -141,6 +142,16 @@ Team members will be able to view the teams they are collaborating on in their a
 
 ![Team Switch with Okta](~@img/user-accounts-and-teams/single-sign-on/okta-team-switch.gif)
 *Switch to Team account with Okta authorization*
+
+## Leaving a team
+To leave a team that you belong to, navigate to the Team memberships tab in the Account settings page and click on 'Leave team' on the team you wish to leave.
+
+When you leave a team, all access to that team will be revoked and you will no longer be able to switch to the team via the team switcher. All recipes and assets that you previously contributed to the team will remain.
+
+The team owner will be notified when a team member leaves their team via email.
+
+![Invite collaborators](~@img/user-accounts-and-teams/team-collaboration/leave-team.png)
+*Team memberships tab in the settings page*
 
 ## Tracking changes made by collaborators
 When collaborating in a team, changes to recipes and exports/imports made by team members can be tracked. This establishes an audit trail so you can manage your team effectively and ensure they are making changes compliant with your security protocols.

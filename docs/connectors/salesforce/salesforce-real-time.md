@@ -31,7 +31,7 @@ While all 3 triggers will be triggered on the outbound messages sent to Workato 
 ## New & New/Updated Object (Real-time)
 The 'New Object' and 'New/Updated Object' are used in a similar way as the generic [polling triggers](https://docs.workato.com/connectors/salesforce/salesforce-generic.html), but help with various use cases with real-time needs such as point-of-sale or inventory and fulfillment use cases. Rather than wait 5 minutes for the Workato recipe to poll for changes, an Outbound message is configured and used to trigger the recipe.
 
-The 'New Object' will trigger in real time upon receipt of the outbound message that a record of the selected object has been **created**. This is shown in the example [below](#real-time-trigger-setup-new-object), where the outbound message will be sent whenever the record's `Created Date not equal to null`, which is set in the workflow rule.
+The 'New Object' will trigger in real time upon receipt of the outbound message that a record of the selected object has been **created**. This is shown in the example [below](#setup), where the outbound message will be sent whenever the record's `Created Date not equal to null`, which is set in the workflow rule.
 
 Similarly, the 'New/Updated Object' trigger will trigger when a record of the selected object has been either **created or updated**. The workflow rule is given the same criteria of `Created Date not equal to null`. The difference is that Workato also looks at the `LastModifiedDate` field on the record.
 

@@ -7,9 +7,13 @@ date: 2019-09-16 10:46:00 Z
 
 [Block Kit](https://api.slack.com/block-kit) is Slack's UI framework that allows more control and flexibility when building messages for Slack.
 
-The [Post command reply](/workbot/workbot-actions.md#post-command-reply) and [Post message](/workbot/workbot-actions.md#post-message) actions both support block kit. You can stack "blocks" and customize the order and appearance of each block, as well as the elements within each block.
+You can stack "blocks" and customize the order and appearance of each block, as well as the elements within each block. The table below shows the different types of blocks and the actions which support them.
 
-You can also optionally provide secondary attachments, which will display below any defined blocks in the Post command reply or Post message actions.
+Blocks can be used in the following Slack surfaces:
+| Surface  | Applicable actions               |
+|----------|----------------------------------|
+| Messages | Post message, post command reply |
+| Modals   | Open/update or push modal    |
 
 # Block kit previewer
 Preview the messages you've built with the Post message or Post command reply actions by clicking on **See preview on block kit builder** in the block hint.
@@ -22,6 +26,8 @@ Preview the messages you've built with the Post message or Post command reply ac
 
 # Compatibility with message attachments
 Post message and post command reply previously used message attachments to construct messages. Blocks can be used together with message attachments.
+
+You can optionally provide secondary attachments, which will display *below* any defined blocks.
 
 ## Behavior of blocks when used with message attachments
 - When both blocks and message attachments are defined, blocks will always appear above message attachments.
@@ -68,6 +74,12 @@ Supported blocks are displayed in the table below.
     <td>Displays text, alongside a date picker.<br><br>On date selection, a date picker invokes another recipe and passes on the selected date via a date parameter. You can customize the name of this date parameter.<br><br>You can optionally pass additional command input values together with the date parameter.</td>
   </tr>
   <tr>
+    <td>Repeat block group</td>
+    <td>
+      This a special block type that's available only on the Workato bot platform. The repeat block group allows you to define a set of blocks to use as a pattern. By iterating through an existing list and mapping the list fields to the fields of the blocks in the pattern, you can dynamically generate repeat blocks.
+    </td>
+  </tr>
+  <tr>
     <td>Divider</td>
     <td>A content divider, like an &lt;hr&gt;, used to split up different blocks inside of a message.</td>
   </tr>
@@ -86,4 +98,4 @@ Supported blocks are displayed in the table below.
 </table>
 
 # Limitations
-- Include up to 50 blocks in each message.
+- Include up to 100 blocks in each message.

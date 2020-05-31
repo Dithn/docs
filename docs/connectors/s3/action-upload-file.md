@@ -4,14 +4,20 @@ date: 2018-12-13 23:00:00 Z
 ---
 
 # Amazon S3 action - Upload file
-This action uploads a new file to selected bucket/folder. If a file with the same name already exists in the bucket/folder, it will be overwritten.
+This action uploads a new file to the selected bucket/folder. If a file with the same name already exists in the bucket/folder, it will be overwritten.
+
+![Amazon S3 - Upload file action](~@img/connectors/amazon-s3/upload-file-action.png)
+*Amazon S3 - Upload file action*
 
 ## Input fields
-| Field name | Description |
-|---|---|
-| Bucket region | The region of the bucket to upload the file to, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
-| Bucket | The bucket to upload the file to. Select a bucket from the picklist or enter the bucket name directly. |
-| Folder | The folder to upload the file to. Select a folder from the picklist or enter the folder path directly. |
-| File name | The name of the uploaded file. Note that this is file name, not file path. |
-| File contents | Contents of the file to upload. Accepts a datapill, such as `File contents`, or raw text. |
-| Chunk size<br>(in kilobytes) | File contents will be [streamed](/features/file-streaming.md) in chunks of this size. Default is 1024 KB, minimum is 32 KB. Workato manages the chunk size automatically by default. Configure this when you want to optimize the data throughput yourself. Larger chunk size will increase throughput, but may exceed API limit. |
+| Field name  | Description |
+| ----------- | ----------- |
+| Region      | The region of the bucket to upload the file to, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
+| Bucket name | The bucket to upload the file to. Enter the bucket name directly, this is case sensitive. |
+| Object name | The name of the uploaded file. For object in folders, specify the object path here. |
+| Contents    | Contents of the file to upload. Accepts a datapill, such as `File content`, or raw text. |
+| Use accelerated endpoint | Specify **true** if [Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) is enabled for your Amazon S3 instance. |
+| Canned ACL  | Use [Amazon's Canned Access Control List](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to specify permissions for this uploaded file. |
+
+## Output fields
+There is no output for this action.

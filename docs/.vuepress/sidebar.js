@@ -146,6 +146,10 @@ module.exports = [
         ]
       },
       {
+        title: 'Cancel job',
+        path: '/recipes/cancel-job'
+      },
+      {
         title: 'RecipeOps',
         path: '/recipe-ops',
         children: [
@@ -603,11 +607,12 @@ module.exports = [
       ['/workbot/workbot-for-slack-setup', 'Workbot for Slack setup'],
       ['/workbot/using-workbot-for-slack', 'Using Workbot for Slack'],
       ['/workbot/block-kit', 'Block kit'],
+      ['/workbot/modals', 'Block kit in modals'],
       {
         title: 'Workbot triggers',
         path: '/workbot/workbot-triggers',
         children: [
-          ['/workbot/workbot-message-action', 'New message action'],
+          ['/workbot/workbot-shortcuts', 'New shortcut trigger'],
           [
             '/workbot/workbot-triggers#new-command-trigger-building-custom-commands',
             'New command'
@@ -643,7 +648,7 @@ module.exports = [
             '/workbot/workbot-actions#return-menu-options',
             'Return menu options'
           ],
-          ['/workbot/workbot-actions#upload-file', 'Upload file']
+          ['/workbot/workbot-actions#open-update-or-push-modal-view-action', 'Open/update or push modal view'],
         ]
       },
       {
@@ -836,7 +841,7 @@ module.exports = [
           ],
           [
             '/connectors/s3/trigger-csv-file',
-            'New/updated CSV file trigger'
+            'New CSV file trigger'
           ],
           ['/connectors/s3/trigger-new-file', 'New file trigger'],
           ['/connectors/s3/action-upload-file', 'Upload file action'],
@@ -845,8 +850,6 @@ module.exports = [
             'Download file action'
           ],
           ['/connectors/s3/action-list-files', 'List files action'],
-          ['/connectors/s3/action-rename-file', 'Rename file action'],
-          ['/connectors/s3/action-move-file', 'Move file action'],
           ['/connectors/s3/action-delete-file', 'Delete file action'],
           [
             '/connectors/s3/action-create-bucket',
@@ -1385,6 +1388,10 @@ module.exports = [
           [
             '/connectors/netsuite/action-get-case-comments',
             'Get case comments action'
+          ],
+          [
+            '/connectors/netsuite/recipe-migration-guide',
+            'Recipe migration guide 19/5/2020'
           ]
         ]
       },
@@ -1689,6 +1696,14 @@ module.exports = [
           [
             '/connectors/salesforce/batch-operations',
             'Batch create/update'
+          ],
+          [
+            '/connectors/salesforce/database-syncs',
+            'Syncing Salesforce with databases'
+          ],
+          [
+            '/connectors/salesforce/approval-processes',
+            'Approval processes'
           ]
         ]
       },
@@ -1893,6 +1908,7 @@ module.exports = [
             '/connectors/mssql/updated-row-trigger',
             'New/updated row trigger'
           ],
+          ['/connectors/mssql/scheduled-query-trigger', 'Scheduled query trigger'],
           ['/connectors/mssql/select', 'Select actions'],
           ['/connectors/mssql/insert', 'Insert actions'],
           ['/connectors/mssql/update', 'Update actions'],
@@ -2280,6 +2296,40 @@ module.exports = [
             '/connectors/zendesk/custom-objects',
             'Zendesk custom objects'
           ]
+        ]
+      },
+      {
+        title: 'Zoom',
+        path: '/connectors/zoom',
+        children: [
+          [
+            '/connectors/zoom#how-to-connect-to-zoom-on-workato',
+            'Connection setup'
+          ],
+          [
+            '/connectors/zoom/new-event-trigger',
+            'New events (Meeting, Webinar etc)'
+          ],
+          [
+            '/connectors/zoom/event-actions',
+            'Schedule meetings and webinars'
+          ],
+          [
+            '/connectors/zoom/registrant-actions',
+            'Add or retrieve registrants'
+          ],
+          [
+            '/connectors/zoom/user-actions',
+            'Add, update or remove users'
+          ],
+          [
+            '/connectors/zoom/cloud-recording',
+            'Download cloud recordings'
+          ],
+          [
+            '/connectors/zoom/best-practices',
+            'Best Practices'
+          ],
         ]
       },
       {

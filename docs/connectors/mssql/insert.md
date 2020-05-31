@@ -46,6 +46,7 @@ Refer to the [List management](/features/list-management.md) guide for more info
 Learn more about the other triggers and actions Workato has to offer for SQL server
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
   * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Scheduled query trigger](/connectors/mssql/scheduled-query-trigger.md)
   * [Select actions](/connectors/mssql/select.md)
   * [Update actions](/connectors/mssql/update.md)
   * [Upsert actions](/connectors/mssql/upsert.md)

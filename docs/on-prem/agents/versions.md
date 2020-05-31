@@ -20,6 +20,14 @@ To do so, the OPA will be connecting to an expanded set of Workato on-prem gatew
 
 Learn more about on-prem groups [here](/on-prem/groups.md).
 
+### 2.6.2
+
+- Allow large HTTP headers
+- Fixes LDAPS connection issue when using `trustAll` flag
+- Support for SQL update-only queries
+- Improved logging for Active Directory
+- Fix for SQL Server stored procedure issue.
+
 ### 2.6.1
 
 - Fixes a connectivity issue in v2.6.0.

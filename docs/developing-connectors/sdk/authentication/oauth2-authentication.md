@@ -203,7 +203,7 @@ In the case below, we used the acquire block to send a `POST` HTTP call with bas
               refresh_token: response["refresh_token"],
             },
             nil,
-            { instance_id: nil }
+            { instance_id: nil } # Optional. Will be merged into connection hash
           ]
         end,
 
@@ -247,7 +247,7 @@ Upon receiving a the request, the API returns a JSON response. These can be acce
 ```
 Since we passed this output hash into the `response` variable, we can retrieve the `access_token` by referencing `response[access_token]`.
 
-Take note that an array of hashes is expected when using the `acquire` block for OAuth 2.0 authentication methods but we expect a hash when using the `acquire` block for custom authentication methods. When using custom OAuth2 type connection, the `acquire` hook must return an array with the following values in sequence:
+Take note that an array of hashes is expected when using the `acquire` block for OAuth 2.0 authentication methods but we expect a hash when using the `acquire` block for custom authentication methods. When using custom OAuth2 type connection, the `acquire` block must return an array with the following values in sequence:
 
 - Tokens
 - Owner ID
@@ -341,38 +341,49 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
       end,
 
       acquire: lambda do |connection, auth_code|
-        response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-          payload(
-            grant_type: "authorization_code",
-            client_id: connection["client_id"],
-            client_secret: connection["client_secret"],
-            code: auth_code
-          ).
-          request_format_www_form_urlencoded
+       response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
+                    payload(
+                      grant_type: "authorization_code",
+                      client_id: connection["client_id"],
+                      client_secret: connection["client_secret"],
+                      code: auth_code
+                    ).
+                    request_format_www_form_urlencoded
 
-          [
-            {
-              access_token: response["access_token"],
-              refresh_token: response["refresh_token"]
-            },
-            nil,
-            nil
-          ]
-        end,
+        [
+          {
+            access_token: response["access_token"],
+            refresh_token: response["refresh_token"]
+          },
+          nil, # Optional. This is for your Owner ID if needed
+          { instance_id: nil }  # Optional. Will be merged into connection hash
+        ]
+      end,
 
       refresh_on: [401, 403],
 
       refresh: lambda do |connection, refresh_token|
-        post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
-          payload(
-            grant_type: "refresh_token",
-            client_id: connection["client_id"],
-            client_secret: connection["client_secret"],
-            refresh_token: refresh_token,
-            redirect_uri: "https://www.workato.com/oauth/callback"
-          ).
-          request_format_www_form_urlencoded
-        end,
+        response = post("https://#{connection["domain"]}.namely.com/api/v1/oauth2/token").
+                      payload(
+                        grant_type: "refresh_token",
+                        client_id: connection["client_id"],
+                        client_secret: connection["client_secret"],
+                        refresh_token: refresh_token,
+                        redirect_uri: "https://www.workato.com/oauth/callback"
+                      ).
+                      request_format_www_form_urlencoded
+        [
+          { # This hash is for your tokens
+            access_token: response["access_token"],
+            refresh_token: response["refresh_token"]
+          },
+          { instance_id: nil } # Optional. Will be merged into connection hash
+        ]   
+      end,
+
+      apply: lambda do |connection, access_token|
+        headers("Authorization": "Bearer #{access_token}")
+      end
     }
   },
 
@@ -396,6 +407,23 @@ In the below example, the Namely API asks for the `refresh_token` to be appended
   },
 }
 ```
+
+### Output of `refresh` block
+Take note that an array of hashes is expected when using the `refresh` block for OAuth 2.0 authentication methods. When refreshing an OAuth 2.0 connection, the `refresh` block must return an array with the following values in sequence. This works in exactly the same way as the output of the `acquire` block *except without `Owner ID`*
+
+- Tokens
+- Other values
+
+::: tip
+Before this, users were able to give a single hash as the output of the `refresh` block like the sample below.
+```
+{
+  access_token: response["access_token"],
+  refresh_token: response["refresh_token"]
+}
+```
+This is still supported but not recommended.
+:::
 
 ### Using the `refresh_on` block
 This is an optional array of signals that is used to identify a need to re-acquire credentials . When an erroneous response is received (400, 401, 500...), the SDK framework checks it against this list of signals.

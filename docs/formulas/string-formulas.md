@@ -605,8 +605,8 @@ Convert alpha-3 currency code or alpha-2/3 country code or country name to ISO42
 
 | Example                | Result |
 | ---------------------- | ------ |
-| `"GBR".to_currency_code` | "£"      |
-| `"USD".to_currency_code` | "$"      |
+| `"GBR".to_currency_symbol` | "£"      |
+| `"USD".to_currency_symbol` | "$"      |
 
 ---
 

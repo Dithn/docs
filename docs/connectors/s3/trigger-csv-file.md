@@ -1,28 +1,31 @@
 ---
-title: Workato connectors - Amazon S3 trigger - New/updated CSV file
+title: Workato connectors - Amazon S3 trigger - New CSV file
 date: 2018-12-13 23:00:00 Z
 ---
 
-# Amazon S3 trigger - New/updated CSV file
-Triggers when a CSV file is added or updated in a selected bucket/folder in Amazon S3.
+# Amazon S3 trigger - New CSV file
+Triggers when a CSV file is added in a selected bucket/folder in Amazon S3.
 
 Checks selected folder for new or updated CSV file once every poll interval. The output includes the file’s metadata and file contents, which are CSV rows delivered in batches.
 
 Note that in Amazon S3, when a file is renamed, it is considered a new file. When a file is uploaded and overwrites an existing file with the same name, it is considered an updated file but not a new file.
 
+![Amazon S3 - New CSV file trigger](~@img/connectors/amazon-s3/new-csv-file-trigger.png)
+*Amazon S3 - New CSV file trigger*
+
 ## Input fields
-| Field name | Description |
-|---|---|
-| When first started, this recipe should pick up events from | When recipe starts for the first time, it will pick up CSV files created or updated from this specified time. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here](/recipes/triggers.md#since-from).  |
-| Bucket region | The region of the bucket to monitor for new/updated file, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
-| Bucket | The bucket to monitor for new/updated CSV file. Select a bucket from the picklist or enter the bucket name directly. |
-| Folder | The folder to monitor for new/updat  ed CSV file. Select a folder from the picklist or enter the folder path directly. |
-| Include sub-folders | Select **Yes** to monitor sub-folders for new/updated CSV file as well. |
-| Include files not ending with .csv? | Handle the cases when your CSV files exported from other systems may not have `.csv` extension.|
-| Column names | The column names of the CSV file. Upload a sample CSV file to automatically generate column names, or add column names manually. |
-| Column delimiter | Delimiter separating the columns in the CSV file. |
-| Contains header row? | Select **Yes** if CSV file contains header row. Workato will not process that row as data.  |
-| Batch size | Workato divides the CSV file into smaller batches to process more efficiently. This field defines the number of CSV rows to process in each batch (Maximum of 1000 rows/batch). Use a larger batch size to increase data throughput. In some cases, Workato will automatically reduce batch size to avoid exceeding API limit. [Learn more about Batch Processing](/features/batch-processing.md). |
+| Field name   | Description |
+| ------------ | ----------- |
+| When first started, this recipe should pick up events from | When recipe starts for the first time, it will pick up CSV files created from this specified time. Once recipe has been run or tested, value cannot be changed. [Learn more about this field here](/recipes/triggers.md#since-from). |
+| Region       | The region of the bucket to monitor for new/updated file, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
+| Bucket       | The bucket to monitor for new CSV file. Select a bucket from the picklist or enter the bucket name directly. |
+| Column separator | Delimiter separating the columns in the CSV file. |
+| Folder path  | The folder to monitor for new CSV files. Define full path _(e.g. folder 1/subfolder 1)_. Sub-folders will not be monitored. Root folder or restricted folder is used by default. |
+| Include files not ending with .csv? | Handle the cases when your CSV files exported from other systems may not have `.csv` extension. Ensure that all files in this folder are CSV parsables. |
+| Column names | The column names of the CSV file. You can manually define the column names with each column header per line. |
+| Batch size   | Workato divides the CSV file into smaller batches to process more efficiently. This field defines the number of CSV rows to process in each batch (Maximum of 1000 rows/batch). Use a larger batch size to increase data throughput. In some cases, Workato will automatically reduce batch size to avoid exceeding API limit. [Learn more about Batch Processing](/features/batch-processing.md). |
+| Skip header row? | Select **Yes** if CSV file contains header row. Workato will not process that row as data.  |
+
 
 This trigger supports [Trigger Condition](/recipes/triggers.md#trigger-conditions), which allows you to filter trigger events.
 
@@ -37,7 +40,7 @@ This trigger supports [Trigger Condition](/recipes/triggers.md#trigger-condition
   <tbody>
     <tr>
       <td rowspan=5>File</td>
-      <td>File name</td>
+      <td>Object name</td>
       <td>Full name of the file.</td>
     </tr>
     <tr>
@@ -57,12 +60,12 @@ This trigger supports [Trigger Condition](/recipes/triggers.md#trigger-condition
       <td><a href="https://aws.amazon.com/s3/storage-classes/">Storage class</a> of this file object. Usually <b>S3 Standard</b>.</td>
     </tr>
     <tr>
-      <td rowspan=3>CSV rows</td>
-      <td>Row number</td>
+      <td rowspan=3>Rows</td>
+      <td>Line</td>
       <td>The number of this CSV row.</td>
     </tr>
     <tr>
-      <td>CSV columns</td>
+      <td>Columns</td>
       <td>Contains all column values in this CSV row. You can use the nested datapills to map each column values.</td>
     </tr>
     <tr>

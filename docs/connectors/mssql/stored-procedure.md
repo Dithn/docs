@@ -29,6 +29,7 @@ If the selected stored procedures outputs multiple datasets, only the first will
 Learn more about the other triggers and actions Workato has to offer for SQL server
   * [New row trigger](/connectors/mssql/new-row-trigger.md)
   * [New/updated row trigger](/connectors/mssql/updated-row-trigger.md)
+  * [Scheduled query trigger](/connectors/mssql/scheduled-query-trigger.md)
   * [Select actions](/connectors/mssql/select.md)
   * [Insert actions](/connectors/mssql/insert.md)
   * [Update actions](/connectors/mssql/update.md)

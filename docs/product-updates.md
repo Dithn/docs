@@ -9,6 +9,167 @@ date: 2018-06-05 21:45:00 Z
 
 Our engineers are hard at work daily to make Workato better! View the latest updates to our platform below.
 
+## NetSuite Connector Update
+##### May 2020
+
+### Zero-hassle migration for recipes using NetSuite custom fields
+We upgraded our NetSuite connector to preserve the mapping of custom fields when migrating recipes or reusing templates. This is important as connections to apps have to be re-established when a recipe is migrated using a manifest or copied from a template. Previously, mappings for Netsuite standard fields would be saved, but custom fields would need to be remapped. 
+
+This update has several impacts:
+- Gives admins and developers time back by not requiring them to remap custom NetSuite fields in deployed recipes
+- Reduces human error from having to remap
+- Makes using template recipes with NetSuite valuable and scalable
+
+
+![NetSuite Custom Fields](~@img/product-updates/netsuite-fields-highlighted.png)
+*Any mapping that includes a NetSuite custom field will now persist when migrating the recipe to other environments*
+
+**Link:**
+- [NetSuite Migration Documentation](/connectors/netsuite/recipe-migration-guide.md)
+
+## Team Membership Tab
+##### May 2020
+
+### Take charge of your team memberships
+The new Team memberships tab in the account settings page allows everyone to manage their team memberships, including accepting team invitations and leaving teams, in one place. Previously, leaving a team required approaching the admin of the team to remove you or you had to manually switch to that team’s workspace and remove your own membership.
+
+**Why this matters**
+
+As a recipe-developer, you are often working with multiple teams across several workspaces. As your list of workspaces grows, it takes more time to find the right workspace in the team switcher and notifications from different workspaces start cluttering your inbox.
+
+![Team Membership Tab](~@img/product-updates/leave-team-highlighted.png)
+*Now you can leave teams easily from the Team membership tab on your Account Settings page*
+
+**Link:**
+- [Documentation](/user-accounts-and-teams/team-collaboration.md#leaving-a-team)
+
+## Folder-Level Error Notifications
+##### May 2020
+
+### Take control of job error notifications at the folder-level
+Workspace account owners now have the option to control job error notifications. Before this update, account owners and people selected by the account owner would either receive all job error notifications or no notifications at all.
+
+Select the newly released “Receive error notifications only from specific folders” setting to choose which folders of recipes you want to receive errors notifications for. This enables admins to only receive notifications for key recipes in development or critical recipes in production. Folders that are unchecked will not send error notifications for any recipe contained within it.
+
+![Folder Level Error Notifications](~@img/product-updates/job-error-control-panel-highlighted.png)
+*Customize your job error notifications through the “Error Notifications” tab on your Account Settings page*
+
+**Link:**
+- [Documentation](/recipes/error-notifications.md#receive-error-notifications-for-select-folders)
+
+## HTTP Authentication for Audit Log Streaming
+##### May 2020
+
+### Stream Workato audit logs to more monitoring tools with HTTP authentication
+Workato now supports HTTP authentication in audit log streaming, which enables securely sending job details and audit log events to centralized logging services over HTTP. 
+
+**Why this matters**
+
+Engineers in charge of monitoring and reliability play a critical role in ensuring crucial business systems are online and operating efficiently. Modern devops stacks have grown to include everything from SaaS and cloud providers to databases, so it’s easy to lose track of the status of each system. 
+
+Many companies are turning to centralized logging, monitoring, and alerting services such as Datadog, Sumo Logic, S3, and Splunk to keep track of their systems in one place and set up automatic alerts when irregularities occur. Some of these services, like Datadog, require HTTP authentication to accept logs. 
+
+![Audit Log Streaming](~@img/product-updates/audit-log-streaming-highlighted.png)
+*Select the “Requires Authentication” option to set up HTTP authentication for streaming audit logs*
+
+**Link:**
+- [Documentation](/job-history-replication.md#audit-stream-destination) 
+
+## New Zoom Connector
+##### April 2020
+
+### Easily take action on Zoom webinar and meeting data
+As recent events have forced conferences to go virtual, webinars and other virtual events have become key demand generation activities. The new Zoom connector makes it easy to stream webinar and meeting data to any repository, like Box or Google Drive. It also enables you to automate everything from approving webinar registrants to alerting sales that a contact attended a recent webinar. This allows your sales teams to respond to leads faster, HR teams to recruit talent faster, and more.
+
+![Zoom Connector](~@img/product-updates/zoom-connector-triggers-actions.png)
+*Save Zoom recordings directly to repositories and add attendee data to your CRM with the new Zoom connector*
+
+**Link:**
+- [Documentation](/connectors/zoom.md)
+
+## Workbot for Slack Updates
+##### April 2020
+
+### Use Slack modals, shortcuts, and Workato’s repeat blocks to streamline processes
+Workato is leveraging the brand new UI and Shortcuts release from Slack to introduce our own Modals, built on Block Kit. Simplify business processes by creating interactive forms, powered by Workbot, that can be launched right from a Slack shortcut. Create beautiful, dynamic lists in modals with our Repeat Blocks builder. Creating dynamic lists of records in modals without code is unique to Workato.
+
+![Slack Modals](~@img/product-updates/slack-updates-modals-highlighted.png)
+*Use Workbot to build dynamic forms with Slack Modals and Shortcuts and Workato’s Repeat Blocks*
+
+**Links:**
+- [Slack Modals Documentation](/workbot/modals.md)
+- [Slack Shortcuts Documentation](/workbot/workbot-shortcuts.html)
+
+## Google BigQuery Connector Updates
+##### April 2020
+
+### Fast, powerful data pipelines with Google BigQuery updates
+New updates to the Google BigQuery Connector significantly improve the capabilities for setting up data pipelines for ingestion and transformation. Here are some of the key updates:
+
+New Triggers:
+- New job completed - Trigger jobs in Workato when jobs are completed in BigQuery
+- Scheduled query (Batch) - Retrieve rows in BigQuery on your schedule (batches as large as 50k rows)
+
+New Actions:
+- Insert Rows (Bulk) - Supports batch sizes as large as 50,000 rows for higher throughput
+- Insert Rows (Batch) - Supports moving extremely large volumes of data e.g. hundreds of millions of rows at high speed
+- Run CustomSQL in BigQuery - Enables Push-down ELT i.e. uses BigQuery’s power to process complex transformations defined using SQL in the recipe
+- Load data into BigQuery - Simplifies replication of objects/tables from cloud and on-prem apps into BigQuery
+
+![Google BigQuery](~@img/product-updates/bigquery-new-actions-highlighted.png)
+*New triggers and actions in the Google BigQuery Connector make building robust data pipelines simple and fast*
+
+**Links:**
+- [Documentation](/connectors/bigquery.md)
+
+## Cancel Job
+##### April 2020
+
+### More control and less stress with cancel job
+Sometimes you need to cancel a Recipe before it finishes running. Maybe the recipe you're testing that upserts massive data sets and takes hours to run was put into the wrong sandbox. Or you realize the recipe with hundreds of steps that automate complex processes would end at an inconvenient time.
+
+Cancel job gives Workato users full control over the timing and outcome of their recipes by enabling them to stop a recipe while it’s in the “Processing” status at the current step it’s on. It then creates an audit log entry, showing the job’s status as “Canceled.” 
+
+Now you can schedule recipes to start whenever is most convenient, pause or cancel them if conditions change or you find an error, and restart at will. It is helpful both for building and testing new recipes and running existing ones. 
+
+![Cancel Job](~@img/product-updates/cancel-job-screenshot-highlighted.png)
+*The new Cancel Job functionality lets you stop a job mid-process*
+
+**Links:**
+- [Documentation](/recipes/cancel-job.md#cancel-job)
+
+## Synthetic datapills for batch processing
+##### April 2020
+
+### Boost batch processing efficiency with Synthetic datapills
+We are constantly looking for ways to enable users by simplifying the steps needed to build recipes and automate complex processes  That’s why Workato recently added several “synthetic” datapills that make processing data in batches simpler. We call them “synthetic” because our platform creates them from the extracted data; they weren’t naturally existing in the source. These new datapills can be found when running a “Repeat Action” in a Workato recipe. 
+
+They are: 
+- List Index: A field in a recipe that returns the row index when used in the in-line array mapper.
+- Size: This field returns the list size when used in the in-line array mapper.
+- Is first: Flags the first row batch coming in from an upstream system for batch processing.
+- Is last: Flags the last row batch of a batch processing step.
+
+These small but powerful bits of metadata streamline the creation of Workato recipes by automating the creation of complex logic. Here’s an example of how a recipe is condensed using synthetic datapills.
+
+![Synthetic Datapills](~@img/product-updates/synthetic-pill-comparison.png)
+*Recipe logic is more compact using the new synthetic datapill, List Index*
+
+**Links:**
+- [Product Blog](https://product.workato.com/boost-batch-processing-efficiency-with-synthetic-datapills/)
+
+## JWT Workato Claim
+##### April 2020
+
+### Use tokens from 3rd party IDPs for API Platform endpoints
+We added 2 new accepted claims to check access profile key in JWT for API platform. This enables JWT generated from 3rd party IDPs (identity providers) like Okta, Auth0 and ADFS. 
+
+Configure access profile key to any of the 4 accepted JWT claims to let the API gateway recognise your JWT token. OpenID connect tokens from 3rd party IDPs can now be used.
+
+**Links:**
+
+- [Documentation](/api-mgmt/jwt-workato-claim.md)
+
 ## Repeat in Batches
 ##### March 2020
 

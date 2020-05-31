@@ -1,17 +1,20 @@
 ---
-title: Workato connectors - Amazon S3 action - List files in directory
+title: Workato connectors - Amazon S3 action - List files in bucket
 date: 2018-12-13 23:00:00 Z
 ---
 
-# Amazon S3 action - List files in directory
-This action lists all files in a bucket/folder in Amazon S3.
+# Amazon S3 action - List files in bucket
+This action lists all files in a bucket in Amazon S3.
+
+![Amazon S3 - List file action](~@img/connectors/amazon-s3/list-files-action.png)
+*Amazon S3 - List file action*
 
 ## Input fields
-| Field name | Description |
-|---|---|
-| Bucket region | The region of the bucket to list the files from, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
-| Bucket | The bucket to list files from. Select a bucket from the picklist or enter the bucket name directly. |
-| Folder | The folder to list files from. Select a bucket from the picklist or enter the bucket name directly. |
+| Field name  | Description |
+| ----------- | ----------- |
+| Region      | The region of the bucket to list files from, e.g. us-west-2. In Amazon S3, go to **Bucket > Properties > Static website hosting** to find your region in the Endpoint URL. |
+| Bucket name | The bucket to list files from. Select a bucket from the picklist or enter the bucket name directly. |
+| Folder path | The folder to list files from. Enter the bucket name directly, this is case sensitive. |
 | Include sub-folders | Select **Yes** to list files inside sub-folders as well. |
 
 ## Output fields
@@ -25,7 +28,7 @@ This action lists all files in a bucket/folder in Amazon S3.
   <tbody>
     <tr>
       <td rowspan=6>Files</td>
-      <td>File name</td>
+      <td>Object name</td>
       <td>Full name of the file. Note that this is not file path.</td>
     </tr>
     <tr>

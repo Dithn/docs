@@ -23,7 +23,7 @@ Workato will inspect the following JWT claims in sequential order. Workato ident
 
 ## How to configure Workato claim
 
-Let’s go through an example of configuring a workato claim for [Auth0](https://auth0.com/). This identity provider restricts the `kid` and `sub` claims. Furthermore, Auth0 requires all custom claims to be namespace. Hence, we will be configuring a namespace claim to hold our API key.
+Workato claim works with most identity providers, including [ADFS](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services), [Auth0](https://auth0.com/), and [Okta](https://www.okta.com/). Let’s go through an example of configuring a workato claim for [Auth0](https://auth0.com/). This identity provider restricts the `kid` and `sub` claims. Furthermore, Auth0 requires all custom claims to be namespace. Hence, we will be configuring a namespace claim to hold our API key.
 
 ![Configure JWT in Auth0](~@img/api-mgmt/auth0-configure-jwt-flow.png)
 *Configure JWT in Auth0*
