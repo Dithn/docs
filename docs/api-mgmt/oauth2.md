@@ -5,9 +5,7 @@ date: 2020-04-22 12:26:00 Z
 
 # 0Auth 2.0 Token
 
-Workato allows API platform users to authenticate themselves using the OAuth 2.0 (Client Credentials grant) specification. Instead of authentication credentials, the user makes API requests with OAuth 2.0 access tokens.
-
-Users first obtain an access token from Workato's token request endpoint, after which they can make API calls to Workato API endpoints using the access tokens. Access tokens are valid for 1 hour. After this, users will need to generate a new access token to continue making API requests.
+Workato allows API platform users to authenticate themselves using the OAuth 2.0 (Client Credentials grant) specification. Instead of a static token, the client makes API requests with access tokens obtained through the OAuth 2.0 flow. Users first obtain an access token from Workato's token request endpoint, after which they can make API calls to Workato API endpoints using the access tokens.
 
 ## How to setup OAuth2 .0
 
@@ -38,7 +36,7 @@ You can also use tools like [Postman](https://www.postman.com/) to generate an a
 
 The default token request endpoint is `https://apim.workato.com/oauth2/token`.
 
-For API platform owners who have enabled [custom domains](/api-mgmt/custom-domain.md), the token request endpoints will follow the custom domain. For example, for the custom domain `api.boltcompany.com`, the token request endpoint is `api.boltcompany.com/oauth2/token`.
+For API platform owners who have enabled [custom domains](/api-mgmt/custom-domain.md), the token request endpoints will follow the custom domain. For example, for the custom domain `api.boltcompany.com`, the token request endpoint is `https://api.boltcompany.com/oauth2/token`.
 
 ## Obtain OAuth 2.0 access token
 
@@ -52,8 +50,8 @@ Upon sending a successful access token request, Workato's authorization server w
 }
 ```
 
-:::tip
-Take note of the `exprires_in` field. Every access token will expire after 1 hour from the time it was generated.
+:::tip Expiration time
+Access tokens are valid for 3600 seconds. After that, the token expires and cannot be used anymore. Clients will need to generate a new access token to continue making API requests.
 :::
 
 ## Using OAuth 2.0 access token in API request
