@@ -640,15 +640,8 @@ module.exports = [
             'Post command reply'
           ],
           ['/workbot/workbot-actions#post-message', 'Post message'],
-          [
-            '/workbot/workbot-actions#post-notifications',
-            'Post notifications'
-          ],
-          [
-            '/workbot/workbot-actions#return-menu-options',
-            'Return menu options'
-          ],
           ['/workbot/workbot-actions#open-update-or-push-modal-view-action', 'Open/update or push modal view'],
+          ['/workbot/workbot-actions#publish-app-home-view', 'Publish app home view'],
         ]
       },
       {
