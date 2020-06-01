@@ -15,7 +15,7 @@ For each trigger, you can configure trigger conditions. Trigger conditions are l
 ## New Lead in G2 Crowd trigger (real time)
 When your G2 profile visitors want to know more about your solutions, they can fill up lead forms to register interest. This trigger picks up leads as soon as they are created. Each new lead is processed as a separate job.
 
-![New lead in G2 trigger](~@img/g2/new_lead.png)
+![New lead in G2 trigger](~@img/g2/new-lead.png)
 <center><i>New Lead trigger</i></center>
 
 ### Input fields
@@ -53,7 +53,7 @@ There are no input fields required for this trigger.
 ## New Remote Event Stream trigger
 Remote event streams are sent when a direct visit is made to the Product profile, comparisons, category page of a given product, or whenever a user views sponsored content. This triggers only when G2 Crowd tracking can identify the visitor’s organization. Each Remote event stream is processed as a separate job. It checks for new jobs once every poll interval.
 
-![New remote event stream in G2 trigger](~@img/g2/new_res.png)
+![New remote event stream in G2 trigger](~@img/g2/new-res.png)
 <center><i>New Remote event stream trigger</i></center>
 
 ### Input fields
@@ -178,7 +178,7 @@ Remote event streams are sent when a direct visit is made to the Product profile
 ## New Review trigger
 This triggers when a G2 user submits a review of your product on G2. The output of this trigger is a series of questions and answers based on the user’s review. Each Review is processed as a separate job. It checks for new jobs once every poll interval.
 
-![New review in G2 trigger](~@img/g2/new_review.png)
+![New review in G2 trigger](~@img/g2/new-review.png)
 <center><i>New Review trigger</i></center>
 
 ### Input fields

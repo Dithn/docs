@@ -14,7 +14,7 @@ Workato currently supports the get action for two objects, these objects are lis
 ## Get company by ID
 This action retrieves a specific company that matches a search by company ID. Only records in your G2 instance that matches the criteria will be returned.
 
-![Get company details by ID action](~@img/g2/get_company.png)
+![Get company details by ID action](~@img/g2/get-company.png)
 <center><i>Get company details by ID action</i></center>
 
 ### Input fields
@@ -242,7 +242,7 @@ The output of this action contains the full set of data of the selected company.
 ## Get user by ID
 This action retrieves a specific user that matches a search by user ID. Only records in your G2 instance that matches the criteria will be returned.
 
-![Get user details by ID action](~@img/g2/get_user.png)
+![Get user details by ID action](~@img/g2/get-user.png)
 <center><i>Get user details by ID action</i></center>
 
 ### Input fields
