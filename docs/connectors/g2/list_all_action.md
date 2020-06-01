@@ -21,21 +21,21 @@ These companies are related to you through the buyer intent function of G2. Thes
 <thead>
   <tr>
     <th colspan="2" width='25%'>Input field</th>
-    <th colspan="2">Description</th>
+    <th>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td colspan="2">Page size</td>
-    <td colspan="2">The page size to fetch your records. </td>
+    <td>The page size to fetch your records. </td>
   </tr>
   <tr>
     <td colspan="2">Page Number</td>
-    <td colspan="2">The specific page number to fetch records from.</td>
+    <td>The specific page number to fetch records from.</td>
   </tr>
   <tr>
     <td colspan="2">Next page URL</td>
-    <td colspan="2">The URL of the next page to fetch records from.</td>
+    <td>The URL of the next page to fetch records from.</td>
   </tr>
 </tbody>
 </table>
@@ -266,21 +266,21 @@ These user object in G2 represents G2 users regardless of whether they are relat
 <thead>
   <tr>
     <th colspan="2" width='25%'>Input field</th>
-    <th colspan="2">Description</th>
+    <th>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td colspan="2">Page size</td>
-    <td colspan="2">The page size to fetch your records. </td>
+    <td>The page size to fetch your records. </td>
   </tr>
   <tr>
     <td colspan="2">Page Number</td>
-    <td colspan="2">The specific page number to fetch records from.</td>
+    <td>The specific page number to fetch records from.</td>
   </tr>
   <tr>
     <td colspan="2">Next page URL</td>
-    <td colspan="2">The URL of the next page to fetch records from.</td>
+    <td>The URL of the next page to fetch records from.</td>
   </tr>
 </tbody>
 </table>
