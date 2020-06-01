@@ -6,7 +6,7 @@ date: 2020-05-21 10:00:00 Z
 This section contains documentation on the triggers that are currently supported on the Workato platform, including:
 
  * [New Lead in G2 Crowd (real time)](#new-lead-in-g2-crowd-trigger-real-time)
- * [New Remote Event Stream in G2 Crowd](#new-remote-event-stream-trigger)
+ * [New Remote Event Stream in G2 Crowd](#new-remote-event-trigger)
  * [New Review in G2 Crowd](#new-review-trigger)
 
 #### Trigger conditions
@@ -31,55 +31,55 @@ There are no input fields required for this trigger.
 </thead>
 <tbody>
   <tr>
-    <td>ID</td>
+    <td colspan="2">ID</td>
     <td>The ID of the lead generated.</td>
   </tr>
   <tr>
-    <td>First name</td>
+    <td colspan="2">First name</td>
     <td>First name of user.</td>
   </tr>
   <tr>
-    <td>Last name</td>
+    <td colspan="2">Last name</td>
     <td>Last name of user.</td>
   </tr>
   <tr>
-    <td>Email</td>
+    <td colspan="2">Email</td>
     <td>User's email address.</td>
   </tr>
   <tr>
-    <td>Phone</td>
+    <td colspan="2">Phone</td>
     <td>Phone number of user. </td>
   </tr>
   <tr>
-    <td>Message</td>
+    <td colspan="2">Message</td>
     <td>Message included in the completed lead form.</td>
   </tr>
   <tr>
-    <td>Company</td>
+    <td colspan="2">Company</td>
     <td>Name of user's company.</td>
   </tr>
   <tr>
-    <td>Company size</td>
+    <td colspan="2">Company size</td>
     <td>Size of user's company.</td>
   </tr>
   <tr>
-    <td>Industry</td>
+    <td colspan="2">Industry</td>
     <td>Industry that the user's company belongs to.</td>
   </tr>
   <tr>
-    <td>Document title</td>
+    <td colspan="2">Document title</td>
     <td>Title of the document the person interacted with before they sent in their form. The text that will pull in is what is contained in Title (Sent via WebHooks) in the Downloads section.</td>
   </tr>
   <tr>
-    <td>User action</td>
+    <td colspan="2">User action</td>
     <td>Exact action performed by the user to generate the lead. E.g. Requested to be contact, Requested a demo, Viewed a report, etc...</td>
   </tr>
   <tr>
-    <td>Action ID</td>
+    <td colspan="2">Action ID</td>
     <td>ID of user action.</td>
   </tr>
   <tr>
-    <td>Created at</td>
+    <td colspan="2">Created at</td>
     <td>Time when the lead was generated in UTC.</td>
   </tr>
 </tbody>
@@ -254,103 +254,103 @@ This triggers when a G2 user submits a review of your product on G2. The output 
   </thead>
   <tbody>
     <tr>
-      <td>Default Sort</td>
+      <td colspan="2">Default Sort</td>
       <td>The default order of which the review has been sorted.</td>
     </tr>
     <tr>
-      <td>Product name</td>
+      <td colspan="2">Product name</td>
       <td>Name of the product.</td>
     </tr>
     <tr>
-      <td>Is public</td>
+      <td colspan="2">Is public</td>
       <td>True/False whether the reviewer permitted the review to be attributed to them.</td>
     </tr>
     <tr>
-      <td>Slug</td>
+      <td colspan="2">Slug</td>
       <td>URL Slug of the review.</td>
     </tr>
     <tr>
-      <td>Percent complete</td>
+      <td colspan="2">Percent complete</td>
       <td>The percentage complete all Review Questions are.</td>
     </tr>
     <tr>
-      <td>Star rating</td>
+      <td colspan="2">Star rating</td>
       <td>Rating between 0-5.</td>
     </tr>
     <tr>
-      <td>Title</td>
+      <td colspan="2">Title</td>
       <td>Title of the Review.</td>
     </tr>
     <tr>
-      <td>Comment answers</td>
+      <td colspan="2">Comment answers</td>
       <td>Primary review question answers.</td>
     </tr>
     <tr>
-      <td>Secondary answers</td>
+      <td colspan="2">Secondary answers</td>
       <td>Secondary review question answers.</td>
     </tr>
     <tr>
-      <td>Verified current user</td>
+      <td colspan="2">Verified current user</td>
         <td>True/False whether the reviewer is verified.</td>
     </tr>
     <tr>
-      <td>Is business partner</td>
+      <td colspan="2">Is business partner</td>
       <td>True/False whether the reviewer has a business relationship with the product.</td>
     </tr>
     <tr>
-      <td>Review source</td>
+      <td colspan="2">Review source</td>
       <td>Was the review organic or incentivised.</td>
     </tr>
     <tr>
-      <td>Votes up</td>
+      <td colspan="2">Votes up</td>
       <td>Total votes indicating the review was helpful.</td>
     </tr>
     <tr>
-      <td>Votes down</td>
+      <td colspan="2">Votes down</td>
       <td>Total votes indicating the review was not helpful.</td>
     </tr>
     <tr>
-      <td>Votes total</td>
+      <td colspan="2">Votes total</td>
       <td>Total votes on the review.</td>
     </tr>
     <tr>
-      <td>User ID</td>
+      <td colspan="2">User ID</td>
       <td>Internal UUID of the Reviewer.</td>
     </tr>
     <tr>
-      <td>User name</td>
+      <td colspan="2">User name</td>
       <td>Name of the Reviewer.</td>
     </tr>
     <tr>
-      <td>User image URL</td>
+      <td colspan="2">User image URL</td>
       <td>URL of reviewer's avatar.</td>
     </tr>
     <tr>
-      <td>Regions</td>
+      <td colspan="2">Regions</td>
       <td>Reviewer's geographical region(s).</td>
     </tr>
     <tr>
-      <td>Country name</td>
+      <td colspan="2">Country name</td>
       <td>Reviewer's country.</td>
     </tr>
     <tr>
-      <td>Submitted at</td>
+      <td colspan="2">Submitted at</td>
       <td>Date review was submitted.</td>
     </tr>
     <tr>
-      <td>Updated at</td>
+      <td colspan="2">Updated at</td>
       <td>Date review was last edited.</td>
     </tr>
     <tr>
-      <td>Moderated at</td>
+      <td colspan="2">Moderated at</td>
       <td>Date review was moderated.</td>
     </tr>
     <tr>
-      <td>Product ID</td>
+      <td colspan="2">Product ID</td>
       <td>UUID of the product the review was referencing.</td>
     </tr>
     <tr>
-      <td>Reference user consent</td>
+      <td colspan="2">Reference user consent</td>
       <td>Has the Reviewer provided permission to use this review content.</td>
     </tr>
     <tr>
@@ -369,11 +369,11 @@ This triggers when a G2 user submits a review of your product on G2. The output 
       <td>Contains the links to the data of the review's answers.</td>
     </tr>
     <tr>
-      <td>Data</td>
+      <td colspan="2">Data</td>
       <td>Returns the results as an array.</td>
     </tr>
     <tr>
-      <td>Links</td>
+      <td colspan="2">Links</td>
       <td>This contains the links for remaining result pages with the same parameters. Returned as self, prev, first, next, and last. next and prev may be blank if you are on   the first or last page respectively.
       </td>
     </tr>
