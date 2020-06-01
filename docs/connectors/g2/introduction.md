@@ -7,20 +7,6 @@ date: 2020-05-21 08:00:00 Z
 
 Workato's integration with G2 will allow you to sync buyer intent data and leads generated with customer relations software to engage with potential customers as well as to identify at-risk customer accounts that are looking for alternatives so as to prevent churn.
 
-## Use cases
-
-#### New Lead in G2 creates new lead in [Salesforce](/connectors/salesforce.md)
-By integrating lead data to Salesforce, you make the experience of lead processing a seamless one. Your sales representatives can assess profile information immediately and subsequently execute the relevant strategies to quickly convert these leads to clients.
-
-![New Lead in G2 creates lead in salesforce view](~@img/g2/new-lead-trigger-to-salesforce.gif)
-<center><i>Sample recipe for G2 and Salesforce integrations</i></center>
-
-#### New Remote Event Stream in G2 posts real time [Slack](/connectors/slack.md) notifications
-By integrating Remote Event Streams from G2 to Slack, sales representatives will be made known of new profile and product page activities to immediately engage these visitors.
-
-![New RES in G2 posts real time Slack notifications view](~@img/g2/new-res-trigger-to-slack.gif)
-<center><i>Sample recipe for G2 and Slack integrations</i></center>
-
 ## How to connect to G2 on Workato
 The G2 API requires an API token for access. API tokens are tokens you generate to let G2 know that this Workato connection is allowed to work with your information.
 
@@ -47,6 +33,20 @@ You can generate a token from the [G2 Integrations Page](https://www.g2crowd.com
     </tr>
   </tbody>
 </table>
+
+## Use cases
+
+#### New Lead in G2 creates new lead in [Salesforce](/connectors/salesforce.md)
+By integrating lead data to Salesforce, you make the experience of lead processing a seamless one. Your sales representatives can assess profile information immediately and subsequently execute the relevant strategies to quickly convert these leads to clients.
+
+![New Lead in G2 creates lead in salesforce view](~@img/g2/new-lead-trigger-to-salesforce.gif)
+<center><i>Sample recipe for G2 and Salesforce integrations</i></center>
+
+#### New Remote Event Stream in G2 posts real time [Slack](/connectors/slack.md) notifications
+By integrating Remote Event Streams from G2 to Slack, sales representatives will be made known of new profile and product page activities to immediately engage these visitors.
+
+![New RES in G2 posts real time Slack notifications view](~@img/g2/new-res-trigger-to-slack.gif)
+<center><i>Sample recipe for G2 and Slack integrations</i></center>
 
 ## List of triggers and actions
 Workato currently supports the following G2 triggers and actions. We are actively working on adding support to a wider range of triggers, actions and objects. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
