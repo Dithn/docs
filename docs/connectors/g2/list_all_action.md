@@ -14,7 +14,7 @@ Workato currently supports the list all action for two objects, these objects ar
 These companies are related to you through the buyer intent function of G2. These are the companies that have previously researched or are actively researching your organisation and/or product.
 
 ![List all Companies action](~@img/g2/list-companies.png)
-<center><i>List all companies action</i></center>
+<center><i>List all companies in your G2 crowd action</i></center>
 
 ### Input fields
 There are no input fields required for this action.
@@ -238,7 +238,7 @@ The output of this action contains the full set of data of all companies in your
 These user object in G2 represents G2 users regardless of whether they are related to your organisation as buyers or vendors.
 
 ![List all Users action](~@img/g2/list-users.png)
-<center><i>List all users action</i></center>
+<center><i>List all users in your G2 crowd action</i></center>
 
 ### Input fields
 There are no input fields required for this action.
