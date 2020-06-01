@@ -248,7 +248,7 @@ This triggers when a G2 user submits a review of your product on G2. The output 
 <table>
   <thead>
     <tr>
-      <th>Output field</th>
+      <th colspan="2" width='25%'>Output field</th>
       <th>Description</th>
     </tr>
   </thead>
