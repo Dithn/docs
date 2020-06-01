@@ -17,7 +17,28 @@ These companies are related to you through the buyer intent function of G2. Thes
 <center><i>List all companies in your G2 crowd action</i></center>
 
 ### Input fields
-There are no input fields required for this action.
+<table>
+<thead>
+  <tr>
+    <th colspan="2">Input field</th>
+    <th colspan="2">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="2">Page size</td>
+    <td colspan="2">The page size to fetch your records. </td>
+  </tr>
+  <tr>
+    <td colspan="2">Page Number</td>
+    <td colspan="2">The specific page number to fetch records from.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Next page URL</td>
+    <td colspan="2">The URL of the next page to fetch records from.</td>
+  </tr>
+</tbody>
+</table>
 
 ### Output fields
 The output of this action contains the full set of data of all companies in your G2 instance.
@@ -241,7 +262,28 @@ These user object in G2 represents G2 users regardless of whether they are relat
 <center><i>List all users in your G2 crowd action</i></center>
 
 ### Input fields
-There are no input fields required for this action.
+<table>
+<thead>
+  <tr>
+    <th colspan="2">Input field</th>
+    <th colspan="2">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="2">Page size</td>
+    <td colspan="2">The page size to fetch your records. </td>
+  </tr>
+  <tr>
+    <td colspan="2">Page Number</td>
+    <td colspan="2">The specific page number to fetch records from.</td>
+  </tr>
+  <tr>
+    <td colspan="2">Next page URL</td>
+    <td colspan="2">The URL of the next page to fetch records from.</td>
+  </tr>
+</tbody>
+</table>
 
 ### Output fields
 The output of this action contains the full set of data of all users in your G2 instance.

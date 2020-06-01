@@ -23,38 +23,73 @@ There are no input fields required for this trigger.
 
 ### Output fields
 <table>
-  <thead>
-    <tr>
-      <th>Output field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Post URL</td>
-      <td>URL where the RESThook event is posted to.</td>
-    </tr>
-    <tr>
-      <td>Subscribed resource</td>
-      <td>The type of event posted to the Post URL.</td>
-    </tr>
-    <tr>
-      <td>Product UUID</td>
-      <td>Universally Unique ID of the product to which you are subscribed to.</td>
-    </tr>
-    <tr>
-      <td>Product ID</td>
-      <td>ID of the product to which you are subscribed to.</td>
-    </tr>
-  </tbody>
+<thead>
+  <tr>
+    <th colspan="2" width='25%'>Output field</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>ID</td>
+    <td>The ID of the lead generated.</td>
+  </tr>
+  <tr>
+    <td>First name</td>
+    <td>First name of user.</td>
+  </tr>
+  <tr>
+    <td>Last name</td>
+    <td>Last name of user.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>User's email address.</td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>Phone number of user. </td>
+  </tr>
+  <tr>
+    <td>Message</td>
+    <td>Message included in the completed lead form.</td>
+  </tr>
+  <tr>
+    <td>Company</td>
+    <td>Name of user's company.</td>
+  </tr>
+  <tr>
+    <td>Company size</td>
+    <td>Size of user's company.</td>
+  </tr>
+  <tr>
+    <td>Industry</td>
+    <td>Industry that the user's company belongs to.</td>
+  </tr>
+  <tr>
+    <td>Document title</td>
+    <td>Title of the document the person interacted with before they sent in their form. The text that will pull in is what is contained in Title (Sent via WebHooks) in the Downloads section.</td>
+  </tr>
+  <tr>
+    <td>User action</td>
+    <td>Exact action performed by the user to generate the lead. E.g. Requested to be contact, Requested a demo, Viewed a report, etc...</td>
+  </tr>
+  <tr>
+    <td>Action ID</td>
+    <td>ID of user action.</td>
+  </tr>
+  <tr>
+    <td>Created at</td>
+    <td>Time when the lead was generated in UTC.</td>
+  </tr>
+</tbody>
 </table>
 
-
-## New Remote Event Stream trigger
+## New Remote Event trigger
 Remote event streams are sent when a direct visit is made to the Product profile, comparisons, category page of a given product, or whenever a user views sponsored content. This triggers only when G2 Crowd tracking can identify the visitor’s organization. Each Remote event stream is processed as a separate job. It checks for new jobs once every poll interval.
 
-![New remote event stream in G2 trigger](~@img/g2/new-res.png)
-<center><i>New Remote event stream trigger</i></center>
+![New remote event in G2 trigger](~@img/g2/new-res.png)
+<center><i>New Remote event trigger</i></center>
 
 ### Input fields
 <table>
@@ -171,6 +206,17 @@ Remote event streams are sent when a direct visit is made to the Product profile
     <tr>
       <td colspan="2">Organization</td>
       <td>Name of the organization received events.</td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        Relationships
+      </td>
+      <td>Company</td>
+      <td>Contains the links to the data of the user's company.</td>
+    </tr>
+    <tr>
+      <td>Industry</td>
+      <td>Contains the links to the data of the user's industry.</td>
     </tr>
   </tbody>
 </table>
@@ -306,6 +352,21 @@ This triggers when a G2 user submits a review of your product on G2. The output 
     <tr>
       <td>Reference user consent</td>
       <td>Has the Reviewer provided permission to use this review content.</td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        Relationships
+      </td>
+      <td>Product</td>
+      <td>Contains the links to the data of the product under review.</td>
+    </tr>
+    <tr>
+      <td>Questions</td>
+      <td>Contains the links to the data of the review's questions.</td>
+    </tr>
+    <tr>
+      <td>Answers</td>
+      <td>Contains the links to the data of the review's answers.</td>
     </tr>
     <tr>
       <td>Data</td>

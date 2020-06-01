@@ -42,10 +42,10 @@ By integrating lead data to Salesforce, you make the experience of lead processi
 ![New Lead in G2 creates lead in salesforce view](~@img/g2/new-lead-trigger-to-salesforce.gif)
 <center><i>Sample recipe for G2 and Salesforce integrations</i></center>
 
-#### New Remote Event Stream in G2 posts real time [Slack](/connectors/slack.md) notifications
+#### New Remote Event in G2 posts real time [Slack](/connectors/slack.md) notifications
 By integrating Remote Event Streams from G2 to Slack, sales representatives will be made known of new profile and product page activities to immediately engage these visitors.
 
-![New RES in G2 posts real time Slack notifications view](~@img/g2/new-res-trigger-to-slack.gif)
+![New Remote Event in G2 posts real time Slack notifications view](~@img/g2/new-res-trigger-to-slack.gif)
 <center><i>Sample recipe for G2 and Slack integrations</i></center>
 
 ## List of triggers and actions
