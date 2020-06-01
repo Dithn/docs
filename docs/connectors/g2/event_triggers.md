@@ -5,14 +5,14 @@ date: 2020-05-21 10:00:00 Z
 # G2 - Event triggers
 This section contains documentation on the triggers that are currently supported on the Workato platform, including:
 
- * [New Lead in G2 Crowd (real time)](#new-lead-in-g2-crowd-trigger-real-time)
- * [New Remote Event Stream in G2 Crowd](#new-remote-event-trigger)
- * [New Review in G2 Crowd](#new-review-trigger)
+ * [New Lead (real time)](#new-lead-in-g2-crowd-trigger-real-time)
+ * [New Remote Event](#new-remote-event-trigger)
+ * [New Review](#new-review-trigger)
 
 #### Trigger conditions
 For each trigger, you can configure trigger conditions. Trigger conditions are like filters in Workato. Turning on trigger conditions in Workato means that you can selectively choose which events you want to trigger workflows. Conditions can be set on object attributes like approval status.  This allows you to build workflows that are only triggered on things such as approved purchase orders or invoices.
 
-## New Lead in G2 Crowd trigger (real time)
+## New Lead trigger (real time)
 When your G2 profile visitors want to know more about your solutions, they can fill up lead forms to register interest. This trigger picks up leads as soon as they are created. Each new lead is processed as a separate job.
 
 ![New lead in G2 trigger](~@img/g2/new-lead.png)
