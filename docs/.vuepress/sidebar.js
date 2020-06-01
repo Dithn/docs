@@ -955,6 +955,29 @@ module.exports = [
           ]
         ]
       },
+      {
+        title: 'G2',
+        path: '/connectors/g2',
+        children: [
+          ['/connectors/g2/introduction', 'Introduction'],
+          [
+            '/connectors/g2/introduction#use-cases',
+            'Use cases'
+          ],
+          [
+            '/connectors/g2/event_triggers',
+            'New event triggers'
+          ],
+          [
+            '/connectors/g2/get_object_actions',
+            'Get object actions'
+          ],
+          [
+            '/connectors/g2/list_all_action',
+            'List all action'
+          ]
+        ]
+      },
       ['/connectors/gmail', 'Gmail'],
       {
         title: 'Google BigQuery',
