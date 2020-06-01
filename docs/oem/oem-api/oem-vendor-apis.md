@@ -52,7 +52,7 @@ Workato API supports sending request body with the `application/json` content-ty
 
 | Type |Resource | Description |
 |------|---------|-------------|
-| POST | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md)) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
+| POST | [/managed_users/:id/connections/:connection_id/pick_list](/oem/oem-api/picklists.md) | Obtains a list of picklist values for a specified connection in an OEM customer account. |
 {: .api-quick-reference :}
 
 ## Folders
