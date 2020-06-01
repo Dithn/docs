@@ -20,7 +20,7 @@ These companies are related to you through the buyer intent function of G2. Thes
 <table>
 <thead>
   <tr>
-    <th colspan="2">Input field</th>
+    <th colspan="2" width='25%'>Input field</th>
     <th colspan="2">Description</th>
   </tr>
 </thead>
@@ -265,7 +265,7 @@ These user object in G2 represents G2 users regardless of whether they are relat
 <table>
 <thead>
   <tr>
-    <th colspan="2">Input field</th>
+    <th colspan="2" width='25%'>Input field</th>
     <th colspan="2">Description</th>
   </tr>
 </thead>
