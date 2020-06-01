@@ -5,10 +5,8 @@ search:
     keywords: ['zendesk', 'ticket', 'trigger', 'create', 'new']
 ---
 
-# Zendesk - New ticket triggers (real time)
-This trigger picks up tickets as soon as they are created. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new ticket event to be processed.
-
-> This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
+# Zendesk - New/updated ticket trigger
+This trigger picks up tickets that are created or updated. Each ticket is processed as a separate job. It checks once every poll interval.
 
 ![New ticket trigger](~@img/connectors/zendesk/new-ticket-trigger.png)
 *New ticket trigger*
@@ -16,7 +14,7 @@ This trigger picks up tickets as soon as they are created. Each ticket is proces
 ### Input fields
 | Input field | Description |
 |-------------|-------------|
-| From        | Tickets created after this time will be processed by the recipe. If left blank, the default date will be set to **one day** before the recipe is first started. |
+| When first started, this recipe should pick up events from | Tickets created or updated after this time will be processed by the recipe. If left blank, the default will be set to **one hour** before the recipe is first started. |
 
 ### Output fields
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.

@@ -6,17 +6,21 @@ search:
 ---
 
 # Zendesk - New/updated ticket trigger (real time)
-This trigger picks up tickets as soon they are created or updated. Each ticket is processed as a separate job. It makes use of business rules to detect and trigger a new or updated ticket event to be processed.
+This trigger picks up tickets as soon they are created or updated. Each ticket is processed as a separate job.
 
-> This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
+This trigger picks up tickets in real time. If you want to processin tickets from a designated time, you can use the [polling trigger](new-ticket-trigger.md).
+
+:::warning Required permission
+This trigger requires a Zendesk credential with the `Administrator` role. Credentials that are using the `Agent` role will not be able to run this trigger.
+:::
 
 ![New/updated ticket trigger](~@img/connectors/zendesk/updated-ticket-trigger.png)
 *New/updated ticket trigger*
 
 ### Input fields
-| Input field | Description |
-|-------------|-------------|
-| From        | Tickets created or updated after this time will be processed by the recipe. If left blank, the default date will be set to **one day** before the recipe is first started. |
+There are no input fields for this trigger.
+
+> Note: This trigger automatically creates a Zendesk trigger that can be found in your Zendesk account under **Admin** > **Business rules** > **Triggers**.
 
 ### Output fields
 The output of this action contains the full set of columns from the selected ticket. Here are some of the commonly used outputs.
