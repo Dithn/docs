@@ -92,7 +92,7 @@ In either case, no additional configuration is required in the recipe.
     <tr>
       <td>BigQuery</td>
       <td></td>
-      <td><li>Load data</li></td>
+      <td><li>Load data into BigQuery</li></td>
     </tr>
   </tbody>
 </table>
