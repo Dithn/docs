@@ -84,6 +84,16 @@ In either case, no additional configuration is required in the recipe.
       <td></td>
       <td><li>Upload file action</li></td>
     </tr>
+    <tr>
+      <td>Zoom</td>
+      <td><li>Download cloud recording</li></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>BigQuery</td>
+      <td></td>
+      <td><li>Load data</li></td>
+    </tr>
   </tbody>
 </table>
 
