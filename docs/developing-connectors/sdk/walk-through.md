@@ -4,9 +4,9 @@ date: 2018-05-24 14:00:00 Z
 ---
 
 # Connector Walkthrough
-In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** The API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out SWAPI over here.](https://swapi.co/)**
+In this chapter, our aim is to get our feet wet by building a simple connector to something that most people can identify with - **Star Wars!** The API we will be using is free to use and allows us to access information about Star Wars characters, planets, vehicles and much more. For simplicity, we will refer to this API as SWAPI. **[Check out SWAPI over here.](https://swapi.dev/)**
 
-This walkthrough will show how we can use the Workato Software Development Kit (SDK) to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out the our **[brief introduction the SDK conceptual model](/developing-connectors/sdk/sdk-conceptual-model.md)**, now is the time to do so!
+This walkthrough will show how we can use the Workato Software Development Kit (SDK) to create a custom connector to retrieve information from this API and how we can use this custom connector in building a recipe. If you haven't already checked out our **[brief introduction the SDK conceptual model](/developing-connectors/sdk/sdk-conceptual-model.md)**, now is the time to do so!
 
 To find the fully built custom connector for today's walkthrough, **[click here](https://www.workato.com/custom_adapters/11462?token=913765c0)**. You will need to have a valid Workato account to install the connector before being able to see the connector code.
 
@@ -48,7 +48,7 @@ While the Workato supports most forms of authentication, SWAPI requires no form 
   },
 
   test: lambda do |connection|
-    get("https://swapi.co/api/#{connection["object"]}")
+    get("https://swapi.dev/api/people/1") 
   end,
 
   # More code below but hidden for now!
@@ -76,7 +76,7 @@ In the case of our SWAPI connector, we have configured it to send a GET request 
 
 > Whenever we reference a variable inside a string, `#{` and `}` must be prepended and appended to the variable reference.
 
-> The URL we sent the request to affects whether our connection would be successful. SWAPI only listens for GET requests on a few URLs documented [here](https://swapi.co/documentation#root). That means that you need to type either "films", "people", "planets", "species", "starships", "vehicles" into the input field to send a request to a valid URL.
+> The URL we sent the request to affects whether our connection would be successful. SWAPI only listens for GET requests on a few URLs documented [here](https://swapi.dev/documentation#root). That means that you need to type either "films", "people", "planets", "species", "starships", "vehicles" into the input field to send a request to a valid URL.
 
 ### Testing your connection
 Now that this is done, you can go ahead and press the `Link your account` button in the debugger console. With a valid input field for Object, you should see a success message.
@@ -120,7 +120,7 @@ SWAPI allows us to send GET requests and receive information about most things i
       end,
 
       execute: lambda do |connection, input|
-        get("https://swapi.co/api/people/#{input["id"]}/")
+        get("https://swapi.dev/api/people/#{input["id"]}/")
       end,
 
       output_fields: lambda do
@@ -219,7 +219,7 @@ Back to our example, we have declared a single input field with its `name:` as `
 ##### `execute:`
 The `execute:` block is where we define what happens when this action is executed during a recipe in Workato. Over here, the execute block is run and the final output of all lines of code between the `lambda do` and `end` are passed back to Workato as the output.
 
-For this example, we have declared a GET request to the URL `https://swapi.co/api/people/#{input["id"]}/` where the input["id"] is referenced from the user's input field. The `input["id"]` referenced here corresponds to the user's input for the field where `name:` is `id` inside the `input_fields:` block.
+For this example, we have declared a GET request to the URL `https://swapi.dev/api/people/#{input["id"]}/` where the input["id"] is referenced from the user's input field. The `input["id"]` referenced here corresponds to the user's input for the field where `name:` is `id` inside the `input_fields:` block.
 
 ##### `output_fields:`
 After the `execute:` is run, your custom connector still needs to know how to make sense of the return from the GET request. In Workato, input and output fields are defined in the exact same way using an array of hashes. The different variables inside alter the way output fields look like and behave on the front end.
