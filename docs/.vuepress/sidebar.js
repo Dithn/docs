@@ -1412,6 +1412,44 @@ module.exports = [
         ]
       },
       {
+        title: 'Okta',
+        path: '/connectors/okta',
+        children: [
+          ['/connectors/okta/connection-setup', 'Connection Setup'],
+          {
+            title: 'Triggers',
+            children: [
+              ['/connectors/okta/new-events-trigger', 'New Events Trigger'],
+              ['/connectors/okta/scheduled-search-trigger', 'Scheduled event search trigger']
+            ]
+          },
+          {
+            title: 'User lifecycle actions',
+            children: [
+              ['/connectors/okta/create-user-action', 'Create users'],
+              ['/connectors/okta/activate-user-action', 'Activate users'],
+              ['/connectors/okta/update-user-action', 'Update users'],
+              ['/connectors/okta/add-user-to-group-action', 'Add users to group'],
+              ['/connectors/okta/remove-user-from-group-action', 'Remove user from group'],
+              ['/connectors/okta/deactivate-user-action', 'Deactivate users'],
+              ['/connectors/okta/delete-user-action', 'Delete users']
+            ]
+          },
+          {
+            title: 'Okta resource actions',
+            children: [
+              ['/connectors/okta/get-user-by-id-action', 'Get user by ID'],
+              ['/connectors/okta/get-user-groups-action', 'Get user groups'],
+              ['/connectors/okta/get-groups-action', 'Get groups by name'],
+              ['/connectors/okta/get-group-members-action', 'Get group members'],
+              ['/connectors/okta/get-recent-events-by-user-action', 'Get recent log on events by user'],
+              ['/connectors/okta/get-recent-events-by-ip-action', 'Get recent log on events by IP address']
+            ]
+          },
+          ['/connectors/okta/events-output-datatree', 'Log events datatree']
+        ]
+      },
+      {
         title: 'On-prem command-line scripts',
         path: '/connectors/on-prem-command-line-scripts',
         children: [
