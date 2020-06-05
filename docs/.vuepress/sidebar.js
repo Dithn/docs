@@ -1415,7 +1415,7 @@ module.exports = [
         title: 'Okta',
         path: '/connectors/okta',
         children: [
-          ['/connectors/okta/connection-setup', 'Connection Setup'],
+          ['/connectors/okta#how-to-connect-to-okta', 'Connection Setup'],
           {
             title: 'Triggers',
             children: [
