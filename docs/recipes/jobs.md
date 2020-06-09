@@ -69,8 +69,22 @@ Jobs can have the following statuses:
 | --------- | ----------- |
 | Completed | This indicates that the job was processed successfully. |
 | Failed    | This indicates that the job ended because of an [error](#errors). Errors can generally be attributed to failures in executing actions. e.g. an app was not reachable, or a contact being added already exists, etc.<br><br>When an error is encountered, job execution stops i.e. downstream steps are not executed. Such jobs may create incomplete records in your apps as it failed before finishing all steps. |
-| Pending   | This indicates that the job is still being processed. |
+| Processing   | This indicates that the job is still being processed. |
+| Paused   | Paused jobs indicate that the job containing [long actions](cancel-job.md#long-actions) was paused when the recipe was stopped |
 | Aborted   | This is a rare state that a job can get into if it has pending jobs and the recipe has been affected in a manner that these pending jobs cannot finish processing. |
+
+### Paused jobs
+Recipes containing [long actions](cancel-job.md#long-actions) or steps that require longer processing time may run for a while, upto minutes and hours, depending on the recipe. When a user stops a recipe, the jobs that are in the processing state are `paused`. Paused jobs resume when the recipe is restarted. If the recipe is edited and saved, the recipe will be on a new version.
+![Pause jobs](~@img/job-details/pause-jobs-at-recipe-stop.png)
+*Pause jobs*
+
+The paused jobs are resumed with the **same** recipe version with which it was first started. In this example, the job started with recipe version 1. It will resume and complete after recipe modifications and restart with the recipe version 1 with which it was started.
+![Resume jobs](~@img/job-details/resume-job-after-restart.png)
+*Resume jobs*
+
+After recipe restart, new jobs are executed using the new version of the recipe. In this example, the new job has started with the recipe version 3.
+![New jobs](~@img/job-details/new-jobs-after-restart.png)
+*New jobs*
 
 ### Errors
 If your job encounters an error and stops processing before it should, the job details page will indicate the failed step. Expand it to view the details.
