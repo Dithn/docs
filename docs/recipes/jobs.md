@@ -74,11 +74,11 @@ Jobs can have the following statuses:
 | Aborted   | This is a rare state that a job can get into if it has pending jobs and the recipe has been affected in a manner that these pending jobs cannot finish processing. |
 
 ### Paused jobs
-Recipes containing [long actions](cancel-job.md#long-actions) or steps that require longer processing time may run for a while, upto minutes and hours, depending on the recipe. When a user stops a recipe, the jobs that are in the processing state are `paused`. Paused jobs resume when the recipe is restarted. If the recipe is edited and saved, the recipe will be on a new version.
+Recipes containing [long actions](cancel-job.md#long-actions) may run for a while, upto minutes and hours, depending on the recipe. When a user stops a recipe, the jobs that are in the processing state are `paused`. Paused jobs resume when the recipe is restarted.
 ![Pause jobs](~@img/job-details/pause-jobs-at-recipe-stop.png)
 *Pause jobs*
 
-The paused jobs are resumed with the **same** recipe version with which it was first started. In this example, the job started with recipe version 1. It will resume and complete after recipe modifications and restart with the recipe version 1 with which it was started.
+If the recipe is edited and saved, the recipe will be on a new version. The paused jobs are resumed with the **same** recipe version with which it was first started. In this example, the job started with recipe version 1. It will resume and complete after recipe modifications and restart with the recipe version 1 with which it was started.
 ![Resume jobs](~@img/job-details/resume-job-after-restart.png)
 *Resume jobs*
 
