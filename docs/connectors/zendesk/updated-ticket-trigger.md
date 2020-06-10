@@ -8,9 +8,9 @@ search:
 # Zendesk - New/updated ticket trigger (real time)
 This trigger picks up tickets as soon they are created or updated. Each ticket is processed as a separate job.
 
-This trigger picks up tickets in real time. If you want to processin tickets from a designated time, you can use the [polling trigger](new-ticket-trigger.md).
+This trigger picks up tickets in real time. If you want to process tickets from a designated time, you can use the [polling trigger](new-ticket-trigger.md).
 
-:::warning Required permission
+:::warning Role privileges
 This trigger requires a Zendesk credential with the `Administrator` role. Credentials that are using the `Agent` role will not be able to run this trigger.
 :::
 
