@@ -2164,31 +2164,31 @@ module.exports = [
             children: [
               [
                 '/connectors/zendesk/new-ticket-trigger',
-                'New ticket trigger'
+                'New/updated ticket'
               ],
               [
                 '/connectors/zendesk/updated-ticket-trigger',
-                'New/updated ticket trigger'
+                'New/updated ticket (real-time)'
               ],
               [
                 '/connectors/zendesk/new-user-trigger',
-                'New user trigger'
+                'New user'
               ],
               [
                 '/connectors/zendesk/updated-user-trigger',
-                'New/updated user trigger'
+                'New/updated user'
               ],
               [
                 '/connectors/zendesk/new-organization-trigger',
-                'New organization trigger'
+                'New organization'
               ],
               [
                 '/connectors/zendesk/updated-organization-trigger',
-                'New/updated organization trigger'
+                'New/updated organization'
               ],
               [
                 '/connectors/zendesk/updated-record-trigger',
-                'New/updated record trigger'
+                'New/updated record (batch)'
               ]
             ]
           },
@@ -2313,8 +2313,8 @@ module.exports = [
                 'Update organization'
               ],
               [
-                '/connectors/zendesk/updated-record-trigger',
-                'New/updated record trigger'
+                '/connectors/zendesk/update-record-action',
+                'Create/update record'
               ],
               [
                 '/connectors/zendesk/update-custom-object-record-action',
