@@ -4,7 +4,7 @@ date: 2019-03-21 11:20:00 Z
 ---
 
 # Picklist parameters (Platform API)
-This document contains all the connection parameters required for obtaining [a list of picklist values](/oem/oem-api/picklists.html#get-picklist-values) via Workato's platform APIs.
+This document contains all the connection parameters required for obtaining [a list of picklist values](/oem/oem-api/picklists.md#get-picklist-values) via Workato's platform APIs.
 
 The privilege required to use this API endpoint is currently available to Workato OEM partners only.
 
@@ -20,7 +20,7 @@ Internal name of the picklist.
 
 ### Parameters
 
-If a picklist requires parameter(s), the name of the parameter is specified here. See the [sample request](/oem/oem-api/picklists.html#sample-request) for an example of how this is used.
+If a picklist requires parameter(s), the name of the parameter is specified here. See the [sample request](/oem/oem-api/picklists.md#sample-request) for an example of how this is used.
 
 ## Picklist names/parameters by Adapter
 
