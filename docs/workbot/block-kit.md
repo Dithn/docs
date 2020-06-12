@@ -108,11 +108,11 @@ The following table shows the max number of blocks that Slack allows you to publ
 | Modals   | 100               |
 | App home | 100               |
 
-## Character Limits in Block kit elements with Command input value
+## Character Limits in Block kit elements
 When posting to surfaces on Slack, Workbot uses the `value` & `action_id` fields to pass bot commands and parameters. These fields have character limits. While bot commands & command input values are exposed to the user for use, Workbot reserves 9 characters for internal use. Additionally, spaces also contribute to the character count.
 
 ::: warning
-Since Submit command, Command input values, spaces & 9 characters (Workbot internal use) are combined and passed through `value` or `action_id`, they share the same character limit.
+Since Submit button/menu option commands, Command input values, spaces & 9 characters (Workbot internal use) are combined and passed through `value` or `action_id`, they share the same character limit.
 :::
 
 The following table shows the character limits found in block kit elements.
