@@ -13,7 +13,8 @@ Blocks can be used in the following Slack surfaces:
 | Surface  | Applicable actions               |
 |----------|----------------------------------|
 | Messages | Post message, post command reply |
-| Modals   | Open/update or push modal    |
+| Modals   | Open/update modal, Push modal    |
+| App home | Publish app home view            |
 
 # Block kit previewer
 Preview the messages you've built with the Post message or Post command reply actions by clicking on **See preview on block kit builder** in the block hint.
@@ -98,4 +99,32 @@ Supported blocks are displayed in the table below.
 </table>
 
 # Limitations
-- Include up to 100 blocks in each message.
+## Max no. of blocks
+The following table shows the max number of blocks that Slack allows you to publish on a surface.
+
+| Surface  | Max no. of blocks |
+|----------|-------------------|
+| Messages | 50                |
+| Modals   | 100               |
+| App home | 100               |
+
+## Character Limits in Block kit elements with Command input value
+When posting to surfaces on Slack, Workbot uses the `value` & `action_id` fields to pass bot commands and parameters. These fields have character limits. While bot commands & command input values are exposed to the user for use, Workbot reserves 9 characters for internal use. Additionally, spaces also contribute to the character count.
+
+::: warning
+Since Submit command, command input values, 9 system characters (Workbot uses for internal use) and spaces are combined and passed through `value` or `action_id`, they share the same character limit.
+:::
+
+The following table shows the character limits found in block kit elements.
+
+| Block kit elements                                       | Character count contributors                                                                                                                                | Character limit | Field used in payload | Surfaces                                                                   |
+|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|-----------------------|----------------------------------------------------------------------------|
+| Section with button<br><br>Actions: Button               | <ul><br><li>Submit button command,</li><br><li>Command input values,</li><br><li>Workbot internal use (9 characters),</li><br><li>Spaces</li><br></ul>      | 2000            | `value`               | <ul><br><li>Messages</li><br><li>App home</li><br><li>Modals</li><br></ul> |
+| Section with select menu                                 | <ul><br><li>Submit menu option command,</li><br><li>Command input values,</li><br><li>Workbot internal use (9 characters),</li><br><li>Spaces</li><br></ul> | 255             | `action_id`           | <ul><br><li>Messages</li><br><li>App home</li><br><li>Modals</li><br></ul> |
+| Actions: select menu                                     | <ul><br><li>Submit menu option command,</li><br><li>Command input values,</li><br><li>Workbot internal use (9 characters),</li><br><li>Spaces</li><br></ul> | 75              | `value`               | <ul><br><li>Messages</li><br><li>App home</li><br><li>Modals</li><br></ul> |
+| Section with overflow menu<br><br>Actions: Overflow menu | <ul><br><li>Submit menu option command,</li><br><li>Command input values,</li><br><li>Workbot internal use (9 characters),</li><br><li>Spaces</li><br></ul> | 75              | `value`               | <ul><br><li>Messages</li><br><li>App home</li><br><li>Modals</li><br></ul> |
+| Section with date picker<br><br>Actions: Date picker     | <ul><br><li>Submit menu option command,</li><br><li>Command input values,</li><br><li>Workbot internal use (9 characters),</li><br><li>Spaces</li><br></ul> | 255             | `action_id`           | <ul><br><li>Messages</li><br><li>App home</li><br><li>Modals</li><br></ul> |
+| Select menu input<br>*Types: Custom, Dynamic*            | <ul><li>Value to pass when this option is select</li></ul>                                                                                                  | 75              | `value`               | Modals only                                                                |
+| Section with radio buttons                               | <ul><br><li>Submit menu option command,</li><br><li>Command input values,</li><br><li>Workbot internal use (9 characters),</li><br><li>Spaces</li><br></ul> | 75              | `value`               | Modals only                                                                |
+| Checkboxes input                                         | <ul><li>Value</ul></li>                                                                                                                                     | 75              | `value`               | Modals only                                                                |
+| Radio buttons input                                      | <ul><li>Value</ul></li>                                                                                                                                     | 75              | `value`               | Modals only                                                                |
