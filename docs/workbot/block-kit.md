@@ -13,7 +13,8 @@ Blocks can be used in the following Slack surfaces:
 | Surface  | Applicable actions               |
 |----------|----------------------------------|
 | Messages | Post message, post command reply |
-| Modals   | Open/update or push modal    |
+| Modals   | Open/update modal, Push modal    |
+| App home | Publish app home view            |
 
 # Block kit previewer
 Preview the messages you've built with the Post message or Post command reply actions by clicking on **See preview on block kit builder** in the block hint.
@@ -98,4 +99,97 @@ Supported blocks are displayed in the table below.
 </table>
 
 # Limitations
-- Include up to 100 blocks in each message.
+## Max no. of blocks
+The following table shows the max number of blocks that Slack allows you to publish on a surface.
+
+| Surface  | Max no. of blocks |
+|----------|-------------------|
+| Messages | 50                |
+| Modals   | 100               |
+| App home | 100               |
+
+## Character Limits in Block kit elements
+When posting to surfaces on Slack, Workbot uses the `value` & `action_id` fields to pass bot commands and parameters. These fields have character limits. While bot commands & command input values are exposed to the user for use, Workbot reserves 9 characters for internal use. Additionally, spaces also contribute to the character count.
+
+::: warning
+Since Submit button/menu option commands, Command input values, spaces & 9 characters (Workbot internal use) are combined and passed through `value` or `action_id`, they share the same character limit.
+:::
+
+The following table shows the character limits found in block kit elements.
+
+<table>
+<thead>
+  <tr>
+    <th>Block kit elements</th>
+    <th>Character count contributors</th>
+    <th>Character limit</th>
+    <th>Field used in payload</th>
+    <th>Surfaces</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Section with button<br><br>Actions: Button</td>
+    <td><ul><li>Submit button command</li><li>Command input values</li><li>Workbot internal use (9 characters)</li><li>Spaces</li></ul></td>
+    <td>2000</td>
+    <td><code>value</code></td>
+    <td><ul><li>Messages</li><li>App home</li><li>Modals</li></ul></td>
+  </tr>
+  <tr>
+    <td>Section with select menu</td>
+    <td><ul><li>Submit menu option command</li><li>Command input values</li><li>Workbot internal use (9 characters)</li><li>Spaces</li></ul></td>
+    <td>255</td>
+    <td><code>action_id</code></td>
+    <td><ul><li>Messages</li><li>App home</li><li>Modals</li></ul></td>
+  </tr>
+  <tr>
+    <td>Actions: select menu</td>
+    <td><ul><li>Submit menu option command</li><li>Command input values</li><li>Workbot internal use (9 characters)</li><li>Spaces</li></ul></td>
+    <td>75</td>
+    <td><code>value</code></td>
+    <td><ul><li>Messages</li><li>App home</li><li>Modals</li></ul></td>
+  </tr>
+  <tr>
+    <td>Section with overflow menu<br><br>Actions: Overflow menu</td>
+    <td><ul><li>Submit menu option command</li><li>Command input values</li><li>Workbot internal use (9 characters)</li><li>Spaces</li></ul></td>
+    <td>75</td>
+    <td><code>value</code></td>
+    <td><ul><li>Messages</li><li>App home</li><li>Modals</li></ul></td>
+  </tr>
+  <tr>
+    <td>Section with date picker<br><br>Actions: Date picker</td>
+    <td><ul><li>Submit menu option command</li><li>Command input values</li><li>Workbot internal use (9 characters)</li><li>Spaces</li></ul></td>
+    <td>255</td>
+    <td><code>action_id</code></td>
+    <td><ul><li>Messages</li><li>App home</li><li>Modals</li></ul></td>
+  </tr>
+  <tr>
+    <td>Select menu input<br>*Types: Custom, Dynamic*</td>
+    <td>Value to pass when this option is selected</td>
+    <td>75</td>
+    <td><code>value</code></td>
+    <td>Modals only</td>
+  </tr>
+  <tr>
+    <td>Section with radio buttons<br></td>
+    <td><ul><li>Submit menu option command</li><li>Command input values</li><li>Workbot internal use (9 characters)</li><li>Spaces</li></ul></td>
+    <td>75</td>
+    <td><code>value</code></td>
+    <td>Modals only</td>
+  </tr>
+  <tr>
+    <td>Checkboxes input</td>
+    <td>Value</td>
+    <td>75</td>
+    <td><code>value</code></td>
+    <td>Modals only</td>
+  </tr>
+  <tr>
+    <td>Radio buttons input</td>
+    <td>Value</td>
+    <td>75</td>
+    <td><code>value</code></td>
+    <td>Modals only</td>
+  </tr>
+</tbody>
+</table>
