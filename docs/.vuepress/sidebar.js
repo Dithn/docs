@@ -955,6 +955,29 @@ module.exports = [
           ]
         ]
       },
+      {
+        title: 'G2',
+        path: '/connectors/g2',
+        children: [
+          ['/connectors/g2/introduction', 'Introduction'],
+          [
+            '/connectors/g2/introduction#use-cases',
+            'Use cases'
+          ],
+          [
+            '/connectors/g2/event_triggers',
+            'New event triggers'
+          ],
+          [
+            '/connectors/g2/get_object_actions',
+            'Get object actions'
+          ],
+          [
+            '/connectors/g2/list_all_action',
+            'List all action'
+          ]
+        ]
+      },
       ['/connectors/gmail', 'Gmail'],
       {
         title: 'Google BigQuery',
@@ -1386,6 +1409,44 @@ module.exports = [
             '/connectors/netsuite/recipe-migration-guide',
             'Recipe migration guide 19/5/2020'
           ]
+        ]
+      },
+      {
+        title: 'Okta',
+        path: '/connectors/okta',
+        children: [
+          ['/connectors/okta#how-to-connect-to-okta', 'Connection Setup'],
+          {
+            title: 'Triggers',
+            children: [
+              ['/connectors/okta/new-events-trigger', 'New Events Trigger'],
+              ['/connectors/okta/scheduled-search-trigger', 'Scheduled event search trigger']
+            ]
+          },
+          {
+            title: 'User lifecycle actions',
+            children: [
+              ['/connectors/okta/create-user-action', 'Create users'],
+              ['/connectors/okta/activate-user-action', 'Activate users'],
+              ['/connectors/okta/update-user-action', 'Update users'],
+              ['/connectors/okta/add-user-to-group-action', 'Add users to group'],
+              ['/connectors/okta/remove-user-from-group-action', 'Remove user from group'],
+              ['/connectors/okta/deactivate-user-action', 'Deactivate users'],
+              ['/connectors/okta/delete-user-action', 'Delete users']
+            ]
+          },
+          {
+            title: 'Okta resource actions',
+            children: [
+              ['/connectors/okta/get-user-by-id-action', 'Get user by ID'],
+              ['/connectors/okta/get-user-groups-action', 'Get user groups'],
+              ['/connectors/okta/get-groups-action', 'Get groups by name'],
+              ['/connectors/okta/get-group-members-action', 'Get group members'],
+              ['/connectors/okta/get-recent-events-by-user-action', 'Get recent log on events by user'],
+              ['/connectors/okta/get-recent-events-by-ip-action', 'Get recent log on events by IP address']
+            ]
+          },
+          ['/connectors/okta/events-output-datatree', 'Log events datatree']
         ]
       },
       {
@@ -2103,31 +2164,31 @@ module.exports = [
             children: [
               [
                 '/connectors/zendesk/new-ticket-trigger',
-                'New ticket trigger'
+                'New/updated ticket'
               ],
               [
                 '/connectors/zendesk/updated-ticket-trigger',
-                'New/updated ticket trigger'
+                'New/updated ticket (real-time)'
               ],
               [
                 '/connectors/zendesk/new-user-trigger',
-                'New user trigger'
+                'New user'
               ],
               [
                 '/connectors/zendesk/updated-user-trigger',
-                'New/updated user trigger'
+                'New/updated user'
               ],
               [
                 '/connectors/zendesk/new-organization-trigger',
-                'New organization trigger'
+                'New organization'
               ],
               [
                 '/connectors/zendesk/updated-organization-trigger',
-                'New/updated organization trigger'
+                'New/updated organization'
               ],
               [
                 '/connectors/zendesk/updated-record-trigger',
-                'New/updated record trigger'
+                'New/updated record (batch)'
               ]
             ]
           },
@@ -2252,8 +2313,8 @@ module.exports = [
                 'Update organization'
               ],
               [
-                '/connectors/zendesk/updated-record-trigger',
-                'New/updated record trigger'
+                '/connectors/zendesk/update-record-action',
+                'Create/update record'
               ],
               [
                 '/connectors/zendesk/update-custom-object-record-action',

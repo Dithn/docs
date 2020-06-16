@@ -53,7 +53,7 @@ In SAP, use Transaction SM59 to create a new RFC Destination of type TCP/IP (typ
 
 ![Create RFC connection](~@img/connectors/sap/rfc-connection-create.png)
 
-In the Technical Settings tab, select the `Registered Server Program` option and provide the PROGRAM ID name which has been decided for Workato. This should be something unique to Workato.
+In the Technical Settings tab, select the `Registered Server Program` option and enter in `WORKATO`(Case sensitive) as the program ID.
 
 ![RFC destination](~@img/connectors/sap/rfc-destination.png)
 
